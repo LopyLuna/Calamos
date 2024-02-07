@@ -43,14 +43,14 @@ public class GuiMixin {
                 l1 -= 2;
             }
             
-            HeartType.renderHeart(pGuiGraphics, HeartType.CONTAINER, k1, l1, flag, pRenderHighlight, false);
+            HeartType.renderContainer(pGuiGraphics, gui$hearttype, k1, l1, flag);
             int i2 = l * 2;
             boolean flag1 = l >= i;
             if (flag1) {
                 int j2 = i2 - k;
                 if (j2 < pAbsorptionAmount) {
                     boolean flag2 = j2 + 1 == pAbsorptionAmount;
-                    HeartType.renderHeart(pGuiGraphics, gui$hearttype == HeartType.WITHERED ? gui$hearttype : HeartType.ABSORBING, k1, l1, flag, false, flag2);
+                    HeartType.renderHeart(pGuiGraphics, HeartType.GOLDEN, k1, l1, flag, false, flag2);
                 }
             }
             

@@ -2,126 +2,98 @@ package uwu.lopyluna.calamos.utilities;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public enum HeartType {
-    CONTAINER(
-            new ResourceLocation("hud/heart/container"),
-            new ResourceLocation("hud/heart/container_blinking"),
-            new ResourceLocation("hud/heart/container"),
-            new ResourceLocation("hud/heart/container_blinking"),
-            new ResourceLocation("hud/heart/container_hardcore"),
-            new ResourceLocation("hud/heart/container_hardcore_blinking"),
-            new ResourceLocation("hud/heart/container_hardcore"),
-            new ResourceLocation("hud/heart/container_hardcore_blinking")
-    ),
-    NORMAL(
-            new ResourceLocation("hud/heart/full"),
-            new ResourceLocation("hud/heart/full_blinking"),
-            new ResourceLocation("hud/heart/half"),
-            new ResourceLocation("hud/heart/half_blinking"),
-            new ResourceLocation("hud/heart/hardcore_full"),
-            new ResourceLocation("hud/heart/hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/hardcore_half"),
-            new ResourceLocation("hud/heart/hardcore_half_blinking")
-    ),
-    POISIONED(
-            new ResourceLocation("hud/heart/poisoned_full"),
-            new ResourceLocation("hud/heart/poisoned_full_blinking"),
-            new ResourceLocation("hud/heart/poisoned_half"),
-            new ResourceLocation("hud/heart/poisoned_half_blinking"),
-            new ResourceLocation("hud/heart/poisoned_hardcore_full"),
-            new ResourceLocation("hud/heart/poisoned_hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/poisoned_hardcore_half"),
-            new ResourceLocation("hud/heart/poisoned_hardcore_half_blinking")
-    ),
-    WITHERED(
-            new ResourceLocation("hud/heart/withered_full"),
-            new ResourceLocation("hud/heart/withered_full_blinking"),
-            new ResourceLocation("hud/heart/withered_half"),
-            new ResourceLocation("hud/heart/withered_half_blinking"),
-            new ResourceLocation("hud/heart/withered_hardcore_full"),
-            new ResourceLocation("hud/heart/withered_hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/withered_hardcore_half"),
-            new ResourceLocation("hud/heart/withered_hardcore_half_blinking")
-    ),
-    ABSORBING(
-            new ResourceLocation("hud/heart/absorbing_full"),
-            new ResourceLocation("hud/heart/absorbing_full_blinking"),
-            new ResourceLocation("hud/heart/absorbing_half"),
-            new ResourceLocation("hud/heart/absorbing_half_blinking"),
-            new ResourceLocation("hud/heart/absorbing_hardcore_full"),
-            new ResourceLocation("hud/heart/absorbing_hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/absorbing_hardcore_half"),
-            new ResourceLocation("hud/heart/absorbing_hardcore_half_blinking")
-    ),
-    FROZEN(
-            new ResourceLocation("hud/heart/frozen_full"),
-            new ResourceLocation("hud/heart/frozen_full_blinking"),
-            new ResourceLocation("hud/heart/frozen_half"),
-            new ResourceLocation("hud/heart/frozen_half_blinking"),
-            new ResourceLocation("hud/heart/frozen_hardcore_full"),
-            new ResourceLocation("hud/heart/frozen_hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/frozen_hardcore_half"),
-            new ResourceLocation("hud/heart/frozen_hardcore_half_blinking")
+    DEFAULT(
+            new ResourceLocation("hud/heart/calamos/default_large"),
+            new ResourceLocation("hud/heart/calamos/default_medium"),
+            new ResourceLocation("hud/heart/calamos/default_small"),
+            new ResourceLocation("hud/heart/calamos/default_empty"),
+            new ResourceLocation("hud/heart/calamos/default_hardcore_large"),
+            new ResourceLocation("hud/heart/calamos/default_hardcore_medium"),
+            new ResourceLocation("hud/heart/calamos/default_hardcore_small"),
+            new ResourceLocation("hud/heart/calamos/default_hardcore_empty")
     ),
     GOLDEN(
             new ResourceLocation("hud/heart/calamos/golden_large"),
             new ResourceLocation("hud/heart/calamos/golden_medium"),
             new ResourceLocation("hud/heart/calamos/golden_small"),
             new ResourceLocation("hud/heart/calamos/golden_empty"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_full"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_full_blinking"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_half"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_half_blinking")
-    );
-    private final ResourceLocation full;
-    private final ResourceLocation fullBlinking;
-    private final ResourceLocation half;
-    private final ResourceLocation halfBlinking;
-    private final ResourceLocation hardcoreFull;
-    private final ResourceLocation hardcoreFullBlinking;
-    private final ResourceLocation hardcoreHalf;
-    private final ResourceLocation hardcoreHalfBlinking;
+            new ResourceLocation("hud/heart/calamos/golden_hardcore_large"),
+            new ResourceLocation("hud/heart/calamos/golden_hardcore_medium"),
+            new ResourceLocation("hud/heart/calamos/golden_hardcore_small"),
+            new ResourceLocation("hud/heart/calamos/golden_hardcore_empty")
+    ),
+    ENLIGHTENED(
+            new ResourceLocation("hud/heart/calamos/enlightened_large"),
+            new ResourceLocation("hud/heart/calamos/enlightened_medium"),
+            new ResourceLocation("hud/heart/calamos/enlightened_small"),
+            new ResourceLocation("hud/heart/calamos/enlightened_empty"),
+            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_large"),
+            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_medium"),
+            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_small"),
+            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_empty")
+    ),
+    STELLATECH(
+            new ResourceLocation("hud/heart/calamos/stellatech_large"),
+            new ResourceLocation("hud/heart/calamos/stellatech_medium"),
+            new ResourceLocation("hud/heart/calamos/stellatech_small"),
+            new ResourceLocation("hud/heart/calamos/stellatech_empty"),
+            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_large"),
+            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_medium"),
+            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_small"),
+            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_empty")
+    ),
+    ;
+    private final ResourceLocation large;
+    private final ResourceLocation medium;
+    private final ResourceLocation small;
+    private final ResourceLocation empty;
+    private final ResourceLocation hardcoreLarge;
+    private final ResourceLocation hardcoreMedium;
+    private final ResourceLocation hardcoreSmall;
+    private final ResourceLocation hardcoreEmpty;
     
-    private HeartType(
-            ResourceLocation pFull,
-            ResourceLocation pFullBlinking,
-            ResourceLocation pHalf,
-            ResourceLocation pHalfBlinking,
-            ResourceLocation pHardcoreFull,
-            ResourceLocation pHardcoreBlinking,
-            ResourceLocation pHardcoreHalf,
-            ResourceLocation pHardcoreHalfBlinking
+    HeartType(
+            ResourceLocation pLarge,
+            ResourceLocation pMedium,
+            ResourceLocation pSmall,
+            ResourceLocation pEmpty,
+            ResourceLocation pHardcoreLarge,
+            ResourceLocation pHardcoreMedium,
+            ResourceLocation pHardcoreSmall,
+            ResourceLocation pHardcoreEmpty
     ) {
-        this.full = pFull;
-        this.fullBlinking = pFullBlinking;
-        this.half = pHalf;
-        this.halfBlinking = pHalfBlinking;
-        this.hardcoreFull = pHardcoreFull;
-        this.hardcoreFullBlinking = pHardcoreBlinking;
-        this.hardcoreHalf = pHardcoreHalf;
-        this.hardcoreHalfBlinking = pHardcoreHalfBlinking;
+        this.large = pLarge;
+        this.medium = pMedium;
+        this.small = pSmall;
+        this.empty = pEmpty;
+        this.hardcoreLarge = pHardcoreLarge;
+        this.hardcoreMedium = pHardcoreMedium;
+        this.hardcoreSmall = pHardcoreSmall;
+        this.hardcoreEmpty = pHardcoreEmpty;
     }
     
     public ResourceLocation getSprite(boolean pHardcore, boolean pHalfHeart, boolean pBlinking) {
         if (!pHardcore) {
             if (pHalfHeart) {
-                return pBlinking ? this.halfBlinking : this.half;
+                return pBlinking ? this.small : this.medium;
             } else {
-                return pBlinking ? this.fullBlinking : this.full;
+                return pBlinking ? this.medium : this.large;
             }
         } else if (pHalfHeart) {
-            return pBlinking ? this.hardcoreHalfBlinking : this.hardcoreHalf;
+            return pBlinking ? this.hardcoreSmall : this.hardcoreMedium;
         } else {
-            return pBlinking ? this.hardcoreFullBlinking : this.hardcoreFull;
+            return pBlinking ? this.hardcoreMedium : this.hardcoreLarge;
         }
     }
-    
+    public ResourceLocation getEmptySprite(boolean pHardcore) {
+        return pHardcore ? this.hardcoreEmpty : this.empty;
+    }
     /**
      * Returns the {@link HeartType} based on the player's status effects.
      * <p>
@@ -131,14 +103,15 @@ public enum HeartType {
      */
     public static HeartType forPlayer(Player pPlayer) {
         HeartType gui$hearttype;
-        if (pPlayer.hasEffect(MobEffects.POISON)) {
-            gui$hearttype = POISIONED;
-        } else if (pPlayer.hasEffect(MobEffects.WITHER)) {
-            gui$hearttype = WITHERED;
-        } else if (pPlayer.isFullyFrozen()) {
-            gui$hearttype = FROZEN;
+        double maxHealth = pPlayer.getMaxHealth();
+        if (maxHealth >= 400.0D && maxHealth < 600.0D) {
+            gui$hearttype = GOLDEN;
+        } else if (maxHealth >= 600.0D && maxHealth < 750.0D) {
+            gui$hearttype = ENLIGHTENED;
+        } else if (maxHealth >= 750.0D) {
+            gui$hearttype = STELLATECH;
         } else {
-            gui$hearttype = NORMAL;
+            gui$hearttype = DEFAULT;
         }
         
         return gui$hearttype;
@@ -146,5 +119,8 @@ public enum HeartType {
     
     public static void renderHeart(GuiGraphics pGuiGraphics, HeartType pHeartType, int pX, int pY, boolean pHardcore, boolean pHalfHeart, boolean pBlinking) {
         pGuiGraphics.blitSprite(pHeartType.getSprite(pHardcore, pBlinking, pHalfHeart), pX, pY, 11, 11);
+    }
+    public static void renderContainer(GuiGraphics pGuiGraphics, HeartType pHeartType, int pX, int pY, boolean pHardcore) {
+        pGuiGraphics.blitSprite(pHeartType.getEmptySprite(pHardcore), pX, pY, 11, 11);
     }
 }
