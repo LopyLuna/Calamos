@@ -39,7 +39,7 @@ public class CommonEvents {
         }
         
         if (damageInst != null && !tag.getBoolean("calamosModified_ATTACK_DAMAGE")) {
-            float calamosAD = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE) * 2;
+            float calamosAD = (float) livingEntity.getAttributeValue(Attributes.ATTACK_DAMAGE) * 5;
             damageInst.setBaseValue(calamosAD);
             tag.putBoolean("calamosModified_ATTACK_DAMAGE", true);
         }
@@ -47,13 +47,14 @@ public class CommonEvents {
     
     @SubscribeEvent
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        float MaxHealth = 400.0F;
         Player player = event.getEntity();
-        boolean hasCalamosDefaultHelath = player.getMaxHealth() >= 100.0F;
+        boolean hasCalamosDefaultHelath = player.getMaxHealth() >= MaxHealth;
         AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
         if (!hasCalamosDefaultHelath) {
             if (inst != null)
-                inst.setBaseValue(100.0F);
-            player.heal(100.0F);
+                inst.setBaseValue(MaxHealth);
+            player.heal(MaxHealth);
         }
     }
 }

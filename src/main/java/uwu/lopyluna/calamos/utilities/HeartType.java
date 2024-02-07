@@ -101,14 +101,13 @@ public enum HeartType {
      *
      * @param pPlayer the player for which to determine the HeartType.
      */
-    public static HeartType forPlayer(Player pPlayer) {
+    public static HeartType forPlayer(Player pPlayer, float pMaxHealth) {
         HeartType gui$hearttype;
-        double maxHealth = pPlayer.getMaxHealth();
-        if (maxHealth >= 400.0D && maxHealth < 600.0D) {
+        if (pMaxHealth >= 400.0D && pMaxHealth < 600.0D) {
             gui$hearttype = GOLDEN;
-        } else if (maxHealth >= 600.0D && maxHealth < 750.0D) {
+        } else if (pMaxHealth >= 600.0D && pMaxHealth < 800.0D) {
             gui$hearttype = ENLIGHTENED;
-        } else if (maxHealth >= 750.0D) {
+        } else if (pMaxHealth >= 800.0D) {
             gui$hearttype = STELLATECH;
         } else {
             gui$hearttype = DEFAULT;
@@ -116,7 +115,7 @@ public enum HeartType {
         
         return gui$hearttype;
     }
-    
+
     public static void renderHeart(GuiGraphics pGuiGraphics, HeartType pHeartType, int pX, int pY, boolean pHardcore, boolean pHalfHeart, boolean pBlinking) {
         pGuiGraphics.blitSprite(pHeartType.getSprite(pHardcore, pBlinking, pHalfHeart), pX, pY, 11, 11);
     }
