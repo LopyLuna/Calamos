@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_16",
+  "package": "uwu.lopyluna.calamos.mixin",
+  "refmap": "calamos.refmap.json",
+  "mixins": [
+    "AccessorRangedAttribute"
+  ],
+  "client": [
+    "GuiMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
