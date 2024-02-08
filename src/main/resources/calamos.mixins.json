@@ -8,7 +8,7 @@
     "AccessorRangedAttribute"
   ],
   "client": [
-    "GuiMixin"
+
   ],
   "injectors": {
     "defaultRequire": 1
