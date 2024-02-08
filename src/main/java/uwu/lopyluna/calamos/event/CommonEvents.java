@@ -7,7 +7,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -51,14 +50,15 @@ public class CommonEvents {
     
     @SubscribeEvent
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        float MaxHealth = 100.0F;
         Player player = event.getEntity();
-        boolean hasCalamosDefaultHelath = player.getMaxHealth() >= 100.0F;
+        boolean hasCalamosDefaultHelath = player.getMaxHealth() >= MaxHealth;
         AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
         AttributeInstance damageInst = player.getAttribute(Attributes.ATTACK_DAMAGE);
         if (!hasCalamosDefaultHelath) {
             if (inst != null)
-                inst.setBaseValue(100.0F);
-            player.heal(100.0F);
+                inst.setBaseValue(MaxHealth);
+            player.heal(MaxHealth);
         }
         if (damageInst != null) {
             AttributeModifier damageModifier = new AttributeModifier(UUID.fromString("5a1d6084-5698-4066-998b-23c02b389392"), "Calamos Damage Multiplier", 2.0F, AttributeModifier.Operation.MULTIPLY_TOTAL);

@@ -23,8 +23,12 @@ public class GuiMixin {
      * @reason Change the health bar to suit Calamos' style
      */
     @Overwrite
-    protected void renderHearts(GuiGraphics pGuiGraphics, Player pPlayer, int pX, int pY, int pHeight, int pOffsetHeartIndex, float pMaxHealth, int pCurrentHealth, int pDisplayHealth, int pAbsorptionAmount, boolean pRenderHighlight) {
-        HeartType gui$hearttype = HeartType.forPlayer(pPlayer);
+    protected void renderHearts(GuiGraphics pGuiGraphics, Player pPlayer, int pX, int pY, int pHeight, int pOffsetHeartIndex,
+                                float pMaxHealth,
+                                int pCurrentHealth,
+                                int pDisplayHealth,
+                                int pAbsorptionAmount, boolean pRenderHighlight) {
+        HeartType gui$hearttype = HeartType.forPlayer(pPlayer, pMaxHealth);
         boolean flag = pPlayer.level().getLevelData().isHardcore();
         int i = Mth.ceil((double)pMaxHealth / 20.0);
         int j = Mth.ceil((double)pAbsorptionAmount / 20.0);
@@ -50,7 +54,11 @@ public class GuiMixin {
                 int j2 = i2 - k;
                 if (j2 < pAbsorptionAmount) {
                     boolean flag2 = j2 + 1 == pAbsorptionAmount;
-                    HeartType.renderHeart(pGuiGraphics, HeartType.GOLDEN, k1, l1, flag, false, flag2);
+                    HeartType.renderHeart(pGuiGraphics,
+                            gui$hearttype == HeartType.STELLATECH ? gui$hearttype :
+                                    gui$hearttype == HeartType.ENLIGHTENED ? gui$hearttype :
+                                            HeartType.GOLDEN,
+                            k1, l1, flag, false, flag2);
                 }
             }
             
