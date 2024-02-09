@@ -17,9 +17,7 @@ import java.util.UUID;
 
 public class CommonEvents {
     
-    public CommonEvents() {
-        NeoForge.EVENT_BUS.register(this);
-    }
+    public CommonEvents() {}
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void onEntityAdded(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();

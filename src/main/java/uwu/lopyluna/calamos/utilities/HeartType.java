@@ -9,46 +9,48 @@ import net.neoforged.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public enum HeartType {
     DEFAULT(
-            new ResourceLocation("hud/heart/calamos/default_large"),
-            new ResourceLocation("hud/heart/calamos/default_medium"),
-            new ResourceLocation("hud/heart/calamos/default_small"),
-            new ResourceLocation("hud/heart/calamos/default_empty"),
-            new ResourceLocation("hud/heart/calamos/default_hardcore_large"),
-            new ResourceLocation("hud/heart/calamos/default_hardcore_medium"),
-            new ResourceLocation("hud/heart/calamos/default_hardcore_small"),
-            new ResourceLocation("hud/heart/calamos/default_hardcore_empty")
+            "default_large",
+            "default_medium",
+            "default_small",
+            "default_empty",
+            "default_hardcore_large",
+            "default_hardcore_medium",
+            "default_hardcore_small",
+            "default_hardcore_empty"
     ),
     GOLDEN(
-            new ResourceLocation("hud/heart/calamos/golden_large"),
-            new ResourceLocation("hud/heart/calamos/golden_medium"),
-            new ResourceLocation("hud/heart/calamos/golden_small"),
-            new ResourceLocation("hud/heart/calamos/golden_empty"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_large"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_medium"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_small"),
-            new ResourceLocation("hud/heart/calamos/golden_hardcore_empty")
+            "golden_large",
+            "golden_medium",
+            "golden_small",
+            "golden_empty",
+            "golden_hardcore_large",
+            "golden_hardcore_medium",
+            "golden_hardcore_small",
+            "golden_hardcore_empty"
     ),
     ENLIGHTENED(
-            new ResourceLocation("hud/heart/calamos/enlightened_large"),
-            new ResourceLocation("hud/heart/calamos/enlightened_medium"),
-            new ResourceLocation("hud/heart/calamos/enlightened_small"),
-            new ResourceLocation("hud/heart/calamos/enlightened_empty"),
-            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_large"),
-            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_medium"),
-            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_small"),
-            new ResourceLocation("hud/heart/calamos/enlightened_hardcore_empty")
+            "enlightened_large",
+            "enlightened_medium",
+            "enlightened_small",
+            "enlightened_empty",
+            "enlightened_hardcore_large",
+            "enlightened_hardcore_medium",
+            "enlightened_hardcore_small",
+            "enlightened_hardcore_empty"
     ),
     STELLATECH(
-            new ResourceLocation("hud/heart/calamos/stellatech_large"),
-            new ResourceLocation("hud/heart/calamos/stellatech_medium"),
-            new ResourceLocation("hud/heart/calamos/stellatech_small"),
-            new ResourceLocation("hud/heart/calamos/stellatech_empty"),
-            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_large"),
-            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_medium"),
-            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_small"),
-            new ResourceLocation("hud/heart/calamos/stellatech_hardcore_empty")
+            "stellatech_large",
+            "stellatech_medium",
+            "stellatech_small",
+            "stellatech_empty",
+            "stellatech_hardcore_large",
+            "stellatech_hardcore_medium",
+            "stellatech_hardcore_small",
+            "stellatech_hardcore_empty"
     ),
     ;
+
+    private static final String PREFIX = "hud/heart/calamos/%s";
     private final ResourceLocation large;
     private final ResourceLocation medium;
     private final ResourceLocation small;
@@ -57,7 +59,27 @@ public enum HeartType {
     private final ResourceLocation hardcoreMedium;
     private final ResourceLocation hardcoreSmall;
     private final ResourceLocation hardcoreEmpty;
-    
+
+    HeartType(String pLarge,
+              String pMedium,
+              String pSmall,
+              String pEmpty,
+              String pHardcoreLarge,
+              String pHardcoreMedium,
+              String pHardcoreSmall,
+              String pHardcoreEmpty) {
+        this(
+                ModUtils.location(PREFIX.formatted(pLarge)),
+                ModUtils.location(PREFIX.formatted(pMedium)),
+                ModUtils.location(PREFIX.formatted(pSmall)),
+                ModUtils.location(PREFIX.formatted(pEmpty)),
+                ModUtils.location(PREFIX.formatted(pHardcoreLarge)),
+                ModUtils.location(PREFIX.formatted(pHardcoreMedium)),
+                ModUtils.location(PREFIX.formatted(pHardcoreSmall)),
+                ModUtils.location(PREFIX.formatted(pHardcoreEmpty))
+        );
+    }
+
     HeartType(
             ResourceLocation pLarge,
             ResourceLocation pMedium,
@@ -77,7 +99,7 @@ public enum HeartType {
         this.hardcoreSmall = pHardcoreSmall;
         this.hardcoreEmpty = pHardcoreEmpty;
     }
-    
+
     public ResourceLocation getSprite(boolean pHardcore, boolean pHalfHeart, boolean pBlinking) {
         if (!pHardcore) {
             if (pHalfHeart) {
@@ -91,15 +113,17 @@ public enum HeartType {
             return pBlinking ? this.hardcoreMedium : this.hardcoreLarge;
         }
     }
+
     public ResourceLocation getEmptySprite(boolean pHardcore) {
         return pHardcore ? this.hardcoreEmpty : this.empty;
     }
+
     /**
      * Returns the {@link HeartType} based on the player's status effects.
      * <p>
-     * @return the {@link HeartType} based on the player's status effects.
      *
      * @param pPlayer the player for which to determine the HeartType.
+     * @return the {@link HeartType} based on the player's status effects.
      */
     public static HeartType forPlayer(Player pPlayer, float pMaxHealth) {
         HeartType gui$hearttype;
@@ -112,13 +136,14 @@ public enum HeartType {
         } else {
             gui$hearttype = DEFAULT;
         }
-        
+
         return gui$hearttype;
     }
 
     public static void renderHeart(GuiGraphics pGuiGraphics, HeartType pHeartType, int pX, int pY, boolean pHardcore, boolean pHalfHeart, boolean pBlinking) {
         pGuiGraphics.blitSprite(pHeartType.getSprite(pHardcore, pBlinking, pHalfHeart), pX, pY, 11, 11);
     }
+
     public static void renderContainer(GuiGraphics pGuiGraphics, HeartType pHeartType, int pX, int pY, boolean pHardcore) {
         pGuiGraphics.blitSprite(pHeartType.getEmptySprite(pHardcore), pX, pY, 11, 11);
     }
