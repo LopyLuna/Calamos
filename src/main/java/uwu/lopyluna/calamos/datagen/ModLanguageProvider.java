@@ -25,6 +25,17 @@ class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.item(ModItems.DEBUG_HEALTH);
+        this.item(ModItems.GARNET);
+        this.item(ModItems.JADE);
+        this.item(ModItems.KUNZITE);
+        this.item(ModItems.MOONSTONE);
+        this.item(ModItems.OPAL);
+        this.item(ModItems.RUBY);
+        this.item(ModItems.SAPPHIRE);
+        this.item(ModItems.SPINEL);
+        this.item(ModItems.SUNSTONE);
+        this.item(ModItems.TANZANITE);
+        this.item(ModItems.TOPAZ);
         this.block(ModBlocks.STONE);
         this.tab(ModCreativeTab.CALAMOS_TAB);
     }

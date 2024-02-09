@@ -16,6 +16,17 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         this.basicItem(ModItems.DEBUG_HEALTH);
+        this.basicItem(ModItems.GARNET);
+        this.basicItem(ModItems.JADE);
+        this.basicItem(ModItems.KUNZITE);
+        this.basicItem(ModItems.MOONSTONE);
+        this.basicItem(ModItems.OPAL);
+        this.basicItem(ModItems.RUBY);
+        this.basicItem(ModItems.SAPPHIRE);
+        this.basicItem(ModItems.SPINEL);
+        this.basicItem(ModItems.SUNSTONE);
+        this.basicItem(ModItems.TANZANITE);
+        this.basicItem(ModItems.TOPAZ);
     }
 
     private void basicItem(Supplier<? extends Item> item) {

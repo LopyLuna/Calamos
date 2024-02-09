@@ -23,6 +23,17 @@ public class ModCreativeTab {
             //Add Items to this
             //Items
             output.accept(ModItems.DEBUG_HEALTH);
+            output.accept(ModItems.GARNET);
+            output.accept(ModItems.JADE);
+            output.accept(ModItems.KUNZITE);
+            output.accept(ModItems.MOONSTONE);
+            output.accept(ModItems.OPAL);
+            output.accept(ModItems.RUBY);
+            output.accept(ModItems.SAPPHIRE);
+            output.accept(ModItems.SPINEL);
+            output.accept(ModItems.SUNSTONE);
+            output.accept(ModItems.TANZANITE);
+            output.accept(ModItems.TOPAZ);
             //Blocks
             output.accept(ModBlocks.STONE);
         }, builder -> builder.withTabsBefore(CreativeModeTabs.COMBAT));

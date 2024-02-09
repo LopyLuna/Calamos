@@ -1,5 +1,16 @@
 {
   "block.calamos.stone": "Stone",
   "item.calamos.debug_health": "Debug Health",
+  "item.calamos.garnet": "Garnet",
+  "item.calamos.jade": "Jade",
+  "item.calamos.kunzite": "Kunzite",
+  "item.calamos.moonstone": "Moonstone",
+  "item.calamos.opal": "Opal",
+  "item.calamos.ruby": "Ruby",
+  "item.calamos.sapphire": "Sapphire",
+  "item.calamos.spinel": "Spinel",
+  "item.calamos.sunstone": "Sunstone",
+  "item.calamos.tanzanite": "Tanzanite",
+  "item.calamos.topaz": "Topaz",
   "itemGroup.calamos.calamos": "Calamos"
 }

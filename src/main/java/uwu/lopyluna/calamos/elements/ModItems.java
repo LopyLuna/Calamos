@@ -20,7 +20,29 @@ public class ModItems {
     public static final DeferredItem<Item> DEBUG_HEALTH = register("debug_health", () -> new DebugHealthItem(new Item.Properties()
             .fireResistant().stacksTo(1)
     ));
-
+    
+    public static final DeferredItem<Item> GARNET = register("garnet", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> JADE = register("jade", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> KUNZITE = register("kunzite", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> MOONSTONE = register("moonstone", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> OPAL = register("opal", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> RUBY = register("ruby", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SAPPHIRE = register("sapphire", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SPINEL = register("spinel", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SUNSTONE = register("sunstone", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> TANZANITE = register("tanzanite", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> TOPAZ = register("topaz", () -> new Item(new Item.Properties()));
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     private static <T extends Item> DeferredItem<T> register(String id, Supplier<T> pIProp) {
         return ITEMS.register(id.toLowerCase(), pIProp);
@@ -37,6 +59,9 @@ public class ModItems {
     //private-package so block register class can use
     static void registerBlockItem(Holder<Block> blockHolder, Item.Properties properties) {
         ITEMS.registerSimpleBlockItem(blockHolder, properties);
+    }
+    static void registerSimpleItem(String name) {
+        ITEMS.registerSimpleItem(name);
     }
 
     public static Collection<DeferredHolder<Item,? extends Item>> getItems() {
