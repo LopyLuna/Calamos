@@ -20,6 +20,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import org.slf4j.Logger;
+import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModCreativeTab;
+import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.event.CommonEvents;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 
@@ -34,6 +37,11 @@ public class CalamosMod {
         this.modEventBus = modEventBus;
         NeoForge.EVENT_BUS.register(new CommonEvents());
         INSTANCE = this;
+
+        ModItems.staticInit();
+        ModBlocks.staticInit();
+
+        ModCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
     }
     
     @SubscribeEvent
