@@ -35,7 +35,30 @@ public class ModCreativeTab {
             output.accept(ModItems.TANZANITE);
             output.accept(ModItems.TOPAZ);
             //Blocks
+            output.accept(ModBlocks.GARNET_BLOCK);
+            output.accept(ModBlocks.JADE_BLOCK);
+            output.accept(ModBlocks.KUNZITE_BLOCK);
+            output.accept(ModBlocks.MOONSTONE_BLOCK);
+            output.accept(ModBlocks.OPAL_BLOCK);
+            output.accept(ModBlocks.RUBY_BLOCK);
+            output.accept(ModBlocks.SAPPHIRE_BLOCK);
+            output.accept(ModBlocks.SPINEL_BLOCK);
+            output.accept(ModBlocks.SUNSTONE_BLOCK);
+            output.accept(ModBlocks.TANZANITE_BLOCK);
+            output.accept(ModBlocks.TOPAZ_BLOCK);
+
             output.accept(ModBlocks.STONE);
+
+            output.accept(ModBlocks.METEORITE);
+            output.accept(ModBlocks.METEORITE_BRICKS);
+            output.accept(ModBlocks.METEORITE_TILES);
+            output.accept(ModBlocks.GILDED_METEORITE_BRICKS);
+            output.accept(ModBlocks.LARGE_METEORITE_TILE);
+            output.accept(ModBlocks.POLISHED_METEORITE);
+            output.accept(ModBlocks.CUT_METEORITE);
+            output.accept(ModBlocks.COBBLED_METEORITE);
+            output.accept(ModBlocks.SMOOTH_METEORITE);
+
         }, builder -> builder.withTabsBefore(CreativeModeTabs.COMBAT));
     }
 

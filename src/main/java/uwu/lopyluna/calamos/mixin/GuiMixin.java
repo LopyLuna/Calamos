@@ -37,7 +37,7 @@ public class GuiMixin {
         for(int l = i + j - 1; l >= 0; --l) {
             int i1 = l / 10;
             int j1 = l % 10;
-            int k1 = pX + j1 * 8;
+            int k1 = pX + j1 * 10;
             int l1 = pY - i1 * pHeight;
             if (pCurrentHealth + pAbsorptionAmount <= 4) {
                 l1 += this.random.nextInt(2);

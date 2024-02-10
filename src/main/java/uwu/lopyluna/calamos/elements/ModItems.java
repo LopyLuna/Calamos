@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -49,6 +50,7 @@ public class ModItems {
     }
 
     public static void staticInit() {
+        CalamosMod.LOGGER.info("metbal");
     }
 
     //private-package so block register class can use

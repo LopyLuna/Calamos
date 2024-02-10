@@ -37,6 +37,29 @@ class ModLanguageProvider extends LanguageProvider {
         this.item(ModItems.TANZANITE);
         this.item(ModItems.TOPAZ);
         this.block(ModBlocks.STONE);
+        //Meteorite
+        this.block(ModBlocks.METEORITE);
+        this.block(ModBlocks.METEORITE_BRICKS);
+        this.block(ModBlocks.METEORITE_TILES);
+        this.block(ModBlocks.GILDED_METEORITE_BRICKS);
+        this.block(ModBlocks.LARGE_METEORITE_TILE);
+        this.block(ModBlocks.COBBLED_METEORITE);
+        this.block(ModBlocks.CUT_METEORITE);
+        this.block(ModBlocks.POLISHED_METEORITE);
+        this.block(ModBlocks.SMOOTH_METEORITE);
+        //Gems
+        this.block(ModBlocks.GARNET_BLOCK);
+        this.block(ModBlocks.JADE_BLOCK);
+        this.block(ModBlocks.KUNZITE_BLOCK);
+        this.block(ModBlocks.MOONSTONE_BLOCK);
+        this.block(ModBlocks.OPAL_BLOCK);
+        this.block(ModBlocks.RUBY_BLOCK);
+        this.block(ModBlocks.SAPPHIRE_BLOCK);
+        this.block(ModBlocks.SPINEL_BLOCK);
+        this.block(ModBlocks.SUNSTONE_BLOCK);
+        this.block(ModBlocks.TANZANITE_BLOCK);
+        this.block(ModBlocks.TOPAZ_BLOCK);
+        //--//
         this.tab(ModCreativeTab.CALAMOS_TAB);
     }
 
