@@ -19,6 +19,7 @@ class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         //meteorite
+        this.simpleBlockItem(ModBlocks.METEORITE_ORE);
         this.simpleBlockAndItem(ModBlocks.METEORITE);
         this.simpleBlockAndItem(ModBlocks.METEORITE_BRICKS);
         this.simpleBlockAndItem(ModBlocks.METEORITE_TILES);
@@ -42,6 +43,12 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.TOPAZ_BLOCK);
     }
 
+    private void simpleBlockItem(Supplier<? extends Block> block) {
+        super.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
+    }
+    private void simpleBlockWithItem(Supplier<? extends Block> block) {
+        super.simpleBlockWithItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
+    }
     private void simpleBlockAndItem(Supplier<? extends Block> block) {
         this.simpleBlock(block.get());
         this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));

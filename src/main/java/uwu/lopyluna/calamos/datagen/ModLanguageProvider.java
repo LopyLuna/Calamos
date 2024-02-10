@@ -39,6 +39,7 @@ class ModLanguageProvider extends LanguageProvider {
         this.item(ModItems.TOPAZ);
         this.block(ModBlocks.STONE);
         //Meteorite
+        this.block(ModBlocks.METEORITE_ORE);
         this.block(ModBlocks.METEORITE);
         this.block(ModBlocks.METEORITE_BRICKS);
         this.block(ModBlocks.METEORITE_TILES);

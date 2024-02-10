@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// 1.20.4	2024-02-09T22:46:00.9667323	Block States: calamos
-=======
-// 1.20.4	2024-02-10T14:46:55.9132034	Block States: calamos
->>>>>>> origin/main
+// 1.20.4	2024-02-10T16:05:47.5141652	Block States: calamos
 0ca8c840a11f034c868862fc6eada8f501945094 assets/calamos/blockstates/cobbled_meteorite.json
 ba99f09a70f9f8b4a526d2051b20aefa08f2015e assets/calamos/blockstates/cut_meteorite.json
 4cc8810810b37a367d4dfee6bdd37e9b177cc3ff assets/calamos/blockstates/garnet_block.json
@@ -52,6 +48,7 @@ a5a1c9b92ad94e097604ea99d997138a3f85a943 assets/calamos/models/item/kunzite_bloc
 be4c60bbfc3fbfdd8bfd63825820fcd897f3cf4d assets/calamos/models/item/large_meteorite_tile.json
 876b013fe3ba1c23cc1bdc8f9be7065043dcee42 assets/calamos/models/item/meteorite.json
 2ee00cdf7cc2bc7135f81797fdaddd106694c11e assets/calamos/models/item/meteorite_bricks.json
+94273593f42aab11b7ad05787b6f6d3ed9e027a6 assets/calamos/models/item/meteorite_ore.json
 1ca1c886b5e4ed3121dad7fc7a98d6ef2d5c7cfc assets/calamos/models/item/meteorite_tiles.json
 5465ca8e532fedd600bfaa40c4bf888563eabfcf assets/calamos/models/item/moonstone_block.json
 93d7e8b8016041e10a350fcfeb2286f25cb30ee1 assets/calamos/models/item/opal_block.json

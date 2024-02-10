@@ -60,6 +60,9 @@ public class ModBlocks {
             new Item.Properties());
 
     //Meteorite Blocks
+    public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
     public static final DeferredBlock<Block> COBBLED_METEORITE  = register("cobbled_meteorite",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());

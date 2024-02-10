@@ -5,7 +5,8 @@
   "package": "uwu.lopyluna.calamos.mixin",
   "refmap": "calamos.refmap.json",
   "mixins": [
-    "AccessorRangedAttribute"
+    "AccessorRangedAttribute",
+    "GuiMixin"
   ],
   "client": [
   ],
