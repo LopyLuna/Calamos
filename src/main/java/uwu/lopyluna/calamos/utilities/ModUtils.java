@@ -37,4 +37,8 @@ public class ModUtils {
     public static <T> Consumer<T> noAction() {
         return ((Consumer<T>) NO_ACTION);
     }
+    
+    public static int secondsToTicks(int seconds) {
+        return seconds * 20;
+    }
 }
