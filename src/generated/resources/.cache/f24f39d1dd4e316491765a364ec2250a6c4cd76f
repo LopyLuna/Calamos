@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // 1.20.4	2024-02-09T22:46:00.9667323	Block States: calamos
+=======
+// 1.20.4	2024-02-10T14:46:55.9132034	Block States: calamos
+>>>>>>> origin/main
 0ca8c840a11f034c868862fc6eada8f501945094 assets/calamos/blockstates/cobbled_meteorite.json
 ba99f09a70f9f8b4a526d2051b20aefa08f2015e assets/calamos/blockstates/cut_meteorite.json
 4cc8810810b37a367d4dfee6bdd37e9b177cc3ff assets/calamos/blockstates/garnet_block.json

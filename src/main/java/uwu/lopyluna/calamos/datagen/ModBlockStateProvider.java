@@ -11,7 +11,7 @@ import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.function.Supplier;
 
-public class ModBlockStateProvider extends BlockStateProvider {
+class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, String modid, ExistingFileHelper exFileHelper) {
         super(output, modid, exFileHelper);
     }
