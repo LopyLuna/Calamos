@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "trims/items/leggings_trim",
+        "trims/items/chestplate_trim",
+        "trims/items/helmet_trim",
+        "trims/items/boots_trim",
+
+        "trimmable_tools:trims/items/sword_trim",
+        "trimmable_tools:trims/items/pickaxe_trim",
+        "trimmable_tools:trims/items/axe_trim",
+        "trimmable_tools:trims/items/shovel_trim",
+        "trimmable_tools:trims/items/hoe_trim"
+      ],
+      "palette_key": "trims/color_palettes/trim_palette",
+      "permutations": {
+        "jade": "trims/color_palettes/jade",
+        "kunzite": "trims/color_palettes/kunzite",
+        "moonstone": "trims/color_palettes/moonstone",
+        "ruby": "trims/color_palettes/ruby",
+        "sapphire": "trims/color_palettes/sapphire",
+        "spinel": "trims/color_palettes/spinel",
+        "sunstone": "trims/color_palettes/sunstone",
+        "tanzanite": "trims/color_palettes/tanzanite",
+        "topaz": "trims/color_palettes/topaz"
+      }
+    }
+  ]
+}

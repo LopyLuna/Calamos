@@ -1,0 +1,9 @@
+{
+  "asset_name": "sapphire",
+  "description": {
+    "color": "#c6e8f2",
+    "translate": "trim_material.calamos.sapphire"
+  },
+  "ingredient": "calamos:sapphire",
+  "item_model_index": 0.67
+}

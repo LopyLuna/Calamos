@@ -1,0 +1,9 @@
+{
+  "asset_name": "spinel",
+  "description": {
+    "color": "#ff8797",
+    "translate": "trim_material.calamos.spinel"
+  },
+  "ingredient": "calamos:spinel",
+  "item_model_index": 0.68
+}

@@ -64,24 +64,39 @@ public class CraftingProvider {
     
     
     public static ShapelessRecipeBuilder decompressedBlock(Item result, ItemLike input, boolean fourByFour) {
-        if(fourByFour){return halfDecompress(result,input);}else{return fullDecompress(result,input);}
+        if (fourByFour) {
+            return halfDecompress(result, input);
+        } else {
+            return fullDecompress(result, input);
+        }
     }
     public static ShapedRecipeBuilder compressedBlock(Item result, ItemLike input, boolean fourByFour) {
-        if(fourByFour){return halfCompress(result,input,1);}else{return fullCompress(result,input,1);}
+        if (fourByFour) {
+            return halfCompress(result, input,1);
+        } else {
+            return fullCompress(result, input,1);
+        }
     }
     public static ShapedRecipeBuilder compressedBlock(Item result, ItemLike input, boolean fourByFour, int count) {
-        if(fourByFour){return halfCompress(result,input,count);}else{return fullCompress(result,input,count);}
+        if (fourByFour) { return halfCompress(result, input, count);
+        } else {
+            return fullCompress(result, input, count);
+        }
     }
     public static ShapelessRecipeBuilder fullDecompress(Item result, ItemLike input) {
-        String inputName = input.asItem().toString().split(":")[1];return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 9).requires(input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 9).requires(input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
     public static ShapelessRecipeBuilder halfDecompress(Item result, ItemLike input) {
-        String inputName = input.asItem().toString().split(":")[1];return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 4).requires(input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 4).requires(input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
     public static ShapedRecipeBuilder fullCompress(Item result, ItemLike input, int count) {
-        String inputName = input.asItem().toString().split(":")[1];return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count).pattern("###").pattern("###").pattern("###").define('#', input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count).pattern("###").pattern("###").pattern("###").define('#', input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
     public static ShapedRecipeBuilder halfCompress(Item result, ItemLike input, int count) {
-        String inputName = input.asItem().toString().split(":")[1];return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count).pattern("##").pattern("##").define('#', input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count).pattern("##").pattern("##").define('#', input).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
 }

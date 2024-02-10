@@ -6,13 +6,17 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.apache.commons.lang3.text.WordUtils;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModCreativeTab;
 import uwu.lopyluna.calamos.elements.ModItems;
 
 import java.util.NoSuchElementException;
+
+import static uwu.lopyluna.calamos.CalamosMod.MODID;
 
 class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output, String modid, String locale) {
@@ -44,6 +48,8 @@ class ModLanguageProvider extends LanguageProvider {
         this.block(ModBlocks.CUT_METEORITE);
         this.block(ModBlocks.POLISHED_METEORITE);
         this.block(ModBlocks.SMOOTH_METEORITE);
+        this.item(ModItems.METEORITE_INGOT);
+        this.item(ModItems.RAW_METEORITE);
         //Gems
         this.block(ModBlocks.GARNET_BLOCK);
         this.block(ModBlocks.JADE_BLOCK);
@@ -58,6 +64,18 @@ class ModLanguageProvider extends LanguageProvider {
         this.block(ModBlocks.TOPAZ_BLOCK);
         //--//
         this.tab(ModCreativeTab.CALAMOS_TAB);
+        //Trim Materials
+        this.trimMaterial("garnet");
+        this.trimMaterial("jade");
+        this.trimMaterial("kunzite");
+        this.trimMaterial("moonstone");
+        this.trimMaterial("opal");
+        this.trimMaterial("ruby");
+        this.trimMaterial("sapphire");
+        this.trimMaterial("spinel");
+        this.trimMaterial("sunstone");
+        this.trimMaterial("tanzanite");
+        this.trimMaterial("topaz");
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {
@@ -71,8 +89,10 @@ class ModLanguageProvider extends LanguageProvider {
     private void item(Holder<Item> itemHolder) {
         this.add(itemHolder, "item");
     }
-
-
+    private void trimMaterial(String material) {
+        String translated = WordUtils.capitalizeFully(material) + " Material";
+        this.add("trim_material." + MODID + "." + material, translated);
+    }
     private void add(Holder<?> holder, String type) {
         ResourceKey<?> resourceKey = holder.unwrapKey().orElseThrow(() -> new NoSuchElementException("No respective key. Check log"));
         ResourceLocation path = resourceKey.location();

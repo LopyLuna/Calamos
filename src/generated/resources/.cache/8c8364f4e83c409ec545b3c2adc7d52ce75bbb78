@@ -1,0 +1,18 @@
+// 1.20.4	2024-02-10T21:18:19.756918	Tags for minecraft:item mod id vanilla
+af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
+55007667d8dc4027a4cd207180350554a71e150f data/forge/tags/items/gems/garnet.json
+178412a3646756fe99371d66468dfc5c53b6a7b1 data/forge/tags/items/gems/jade.json
+a7507ee99b9fe3e813020784fb89404673466092 data/forge/tags/items/gems/kunzite.json
+fb301585c5aae02089f199fba6d0c4069413fa31 data/forge/tags/items/gems/moonstone.json
+3d6c29b27ca1a064f406e20c6560247beb625e4b data/forge/tags/items/gems/opal.json
+a82d96d7e67ecd25ebb33373bb31721cda3f3b56 data/forge/tags/items/gems/ruby.json
+25b0b5c0ffd4d48e4e55527d20686e6e14427707 data/forge/tags/items/gems/sapphire.json
+5d42207a6e2f806a95861ee3d17e5b2a674731ef data/forge/tags/items/gems/spinel.json
+46aae01f5a007b991112a530a9951412aa4e2e50 data/forge/tags/items/gems/sunstone.json
+957572354cee4f75bd092503b6e4193dfd3ebf65 data/forge/tags/items/gems/tanzanite.json
+6ea3ccc9d862927a2ebfe3343667ae3282d64119 data/forge/tags/items/gems/topaz.json
+0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots.json
+0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots/meteorite.json
+d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials.json
+d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials/meteorite.json
+af925891db5c86f6d76f1d9c8626238528ead0f9 data/minecraft/tags/items/trim_materials.json

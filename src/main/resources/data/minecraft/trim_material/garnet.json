@@ -1,0 +1,9 @@
+{
+  "asset_name": "garnet",
+  "description": {
+    "color": "#f33e35",
+    "translate": "trim_material.calamos.garnet"
+  },
+  "ingredient": "calamos:garnet",
+  "item_model_index": 0.61
+}

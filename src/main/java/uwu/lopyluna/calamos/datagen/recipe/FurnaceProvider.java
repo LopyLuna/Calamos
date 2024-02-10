@@ -6,18 +6,19 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModItems;
 
 import static uwu.lopyluna.calamos.utilities.ModUtils.secondsToTicks;
 
 public class FurnaceProvider {
-    
     public static void register(RecipeOutput consumer) {
         smelting(consumer);
-        //blasting(consumer);
+        blasting(consumer);
         //smoking(consumer);
     }
     private static ResourceLocation location(String path, int type) {
@@ -30,7 +31,7 @@ public class FurnaceProvider {
     }
     
     private static void blasting(RecipeOutput consumer) {
-    
+        smeltAndBlast(RecipeCategory.MISC, ModItems.METEORITE_INGOT.get(), ModItems.RAW_METEORITE.get(), 0.65f, secondsToTicks(120), consumer);
     }
     
     private static void smoking(RecipeOutput consumer) {
@@ -41,14 +42,18 @@ public class FurnaceProvider {
     
     public static void smeltAndBlast(RecipeCategory category, Item result, ItemLike input, float xp, int time, RecipeOutput consumer) {
         int blastTime = time / 2;
-        smeltingRecipe(category, result, input, xp, time).save(consumer, result.toString());
-        blastingRecipe(category, result, input, xp, blastTime).save(consumer, result.toString());
+        String inputName = input.asItem().toString().split(":")[1];
+        String resultName = result.toString().split(":")[1];
+        smeltingRecipe(category, result, input, xp, time).save(consumer, location(resultName + "_from_" + inputName, 0));
+        blastingRecipe(category, result, input, xp, blastTime).save(consumer, location(resultName + "_from_" + inputName, 1));
     }
     
     public static void smeltAndSmoke(RecipeCategory category, Item result, ItemLike input, float xp, int time, RecipeOutput consumer) {
         int smokeTime = time / 2;
-        smeltingRecipe(category, result, input, xp, time).save(consumer, result.toString());
-        smokingRecipe(category, result, input, xp, smokeTime).save(consumer, result.toString());
+        String inputName = input.asItem().toString().split(":")[1];
+        String resultName = result.toString().split(":")[1];
+        smeltingRecipe(category, result, input, xp, time).save(consumer, location(resultName + "_from_" + inputName, 0));
+        smokingRecipe(category, result, input, xp, smokeTime).save(consumer, location(resultName + "_from_" + inputName, 2));
     }
     
     public static SimpleCookingRecipeBuilder smeltingRecipe(RecipeCategory category, Item result, ItemLike input, float xp, int time) {
@@ -65,6 +70,4 @@ public class FurnaceProvider {
         String inputName = input.asItem().toString().split(":")[1];
         return SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), category, result, xp, time).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
-    
-    
 }
