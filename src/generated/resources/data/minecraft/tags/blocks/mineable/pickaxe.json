@@ -1,0 +1,23 @@
+{
+  "values": [
+    "calamos:garnet_block",
+    "calamos:jade_block",
+    "calamos:kunzite_block",
+    "calamos:moonstone_block",
+    "calamos:opal_block",
+    "calamos:ruby_block",
+    "calamos:sapphire_block",
+    "calamos:spinel_block",
+    "calamos:sunstone_block",
+    "calamos:tanzanite_block",
+    "calamos:topaz_block",
+    "calamos:meteorite",
+    "calamos:cobbled_meteorite",
+    "calamos:polished_meteorite",
+    "calamos:meteorite_bricks",
+    "calamos:gilded_meteorite_bricks",
+    "calamos:meteorite_tiles",
+    "calamos:large_meteorite_tile",
+    "calamos:cut_meteorite"
+  ]
+}

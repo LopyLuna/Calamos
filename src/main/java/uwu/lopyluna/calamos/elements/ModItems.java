@@ -35,6 +35,10 @@ public class ModItems {
     public static final DeferredItem<Item> TOPAZ = register("topaz", () -> new Item(new Item.Properties()));
     
     
+    public static final DeferredItem<Item> METEORITE_INGOT = register("meteorite_ingot", () -> new Item(new Item.Properties().fireResistant()));
+    public static final DeferredItem<Item> RAW_METEORITE = register("raw_meteorite", () -> new Item(new Item.Properties().fireResistant()));
+    
+    
     
     
     

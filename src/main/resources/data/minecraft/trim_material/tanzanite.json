@@ -1,0 +1,9 @@
+{
+  "asset_name": "tanzanite",
+  "description": {
+    "color": "#8672d2",
+    "translate": "trim_material.calamos.tanzanite"
+  },
+  "ingredient": "calamos:tanzanite",
+  "item_model_index": 0.71
+}

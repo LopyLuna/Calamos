@@ -58,6 +58,8 @@ public class ModCreativeTab {
             output.accept(ModBlocks.CUT_METEORITE);
             output.accept(ModBlocks.COBBLED_METEORITE);
             output.accept(ModBlocks.SMOOTH_METEORITE);
+            output.accept(ModItems.METEORITE_INGOT);
+            output.accept(ModItems.RAW_METEORITE);
 
         }, builder -> builder.withTabsBefore(CreativeModeTabs.COMBAT));
     }

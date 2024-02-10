@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.datagen;
 
-import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -16,9 +15,10 @@ class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {
         super(output, modid, existingFileHelper);
     }
-
+    
     @Override
     protected void registerModels() {
+        //this.registerTrims();
         this.basicItem(ModItems.DEBUG_HEALTH);
         this.basicItem(ModItems.GARNET);
         this.basicItem(ModItems.JADE);
@@ -31,8 +31,9 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.SUNSTONE);
         this.basicItem(ModItems.TANZANITE);
         this.basicItem(ModItems.TOPAZ);
+        this.basicItem(ModItems.METEORITE_INGOT);
+        this.basicItem(ModItems.RAW_METEORITE);
     }
-
     private void basicItem(Supplier<? extends Item> item) {
         super.basicItem(item.get());
     }

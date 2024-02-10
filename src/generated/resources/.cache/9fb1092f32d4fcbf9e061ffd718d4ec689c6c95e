@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-10T15:36:27.9275065	Recipes
+// 1.20.4	2024-02-10T17:45:41.430177	Recipes
 65b69cb95512110c1d34815cc3b4e50d42caf7a7 data/calamos/advancements/recipes/building_blocks/crafting/cut_meteorite.json
 6a094591d431f1f142cf286f517681bcdffecbf5 data/calamos/advancements/recipes/building_blocks/crafting/garnet_block.json
 3314338600a6e86787775cf0105762a34df555c8 data/calamos/advancements/recipes/building_blocks/crafting/jade_block.json
@@ -17,6 +17,7 @@ f75b31fe89a30e25fa8d03975af62ae9a8569bbb data/calamos/advancements/recipes/build
 0f09ce0c562b5219447b3cef908d9ebb18b1b97f data/calamos/advancements/recipes/building_blocks/crafting/topaz_block.json
 423d7057153e6a5223530c923f826ccf42dbca39 data/calamos/advancements/recipes/building_blocks/smelting/meteorite_from_cobbled_meteorite.json
 28c150afbf1ff85093140e6c7ab86c63a32ada62 data/calamos/advancements/recipes/building_blocks/smelting/smooth_meteorite_from_meteorite.json
+faf69486205b2dd34443770ab3556a3ffcf90038 data/calamos/advancements/recipes/misc/blasting/meteorite_ingot_from_raw_meteorite.json
 f71815161ee3a88b97a3fceefee24b8ad6aa85d4 data/calamos/advancements/recipes/misc/crafting/garnet.json
 5810188e15f4072dcf6474c6e2c7b2095c6bc5ab data/calamos/advancements/recipes/misc/crafting/jade.json
 51ca9eccee8200d34db814e8d05b3ea41eb8a432 data/calamos/advancements/recipes/misc/crafting/kunzite.json
@@ -28,6 +29,8 @@ f71815161ee3a88b97a3fceefee24b8ad6aa85d4 data/calamos/advancements/recipes/misc/
 3bd7632564180084ddbd7788063812a619f24d35 data/calamos/advancements/recipes/misc/crafting/sunstone.json
 733a397539a3d88a754ccbc3187d868af5468f1c data/calamos/advancements/recipes/misc/crafting/tanzanite.json
 041a82afc06ef95a0c2d353a33799abc87457487 data/calamos/advancements/recipes/misc/crafting/topaz.json
+9f99ad707076932696932009df8aa307d0aaa4f1 data/calamos/advancements/recipes/misc/smelting/meteorite_ingot_from_raw_meteorite.json
+b9de3faab6616c1341f1a4f3d1da1ed37a633b8a data/calamos/recipes/blasting/meteorite_ingot_from_raw_meteorite.json
 65814450f530f4d00dfdb545cfe2563a6f224dbd data/calamos/recipes/crafting/cut_meteorite.json
 524be4fd839fefbdfd4680db03124bc65e0dc3d8 data/calamos/recipes/crafting/garnet.json
 043a6fe5f6c2520ef644c02109fdd087c5e718d3 data/calamos/recipes/crafting/garnet_block.json
@@ -56,4 +59,5 @@ ab81faab03463add260cef30742b0b60f85c59a9 data/calamos/recipes/crafting/tanzanite
 354be671deb91f373ed9dee745220ba16c680aef data/calamos/recipes/crafting/topaz.json
 9e599765d57fa82040d46d61f3a3da64c92dc4f1 data/calamos/recipes/crafting/topaz_block.json
 bb98c5d80a5aeec5fafc89466e6845d612d48a84 data/calamos/recipes/smelting/meteorite_from_cobbled_meteorite.json
+d0b7d85bdd69e8378b159856bb647f6287175d07 data/calamos/recipes/smelting/meteorite_ingot_from_raw_meteorite.json
 3440fa36f0c9d51bba595c060d0369bc480852e6 data/calamos/recipes/smelting/smooth_meteorite_from_meteorite.json

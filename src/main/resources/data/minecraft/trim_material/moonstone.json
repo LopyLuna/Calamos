@@ -1,0 +1,9 @@
+{
+  "asset_name": "moonstone",
+  "description": {
+    "color": "#9dc6be",
+    "translate": "trim_material.calamos.moonstone"
+  },
+  "ingredient": "calamos:moonstone",
+  "item_model_index": 0.64
+}
