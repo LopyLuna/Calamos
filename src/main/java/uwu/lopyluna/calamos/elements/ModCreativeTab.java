@@ -19,10 +19,25 @@ public class ModCreativeTab {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CALAMOS_TAB;
 
     static {
-        CALAMOS_TAB = registerTab("calamos", ModItems.DEBUG_HEALTH, output -> {
+        CALAMOS_TAB = registerTab("calamos", ModItems.CALAMATIUM_INGOT, output -> {
             //Add Items to this
             //Items
             output.accept(ModItems.DEBUG_HEALTH);
+            //Ingots
+            output.accept(ModItems.BLOODBORE_INGOT);
+            output.accept(ModItems.CALAMATIUM_INGOT);
+            output.accept(ModItems.ECTOLIGHT_INGOT);
+            output.accept(ModItems.LEAD_INGOT);
+            output.accept(ModItems.MAGNETITE_INGOT);
+            output.accept(ModItems.OBSTEEL_INGOT);
+            output.accept(ModItems.PLATINUM_INGOT);
+            output.accept(ModItems.STARINIUM_INGOT);
+            output.accept(ModItems.TERRAULITE_INGOT);
+            output.accept(ModItems.ULTIMITA_INGOT);
+            //Misc
+            output.accept(ModItems.ECTOPLASMA);
+            output.accept(ModItems.BLOOD_ORB);
+            //Gems
             output.accept(ModItems.GARNET);
             output.accept(ModItems.JADE);
             output.accept(ModItems.KUNZITE);
@@ -48,6 +63,10 @@ public class ModCreativeTab {
             output.accept(ModBlocks.TOPAZ_BLOCK);
 
             output.accept(ModBlocks.STONE);
+            //Stone ores
+            output.accept(ModBlocks.COPPER_ORE);
+            output.accept(ModBlocks.UMBRALITE);
+            output.accept(ModBlocks.PURRASITE);
 
             output.accept(ModBlocks.METEORITE);
             output.accept(ModBlocks.METEORITE_BRICKS);
