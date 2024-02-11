@@ -21,21 +21,18 @@ public class CommonEvents {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void onEntityAdded(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
-        if (!(entity instanceof LivingEntity livingEntity)) {
+        if (!(entity instanceof LivingEntity livingEntity) || entity instanceof Player) {
             return;
         }
-        if (entity instanceof Player) {
-            return;
-        }
-        
+
         
         AttributeInstance healthInst = livingEntity.getAttribute(Attributes.MAX_HEALTH);
         AttributeInstance damageInst = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         CompoundTag tag = livingEntity.getPersistentData();
         if (healthInst != null && !tag.getBoolean("calamosModified_MAX_HEALTH")) {
-            float calamosMH = livingEntity.getMaxHealth() * 5;
-            healthInst.setBaseValue(calamosMH);
-            livingEntity.heal(calamosMH);
+            float calamosMaxHealth = livingEntity.getMaxHealth() * 5;
+            healthInst.setBaseValue(calamosMaxHealth);
+            livingEntity.heal(calamosMaxHealth);
             tag.putBoolean("calamosModified_MAX_HEALTH", true);
         }
         if (damageInst != null) {
@@ -50,10 +47,10 @@ public class CommonEvents {
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         float MaxHealth = 100.0F;
         Player player = event.getEntity();
-        boolean hasCalamosDefaultHelath = player.getMaxHealth() >= MaxHealth;
+        boolean hasCalamosDefaultHealth = player.getMaxHealth() >= MaxHealth;
         AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
         AttributeInstance damageInst = player.getAttribute(Attributes.ATTACK_DAMAGE);
-        if (!hasCalamosDefaultHelath) {
+        if (!hasCalamosDefaultHealth) {
             if (inst != null)
                 inst.setBaseValue(MaxHealth);
             player.heal(MaxHealth);

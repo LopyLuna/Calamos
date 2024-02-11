@@ -29,9 +29,11 @@ public class TrimMaterialGen {
     public static final ResourceKey<TrimMaterial> SUNSTONE = registryKey("sunstone");
     public static final ResourceKey<TrimMaterial> TANZANITE = registryKey("tanzanite");
     public static final ResourceKey<TrimMaterial> TOPAZ = registryKey("topaz");
+
     private static ResourceKey<TrimMaterial> registryKey(String pKey) {
         return ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(CalamosMod.MODID, pKey));
     }
+
     public static void main(String[] args) {
         try {
             generateJson(GARNET, GARNET.location().toString(), 0xf33e35, 0.61F);
@@ -45,13 +47,11 @@ public class TrimMaterialGen {
             generateJson(TANZANITE, TANZANITE.location().toString(), 0x8672d2, 0.71F);
             generateJson(TOPAZ, TOPAZ.location().toString(), 0xfffeb3, 0.72F);
         } catch (Exception e) {
-            e.printStackTrace();
+            CalamosMod.LOGGER.error("An error occurred while generating Trim Materials!\n{}", (Object) e.getStackTrace());
         }
     }
-    
-    
-    
-    
+
+
     public static void generateJson(ResourceKey<TrimMaterial> key, String ingredient, int color, float itemModelIndex) {
         JsonObject json = new JsonObject();
         Gson gsonPretty = new GsonBuilder().setPrettyPrinting().create();
@@ -68,19 +68,20 @@ public class TrimMaterialGen {
         File file = new File("src/main/resources/data/minecraft/trim_material/" + key.location().getPath() + ".json");
         File directory = new File("src/main/resources/data/minecraft/trim_material");
         if (!directory.exists()) {
-            System.out.println("> Notice | Full directory path does not exist yet, fixing that now... ");
+            CalamosMod.LOGGER.warn("> Notice | Full directory path does not exist yet, fixing that now... ");
             directory.mkdirs();
         }
-        if (file.exists()) {
-            System.out.println("> Warning | Trim Material: " + key.location().getPath() + " already exists, skipping.");
-            return;
+        if (file.exists()) { // Regenerate the file if it exists. -- Zeus
+            if (!file.delete()) {
+                CalamosMod.LOGGER.error("> ERROR | An error occurred while deleting the file: {}", file);
+                return;
+            }
         }
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(fileGson);
-            System.out.println("> Notice | Generated new Trim Material at " + file);
+            CalamosMod.LOGGER.warn("> Notice | Generated new Trim Material at {}", file);
         } catch (IOException e) {
-            System.out.print("> ERROR | An error occurred while generating Trim Material: " + key.location().getPath());
-            e.printStackTrace();
+            CalamosMod.LOGGER.error("> ERROR | An error occurred while generating Trim Material: {} \n{}", key.location().getPath(), e.getStackTrace());
         }
     }
 }

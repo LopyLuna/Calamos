@@ -19,6 +19,8 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import org.jetbrains.annotations.NotNull;
+import uwu.lopyluna.calamos.networking.CalamosMessages;
+import uwu.lopyluna.calamos.networking.packets.C2S.TestPacket;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -27,8 +29,10 @@ public class DebugHealthItem extends Item {
     public DebugHealthItem(Properties pProperties) {
         super(pProperties);
     }
+
     @Override
     public @NotNull ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+        //CalamosMessages.sendToServer(new TestPacket(1));
         super.finishUsingItem(pStack, pLevel, pEntityLiving);
         double MaxHealth1 = 100.0D;
         double MaxHealth2 = 200.0D;
@@ -74,8 +78,8 @@ public class DebugHealthItem extends Item {
                     inst.setBaseValue(MaxHealth1);
                 player.setHealth((float) MaxHealth1);
             }
-            pLevel.playSound(null, player.blockPosition(), NoteBlockInstrument.BELL.getSoundEvent().value() , SoundSource.MASTER, 0.65F, 0.8F);
-            pLevel.playSound(null, player.blockPosition(), SoundEvents.CONDUIT_AMBIENT_SHORT , SoundSource.MASTER, 0.25F, 0.5F);
+            pLevel.playSound(null, player.blockPosition(), NoteBlockInstrument.BELL.getSoundEvent().value(), SoundSource.MASTER, 0.65F, 0.8F);
+            pLevel.playSound(null, player.blockPosition(), SoundEvents.CONDUIT_AMBIENT_SHORT, SoundSource.MASTER, 0.25F, 0.5F);
         } else if (pEntityLiving instanceof Player player && player.isCrouching()) {
             AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
 
@@ -109,8 +113,8 @@ public class DebugHealthItem extends Item {
                     inst.setBaseValue(MaxHealth1);
                 player.setHealth((float) MaxHealth1);
             }
-            pLevel.playSound(null, player.blockPosition(), NoteBlockInstrument.BELL.getSoundEvent().value() , SoundSource.MASTER, 0.65F, 0.6F);
-            pLevel.playSound(null, player.blockPosition(), SoundEvents.CONDUIT_AMBIENT_SHORT , SoundSource.MASTER, 0.25F, 0.5F);
+            pLevel.playSound(null, player.blockPosition(), NoteBlockInstrument.BELL.getSoundEvent().value(), SoundSource.MASTER, 0.65F, 0.6F);
+            pLevel.playSound(null, player.blockPosition(), SoundEvents.CONDUIT_AMBIENT_SHORT, SoundSource.MASTER, 0.25F, 0.5F);
 
         }
         return pStack;

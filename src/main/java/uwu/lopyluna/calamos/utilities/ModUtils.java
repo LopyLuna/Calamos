@@ -12,9 +12,6 @@ import java.util.function.Function;
 
 public class ModUtils {
     private static final Consumer<?> NO_ACTION = (a) -> {};
-    private ModUtils() {
-        throw new RuntimeException("Utilities Class");
-    }
 
     public static ResourceLocation location(String path) {
         return new ResourceLocation(CalamosMod.MODID, path);
@@ -41,4 +38,9 @@ public class ModUtils {
     public static int secondsToTicks(int seconds) {
         return seconds * 20;
     }
+
+    public static float secondsToTicks(float seconds) {
+        return seconds * 20.0F;
+    }
+
 }

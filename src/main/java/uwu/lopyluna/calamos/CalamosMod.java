@@ -16,6 +16,7 @@ import uwu.lopyluna.calamos.elements.ModCreativeTab;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.event.CommonEvents;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
+import uwu.lopyluna.calamos.networking.CalamosMessages;
 
 @Mod(CalamosMod.MODID)
 public class CalamosMod {
@@ -31,6 +32,7 @@ public class CalamosMod {
         ModItems.staticInit();
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
+        CalamosMessages.init(modEventBus);
 
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);
@@ -43,7 +45,7 @@ public class CalamosMod {
         final AccessorRangedAttribute accessor = (AccessorRangedAttribute) attribute;
         if (attribute instanceof RangedAttribute ranged) {
             double maxHealthPossible = 1000000000.0D;
-            LOGGER.debug("Modifying maximum value for " + Attributes.MAX_HEALTH.getDescriptionId() + " from " + ranged.getMaxValue() + " to " + maxHealthPossible + ".");
+            LOGGER.debug("Modifying maximum value for %s from %f to %f.".formatted(attribute.getDescriptionId(), ranged.getMaxValue(), maxHealthPossible));
             accessor.calamos$setMaxValue(maxHealthPossible);
         }
     }
