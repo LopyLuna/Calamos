@@ -50,7 +50,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TOPAZ.get()
         );
         this.tag(ModTags.forgeItemTag("ingots")).add(
-                ModItems.METEORITE_INGOT.get()
+                ModItems.METEORITE_INGOT.get(),
+                ModItems.BLOODBORE_INGOT.get(),
+                ModItems.CALAMATIUM_INGOT.get(),
+                ModItems.ECTOLIGHT_INGOT.get(),
+                ModItems.LEAD_INGOT.get(),
+                ModItems.MAGNETITE_INGOT.get(),
+                ModItems.OBSTEEL_INGOT.get(),
+                ModItems.PLATINUM_INGOT.get(),
+                ModItems.STARINIUM_INGOT.get(),
+                ModItems.TERRAULITE_INGOT.get(),
+                ModItems.ULTIMITA_INGOT.get()
         );
         this.tag(ModTags.forgeItemTag("raw_materials")).add(
                 ModItems.RAW_METEORITE.get()
@@ -66,8 +76,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.tag(ModTags.forgeItemTag("gems/sunstone")).add(ModItems.SUNSTONE.get());
         this.tag(ModTags.forgeItemTag("gems/tanzanite")).add(ModItems.TANZANITE.get());
         this.tag(ModTags.forgeItemTag("gems/topaz")).add(ModItems.TOPAZ.get());
-        
-        this.tag(ModTags.forgeItemTag("ingots/meteorite")).add(ModItems.METEORITE_INGOT.get());
+
         this.tag(ModTags.forgeItemTag("raw_materials/meteorite")).add(ModItems.RAW_METEORITE.get());
+        //ingots
+        this.tag(ModTags.forgeItemTag("ingots/meteorite")).add(ModItems.METEORITE_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/bloodbore_ingot")).add(ModItems.BLOODBORE_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/calamatium_ingot")).add(ModItems.CALAMATIUM_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/ectolight_ingot")).add(ModItems.ECTOLIGHT_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/lead_ingot")).add(ModItems.LEAD_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/magnetite_ingot")).add(ModItems.MAGNETITE_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/obsteel_ingot")).add(ModItems.OBSTEEL_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/platinum_ingot")).add(ModItems.PLATINUM_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/starinium_ingot")).add(ModItems.STARINIUM_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/terraulite_ingot")).add(ModItems.TERRAULITE_INGOT.get());
+        this.tag(ModTags.forgeItemTag("ingots/ultimita_ingot")).add(ModItems.ULTIMITA_INGOT.get());
     }
 }

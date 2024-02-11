@@ -1,15 +1,27 @@
-// 1.20.4	2024-02-10T17:45:41.4279603	Item Models: calamos
+// 1.20.4	2024-02-10T17:05:28.099246	Item Models: calamos
+cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
+e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
+5e0f4afd2425ca01b38e7d752470766eff1b1cff assets/calamos/models/item/calamatium_ingot.json
 45bdac0c7490ce619d0470400a0b24f714ab1518 assets/calamos/models/item/debug_health.json
+cff81c047314534d8aa343af856a546ba8e32677 assets/calamos/models/item/ectolight_ingot.json
+0bd835adabbeb6f9fc5dcbaad188fcb630eefb53 assets/calamos/models/item/ectoplasma.json
 2bacb0acd54dcf23fd569e5a9429b3192d07b848 assets/calamos/models/item/garnet.json
 25aae928f6f9d503d76f0ba995a6a01ed12e8c91 assets/calamos/models/item/jade.json
 cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
+fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
+997dbbea039578a61034d5384f87bd24e8dab2eb assets/calamos/models/item/magnetite_ingot.json
 dbad358ca6a97acd4641ee6d7370aefc1bd7735e assets/calamos/models/item/meteorite_ingot.json
 54f50658e278a75cfb9b916edb62b78458242295 assets/calamos/models/item/moonstone.json
+56fdd8a3e991b8949da641aa4067796bee6c42a5 assets/calamos/models/item/obsteel_ingot.json
 f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
+b51945cd282cf790339e118622fe9f33a5af4e92 assets/calamos/models/item/platinum_ingot.json
 3600654822eb3cbbf89c17e04971fee76899c9d0 assets/calamos/models/item/raw_meteorite.json
 45c77cb4ca654ac6f113fc451c14863c13a9df77 assets/calamos/models/item/ruby.json
 f5618548defc95005dd2977c277e083e77ec0989 assets/calamos/models/item/sapphire.json
 c751ed428edc174114836b5297cb354577636084 assets/calamos/models/item/spinel.json
+b03e6e95b3a5fb0034d5c363d6e6aedbd55453ba assets/calamos/models/item/starinium_ingot.json
 7d7c1d1c881616257d7a610d37b21653435718a3 assets/calamos/models/item/sunstone.json
 eb6ec291ffa2dc4805a8d39a54838b78a120a880 assets/calamos/models/item/tanzanite.json
+e1396429cf2a347da45809ef212489cf043b0a7a assets/calamos/models/item/terraulite_ingot.json
 3b88cd484957ade5177261544a67c311c4efd834 assets/calamos/models/item/topaz.json
+3d9f5be3b858d99707a29738cb4b9418ed94efe3 assets/calamos/models/item/ultimita_ingot.json

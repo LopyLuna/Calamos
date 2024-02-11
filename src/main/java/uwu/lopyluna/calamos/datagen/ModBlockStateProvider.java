@@ -18,6 +18,9 @@ class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        this.simpleBlockAndItem(ModBlocks.STONE);
+        this.simpleBlockAndItem(ModBlocks.PURRASITE);
+        this.simpleBlockAndItem(ModBlocks.UMBRALITE);
         //meteorite
         this.simpleBlockItem(ModBlocks.METEORITE_ORE);
         this.simpleBlockAndItem(ModBlocks.METEORITE);
@@ -41,6 +44,8 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.SUNSTONE_BLOCK);
         this.simpleBlockAndItem(ModBlocks.TANZANITE_BLOCK);
         this.simpleBlockAndItem(ModBlocks.TOPAZ_BLOCK);
+        //ores
+        this.simpleBlockItem(ModBlocks.COPPER_ORE);
     }
 
     private void simpleBlockItem(Supplier<? extends Block> block) {

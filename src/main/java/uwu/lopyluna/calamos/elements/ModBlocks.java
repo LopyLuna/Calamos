@@ -17,13 +17,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = ModUtils.createRegister(DeferredRegister::createBlocks);
 
-    public static final DeferredBlock<Block> STONE = register("stone",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                    .mapColor(MapColor.STONE)
-                    .strength(3.5F)
-                    .explosionResistance(7.0F)
-            ), new Item.Properties()
-                    .fireResistant());
     //Gem Blocks
     public static final DeferredBlock<Block> GARNET_BLOCK = register("garnet_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
@@ -59,6 +52,28 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
             new Item.Properties());
 
+    public static final DeferredBlock<Block> STONE = register("stone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .explosionResistance(7.0F)
+            ), new Item.Properties()
+                    .fireResistant());
+    public static final DeferredBlock<Block> PURRASITE = register("purrasite",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .explosionResistance(7.0F)
+            ), new Item.Properties()
+                    .fireResistant());
+    public static final DeferredBlock<Block> UMBRALITE = register("umbralite",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .mapColor(MapColor.STONE)
+                    .strength(3.5F)
+                    .explosionResistance(7.0F)
+            ), new Item.Properties()
+                    .fireResistant());
+
     //Meteorite Blocks
     public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
@@ -88,6 +103,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<Block> SMOOTH_METEORITE  = register("smooth_meteorite",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    //Ores
+    public static final DeferredBlock<Block> COPPER_ORE = register("copper_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 

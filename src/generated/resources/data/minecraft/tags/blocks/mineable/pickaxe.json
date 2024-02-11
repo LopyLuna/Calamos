@@ -18,6 +18,9 @@
     "calamos:gilded_meteorite_bricks",
     "calamos:meteorite_tiles",
     "calamos:large_meteorite_tile",
-    "calamos:cut_meteorite"
+    "calamos:cut_meteorite",
+    "calamos:stone",
+    "calamos:umbralite",
+    "calamos:purrasite"
   ]
 }

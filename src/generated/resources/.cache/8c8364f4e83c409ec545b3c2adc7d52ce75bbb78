@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-10T21:18:19.756918	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-02-10T17:05:28.1002454	Tags for minecraft:item mod id vanilla
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
 55007667d8dc4027a4cd207180350554a71e150f data/forge/tags/items/gems/garnet.json
 178412a3646756fe99371d66468dfc5c53b6a7b1 data/forge/tags/items/gems/jade.json
@@ -11,8 +11,18 @@ a82d96d7e67ecd25ebb33373bb31721cda3f3b56 data/forge/tags/items/gems/ruby.json
 46aae01f5a007b991112a530a9951412aa4e2e50 data/forge/tags/items/gems/sunstone.json
 957572354cee4f75bd092503b6e4193dfd3ebf65 data/forge/tags/items/gems/tanzanite.json
 6ea3ccc9d862927a2ebfe3343667ae3282d64119 data/forge/tags/items/gems/topaz.json
-0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots.json
+c8efe99108cc1253db5c59216c5a7f2ca2e17123 data/forge/tags/items/ingots.json
+72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/forge/tags/items/ingots/bloodbore_ingot.json
+ba08a9f2a5781f9783f511f3d789493e2928ef46 data/forge/tags/items/ingots/calamatium_ingot.json
+445a812d45241ecdd5fee4ddd42d362900a48af5 data/forge/tags/items/ingots/ectolight_ingot.json
+9fa1a168c13cac4861ed4a624593cdc8f3173b13 data/forge/tags/items/ingots/lead_ingot.json
+b2c50a7f07a59f4f942cd13a9dfc65f64a39fd66 data/forge/tags/items/ingots/magnetite_ingot.json
 0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots/meteorite.json
+a02ed117ba5a5c8e2aed3c465703f08963670867 data/forge/tags/items/ingots/obsteel_ingot.json
+810c41512bc1047a6f376633838a7899c0284e0c data/forge/tags/items/ingots/platinum_ingot.json
+2dc740f20ccef668a6a44ad0f037183cbfaa3460 data/forge/tags/items/ingots/starinium_ingot.json
+faa1fad4d6b1805e73007c7ecf2033e32534e763 data/forge/tags/items/ingots/terraulite_ingot.json
+f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/forge/tags/items/ingots/ultimita_ingot.json
 d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials.json
 d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials/meteorite.json
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/minecraft/tags/items/trim_materials.json

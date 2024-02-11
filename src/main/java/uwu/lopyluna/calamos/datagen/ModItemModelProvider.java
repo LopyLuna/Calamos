@@ -33,6 +33,18 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.TOPAZ);
         this.basicItem(ModItems.METEORITE_INGOT);
         this.basicItem(ModItems.RAW_METEORITE);
+        this.basicItem(ModItems.BLOOD_ORB);
+        this.basicItem(ModItems.ECTOPLASMA);
+        this.basicItem(ModItems.BLOODBORE_INGOT);
+        this.basicItem(ModItems.TERRAULITE_INGOT);
+        this.basicItem(ModItems.CALAMATIUM_INGOT);
+        this.basicItem(ModItems.LEAD_INGOT);
+        this.basicItem(ModItems.ECTOLIGHT_INGOT);
+        this.basicItem(ModItems.MAGNETITE_INGOT);
+        this.basicItem(ModItems.OBSTEEL_INGOT);
+        this.basicItem(ModItems.STARINIUM_INGOT);
+        this.basicItem(ModItems.ULTIMITA_INGOT);
+        this.basicItem(ModItems.PLATINUM_INGOT);
     }
     private void basicItem(Supplier<? extends Item> item) {
         super.basicItem(item.get());

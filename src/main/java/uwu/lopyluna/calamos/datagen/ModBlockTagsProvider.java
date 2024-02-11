@@ -42,7 +42,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.GILDED_METEORITE_BRICKS.get(),
                 ModBlocks.METEORITE_TILES.get(),
                 ModBlocks.LARGE_METEORITE_TILE.get(),
-                ModBlocks.CUT_METEORITE.get()
+                ModBlocks.CUT_METEORITE.get(),
+
+                ModBlocks.STONE.get(),
+                ModBlocks.UMBRALITE.get(),
+                ModBlocks.PURRASITE.get()
         );
     }
     protected void registerMinecraftTags() {

@@ -8,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.text.WordUtils;
 import uwu.lopyluna.calamos.elements.ModBlocks;
@@ -37,7 +38,23 @@ class ModLanguageProvider extends LanguageProvider {
         this.item(ModItems.SUNSTONE);
         this.item(ModItems.TANZANITE);
         this.item(ModItems.TOPAZ);
+
+        this.item(ModItems.BLOOD_ORB);
+        this.item(ModItems.ECTOPLASMA);
+        this.item(ModItems.BLOODBORE_INGOT);
+        this.item(ModItems.TERRAULITE_INGOT);
+        this.item(ModItems.CALAMATIUM_INGOT);
+        this.item(ModItems.LEAD_INGOT);
+        this.item(ModItems.ECTOLIGHT_INGOT);
+        this.item(ModItems.MAGNETITE_INGOT);
+        this.item(ModItems.OBSTEEL_INGOT);
+        this.item(ModItems.STARINIUM_INGOT);
+        this.item(ModItems.ULTIMITA_INGOT);
+        this.item(ModItems.PLATINUM_INGOT);
+
         this.block(ModBlocks.STONE);
+        this.block(ModBlocks.PURRASITE);
+        this.block(ModBlocks.UMBRALITE);
         //Meteorite
         this.block(ModBlocks.METEORITE_ORE);
         this.block(ModBlocks.METEORITE);
@@ -63,6 +80,8 @@ class ModLanguageProvider extends LanguageProvider {
         this.block(ModBlocks.SUNSTONE_BLOCK);
         this.block(ModBlocks.TANZANITE_BLOCK);
         this.block(ModBlocks.TOPAZ_BLOCK);
+        //Ores
+        this.block(ModBlocks.COPPER_ORE);
         //--//
         this.tab(ModCreativeTab.CALAMOS_TAB);
         //Trim Materials
