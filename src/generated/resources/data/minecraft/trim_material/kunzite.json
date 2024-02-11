@@ -1,7 +1,7 @@
 {
   "asset_name": "kunzite",
   "description": {
-    "color": "#ffafc2",
+    "color": "#FFAFC2",
     "translate": "trim_material.calamos.kunzite"
   },
   "ingredient": "calamos:kunzite",

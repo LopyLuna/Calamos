@@ -1,7 +1,7 @@
 {
   "asset_name": "sunstone",
   "description": {
-    "color": "#ffd699",
+    "color": "#FFD699",
     "translate": "trim_material.calamos.sunstone"
   },
   "ingredient": "calamos:sunstone",

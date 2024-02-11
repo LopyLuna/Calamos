@@ -6,7 +6,6 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.datagen.trim.TrimMaterialGen;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -26,5 +25,6 @@ public class ModDataGenerators {
         dataGenerator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, modId, fileHelper));
         dataGenerator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, modId, fileHelper));
         dataGenerator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        dataGenerator.addProvider(event.includeServer(), new ModTrimMaterialProvider(packOutput));
     }
 }

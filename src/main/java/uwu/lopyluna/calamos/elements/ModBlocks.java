@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.function.Supplier;
 
 @SuppressWarnings({"unused"})
-public class ModBlocks {
+public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = ModUtils.createRegister(DeferredRegister::createBlocks);
 
     //Gem Blocks

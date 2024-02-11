@@ -1,7 +1,7 @@
 {
   "asset_name": "jade",
   "description": {
-    "color": "#a4c7a9",
+    "color": "#A4C7A9",
     "translate": "trim_material.calamos.jade"
   },
   "ingredient": "calamos:jade",

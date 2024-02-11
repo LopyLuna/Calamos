@@ -15,51 +15,46 @@ import java.util.function.Supplier;
 
 
 @SuppressWarnings({"unused"})
-public class ModItems {
+public final class ModItems {
+    private static final Supplier<Item> SIMPLE_SUPPLIER = () -> new Item(new Item.Properties());
     public static final DeferredRegister.Items ITEMS = ModUtils.createRegister(DeferredRegister::createItems);
-
     public static final DeferredItem<Item> DEBUG_HEALTH = register("debug_health", () -> new DebugHealthItem(new Item.Properties()
             .fireResistant().stacksTo(1)
     ));
-    
-    public static final DeferredItem<Item> GARNET = register("garnet", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> JADE = register("jade", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> KUNZITE = register("kunzite", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> MOONSTONE = register("moonstone", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> OPAL = register("opal", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> RUBY = register("ruby", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SAPPHIRE = register("sapphire", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SPINEL = register("spinel", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SUNSTONE = register("sunstone", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> TANZANITE = register("tanzanite", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> TOPAZ = register("topaz", () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> BLOOD_ORB = register("blood_orb", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> ECTOPLASMA = register("ectoplasma", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GARNET = registerSimple("garnet");
+    public static final DeferredItem<Item> JADE = registerSimple("jade");
+    public static final DeferredItem<Item> KUNZITE = registerSimple("kunzite");
+    public static final DeferredItem<Item> MOONSTONE = registerSimple("moonstone");
+    public static final DeferredItem<Item> OPAL = registerSimple("opal");
+    public static final DeferredItem<Item> RUBY = registerSimple("ruby");
+    public static final DeferredItem<Item> SAPPHIRE = registerSimple("sapphire");
+    public static final DeferredItem<Item> SPINEL = registerSimple("spinel");
+    public static final DeferredItem<Item> SUNSTONE = registerSimple("sunstone");
+    public static final DeferredItem<Item> TANZANITE = registerSimple("tanzanite");
+    public static final DeferredItem<Item> TOPAZ = registerSimple("topaz");
+    public static final DeferredItem<Item> METEORITE_INGOT = registerSimple("meteorite_ingot", new Item.Properties().fireResistant());
+    public static final DeferredItem<Item> RAW_METEORITE = registerSimple("raw_meteorite", new Item.Properties().fireResistant());
+    public static final DeferredItem<Item> BLOOD_ORB = registerSimple("blood_orb");
+    public static final DeferredItem<Item> ECTOPLASMA = registerSimple("ectoplasma");
+    public static final DeferredItem<Item> BLOODBORE_INGOT = registerSimple("bloodbore_ingot");
+    public static final DeferredItem<Item> CALAMATIUM_INGOT = registerSimple("calamatium_ingot");
+    public static final DeferredItem<Item> ECTOLIGHT_INGOT = registerSimple("ectolight_ingot");
+    public static final DeferredItem<Item> LEAD_INGOT = registerSimple("lead_ingot");
+    public static final DeferredItem<Item> MAGNETITE_INGOT = registerSimple("magnetite_ingot");
+    public static final DeferredItem<Item> OBSTEEL_INGOT = registerSimple("obsteel_ingot");
+    public static final DeferredItem<Item> PLATINUM_INGOT = registerSimple("platinum_ingot");
+    public static final DeferredItem<Item> STARINIUM_INGOT = registerSimple("starinium_ingot");
+    public static final DeferredItem<Item> TERRAULITE_INGOT = registerSimple("terraulite_ingot");
+    public static final DeferredItem<Item> ULTIMITA_INGOT = registerSimple("ultimita_ingot");
 
-    public static final DeferredItem<Item> RAW_METEORITE = register("raw_meteorite", () -> new Item(new Item.Properties().fireResistant()));
-    //Ingots
-    public static final DeferredItem<Item> METEORITE_INGOT = register("meteorite_ingot", () -> new Item(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item> BLOODBORE_INGOT = register("bloodbore_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> CALAMATIUM_INGOT = register("calamatium_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> ECTOLIGHT_INGOT = register("ectolight_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> LEAD_INGOT = register("lead_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> MAGNETITE_INGOT = register("magnetite_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> OBSTEEL_INGOT = register("obsteel_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> PLATINUM_INGOT = register("platinum_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> STARINIUM_INGOT = register("starinium_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> TERRAULITE_INGOT = register("terraulite_ingot", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> ULTIMITA_INGOT = register("ultimita_ingot", () -> new Item(new Item.Properties()));
+    private static DeferredItem<Item> registerSimple(String name, Item.Properties itemProperties) {
+        return register(name, () -> new Item(itemProperties));
+    }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    private static DeferredItem<Item> registerSimple(String name) {
+        return register(name, SIMPLE_SUPPLIER);
+    }
 
     private static <T extends Item> DeferredItem<T> register(String id, Supplier<T> pIProp) {
         return ITEMS.register(id.toLowerCase(), pIProp);
@@ -78,11 +73,12 @@ public class ModItems {
     static void registerBlockItem(Holder<Block> blockHolder, Item.Properties properties) {
         ITEMS.registerSimpleBlockItem(blockHolder, properties);
     }
+
     static void registerSimpleItem(String name) {
         ITEMS.registerSimpleItem(name);
     }
 
-    public static Collection<DeferredHolder<Item,? extends Item>> getItems() {
+    public static Collection<DeferredHolder<Item, ? extends Item>> getItems() {
         return ITEMS.getEntries();
     }
 }

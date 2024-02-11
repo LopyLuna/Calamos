@@ -12,7 +12,7 @@ import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Set;
 
-public class ModBlockEntities {
+public final class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BE_TYPES = ModUtils.createRegister(Registries.BLOCK_ENTITY_TYPE);
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SevenBySevenCraftingTableBE>> SEVEN_BY_SEVEN_CRAFTING_TABLE_BE = BE_TYPES.register("seven_by_seven_crafting_table_be",

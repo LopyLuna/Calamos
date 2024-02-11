@@ -1,7 +1,7 @@
 {
   "asset_name": "topaz",
   "description": {
-    "color": "#fffeb3",
+    "color": "#FFFEB3",
     "translate": "trim_material.calamos.topaz"
   },
   "ingredient": "calamos:topaz",

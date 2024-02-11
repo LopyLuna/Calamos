@@ -1,7 +1,5 @@
 package uwu.lopyluna.calamos.datagen.recipe;
 
-import java.util.function.Consumer;
-
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -55,13 +53,6 @@ public class CraftingProvider {
         decompressedBlock(ModItems.TANZANITE.get(), ModBlocks.TANZANITE_BLOCK.asItem(), false).save(consumer, location("tanzanite"));
         decompressedBlock(ModItems.TOPAZ.get(), ModBlocks.TOPAZ_BLOCK.asItem(), false).save(consumer, location("topaz"));
     }
-    
-    
-    
-    
-    
-    
-    
     
     public static ShapelessRecipeBuilder decompressedBlock(Item result, ItemLike input, boolean fourByFour) {
         if (fourByFour) {

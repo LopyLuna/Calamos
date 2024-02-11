@@ -14,7 +14,7 @@ import uwu.lopyluna.calamos.utilities.ModUtils;
 import java.util.function.Consumer;
 
 //TODO : Need some cleanup later when items and blocks are mostly implemented
-public class ModCreativeTab {
+public final class ModCreativeTab {
     private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = ModUtils.createRegister(Registries.CREATIVE_MODE_TAB);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CALAMOS_TAB;
 
