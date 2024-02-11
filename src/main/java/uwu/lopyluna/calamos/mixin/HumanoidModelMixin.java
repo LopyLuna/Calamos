@@ -14,16 +14,10 @@ public class HumanoidModelMixin {
     @Inject(method = "setupAnim*", at = @At("TAIL"))
     private void calamos$setupAnimTail(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         var model = ((HumanoidModel<LivingEntity>) (Object) this);
-        if (entity.getMainHandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded()) {
-            model.rightArm.xRot = -0.97079635F;
-            model.leftArm.xRot = model.rightArm.xRot - 0.033F;
-            model.rightArm.yRot = -0.6F;
-            model.leftArm.yRot = -model.rightArm.yRot;
-        } else if (entity.getOffhandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded()) {
-            model.leftArm.xRot = -0.97079635F;
-            model.rightArm.xRot = model.leftArm.xRot - 0.033F;
-            model.leftArm.yRot = 0.6F;
-            model.rightArm.yRot = -model.leftArm.yRot;
+        if (entity.getMainHandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
+            tool.idleHeldPose(model, entity, false, ageInTicks);
+        } else if (entity.getOffhandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
+            tool.idleHeldPose(model, entity, true, ageInTicks);
         }
     }
 }

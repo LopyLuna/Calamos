@@ -1,9 +1,11 @@
 package uwu.lopyluna.calamos.elements.items.tool;
 
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import uwu.lopyluna.calamos.utilities.ModUtils;
+import uwu.lopyluna.calamos.utilities.RenderingUtils;
 
 public class CalamosReaper extends HoeItem implements CalamosTool{
     protected int harvestRadius;
@@ -26,14 +29,18 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
     }
     
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        pPlayer.getCooldowns().addCooldown(this, ModUtils.secondsToTicks(3));
         if (pPlayer.isShiftKeyDown()) {
+            pPlayer.getCooldowns().addCooldown(this, ModUtils.secondsToTicks(3));
             return harvest(this.harvestRadius, pLevel, pPlayer, pUsedHand);
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
-    
-    
+    @Override
+    public void idleHeldPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        if (isTwoHanded()) {
+            RenderingUtils.twoHanded(model, entity, offHand, pAgeInTicks);
+        }
+    }
     
     
     
@@ -74,5 +81,20 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
     @Override
     public boolean isTwoHanded() {
         return twoHanded;
+    }
+    
+    @Override
+    public boolean isBeingUsed() {
+        return false;
+    }
+    
+    @Override
+    public boolean hasUsePose() {
+        return false;
+    }
+    
+    @Override
+    public boolean hasIdleHeldPose() {
+        return isTwoHanded();
     }
 }
