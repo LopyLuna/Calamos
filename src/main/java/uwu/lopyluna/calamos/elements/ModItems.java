@@ -8,6 +8,9 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
+import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
+import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
+import uwu.lopyluna.calamos.elements.items.tool.CalamosTiers;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -47,7 +50,8 @@ public final class ModItems {
     public static final DeferredItem<Item> STARINIUM_INGOT = registerSimple("starinium_ingot");
     public static final DeferredItem<Item> TERRAULITE_INGOT = registerSimple("terraulite_ingot");
     public static final DeferredItem<Item> ULTIMITA_INGOT = registerSimple("ultimita_ingot");
-
+    public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
+    public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     private static DeferredItem<Item> registerSimple(String name, Item.Properties itemProperties) {
         return register(name, () -> new Item(itemProperties));
     }

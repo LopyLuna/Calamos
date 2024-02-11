@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-10T17:05:28.099246	Item Models: calamos
+// 1.20.4	2024-02-11T15:17:57.2359588	Item Models: calamos
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
 5e0f4afd2425ca01b38e7d752470766eff1b1cff assets/calamos/models/item/calamatium_ingot.json
@@ -11,6 +11,8 @@ cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
 fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
 997dbbea039578a61034d5384f87bd24e8dab2eb assets/calamos/models/item/magnetite_ingot.json
 dbad358ca6a97acd4641ee6d7370aefc1bd7735e assets/calamos/models/item/meteorite_ingot.json
+853cb347bad35dfa2b4a2946d824d831dfcdba06 assets/calamos/models/item/meteorite_reaper.json
+66d0fe3278e90cf0639ac9807fc02c8ed027896b assets/calamos/models/item/meteorite_sword.json
 54f50658e278a75cfb9b916edb62b78458242295 assets/calamos/models/item/moonstone.json
 56fdd8a3e991b8949da641aa4067796bee6c42a5 assets/calamos/models/item/obsteel_ingot.json
 f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json

@@ -6,9 +6,11 @@
   "refmap": "calamos.refmap.json",
   "mixins": [
     "AccessorRangedAttribute",
-    "GuiMixin"
+    "GuiMixin",
+    "PlayerAccessor"
   ],
   "client": [
+    "HumanoidModelMixin"
   ],
   "injectors": {
     "defaultRequire": 1

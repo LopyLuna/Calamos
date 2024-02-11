@@ -42,5 +42,10 @@ public class ModUtils {
     public static float secondsToTicks(float seconds) {
         return seconds * 20.0F;
     }
+    
+    public static int roundThat(Float n)
+    {
+        return (int)(n % 1 > 0.5 ? Math.ceil(n) : Math.floor(n));
+    }
 
 }

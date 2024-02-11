@@ -67,6 +67,8 @@ class ModLanguageProvider extends LanguageProvider {
         this.block(ModBlocks.SMOOTH_METEORITE);
         this.item(ModItems.METEORITE_INGOT);
         this.item(ModItems.RAW_METEORITE);
+        this.item(ModItems.METEORITE_REAPER);
+        this.item(ModItems.METEORITE_SWORD);
         //Gems
         this.block(ModBlocks.GARNET_BLOCK);
         this.block(ModBlocks.JADE_BLOCK);

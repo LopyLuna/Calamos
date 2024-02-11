@@ -79,6 +79,8 @@ public final class ModCreativeTab {
             output.accept(ModBlocks.SMOOTH_METEORITE);
             output.accept(ModItems.METEORITE_INGOT);
             output.accept(ModItems.RAW_METEORITE);
+            output.accept(ModItems.METEORITE_REAPER);
+            output.accept(ModItems.METEORITE_SWORD);
 
         }, builder -> builder.withTabsBefore(CreativeModeTabs.COMBAT));
     }

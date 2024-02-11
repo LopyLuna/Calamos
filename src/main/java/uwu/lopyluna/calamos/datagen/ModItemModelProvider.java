@@ -45,6 +45,8 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.STARINIUM_INGOT);
         this.basicItem(ModItems.ULTIMITA_INGOT);
         this.basicItem(ModItems.PLATINUM_INGOT);
+        this.handheld32(ModItems.METEORITE_REAPER);
+        this.handheld32(ModItems.METEORITE_SWORD);
     }
     private void basicItem(Supplier<? extends Item> item) {
         super.basicItem(item.get());
