@@ -32,7 +32,6 @@ public class DebugHealthItem extends Item {
 
     @Override
     public @NotNull ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-        //CalamosMessages.sendToServer(new TestPacket(1));
         super.finishUsingItem(pStack, pLevel, pEntityLiving);
         double MaxHealth1 = 100.0D;
         double MaxHealth2 = 200.0D;
