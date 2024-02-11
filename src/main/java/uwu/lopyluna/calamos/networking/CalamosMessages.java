@@ -33,7 +33,7 @@ public class CalamosMessages {
     private static <P extends Packet> void registerPacket(Class<P> packet, ResourceLocation id) {
         registrar.play(id, (buffer) -> {
             try {
-                return new Packet.CalamosPacket<>(packet.getConstructor().newInstance(), id).decode(buffer);
+                return packet.getConstructor(FriendlyByteBuf.class).newInstance(buffer);
             } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
                      InvocationTargetException e) {
                 throw new RuntimeException(e);

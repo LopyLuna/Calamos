@@ -34,14 +34,6 @@ public abstract class Packet implements CustomPacketPayload {
             this.packet.write(pBuffer);
         }
 
-        public MSG decode(FriendlyByteBuf pBuffer) {
-            try {
-                return (MSG) this.packet.getClass().getConstructor(FriendlyByteBuf.class).newInstance(pBuffer);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-
         @Override
         public ResourceLocation id() {
             return this.id;

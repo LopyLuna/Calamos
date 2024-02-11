@@ -21,11 +21,6 @@ public class TestPacket extends Packet {
         this.test = buf.readInt();
     }
 
-    public TestPacket() { // Need this for reflection.
-
-    }
-
-
     @Override
     public void handleServer(PlayPayloadContext context) {
         CalamosMod.LOGGER.info("Test packet received {}", this.test);
