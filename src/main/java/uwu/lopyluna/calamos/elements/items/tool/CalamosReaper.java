@@ -41,7 +41,12 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
             RenderingUtils.twoHanded(model, entity, offHand, pAgeInTicks);
         }
     }
-    
+    @Override
+    public void swingPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        if (isTwoHanded()) {
+            RenderingUtils.twoHandSwing(model, entity, offHand, pAgeInTicks);
+        }
+    }
     
     
     

@@ -14,4 +14,7 @@ public interface CalamosTool {
     default void usePose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
     
     }
+    default void swingPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+    
+    }
 }

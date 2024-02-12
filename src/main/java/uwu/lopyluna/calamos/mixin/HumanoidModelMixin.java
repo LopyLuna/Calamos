@@ -15,9 +15,15 @@ public class HumanoidModelMixin {
     private void calamos$setupAnimTail(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         var model = ((HumanoidModel<LivingEntity>) (Object) this);
         if (entity.getMainHandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
-            tool.idleHeldPose(model, entity, false, ageInTicks);
+            if (entity.swinging)
+                tool.swingPose(model, entity, false, entity.swingTime);
+            else
+                tool.idleHeldPose(model, entity, false, ageInTicks);
         } else if (entity.getOffhandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
-            tool.idleHeldPose(model, entity, true, ageInTicks);
+            if (entity.swinging)
+                tool.swingPose(model, entity, true, entity.swingTime);
+            else
+                tool.idleHeldPose(model, entity, true, ageInTicks);
         }
     }
 }
