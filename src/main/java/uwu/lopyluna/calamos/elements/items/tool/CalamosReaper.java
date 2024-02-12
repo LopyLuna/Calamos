@@ -44,7 +44,7 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
     @Override
     public void swingPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
         if (isTwoHanded()) {
-            RenderingUtils.twoHandSwing(model, entity, offHand, pAgeInTicks);
+            RenderingUtils.reaperSwing(model, entity, offHand, pAgeInTicks);
         }
     }
     
@@ -101,5 +101,10 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
     @Override
     public boolean hasIdleHeldPose() {
         return isTwoHanded();
+    }
+    
+    @Override
+    public boolean hasSwingPose() {
+        return true;
     }
 }

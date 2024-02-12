@@ -27,15 +27,15 @@ public class RenderingUtils {
             model.leftArm.yRot = -model.rightArm.yRot;
         }
     }
-    public static <T extends LivingEntity> void twoHandSwing(HumanoidModel<LivingEntity> model, T pEntity, boolean offHand, float pAgeInTicks) {
-        twoHanded(model, pEntity, offHand, pAgeInTicks);
+    public static void twoHandSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        twoHanded(model, entity, offHand, pAgeInTicks);
         float f = Mth.sin(pAgeInTicks * (float) Math.PI);
         float f1 = Mth.sin((1.0F - (1.0F - pAgeInTicks) * (1.0F - pAgeInTicks)) * (float) Math.PI);
         model.rightArm.zRot = 0.0F;
         model.leftArm.zRot = 0.0F;
         model.rightArm.yRot = (float) (Math.PI / 20);
         model.leftArm.yRot = (float) (-Math.PI / 20);
-        if (pEntity.getMainArm() == HumanoidArm.RIGHT) {
+        if (entity.getMainArm() == HumanoidArm.RIGHT) {
             model.rightArm.xRot = -1.8849558F + Mth.cos(pAgeInTicks * 0.09F) * 0.15F;
             model.leftArm.xRot = -0.0F + Mth.cos(pAgeInTicks * 0.19F) * 0.5F;
             model.rightArm.xRot += f * 2.2F - f1 * 0.4F;
@@ -46,7 +46,16 @@ public class RenderingUtils {
             model.rightArm.xRot += f * 1.2F - f1 * 0.4F;
             model.leftArm.xRot += f * 2.2F - f1 * 0.4F;
         }
-        
         bobArms(model.rightArm, model.leftArm, pAgeInTicks);
+    }
+    
+    //TODO: Fix the swing animation. The player's arm phases through the body.
+    public static void reaperSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        if (!offHand) {
+            model.rightArm.zRot = -1.0F;
+            model.rightArm.xRot = -1.0F + ((float) (Math.PI) * (pAgeInTicks / 5)) / 2;
+        } else {
+            bobArms(model.rightArm, model.leftArm, pAgeInTicks);
+        }
     }
 }

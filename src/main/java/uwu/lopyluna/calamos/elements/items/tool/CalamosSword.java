@@ -37,4 +37,9 @@ public class CalamosSword extends SwordItem implements CalamosTool{
     public boolean hasIdleHeldPose() {
         return isTwoHanded();
     }
+    
+    @Override
+    public boolean hasSwingPose() {
+        return false;
+    }
 }
