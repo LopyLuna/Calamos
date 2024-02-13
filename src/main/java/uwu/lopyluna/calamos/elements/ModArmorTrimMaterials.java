@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public final class ModArmorTrimMaterials {
-    public static final Map<ResourceKey<TrimMaterial>, TrimMaterial> MATERIAL_MAP = new TreeMap<>();
+    public static final Map<ResourceKey<TrimMaterial>, TrimMaterial> MATERIALS = new TreeMap<>();
     public static final ResourceKey<TrimMaterial> GARNET = registryKey("garnet", ModItems.GARNET, 0xf33e35, 0.61F);
     public static final ResourceKey<TrimMaterial> JADE = registryKey("jade", ModItems.JADE, 0xa4c7a9, 0.62F);
     public static final ResourceKey<TrimMaterial> KUNZITE = registryKey("kunzite", ModItems.KUNZITE, 0xffafc2, 0.63F);
@@ -27,7 +27,7 @@ public final class ModArmorTrimMaterials {
 
     private static ResourceKey<TrimMaterial> registryKey(String name, Holder<Item> ingredient, int color, float modelIndex) {
         ResourceKey<TrimMaterial> key = ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(CalamosMod.MODID, name));
-        MATERIAL_MAP.put(key, new TrimMaterial(name, ingredient, modelIndex, Map.of(), Component.translatable(key.location().toLanguageKey("trim_material")).withColor(color)));
+        MATERIALS.put(key, new TrimMaterial(name, ingredient, modelIndex, Map.of(), Component.translatable(key.location().toLanguageKey("trim_material")).withColor(color)));
         return key;
     }
 }

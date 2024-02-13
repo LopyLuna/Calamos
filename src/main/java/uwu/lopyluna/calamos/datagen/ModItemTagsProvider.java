@@ -4,7 +4,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.internal.NeoForgeItemTagsProvider;
 import uwu.lopyluna.calamos.elements.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -36,7 +39,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TANZANITE.get(),
                 ModItems.TOPAZ.get()
         );
-        this.tag(ModTags.mcItemTag("trim_materials")).add(
+        this.tag(ItemTags.TRIM_MATERIALS).add(
                 ModItems.GARNET.get(),
                 ModItems.JADE.get(),
                 ModItems.KUNZITE.get(),
@@ -49,7 +52,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TANZANITE.get(),
                 ModItems.TOPAZ.get()
         );
-        this.tag(ModTags.forgeItemTag("ingots")).add(
+        this.tag(Tags.Items.INGOTS).add(
                 ModItems.METEORITE_INGOT.get(),
                 ModItems.BLOODBORE_INGOT.get(),
                 ModItems.CALAMATIUM_INGOT.get(),
@@ -62,7 +65,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TERRAULITE_INGOT.get(),
                 ModItems.ULTIMITA_INGOT.get()
         );
-        this.tag(ModTags.forgeItemTag("raw_materials")).add(
+        this.tag(Tags.Items.RAW_MATERIALS).add(
                 ModItems.RAW_METEORITE.get()
         );
         this.tag(ModTags.forgeItemTag("gems/garnet")).add(ModItems.GARNET.get());

@@ -1,6 +1,15 @@
 {
-  "parent": "calamos:item/templates/handheld32x",
-  "textures": {
-    "layer0": "calamos:item/meteorite_sword"
+  "parent": "minecraft:item/handheld",
+  "base": {
+    "parent": "calamos:item/meteorite_sword_2d"
+  },
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "fixed": {
+      "parent": "calamos:item/meteorite_sword_2d"
+    },
+    "gui": {
+      "parent": "calamos:item/meteorite_sword_2d"
+    }
   }
 }
