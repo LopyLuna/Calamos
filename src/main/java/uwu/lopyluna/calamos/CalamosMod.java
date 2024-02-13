@@ -17,6 +17,7 @@ import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.event.CommonEvents;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
+import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
 
 @Mod(CalamosMod.MODID)
 public class CalamosMod {
@@ -33,6 +34,8 @@ public class CalamosMod {
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
         CalamosMessages.init(modEventBus);
+        CalamosOverworldRegions.register();
+
 
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);

@@ -1,0 +1,11 @@
+{
+  "type": "calamos:calamosdim_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "calamos:test_biome"
+    },
+    "settings": "minecraft:overworld"
+  }
+}
