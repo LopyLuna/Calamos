@@ -4,17 +4,19 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import org.apache.commons.lang3.text.WordUtils;
+import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModCreativeTab;
 import uwu.lopyluna.calamos.elements.ModItems;
+import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
 import java.util.NoSuchElementException;
+import java.util.function.Supplier;
 
 import static uwu.lopyluna.calamos.CalamosMod.MODID;
 
@@ -86,7 +88,7 @@ class ModLanguageProvider extends LanguageProvider {
         this.block(ModBlocks.TOPAZ_BLOCK);
         //Ores
         this.block(ModBlocks.COPPER_ORE);
-        //--//
+        //Tab//
         this.tab(ModCreativeTab.CALAMOS_TAB);
         //Trim Materials
         this.trimMaterial("garnet");
@@ -100,6 +102,12 @@ class ModLanguageProvider extends LanguageProvider {
         this.trimMaterial("sunstone");
         this.trimMaterial("tanzanite");
         this.trimMaterial("topaz");
+
+        for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
+            ResourceLocation tagId = tag.getA().location();
+            String tagNamespace = tagId.getNamespace().equals("forge") ? "c" : tagId.getNamespace();
+            super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
+        }
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {
@@ -113,10 +121,12 @@ class ModLanguageProvider extends LanguageProvider {
     private void item(Holder<Item> itemHolder) {
         this.add(itemHolder, "item");
     }
+
     private void trimMaterial(String material) {
-        String translated = WordUtils.capitalizeFully(material) + " Material";
-        this.add("trim_material." + MODID + "." + material, translated);
+        String translated = transform(material) + " Material";
+        super.add("trim_material.%s.%s".formatted(MODID, material), translated);
     }
+
     private void add(Holder<?> holder, String type) {
         ResourceKey<?> resourceKey = holder.unwrapKey().orElseThrow(() -> new NoSuchElementException("No respective key. Check log"));
         ResourceLocation path = resourceKey.location();
@@ -128,7 +138,15 @@ class ModLanguageProvider extends LanguageProvider {
      * e.g. example_transform_text -> Example Transform Text
      */
     private String transform(ResourceLocation id) {
-        String path = id.getPath();
+        return this.transform(id.getPath());
+    }
+
+
+    /**
+     * Use to transform a ResourceLocation-form text into a spaced-form text.
+     * e.g. example_transform_text -> Example Transform Text
+     */
+    private String transform(String path) {
         int pathLength = path.length();
         StringBuilder stringBuilder = new StringBuilder(pathLength).append(Character.toUpperCase(path.charAt(0)));
         for (int i = 1; i < pathLength; i++) {
