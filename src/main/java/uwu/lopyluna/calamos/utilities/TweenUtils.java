@@ -1,5 +1,9 @@
 package uwu.lopyluna.calamos.utilities;
 
+/**
+ * A class that contains various tweening functions.
+ * @see <a href="https://easings.net/">Easing Functions</a>
+ */
 public class TweenUtils {
     private static final float PI = (float) Math.PI;
 

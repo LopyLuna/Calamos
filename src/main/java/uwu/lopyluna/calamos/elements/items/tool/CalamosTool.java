@@ -9,6 +9,7 @@ public interface CalamosTool {
     boolean hasUsePose();
     boolean hasIdleHeldPose();
     boolean hasSwingPose();
+    int attackTimeAddition();
     default void idleHeldPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
     
     }

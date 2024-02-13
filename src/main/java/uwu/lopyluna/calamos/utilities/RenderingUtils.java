@@ -2,10 +2,12 @@ package uwu.lopyluna.calamos.utilities;
 
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.EnderpearlItem;
 
 import static net.minecraft.client.model.AnimationUtils.bobArms;
 
@@ -15,6 +17,9 @@ public class RenderingUtils {
         AnimationUtils.bobModelPart(model.leftArm, pAgeInTicks, 1.0F);
     }
     public static void twoHanded(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        if (entity.isSprinting()) {
+            twoHandedSprint(model, entity, offHand, pAgeInTicks);
+        }
         if (offHand) {
             model.leftArm.xRot = -0.97079635F;
             model.rightArm.xRot = model.leftArm.xRot - 0.233F;
@@ -25,6 +30,33 @@ public class RenderingUtils {
             model.leftArm.xRot = model.rightArm.xRot - 0.233F;
             model.rightArm.yRot = -0.58F;
             model.leftArm.yRot = -model.rightArm.yRot;
+        }
+    }
+    public static void twoHandedSprint(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        float f;
+        f = (float)entity.getDeltaMovement().lengthSqr();
+        f /= 0.2F;
+        f *= f * f;
+        if (f < 1.0F) {
+            f = 1.0F;
+        }
+        if (offHand) {
+            model.leftArm.zRot = -1.0F;
+            model.leftArm.xRot = 1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
+            model.rightArm.xRot = -1.20379635F;
+            model.rightArm.yRot = 0.58F - (TweenUtils.elasticOut((pAgeInTicks / 8.0F)));
+            model.body.xRot = 0.5F;
+            model.rightLeg.z = 4.0F;
+            model.leftLeg.z = 4.0F;
+        } else {
+            model.rightArm.zRot = 1.0F;
+            model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
+            model.leftArm.xRot = 1.20379635F;
+            model.leftArm.yRot = -0.58F - (TweenUtils.elasticOut((pAgeInTicks / 8.0F)));
+            model.body.xRot = 0.5F;
+            model.rightLeg.z = 4.0F;
+            model.leftLeg.z = 4.0F;
+        
         }
     }
     public static void twoHandSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
@@ -51,9 +83,12 @@ public class RenderingUtils {
     
     //TODO: Fix the swing animation. The player's arm phases through the body.
     public static void reaperSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        entity.sendSystemMessage(Component.literal("Swing Time: " + pAgeInTicks));
         if (!offHand) {
             model.rightArm.zRot = -1.0F;
-            model.rightArm.xRot = -1.0F + ((float) (Math.PI) * (pAgeInTicks / 5)) / 2;
+            model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
+            model.leftArm.xRot = -1.20379635F;
+            model.leftArm.yRot = -0.58F - (TweenUtils.elasticOut((pAgeInTicks / 8.0F)));
         } else {
             bobArms(model.rightArm, model.leftArm, pAgeInTicks);
         }

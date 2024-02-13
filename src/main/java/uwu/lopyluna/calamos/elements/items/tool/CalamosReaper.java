@@ -7,8 +7,8 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 import uwu.lopyluna.calamos.utilities.RenderingUtils;
 
-public class CalamosReaper extends HoeItem implements CalamosTool{
+public class CalamosReaper extends SwordItem implements CalamosTool {
     protected int harvestRadius;
     private final boolean twoHanded;
     public CalamosReaper(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, int harvestRadius, boolean twoHanded, Properties pProperties) {
@@ -71,11 +71,11 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
                     }
                     BlockState blockState = world.getBlockState(newBlockPos);
                     Block block = blockState.getBlock();
-                    if (block instanceof CropBlock && ((CropBlock) block).isMaxAge(blockState)) {
-                        CropBlock cropsBlock = (CropBlock) block;
+                    if (block instanceof CropBlock cropBlock && cropBlock.isMaxAge(blockState)) {
                         Block.dropResources(blockState, world, newBlockPos);
-                        item.hurtAndBreak(1, player, (stack) -> stack.broadcastBreakEvent(hand));
-                        world.setBlockAndUpdate(newBlockPos, cropsBlock.getStateForAge(0));
+                        if(!player.isCreative())
+                            item.hurtAndBreak(1, player, (stack) -> stack.broadcastBreakEvent(hand));
+                        world.setBlockAndUpdate(newBlockPos, cropBlock.getStateForAge(0));
                     }
                 }
             }
@@ -106,5 +106,10 @@ public class CalamosReaper extends HoeItem implements CalamosTool{
     @Override
     public boolean hasSwingPose() {
         return true;
+    }
+    
+    @Override
+    public int attackTimeAddition() {
+        return 6;
     }
 }

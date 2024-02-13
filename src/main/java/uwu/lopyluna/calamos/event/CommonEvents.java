@@ -21,6 +21,23 @@ public class CommonEvents {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void onEntityAdded(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
+        if (entity instanceof Player player) {
+            float MaxHealth = 100.0F;
+            boolean hasCalamosDefaultHealth = player.getMaxHealth() >= MaxHealth;
+            AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
+            AttributeInstance damageInst = player.getAttribute(Attributes.ATTACK_DAMAGE);
+            if (!hasCalamosDefaultHealth) {
+                if (inst != null)
+                    inst.setBaseValue(MaxHealth);
+                player.heal(MaxHealth);
+            }
+            if (damageInst != null) {
+                AttributeModifier damageModifier = new AttributeModifier(UUID.fromString("5a1d6084-5698-4066-998b-23c02b389392"), "Calamos Damage Multiplier", 2.0F, AttributeModifier.Operation.MULTIPLY_TOTAL);
+                boolean hasCalamosDamageModifier = damageInst.hasModifier(damageModifier);
+                if (!hasCalamosDamageModifier)
+                    damageInst.addPermanentModifier(damageModifier);
+            }
+        }
         if (!(entity instanceof LivingEntity livingEntity) || entity instanceof Player) {
             return;
         }
@@ -41,25 +58,27 @@ public class CommonEvents {
             if (!hasCalamosDamageModifier)
                 damageInst.addPermanentModifier(damageModifier);
         }
+        
+        
     }
     
-    @SubscribeEvent
-    public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        float MaxHealth = 100.0F;
-        Player player = event.getEntity();
-        boolean hasCalamosDefaultHealth = player.getMaxHealth() >= MaxHealth;
-        AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
-        AttributeInstance damageInst = player.getAttribute(Attributes.ATTACK_DAMAGE);
-        if (!hasCalamosDefaultHealth) {
-            if (inst != null)
-                inst.setBaseValue(MaxHealth);
-            player.heal(MaxHealth);
-        }
-        if (damageInst != null) {
-            AttributeModifier damageModifier = new AttributeModifier(UUID.fromString("5a1d6084-5698-4066-998b-23c02b389392"), "Calamos Damage Multiplier", 2.0F, AttributeModifier.Operation.MULTIPLY_TOTAL);
-            boolean hasCalamosDamageModifier = damageInst.hasModifier(damageModifier);
-            if (!hasCalamosDamageModifier)
-                damageInst.addPermanentModifier(damageModifier);
-        }
-    }
+    //@SubscribeEvent
+    //public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+    //    float MaxHealth = 100.0F;
+    //    Player player = event.getEntity();
+    //    boolean hasCalamosDefaultHealth = player.getMaxHealth() >= MaxHealth;
+    //    AttributeInstance inst = player.getAttribute(Attributes.MAX_HEALTH);
+    //    AttributeInstance damageInst = player.getAttribute(Attributes.ATTACK_DAMAGE);
+    //    if (!hasCalamosDefaultHealth) {
+    //        if (inst != null)
+    //            inst.setBaseValue(MaxHealth);
+    //        player.heal(MaxHealth);
+    //    }
+    //    if (damageInst != null) {
+    //        AttributeModifier damageModifier = new AttributeModifier(UUID.fromString("5a1d6084-5698-4066-998b-23c02b389392"), "Calamos Damage Multiplier", 2.0F, AttributeModifier.Operation.MULTIPLY_TOTAL);
+    //        boolean hasCalamosDamageModifier = damageInst.hasModifier(damageModifier);
+    //        if (!hasCalamosDamageModifier)
+    //            damageInst.addPermanentModifier(damageModifier);
+    //    }
+    //}
 }

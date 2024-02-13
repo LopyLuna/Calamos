@@ -42,4 +42,9 @@ public class CalamosSword extends SwordItem implements CalamosTool{
     public boolean hasSwingPose() {
         return false;
     }
+    
+    @Override
+    public int attackTimeAddition() {
+        return 0;
+    }
 }
