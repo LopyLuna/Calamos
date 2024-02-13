@@ -65,9 +65,10 @@ class ModItemModelProvider extends ItemModelProvider {
         handheld(item, 64);
     }
 
+    //TODO: add the "forge:seperate_transforms" loader to datagen for gui model and handheld model
     private void handheld(DeferredHolder<Item, ? extends Item> item, int x) {
-        ResourceLocation name = item.getKey().location().withPrefix("item/");
-        super.withExistingParent(name.toString(), ModUtils.location("item/templates/handheld%sx".formatted(x)))
-                .texture("layer0", name);
+            ResourceLocation name = item.getKey().location().withPrefix("item/");
+            super.withExistingParent(name.toString(), ModUtils.location("item/templates/handheld%sx".formatted(x)))
+                    .texture("layer0", name);
     }
 }
