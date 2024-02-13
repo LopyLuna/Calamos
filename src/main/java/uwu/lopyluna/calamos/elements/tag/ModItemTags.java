@@ -35,7 +35,7 @@ public class ModItemTags {
     public static final TagKey<Item> INGOTS_MAGNETITE = createForge("ingots/magnetite", MAGNETITE_INGOT, "Magnetite Ingots");
     public static final TagKey<Item> INGOTS_OBSTEEL = createForge("ingots/obsteel", OBSTEEL_INGOT, "Obsteel Ingots");
     public static final TagKey<Item> INGOTS_PLATINUM = createForge("ingots/platinum", PLATINUM_INGOT, "Platinum Ingots");
-    public static final TagKey<Item> INGOTS_STARINIUM = createForge("ingots/starinium", PLATINUM_INGOT, "Starinium Ingots");
+    public static final TagKey<Item> INGOTS_STARINIUM = createForge("ingots/starinium", STARINIUM_INGOT, "Starinium Ingots");
     public static final TagKey<Item> INGOTS_TERRAULITE = createForge("ingots/terraulite", TERRAULITE_INGOT, "Terraulite Ingots");
     public static final TagKey<Item> INGOTS_ULTIMITA = createForge("ingots/ultimita", ULTIMITA_INGOT, "Ultimita Ingots");
     private static TagKey<Item> createForge(String name, Supplier<? extends Item> value, String engTranslation) {

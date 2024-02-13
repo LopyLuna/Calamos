@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-13T16:37:44.0111191	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-02-13T16:52:33.090082	Tags for minecraft:item mod id vanilla
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
 55007667d8dc4027a4cd207180350554a71e150f data/forge/tags/items/gems/garnet.json
 a7507ee99b9fe3e813020784fb89404673466092 data/forge/tags/items/gems/kunzite.json
@@ -19,7 +19,7 @@ b2c50a7f07a59f4f942cd13a9dfc65f64a39fd66 data/forge/tags/items/ingots/magnetite.
 0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots/meteorite.json
 a02ed117ba5a5c8e2aed3c465703f08963670867 data/forge/tags/items/ingots/obsteel.json
 810c41512bc1047a6f376633838a7899c0284e0c data/forge/tags/items/ingots/platinum.json
-810c41512bc1047a6f376633838a7899c0284e0c data/forge/tags/items/ingots/starinium.json
+2dc740f20ccef668a6a44ad0f037183cbfaa3460 data/forge/tags/items/ingots/starinium.json
 faa1fad4d6b1805e73007c7ecf2033e32534e763 data/forge/tags/items/ingots/terraulite.json
 f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/forge/tags/items/ingots/ultimita.json
 d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials.json
