@@ -1,15 +1,15 @@
 {
   "parent": "minecraft:item/handheld",
   "base": {
-    "parent": "calamos:item/meteorite_sword_2d"
+    "parent": "calamos:item/meteorite_sword_handheld"
   },
   "loader": "neoforge:separate_transforms",
   "perspectives": {
     "fixed": {
-      "parent": "calamos:item/meteorite_sword_2d"
+      "parent": "calamos:item/meteorite_sword_handheld"
     },
     "gui": {
-      "parent": "calamos:item/meteorite_sword_2d"
+      "parent": "calamos:item/meteorite_sword_gui"
     }
   }
 }

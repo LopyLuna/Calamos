@@ -52,6 +52,7 @@ class ModLanguageProvider extends LanguageProvider {
         this.item(ModItems.STARINIUM_INGOT);
         this.item(ModItems.ULTIMITA_INGOT);
         this.item(ModItems.PLATINUM_INGOT);
+        this.item(ModItems.VOLCANITE_INGOT);
 
         this.block(ModBlocks.STONE);
         this.block(ModBlocks.PURRASITE);

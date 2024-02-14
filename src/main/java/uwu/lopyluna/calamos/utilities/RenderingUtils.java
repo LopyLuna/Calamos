@@ -83,7 +83,7 @@ public class RenderingUtils {
     
     //TODO: Fix the swing animation. The player's arm phases through the body.
     public static void reaperSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
-        entity.sendSystemMessage(Component.literal("Swing Time: " + pAgeInTicks));
+        //entity.sendSystemMessage(Component.literal("Swing Time: " + pAgeInTicks));
         if (!offHand) {
             model.rightArm.zRot = -1.0F;
             model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));

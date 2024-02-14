@@ -41,6 +41,7 @@ public final class ModItems {
     public static final DeferredItem<Item> RAW_METEORITE = registerSimple("raw_meteorite", new Item.Properties().fireResistant());
     public static final DeferredItem<Item> BLOOD_ORB = registerSimple("blood_orb");
     public static final DeferredItem<Item> ECTOPLASMA = registerSimple("ectoplasma");
+    //Ingot
     public static final DeferredItem<Item> BLOODBORE_INGOT = registerSimple("bloodbore_ingot");
     public static final DeferredItem<Item> CALAMATIUM_INGOT = registerSimple("calamatium_ingot");
     public static final DeferredItem<Item> ECTOLIGHT_INGOT = registerSimple("ectolight_ingot");
@@ -51,6 +52,8 @@ public final class ModItems {
     public static final DeferredItem<Item> STARINIUM_INGOT = registerSimple("starinium_ingot");
     public static final DeferredItem<Item> TERRAULITE_INGOT = registerSimple("terraulite_ingot");
     public static final DeferredItem<Item> ULTIMITA_INGOT = registerSimple("ultimita_ingot");
+    public static final DeferredItem<Item> VOLCANITE_INGOT = registerSimple("volcanite_ingot");
+
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));

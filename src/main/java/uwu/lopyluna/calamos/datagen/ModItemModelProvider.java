@@ -1,5 +1,6 @@
 package uwu.lopyluna.calamos.datagen;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -10,11 +11,10 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
-import java.util.function.Consumer;
+import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
@@ -42,6 +42,8 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.RAW_METEORITE);
         this.basicItem(ModItems.BLOOD_ORB);
         this.basicItem(ModItems.ECTOPLASMA);
+
+        //Ingots
         this.basicItem(ModItems.BLOODBORE_INGOT);
         this.basicItem(ModItems.TERRAULITE_INGOT);
         this.basicItem(ModItems.CALAMATIUM_INGOT);
@@ -52,20 +54,22 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.STARINIUM_INGOT);
         this.basicItem(ModItems.ULTIMITA_INGOT);
         this.basicItem(ModItems.PLATINUM_INGOT);
+        this.basicItem(ModItems.VOLCANITE_INGOT);
+
         this.basicItem(ModItems.TEST_LOOTBAG);
-        this.handheld32(ModItems.METEORITE_REAPER);
-        this.handheld32(ModItems.METEORITE_SWORD, loc -> loc.withSuffix("_2d"));
-        this.separateTransform(ModItems.METEORITE_SWORD);
+        this.handheld32(ModItems.METEORITE_REAPER, "gui", "handheld");
+        this.handheld32(ModItems.METEORITE_SWORD, "gui", "handheld");
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {
         item.unwrapKey().ifPresent(
                 itemName -> {
                     ResourceLocation itemModelLoc = itemName.location().withPrefix("item/");
-                    ItemModelBuilder twoDim = super.nested().parent(new ModelFile.UncheckedModelFile(itemModelLoc.withSuffix("_2d")));
+                    ItemModelBuilder gui = super.nested().parent(new ModelFile.UncheckedModelFile(itemModelLoc.withSuffix("_gui")));
+                    ItemModelBuilder twoDim = super.nested().parent(new ModelFile.UncheckedModelFile(itemModelLoc.withSuffix("_handheld")));
                     super.withExistingParent(itemModelLoc.getPath(), mcLoc("item/handheld"))
                             .customLoader(SeparateTransformsModelBuilder::begin)
-                            .perspective(ItemDisplayContext.GUI, twoDim)
+                            .perspective(ItemDisplayContext.GUI, gui)
                             .perspective(ItemDisplayContext.FIXED, twoDim)
                             .base(twoDim);
                 });
@@ -73,6 +77,14 @@ class ModItemModelProvider extends ItemModelProvider {
 
     private void basicItem(Supplier<? extends Item> item) {
         super.basicItem(item.get());
+    }
+
+    private ItemModelBuilder basicItem(DeferredHolder<Item, ? extends Item> item, UnaryOperator<ResourceLocation> modelLocationModifier) {
+        ResourceLocation name = item.getKey().location().withPrefix("item/");
+
+        return getBuilder(modelLocationModifier.apply(name).getPath())
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", ModUtils.location(modelLocationModifier.apply(name).getPath()));
     }
 
     private ResourceLocation handheld32(DeferredHolder<Item, ? extends Item> item) {
@@ -87,26 +99,28 @@ class ModItemModelProvider extends ItemModelProvider {
         return handheld(item, 64);
     }
 
-    private ResourceLocation handheld32(DeferredHolder<Item, ? extends Item> item, UnaryOperator<ResourceLocation> modelLocationModifier) {
-        return handheld(item, 32, modelLocationModifier);
+    private ResourceLocation handheld32(DeferredHolder<Item, ? extends Item> item, String guiLocationModifier, String handheldLocationModifier) {
+        return handheld(item, 32, loc -> loc.withSuffix("_" + guiLocationModifier), loc -> loc.withSuffix("_" + handheldLocationModifier));
     }
 
-    private ResourceLocation handheld48(DeferredHolder<Item, ? extends Item> item, UnaryOperator<ResourceLocation> modelLocationModifier) {
-        return handheld(item, 48, modelLocationModifier);
+    private ResourceLocation handheld48(DeferredHolder<Item, ? extends Item> item, String guiLocationModifier, String handheldLocationModifier) {
+        return handheld(item, 48, loc -> loc.withSuffix("_" + guiLocationModifier), loc -> loc.withSuffix("_" + handheldLocationModifier));
     }
 
-    private ResourceLocation handheld64(DeferredHolder<Item, ? extends Item> item, UnaryOperator<ResourceLocation> modelLocationModifier) {
-        return handheld(item, 64, modelLocationModifier);
+    private ResourceLocation handheld64(DeferredHolder<Item, ? extends Item> item, String guiLocationModifier, String handheldLocationModifier) {
+        return handheld(item, 64, loc -> loc.withSuffix("_" + guiLocationModifier), loc -> loc.withSuffix("_" + handheldLocationModifier));
     }
 
     private ResourceLocation handheld(DeferredHolder<Item, ? extends Item> item, int x) {
-        return handheld(item, x, UnaryOperator.identity());
+        return handheld(item, x, UnaryOperator.identity(), UnaryOperator.identity());
     }
 
-    private ResourceLocation handheld(DeferredHolder<Item, ? extends Item> item, int x, UnaryOperator<ResourceLocation> modelLocationModifier) {
+    private ResourceLocation handheld(DeferredHolder<Item, ? extends Item> item, int x, UnaryOperator<ResourceLocation> guiLocationModifier, UnaryOperator<ResourceLocation> handheldLocationModifier) {
         ResourceLocation name = item.getKey().location().withPrefix("item/");
-        super.withExistingParent(modelLocationModifier.apply(name).getPath(), ModUtils.location("item/templates/handheld%sx".formatted(x)))
+        super.withExistingParent(handheldLocationModifier.apply(name).getPath(), ModUtils.location("item/templates/handheld%sx".formatted(x)))
                 .texture("layer0", name);
+        separateTransform(item);
+        basicItem(item, guiLocationModifier);
         return name;
     }
 }

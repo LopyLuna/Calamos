@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-13T11:50:52.5050542	Item Models: calamos
+// 1.20.4	2024-02-13T17:07:14.70166	Item Models: calamos
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
 5e0f4afd2425ca01b38e7d752470766eff1b1cff assets/calamos/models/item/calamatium_ingot.json
@@ -11,9 +11,12 @@ cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
 fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
 997dbbea039578a61034d5384f87bd24e8dab2eb assets/calamos/models/item/magnetite_ingot.json
 dbad358ca6a97acd4641ee6d7370aefc1bd7735e assets/calamos/models/item/meteorite_ingot.json
-853cb347bad35dfa2b4a2946d824d831dfcdba06 assets/calamos/models/item/meteorite_reaper.json
-5843a24c1b4ee38d8d3738c35fa9a01939673629 assets/calamos/models/item/meteorite_sword.json
-66d0fe3278e90cf0639ac9807fc02c8ed027896b assets/calamos/models/item/meteorite_sword_2d.json
+62d331babf7d477ce81c2130af376181bb7c9509 assets/calamos/models/item/meteorite_reaper.json
+b5bd61bee0b5637895249a0004ba79480b387926 assets/calamos/models/item/meteorite_reaper_gui.json
+853cb347bad35dfa2b4a2946d824d831dfcdba06 assets/calamos/models/item/meteorite_reaper_handheld.json
+2f6207791f20d68a276abf7cc7b10b5979ea1bfd assets/calamos/models/item/meteorite_sword.json
+7187a5676e1165e670e6083c8fa775433c090713 assets/calamos/models/item/meteorite_sword_gui.json
+66d0fe3278e90cf0639ac9807fc02c8ed027896b assets/calamos/models/item/meteorite_sword_handheld.json
 54f50658e278a75cfb9b916edb62b78458242295 assets/calamos/models/item/moonstone.json
 56fdd8a3e991b8949da641aa4067796bee6c42a5 assets/calamos/models/item/obsteel_ingot.json
 f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
@@ -29,3 +32,4 @@ e1396429cf2a347da45809ef212489cf043b0a7a assets/calamos/models/item/terraulite_i
 e4fed7fdcb2cecb1a3f31c639cc447c506cdc56b assets/calamos/models/item/test_lootbag.json
 3b88cd484957ade5177261544a67c311c4efd834 assets/calamos/models/item/topaz.json
 3d9f5be3b858d99707a29738cb4b9418ed94efe3 assets/calamos/models/item/ultimita_ingot.json
+ec3be0ead558d2bc8815d6c19f952dd83e1e981a assets/calamos/models/item/volcanite_ingot.json
