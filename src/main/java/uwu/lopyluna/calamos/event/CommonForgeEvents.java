@@ -11,16 +11,19 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.entity.Worm;
 
 import java.util.UUID;
 
-public class CommonEvents {
+
+@Mod.EventBusSubscriber(modid = CalamosMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class CommonForgeEvents {
     
-    public CommonEvents() {}
     @SubscribeEvent(priority = EventPriority.HIGH)
-    public void onEntityAdded(EntityJoinLevelEvent event) {
+    public static void onEntityAdded(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         if (entity instanceof Player player) {
             float MaxHealth = 100.0F;

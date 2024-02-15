@@ -8,7 +8,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.*;
@@ -32,14 +31,15 @@ public class CalamosMod {
         ModItems.staticInit();
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
+        ModEntity.staticInit();
         CalamosMessages.init(modEventBus);
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
         ModEnchantments.staticInit();
 
+
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);
-        NeoForge.EVENT_BUS.register(new CommonEvents());
     }
 
     @SubscribeEvent
