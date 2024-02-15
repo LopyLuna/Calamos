@@ -8,13 +8,12 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModCreativeTab;
+import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.ModItems;
-import uwu.lopyluna.calamos.event.CommonEvents;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
@@ -33,13 +32,12 @@ public class CalamosMod {
         ModItems.staticInit();
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
+        ModEntity.staticInit();
         CalamosMessages.init(modEventBus);
         CalamosOverworldRegions.register();
 
-
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);
-        NeoForge.EVENT_BUS.register(new CommonEvents());
     }
 
     @SubscribeEvent

@@ -30,7 +30,7 @@ public class WeightedRandom<T> {
         return null;
     }
 
-    public HashMap<T, Float> getPrecentages() {
+    public HashMap<T, Float> getPercentages() {
         float totalWeight = 0;
         for (float weight : this.weightedRandomList.values()) {
             totalWeight += weight;

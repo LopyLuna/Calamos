@@ -30,7 +30,7 @@ public class CalamosDimensions {
     /**
      * Look at {@link net.minecraft.data.worldgen.DimensionTypes}
      */
-    public static void boostrapType(BootstapContext<DimensionType> context) {
+    public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(CALAMOS_TYPE, new DimensionType(
                 OptionalLong.empty(),
                 true,
