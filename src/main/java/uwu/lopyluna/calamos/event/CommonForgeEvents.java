@@ -67,7 +67,7 @@ public class CommonForgeEvents {
     }
     
     @SubscribeEvent
-    public void playerTick(TickEvent.PlayerTickEvent event) {
+    public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
         CompoundTag tag = player.getPersistentData();
         if (!tag.contains("max_flight_meter")) {
