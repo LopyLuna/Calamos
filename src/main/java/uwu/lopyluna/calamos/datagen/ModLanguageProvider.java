@@ -5,14 +5,17 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModCreativeTab;
 import uwu.lopyluna.calamos.elements.ModItems;
+import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
 import java.util.NoSuchElementException;
@@ -27,6 +30,15 @@ class ModLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+        for (DeferredHolder<Item, ? extends Item> registry : ModItems.getItems()) {
+            if (registry.get() instanceof BlockItem) continue;
+            this.item(registry);
+        }
+
+        for (DeferredHolder<Block, ? extends Block> registry : ModBlocks.getBlocks()) {
+            this.block(registry);
+        }
+        /*
         this.item(ModItems.DEBUG_HEALTH);
         this.item(ModItems.GARNET);
         this.item(ModItems.JADE);
@@ -90,6 +102,7 @@ class ModLanguageProvider extends LanguageProvider {
         //Ores
         this.block(ModBlocks.COPPER_ORE);
         //Tab//
+         */
         this.tab(ModCreativeTab.CALAMOS_TAB);
         //Trim Materials
         this.trimMaterial("garnet");

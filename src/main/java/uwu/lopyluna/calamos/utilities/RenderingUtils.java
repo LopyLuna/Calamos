@@ -8,10 +8,18 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.EnderpearlItem;
+import org.joml.Vector3f;
 
 import static net.minecraft.client.model.AnimationUtils.bobArms;
 
 public class RenderingUtils {
+    public static float degToRad(double deg) {
+        return (float) (deg * (Math.PI/180));
+    }
+    public static float ticksToSeconds(double ticks) {
+        return (float) (ticks/20);
+    }
+
     public static void defaultPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
         AnimationUtils.bobModelPart(model.rightArm, pAgeInTicks, 1.0F);
         AnimationUtils.bobModelPart(model.leftArm, pAgeInTicks, 1.0F);
@@ -85,10 +93,12 @@ public class RenderingUtils {
     public static void reaperSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
         //entity.sendSystemMessage(Component.literal("Swing Time: " + pAgeInTicks));
         if (!offHand) {
-            model.rightArm.zRot = -1.0F;
-            model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
-            model.leftArm.xRot = -1.20379635F;
-            model.leftArm.yRot = -0.58F - (TweenUtils.elasticOut((pAgeInTicks / 8.0F)));
+            model.rightArm.xRot = pAgeInTicks  <= 2 ? degToRad(200) : pAgeInTicks > 2 || pAgeInTicks <= 6 ? degToRad(200) + ((TweenUtils.backIn((pAgeInTicks - 2)/6.0F)) * degToRad(25)) : degToRad(300);
+            model.rightArm.zRot = degToRad(-15);
+
+            //model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
+            //model.leftArm.xRot = degToRad(-60);
+            //model.leftArm.yRot = -0.58F - (TweenUtils.elasticOut((pAgeInTicks / 8.0F)));
         } else {
             bobArms(model.rightArm, model.leftArm, pAgeInTicks);
         }
