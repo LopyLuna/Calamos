@@ -42,6 +42,7 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.RAW_METEORITE);
         this.basicItem(ModItems.BLOOD_ORB);
         this.basicItem(ModItems.ECTOPLASMA);
+        this.basicItem(ModItems.WINGS);
 
         //Ingots
         this.basicItem(ModItems.BLOODBORE_INGOT);

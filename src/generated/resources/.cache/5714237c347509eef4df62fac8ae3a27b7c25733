@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-13T17:07:14.70166	Item Models: calamos
+// 1.20.4	2024-02-15T14:23:41.6310701	Item Models: calamos
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
 5e0f4afd2425ca01b38e7d752470766eff1b1cff assets/calamos/models/item/calamatium_ingot.json
@@ -33,3 +33,4 @@ e4fed7fdcb2cecb1a3f31c639cc447c506cdc56b assets/calamos/models/item/test_lootbag
 3b88cd484957ade5177261544a67c311c4efd834 assets/calamos/models/item/topaz.json
 3d9f5be3b858d99707a29738cb4b9418ed94efe3 assets/calamos/models/item/ultimita_ingot.json
 ec3be0ead558d2bc8815d6c19f952dd83e1e981a assets/calamos/models/item/volcanite_ingot.json
+0a36d5e67a0ae7c899b95c26363343f080a89c92 assets/calamos/models/item/wings.json

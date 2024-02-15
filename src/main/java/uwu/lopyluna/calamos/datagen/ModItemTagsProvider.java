@@ -23,11 +23,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        //this.registerModTags();
+        this.registerModTags();
         this.registerForgeTags();
     }
 
     private void registerModTags() {
+        this.tag(ModTags.modItemTag("wings")).add(
+                ModItems.WINGS.get()
+        );
     }
 
     protected void registerForgeTags() {

@@ -47,5 +47,5 @@ public class ModUtils {
     {
         return (int)(n % 1 > 0.5 ? Math.ceil(n) : Math.floor(n));
     }
-
+    public static float flightMeterMax = 100.0F;
 }
