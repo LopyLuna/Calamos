@@ -1,20 +1,24 @@
 package uwu.lopyluna.calamos.event;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.entity.Worm;
+import uwu.lopyluna.calamos.elements.ModEffects;
+import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 
 import java.util.UUID;
 
@@ -65,7 +69,20 @@ public class CommonForgeEvents {
         
         
     }
-    
+    @SubscribeEvent
+    public static void entityDeath(LivingDeathEvent event) {
+        LivingEntity entity = event.getEntity();
+        if (entity instanceof PestisPlayerEntity pestisPlayer) {
+            UUID linkedPlayer = PestisPlayerEntity.linkedPlayer;
+            if (linkedPlayer != null) {
+                ServerPlayer player = (ServerPlayer) event.getEntity().level().getPlayerByUUID(linkedPlayer);
+                if (player != null) {
+                    player.setGameMode(pestisPlayer.linkedPlayerGameType);
+                    player.setCamera(player);
+                }
+            }
+        }
+    }
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;

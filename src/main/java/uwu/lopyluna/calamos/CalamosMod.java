@@ -35,6 +35,7 @@ public class CalamosMod {
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
         ModEnchantments.staticInit();
+        ModEffects.staticInit();
 
 
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
