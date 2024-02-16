@@ -7,14 +7,14 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.CalamosKeys;
@@ -26,7 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 public class WingsItem extends Item implements Equipable {
     public WingsItem(Properties pProperties) {
-        super(pProperties);
+        super(pProperties.stacksTo(1).rarity(Rarity.RARE));
     }
     @Override
     public SoundEvent getEquipSound() {
@@ -58,21 +58,22 @@ public class WingsItem extends Item implements Equipable {
         if (entity instanceof Player player && isWearingWings(player)) {
             BlockPos pos = player.blockPosition();
             boolean hasMaxFlightMeter = getFlightMeter(player) >= getMaxFlightMeter(player);
+            if (!isOnGround(player)) {
+                boostHoriztonalMovement(player);
+            }
             if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
-                decreaseFlightMeter(player,0.2f);
-                boostUp(player);
+                decreaseFlightMeter(player,0.25f);
+                boostUpMovement(player);
             }
             if (isOnGround(player) && !hasMaxFlightMeter) {
                 replenishFlightMeter(player, getReplenishRate(stack));
             }
-            if (!canBoostUp(player) && !isOnGround(player)) {
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1, 0, false, false, false));
-                getMovement(player);
-            }
             if (!isOnGround(player) && !level.getBlockState(pos.below(2)).isAir() && hasSavingGrace && player.fallDistance > 3.0f) {
                 decreaseFlightMeter(player, 4.0f - stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()));
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 5, 0, false, false, false));
-                getMovement(player);
+            }
+            if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
+                glidingMovement(player);
+                player.resetFallDistance();
             }
         }
     }
@@ -88,19 +89,25 @@ public class WingsItem extends Item implements Equipable {
             };
         return defaultReplenishRate;
     }
-
-    public void boostUp(Player player) {
+    public void boostUpMovement(Player player) {
         Vec3 vec3 = player.getDeltaMovement();
-        player.setDeltaMovement(vec3.x, (double)0.42F + player.getJumpBoostPower(), vec3.z);
-        getMovement(player);
-    }
-    public void getMovement(Player player) {
-        Vec3 vec3 = player.getDeltaMovement();
-        Vec3 forward = player.getLookAngle();
-        Vec3 delta = forward.multiply(0.15, 1, 0.15).add(forward.multiply(1.5, 1 ,1.5).subtract(vec3.x, 0, vec3.z).multiply(0.1, 1, 0.1));
-        player.setDeltaMovement(vec3.add(delta.x, 0, delta.z));
+        double d2 = vec3.y;
+        d2 += ((0.05 * 1.1 - vec3.y) * 0.2) * 0.25;
 
+        player.setDeltaMovement(vec3.add(0, vec3.y <= 0.25 ? d2 <= 0 ? d2 * -1 + 0.05: d2 : 0, 0));
     }
+
+    public void boostHoriztonalMovement(Player player) {
+        Vec3 vec3 = player.getDeltaMovement();
+        player.move(MoverType.SELF, vec3.multiply(1.25, 1, 1.25));
+    }
+
+    public void glidingMovement(Player player) {
+        Vec3 vec3 = player.getDeltaMovement();
+        player.setDeltaMovement(divide(vec3,1, vec3.y <= -0.25F ? 1.5F : 1, 1));
+    }
+
+
     public void decreaseFlightMeter(Player player, float amount) {
         if (getFlightMeter(player) > 0.0f)
             setFlightMeter(player, getFlightMeter(player) - amount);
@@ -127,4 +134,6 @@ public class WingsItem extends Item implements Equipable {
         CompoundTag tag = player.getPersistentData();
         return tag.getFloat("max_flight_meter");
     }
+
+    public Vec3 divide(Vec3 vec3, double pFactorX, double pFactorY, double pFactorZ) {return new Vec3(vec3.x / pFactorX, vec3.y / pFactorY, vec3.z / pFactorZ);}
 }
