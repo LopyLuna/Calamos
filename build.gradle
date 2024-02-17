@@ -59,6 +59,7 @@ repositories {
         }
     }
     maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = "https://maven.blamejared.com"}
 }
 
 dependencies {
@@ -66,6 +67,8 @@ dependencies {
 
     implementation "maven.modrinth:fusion-connected-textures:${fusion_version}-neoforge-mc${minecraft_version}"
     implementation "com.github.glitchfiend:TerraBlender-neoforge:${minecraft_version}-${terrablender_version}"
+    implementation "foundry.veil:Veil-neoforge-${minecraft_version}:${veil_version}"
+
     runtimeOnly "maven.modrinth:ferrite-core:6.0.3-forge"
     runtimeOnly "maven.modrinth:badpackets:neo-0.6.0"
     runtimeOnly "maven.modrinth:wthit:neo-10.2.0"
