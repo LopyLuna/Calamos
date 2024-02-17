@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.elements.entity.machina.pestis_infection;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.client.resources.PlayerSkin;
@@ -53,6 +54,9 @@ public class PestisPlayerEntity extends PathfinderMob {
     public double xCloak;
     public double yCloak;
     public double zCloak;
+    public void handleEntityEvent(byte b) {
+    
+    }
     protected static final EntityDataAccessor<Byte> DATA_PLAYER_MODE_CUSTOMISATION = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.BYTE);
     public PestisPlayerEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -61,7 +65,12 @@ public class PestisPlayerEntity extends PathfinderMob {
         if (linkedPlayer == null) {
             return false;
         }
-        return Minecraft.getInstance().getConnection().getPlayerInfo(linkedPlayer).getSkin().model() == PlayerSkin.Model.SLIM;
+        ClientPacketListener connection = Minecraft.getInstance().getConnection();
+        if (connection == null) {
+            return false;
+        }
+        PlayerInfo playerinfo = connection.getPlayerInfo(linkedPlayer);
+        return playerinfo != null && playerinfo.getSkin().model() == PlayerSkin.Model.SLIM;
     }
     @Override
     protected void defineSynchedData() {

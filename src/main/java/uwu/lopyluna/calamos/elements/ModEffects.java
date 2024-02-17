@@ -11,7 +11,7 @@ import uwu.lopyluna.calamos.utilities.ModUtils;
 public class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = ModUtils.createRegister(Registries.MOB_EFFECT);
     
-    public static final DeferredHolder<MobEffect, MobEffect> PESTIS = EFFECTS.register("pestis", () -> new MachinaPestisEffect(0x61454e));
+    public static final DeferredHolder<MobEffect, MobEffect> PESTIS = EFFECTS.register("machina_pestis", () -> new MachinaPestisEffect(0x61454e));
     
     public static void staticInit() {
         CalamosMod.LOGGER.info("nauseous metbal");

@@ -1,6 +1,9 @@
 package uwu.lopyluna.calamos.event;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -19,6 +22,8 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEffects;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.networking.CalamosMessages;
+import uwu.lopyluna.calamos.networking.packets.S2C.PestisCameraPacket;
 
 import java.util.UUID;
 
@@ -78,7 +83,7 @@ public class CommonForgeEvents {
                 ServerPlayer player = (ServerPlayer) event.getEntity().level().getPlayerByUUID(linkedPlayer);
                 if (player != null) {
                     player.setGameMode(pestisPlayer.linkedPlayerGameType);
-                    player.setCamera(player);
+                    CalamosMessages.sendToPlayer(new PestisCameraPacket(player.getId(), pestisPlayer.getId(), true), player);
                 }
             }
         }
@@ -92,6 +97,22 @@ public class CommonForgeEvents {
         }
         if (tag.getFloat("flight_meter") > tag.getFloat("max_flight_meter")) {
             tag.putFloat("flight_meter", tag.getFloat("max_flight_meter"));
+        }
+        if (tag.contains("LinkedPestisClone")) {
+            UUID pestisUUID = tag.getUUID("LinkedPestisClone");
+            MinecraftServer server = player.getServer();
+            if (server != null) {
+                ServerLevel level = server.getLevel(player.level.dimension());
+                if (level != null) {
+                    PestisPlayerEntity pestisPlayer = (PestisPlayerEntity) level.getEntity(pestisUUID);
+                    if (!player.hasEffect(ModEffects.PESTIS.get())) {
+                        if (pestisPlayer != null) {
+                            pestisPlayer.kill();
+                        }
+                    }
+                }
+            }
+            tag.remove("LinkedPestisClone");
         }
     }
 }

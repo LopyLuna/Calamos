@@ -1,19 +1,26 @@
 package uwu.lopyluna.calamos.elements.effects;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.GameType;
+import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.networking.CalamosMessages;
+import uwu.lopyluna.calamos.networking.packets.S2C.PestisCameraPacket;
 
 import java.util.UUID;
 
 public class MachinaPestisEffect extends MobEffect {
+    
     public MachinaPestisEffect(int pColor) {
         super(MobEffectCategory.HARMFUL, pColor);
     }
@@ -38,7 +45,29 @@ public class MachinaPestisEffect extends MobEffect {
         pestisPlayer.setCustomName(pPlayer.getDisplayName());
         pestisPlayer.setCustomNameVisible(true);
         level.addFreshEntity(pestisPlayer);
-        pPlayer.setGameMode(GameType.SPECTATOR);
-        pPlayer.setCamera(pestisPlayer);
+        UUID pestisUUID = pestisPlayer.getUUID();
+        CompoundTag tag = pPlayer.getPersistentData();
+        tag.putUUID("LinkedPestisClone", pestisUUID);
+        //pPlayer.setGameMode(GameType.SPECTATOR);
+        CalamosMessages.sendToPlayer(new PestisCameraPacket(pPlayer.getId(), pestisPlayer.getId(), false), pPlayer);
     }
+    
+    //public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+    //    super.applyEffectTick(pLivingEntity, pAmplifier);
+    //    ServerLevel level = (ServerLevel) pLivingEntity.level();
+    //    if (pLivingEntity instanceof ServerPlayer pPlayer) {
+    //        CompoundTag tag = pPlayer.getPersistentData();
+    //        Entity camera = Minecraft.getInstance().cameraEntity;
+    //        UUID pestisUUID = tag.getUUID("LinkedPestisClone");
+    //        PestisPlayerEntity pestisPlayer = (PestisPlayerEntity) level.getEntity(pestisUUID);
+    //        if (!(camera instanceof PestisPlayerEntity)) {
+    //            boolean isSpectatingPestis = Minecraft.getInstance().cameraEntity == pestisPlayer;
+    //            if (!isSpectatingPestis) {
+    //                Minecraft.getInstance().setCameraEntity(pestisPlayer);
+    //                CalamosMod.LOGGER.info(pPlayer.getDisplayName() + "tried to escape the pestis, but was forced to see through the eyes of their mechanised body.");
+    //            }
+    //        }
+    //    }
+    //}
+    
 }
