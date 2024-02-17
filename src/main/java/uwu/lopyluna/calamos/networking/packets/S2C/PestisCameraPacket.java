@@ -1,11 +1,7 @@
 package uwu.lopyluna.calamos.networking.packets.S2C;
 
-import net.minecraft.client.CameraType;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.handling.PlayPayloadContext;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.ClientProxy;
@@ -30,21 +26,15 @@ public class PestisCameraPacket extends Packet {
     
     @Override
     public void handleServer(PlayPayloadContext context) {
-        Player player = context.player().get();
-        Entity target = player.level.getEntity(targetId);
-        if (target != null && !shouldRelease) {
-            Minecraft.getInstance().setCameraEntity(target);
-            Minecraft.getInstance().options.setCameraType(CameraType.FIRST_PERSON);
-        }
-        if (shouldRelease) {
-            Minecraft.getInstance().setCameraEntity(player);
-            Minecraft.getInstance().options.setCameraType(ClientProxy.lastPOV);
-        }
     }
     
     @Override
     public void handleClient(PlayPayloadContext context) {
-    
+        context.workHandler().execute(() -> {
+
+            ClientProxy.handlePestisCameraPacket(this.targetId, this.shouldRelease);
+
+        });
     }
     
     @Override

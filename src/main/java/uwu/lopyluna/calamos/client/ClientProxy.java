@@ -31,4 +31,21 @@ public class ClientProxy extends CommonProxy {
             Minecraft.getInstance().levelRenderer.allChanged();
         }
     }
+
+    public static void handlePestisCameraPacket(int targetId, boolean shouldRelease) {
+        Player player = Minecraft.getInstance().player;
+        if (player == null) return;
+        Entity target = Minecraft.getInstance().level.getEntity(targetId);
+        if (target != null && !shouldRelease) {
+            Minecraft.getInstance().setCameraEntity(target);
+            Minecraft.getInstance().options.setCameraType(CameraType.FIRST_PERSON);
+            Minecraft.getInstance().gameRenderer.setRenderHand(false); // TODO
+        }
+        if (shouldRelease) {
+            Minecraft.getInstance().setCameraEntity(player);
+            Minecraft.getInstance().options.setCameraType(ClientProxy.lastPOV);
+            Minecraft.getInstance().gameRenderer.setRenderHand(true);
+        }
+    }
+
 }

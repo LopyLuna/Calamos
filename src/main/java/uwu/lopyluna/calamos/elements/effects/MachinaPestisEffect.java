@@ -34,7 +34,7 @@ public class MachinaPestisEffect extends MobEffect {
         PestisPlayerEntity pestisPlayer = new PestisPlayerEntity(ModEntity.PESTIS_PLAYER.get(), level);
         PestisPlayerEntity.linkedPlayer = playerUUID;
         pestisPlayer.linkedPlayerGameType = playerGameType;
-        pestisPlayer.setPos(playerPos.getX(), playerPos.getY(), playerPos.getZ());
+        pestisPlayer.teleportTo(playerPos.getX(), playerPos.getY() + 1, playerPos.getZ());
         pestisPlayer.setHealth(pPlayer.getHealth());
         pestisPlayer.setItemInHand(pestisPlayer.getUsedItemHand(), pPlayer.getMainHandItem());
         pestisPlayer.setItemSlot(EquipmentSlot.OFFHAND, pPlayer.getOffhandItem());
