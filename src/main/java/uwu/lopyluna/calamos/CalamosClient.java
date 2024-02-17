@@ -19,6 +19,7 @@ public class CalamosClient {
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAbove(VanillaGuiOverlay.AIR_LEVEL.id(), "flight_meter", FlightMeterOverlay.INSTANCE);
     }
+
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
         event.register(ModEntity.PESTIS_PLAYER.get(), new ResourceLocation(CalamosMod.MODID, "shaders/post/pestis.json"));
     }

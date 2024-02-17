@@ -19,8 +19,8 @@ public class CalamosMessages {
 
     private static IPayloadRegistrar registrar;
 
-    public static void init(IEventBus bus) {
-        bus.addListener(CalamosMessages::registerMessages);
+    public static void init() {
+        CalamosMod.getEventBus().addListener(CalamosMessages::registerMessages);
     }
 
     private static void registerMessages(RegisterPayloadHandlerEvent event) {

@@ -31,7 +31,7 @@ public class CalamosMod {
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
         ModEntity.staticInit();
-        CalamosMessages.init(modEventBus);
+        CalamosMessages.init();
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
         ModEnchantments.staticInit();
