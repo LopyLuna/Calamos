@@ -93,8 +93,8 @@ public class RenderingUtils {
     public static void reaperSwing(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
         //entity.sendSystemMessage(Component.literal("Swing Time: " + pAgeInTicks));
         if (!offHand) {
-            model.rightArm.xRot = pAgeInTicks  <= 2 ? degToRad(200) : pAgeInTicks > 2 || pAgeInTicks <= 6 ? degToRad(200) + ((TweenUtils.backIn((pAgeInTicks - 2)/6.0F)) * degToRad(25)) : degToRad(300);
-            model.rightArm.zRot = degToRad(-15);
+            model.rightArm.xRot = (float) ((Math.sin(pAgeInTicks/6.0) * 3.14) - degToRad(180));
+            model.rightArm.zRot = (float) (((Math.cos(pAgeInTicks/9.0) * 3.14) - degToRad(220)) / 2);
 
             //model.rightArm.xRot = -1.5F + (TweenUtils.circOut((pAgeInTicks / 8.0F)));
             //model.leftArm.xRot = degToRad(-60);
