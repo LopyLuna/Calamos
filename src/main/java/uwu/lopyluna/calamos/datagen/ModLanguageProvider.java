@@ -124,6 +124,8 @@ class ModLanguageProvider extends LanguageProvider {
         
         //Effects
         this.effect(ModEffects.PESTIS);
+
+        this.container("hallow_workbench");
         
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             ResourceLocation tagId = tag.getA().location();
@@ -153,6 +155,10 @@ class ModLanguageProvider extends LanguageProvider {
     }
     private void effect(Holder<MobEffect> holder) {
         this.add(holder, "effect");
+    }
+    private void container(String containerName){
+        String translated = transform(containerName);
+        super.add("container.%s".formatted(containerName), translated);
     }
     private void add(Holder<?> holder, String type) {
         ResourceKey<?> resourceKey = holder.unwrapKey().orElseThrow(() -> new NoSuchElementException("No respective key. Check log"));

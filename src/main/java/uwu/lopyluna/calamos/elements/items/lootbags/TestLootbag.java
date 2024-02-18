@@ -1,5 +1,6 @@
 package uwu.lopyluna.calamos.elements.items.lootbags;
 
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.utilities.WeightedRandom;

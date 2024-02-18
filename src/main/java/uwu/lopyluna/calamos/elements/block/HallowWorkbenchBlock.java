@@ -9,17 +9,14 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CraftingTableBlock;
-import net.minecraft.world.level.block.FurnaceBlock;
-import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import uwu.lopyluna.calamos.elements.menu.HallowWorkbenchMenu;
 
 public class HallowWorkbenchBlock extends Block {
-    private static final Component CONTAINER_TITLE = Component.literal("Hallow Workbench");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.hallow_workbench");
 
     public HallowWorkbenchBlock(Properties p_49795_) {
         super(p_49795_);
@@ -31,7 +28,6 @@ public class HallowWorkbenchBlock extends Block {
             return InteractionResult.SUCCESS;
         } else {
             pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
-            pPlayer.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
             return InteractionResult.CONSUME;
         }
     }
@@ -39,7 +35,7 @@ public class HallowWorkbenchBlock extends Block {
     @Override
     public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
         return new SimpleMenuProvider(
-                (p_52229_, p_52230_, p_52231_) -> new CraftingMenu(p_52229_, p_52230_, ContainerLevelAccess.create(pLevel, pPos)), CONTAINER_TITLE
+                (p_52229_, p_52230_, p_52231_) -> new HallowWorkbenchMenu(p_52229_, p_52230_, ContainerLevelAccess.create(pLevel, pPos)), CONTAINER_TITLE
         );
     }
 }
