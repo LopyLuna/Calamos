@@ -48,7 +48,7 @@ public class MachinaPestisEffect extends MobEffect {
         UUID pestisUUID = pestisPlayer.getUUID();
         CompoundTag tag = pPlayer.getPersistentData();
         tag.putUUID("LinkedPestisClone", pestisUUID);
-        //pPlayer.setGameMode(GameType.SPECTATOR);
+        pPlayer.setGameMode(GameType.SPECTATOR);
         CalamosMessages.sendToPlayer(new PestisCameraPacket(pPlayer.getId(), pestisPlayer.getId(), false), pPlayer);
     }
     

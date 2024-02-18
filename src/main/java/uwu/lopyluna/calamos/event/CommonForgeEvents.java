@@ -15,10 +15,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEffects;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
@@ -75,6 +77,19 @@ public class CommonForgeEvents {
         
     }
     @SubscribeEvent
+    public static void playerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        Player player = event.getEntity();
+        CompoundTag tag = player.getPersistentData();
+        if (tag.contains("LinkedPestisClone") && player.hasEffect(ModEffects.PESTIS.get())) {
+            UUID pestisUUID = tag.getUUID("LinkedPestisClone");
+            ServerLevel level = (ServerLevel) player.level;
+            Entity pestisPlayer = level.getEntity(pestisUUID);
+            if (pestisPlayer != null) {
+                CalamosMessages.sendToPlayer(new PestisCameraPacket(player.getId(), pestisPlayer.getId(), false), player);
+            }
+        }
+    }
+    @SubscribeEvent
     public static void entityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity instanceof PestisPlayerEntity pestisPlayer) {
@@ -83,6 +98,8 @@ public class CommonForgeEvents {
                 ServerPlayer player = (ServerPlayer) event.getEntity().level().getPlayerByUUID(linkedPlayer);
                 if (player != null) {
                     player.setGameMode(pestisPlayer.linkedPlayerGameType);
+                    player.teleportTo(pestisPlayer.getX(), pestisPlayer.getY(), pestisPlayer.getZ());
+                    player.getLookAngle().vectorTo(pestisPlayer.getLookAngle());
                     CalamosMessages.sendToPlayer(new PestisCameraPacket(player.getId(), pestisPlayer.getId(), true), player);
                 }
             }
@@ -98,21 +115,17 @@ public class CommonForgeEvents {
         if (tag.getFloat("flight_meter") > tag.getFloat("max_flight_meter")) {
             tag.putFloat("flight_meter", tag.getFloat("max_flight_meter"));
         }
-        if (tag.contains("LinkedPestisClone")) {
+        if (tag.contains("LinkedPestisClone") && !player.hasEffect(ModEffects.PESTIS.get())) {
             UUID pestisUUID = tag.getUUID("LinkedPestisClone");
             MinecraftServer server = player.getServer();
+            tag.remove("LinkedPestisClone");
             if (server != null) {
                 ServerLevel level = server.getLevel(player.level.dimension());
-                if (level != null) {
-                    PestisPlayerEntity pestisPlayer = (PestisPlayerEntity) level.getEntity(pestisUUID);
-                    if (!player.hasEffect(ModEffects.PESTIS.get())) {
-                        if (pestisPlayer != null) {
-                            pestisPlayer.kill();
-                        }
-                    }
+                Entity pestisPlayer = level.getEntity(pestisUUID);
+                if (pestisPlayer != null) {
+                    pestisPlayer.kill();
                 }
             }
-            tag.remove("LinkedPestisClone");
         }
     }
 }
