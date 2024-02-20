@@ -6,6 +6,9 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import uwu.lopyluna.calamos.CommonProxy;
+import uwu.lopyluna.calamos.utilities.AnimationHandler;
+
+import java.util.UUID;
 
 public class ClientProxy extends CommonProxy {
     public static CameraType lastPOV = CameraType.FIRST_PERSON;
@@ -45,6 +48,14 @@ public class ClientProxy extends CommonProxy {
             Minecraft.getInstance().setCameraEntity(player);
             Minecraft.getInstance().options.setCameraType(ClientProxy.lastPOV);
             Minecraft.getInstance().gameRenderer.setRenderHand(true);
+        }
+    }
+
+    public static void handleAnimationPacket(String animation, UUID playerUUID, boolean renderFirstPerson) {
+        if (animation.equals("null")) {
+            AnimationHandler.playAnimationClient(Minecraft.getInstance().level.getPlayerByUUID(playerUUID), null, renderFirstPerson);
+        } else {
+            AnimationHandler.playAnimationClient(Minecraft.getInstance().level.getPlayerByUUID(playerUUID), AnimationHandler.getKeyframeAnimation(animation), renderFirstPerson);
         }
     }
 

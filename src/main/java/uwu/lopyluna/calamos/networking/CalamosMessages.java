@@ -12,6 +12,7 @@ import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.networking.packets.C2S.TestPacket;
 import uwu.lopyluna.calamos.networking.packets.Packet;
+import uwu.lopyluna.calamos.networking.packets.S2C.AnimationHandlerPacket;
 import uwu.lopyluna.calamos.networking.packets.S2C.PestisCameraPacket;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,6 +30,7 @@ public class CalamosMessages {
 
         registerPacket(TestPacket.class, TestPacket.ID);
         registerPacket(PestisCameraPacket.class, PestisCameraPacket.ID);
+        registerPacket(AnimationHandlerPacket.class, AnimationHandlerPacket.ID);
     }
 
 
