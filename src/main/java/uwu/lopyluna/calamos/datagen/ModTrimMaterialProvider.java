@@ -6,10 +6,12 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import uwu.lopyluna.calamos.elements.ModArmorTrimMaterials;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -44,6 +46,14 @@ public class ModTrimMaterialProvider implements DataProvider {
         jsonObject.add("description", Component.Serializer.toJsonTree(trimMaterial.description()));
         jsonObject.addProperty("ingredient", trimMaterial.ingredient().unwrapKey().orElseThrow().location().toString());
         jsonObject.addProperty("item_model_index", trimMaterial.itemModelIndex());
+        Map<ArmorMaterials, String> overrideMap = trimMaterial.overrideArmorMaterials();
+        if (!overrideMap.isEmpty()) {
+            JsonObject overrideObject = new JsonObject();
+            jsonObject.add("override_armor_materials", overrideObject);
+            overrideMap.forEach((material, name) ->
+                    overrideObject.addProperty(material.getName(), name)
+            );
+        }
         return jsonObject;
     }
 

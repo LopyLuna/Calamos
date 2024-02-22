@@ -19,8 +19,8 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.LEVEL_STEM, CalamosDimensions::bootstrapStem)
             .add(Registries.BIOME, CalamosBiomes::bootstrap);
 
-    public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Set.of(CalamosMod.MODID));
+    public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookProvider) {
+        super(output, lookProvider, BUILDER, Set.of(CalamosMod.MODID));
     }
 
 }

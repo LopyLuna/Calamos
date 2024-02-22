@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -14,10 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
-import uwu.lopyluna.calamos.elements.ModBlocks;
-import uwu.lopyluna.calamos.elements.ModCreativeTab;
-import uwu.lopyluna.calamos.elements.ModEnchantments;
-import uwu.lopyluna.calamos.elements.ModItems;
+import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
@@ -124,6 +122,11 @@ class ModLanguageProvider extends LanguageProvider {
         this.enchantment(ModEnchantments.SAVING_GRACE);
         this.enchantment(ModEnchantments.FLIGHT_CHARGE);
         
+        //Effects
+        this.effect(ModEffects.PESTIS);
+
+        this.container("hallow_workbench");
+        
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             ResourceLocation tagId = tag.getA().location();
             String tagNamespace = tagId.getNamespace().equals("forge") ? "c" : tagId.getNamespace();
@@ -149,6 +152,13 @@ class ModLanguageProvider extends LanguageProvider {
     }
     private void enchantment(Holder<Enchantment> holder) {
         this.add(holder, "enchantment");
+    }
+    private void effect(Holder<MobEffect> holder) {
+        this.add(holder, "effect");
+    }
+    private void container(String containerName){
+        String translated = transform(containerName);
+        super.add("container.%s".formatted(containerName), translated);
     }
     private void add(Holder<?> holder, String type) {
         ResourceKey<?> resourceKey = holder.unwrapKey().orElseThrow(() -> new NoSuchElementException("No respective key. Check log"));

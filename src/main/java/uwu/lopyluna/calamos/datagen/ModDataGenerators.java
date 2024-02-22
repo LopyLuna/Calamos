@@ -25,7 +25,7 @@ public class ModDataGenerators {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         PackOutput packOutput = dataGenerator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, lookupProvider, CalamosMod.MODID, fileHelper);
+        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, lookupProvider, modId, fileHelper);
         dataGenerator.addProvider(event.includeServer(), blockTags);
         dataGenerator.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, lookupProvider, blockTags.contentsGetter()));
         dataGenerator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(), List.of(

@@ -8,4 +8,6 @@ import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public final class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BE_TYPES = ModUtils.createRegister(Registries.BLOCK_ENTITY_TYPE);
+
+    public static void staticInit() {}
 }

@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.block.SevenBySevenCraftingTableBlock;
+import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -75,9 +75,9 @@ public final class ModBlocks {
             ), new Item.Properties()
                     .fireResistant());
 
-    public static final DeferredBlock<Block> SEVEN_BY_SEVEN_CRAFTING_TABLE = register("seven_by_seven_crafting_table",
-            () -> new SevenBySevenCraftingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
-            ), new Item.Properties());
+    public static final DeferredBlock<HallowWorkbenchBlock> HALLOW_WORKBENCH = register("hallow_workbench",
+            () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
+            new Item.Properties().fireResistant());
 
     //Meteorite Blocks
     public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",

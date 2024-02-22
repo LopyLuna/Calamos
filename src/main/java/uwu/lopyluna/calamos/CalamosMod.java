@@ -6,18 +6,21 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.DistExecutor;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import org.slf4j.Logger;
+import uwu.lopyluna.calamos.client.ClientProxy;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
-
+@SuppressWarnings("removal, deprecation")
 @Mod(CalamosMod.MODID)
 public class CalamosMod {
     private static CalamosMod INSTANCE;
+    public static CommonProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
     public static final String MODID = "calamos";
     public static final String NAME = "Calamos";
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -31,11 +34,13 @@ public class CalamosMod {
         ModBlocks.staticInit();
         ModCreativeTab.staticInit();
         ModEntity.staticInit();
-        CalamosMessages.init(modEventBus);
+        CalamosMessages.init();
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
         ModEnchantments.staticInit();
-
+        ModEffects.staticInit();
+        ModMenuType.staticInit();
+        ModBlockEntities.staticInit();
 
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);

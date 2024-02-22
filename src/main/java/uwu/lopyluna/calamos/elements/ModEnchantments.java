@@ -1,14 +1,13 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.items.wings.FlightChargeEnchantment;
-import uwu.lopyluna.calamos.elements.items.wings.SavingGraceEnchantment;
+import uwu.lopyluna.calamos.elements.enchantments.FlightChargeEnchantment;
+import uwu.lopyluna.calamos.elements.enchantments.SavingGraceEnchantment;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public class ModEnchantments {
