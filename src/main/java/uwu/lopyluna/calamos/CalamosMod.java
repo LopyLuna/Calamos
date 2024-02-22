@@ -16,7 +16,8 @@ import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
-@SuppressWarnings("removal, deprecation")
+
+@SuppressWarnings({"removal", "deprecation", "all"})
 @Mod(CalamosMod.MODID)
 public class CalamosMod {
     private static CalamosMod INSTANCE;

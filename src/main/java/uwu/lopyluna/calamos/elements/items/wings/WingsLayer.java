@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -21,7 +22,6 @@ import net.minecraft.world.item.Items;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.ModModelLayers;
 
 @OnlyIn(Dist.CLIENT)
 public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
@@ -30,7 +30,7 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
 
     public WingsLayer(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet) {
         super(pRenderer);
-        this.wingsModel = new WingsModel<>(pModelSet.bakeLayer(ModModelLayers.WINGS));
+        this.wingsModel = new WingsModel<>(pModelSet.bakeLayer(ModelLayers.ELYTRA));
     }
 
     public void render(

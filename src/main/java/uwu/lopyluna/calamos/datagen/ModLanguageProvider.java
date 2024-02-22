@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.datagen;
 
-import com.ibm.icu.text.Normalizer;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -16,7 +15,6 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.*;
-import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
 import java.util.NoSuchElementException;
@@ -121,6 +119,7 @@ class ModLanguageProvider extends LanguageProvider {
         //Enchantments
         this.enchantment(ModEnchantments.SAVING_GRACE);
         this.enchantment(ModEnchantments.FLIGHT_CHARGE);
+        this.enchantment(ModEnchantments.FAST_FLIGHT);
         
         //Effects
         this.effect(ModEffects.PESTIS);

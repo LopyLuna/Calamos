@@ -62,7 +62,7 @@ public class WingsItem extends Item implements Equipable {
             }
             if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
                 decreaseFlightMeter(player,0.1f);
-                boostUpMovement(player);
+                boostUpMovement(player, stack);
             }
             if (isOnGround(player) && !hasMaxFlightMeter) {
                 replenishFlightMeter(player, getReplenishRate(stack));
@@ -71,12 +71,12 @@ public class WingsItem extends Item implements Equipable {
                 decreaseFlightMeter(player, 4.0f - stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()));
             }
             if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
-                glidingMovement(player);
+                glidingMovement(player, stack);
             } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && !player.isCrouching()) {
                 decreaseFlightMeter(player,0.025f);
-                glidingMovement(player);
+                glidingMovement(player, stack);
             } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && player.isCrouching()) {
-                boostHoriztonalMovement(player);
+                boostHoriztonalMovement(player, stack);
             }
         }
     }
@@ -92,21 +92,34 @@ public class WingsItem extends Item implements Equipable {
             };
         return defaultReplenishRate;
     }
-    public void boostUpMovement(Player player) {
+    public void boostUpMovement(Player player, ItemStack stack) {
         Vec3 vec3 = player.getDeltaMovement();
         player.setDeltaMovement(vec3.add(0, 1.5 * (vec3.y <= 0.3F ? vec3.y <= -0.1F ? vec3.y <= -0.2F ? vec3.y <= -0.3F ? vec3.y <= -0.5F ? 0.5 : 0.25 : 0.2 : 0.15 : 0.1 : 0), 0));
-        boostHoriztonalMovement(player);
+        boostHoriztonalMovement(player, stack);
     }
 
-    public void glidingMovement(Player player) {
+    public void glidingMovement(Player player, ItemStack stack) {
         Vec3 vec3 = player.getDeltaMovement();
         player.setDeltaMovement(divide(vec3,1, vec3.y <= -0.25F ? 1.5F : 1, 1));
-        boostHoriztonalMovement(player);
+        boostHoriztonalMovement(player, stack);
     }
 
-    public void boostHoriztonalMovement(Player player) {
+    public void boostHoriztonalMovement(Player player, ItemStack stack) {
         Vec3 vec3 = player.getDeltaMovement();
-        player.move(MoverType.SELF, vec3.multiply(1.1, 0, 1.1));
+        player.move(MoverType.SELF, vec3.multiply(defaultMovementRate(stack), 0, defaultMovementRate(stack)));
+    }
+
+    public float defaultMovementRate(ItemStack stack) {
+        float defaultMovementRate = 1.1F;
+        boolean hasFastFlight = stack.getEnchantmentLevel(ModEnchantments.FAST_FLIGHT.get()) > 0;
+        if (hasFastFlight)
+            return switch (stack.getEnchantmentLevel(ModEnchantments.FAST_FLIGHT.get())) {
+                case 1 -> defaultMovementRate * 1.1F;
+                case 2 -> defaultMovementRate * 1.2F;
+                case 3 -> defaultMovementRate * 1.3F;
+                default -> defaultMovementRate;
+            };
+        return defaultMovementRate;
     }
 
     public void decreaseFlightMeter(Player player, float amount) {
