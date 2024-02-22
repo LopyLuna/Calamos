@@ -59,10 +59,10 @@ public class WingsItem extends Item implements Equipable {
             BlockPos pos = player.blockPosition();
             boolean hasMaxFlightMeter = getFlightMeter(player) >= getMaxFlightMeter(player);
             if (!isOnGround(player)) {
-                boostHoriztonalMovement(player);
+                player.resetFallDistance();
             }
             if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
-                decreaseFlightMeter(player,0.25f);
+                decreaseFlightMeter(player,0.1f);
                 boostUpMovement(player);
             }
             if (isOnGround(player) && !hasMaxFlightMeter) {
@@ -73,7 +73,11 @@ public class WingsItem extends Item implements Equipable {
             }
             if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
                 glidingMovement(player);
-                player.resetFallDistance();
+            } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && !player.isCrouching()) {
+                decreaseFlightMeter(player,0.025f);
+                glidingMovement(player);
+            } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && player.isCrouching()) {
+                boostHoriztonalMovement(player);
             }
         }
     }
@@ -91,22 +95,20 @@ public class WingsItem extends Item implements Equipable {
     }
     public void boostUpMovement(Player player) {
         Vec3 vec3 = player.getDeltaMovement();
-        double d2 = vec3.y;
-        d2 += ((0.05 * 1.1 - vec3.y) * 0.2) * 0.25;
-
-        player.setDeltaMovement(vec3.add(0, vec3.y <= 0.25 ? d2 <= 0 ? d2 * -1 + 0.05: d2 : 0, 0));
-    }
-
-    public void boostHoriztonalMovement(Player player) {
-        Vec3 vec3 = player.getDeltaMovement();
-        player.move(MoverType.SELF, vec3.multiply(1.25, 1, 1.25));
+        player.setDeltaMovement(vec3.add(0, 1.5 * (vec3.y <= 0.3F ? vec3.y <= -0.1F ? vec3.y <= -0.2F ? vec3.y <= -0.3F ? vec3.y <= -0.5F ? 0.5 : 0.25 : 0.2 : 0.15 : 0.1 : 0), 0));
+        boostHoriztonalMovement(player);
     }
 
     public void glidingMovement(Player player) {
         Vec3 vec3 = player.getDeltaMovement();
         player.setDeltaMovement(divide(vec3,1, vec3.y <= -0.25F ? 1.5F : 1, 1));
+        boostHoriztonalMovement(player);
     }
 
+    public void boostHoriztonalMovement(Player player) {
+        Vec3 vec3 = player.getDeltaMovement();
+        player.move(MoverType.SELF, vec3.multiply(1.1, 0, 1.1));
+    }
 
     public void decreaseFlightMeter(Player player, float amount) {
         if (getFlightMeter(player) > 0.0f)
