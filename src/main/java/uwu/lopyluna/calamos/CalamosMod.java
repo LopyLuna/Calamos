@@ -9,8 +9,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.DistExecutor;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 import uwu.lopyluna.calamos.client.ClientProxy;
+import uwu.lopyluna.calamos.client.ModArmorLayers;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
@@ -57,7 +59,7 @@ public class CalamosMod {
             accessor.calamos$setMaxValue(maxHealthPossible);
         }
     }
-
+    
     public static IEventBus getEventBus() {
         return INSTANCE.modEventBus;
     }

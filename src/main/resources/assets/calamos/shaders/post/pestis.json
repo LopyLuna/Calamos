@@ -33,9 +33,19 @@
                 },
                 {
                     "name": "MosaicSize",
-                    "values": [ 4.0 ]
+                    "values": [ 2.0 ]
                 }
             ]
+        },
+        {
+            "name": "scan_pincushion",
+            "intarget": "minecraft:main",
+            "outtarget": "swap"
+        },
+        {
+            "name": "blit",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
         }
     ]
 }
