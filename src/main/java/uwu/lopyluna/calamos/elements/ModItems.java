@@ -1,7 +1,6 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -9,9 +8,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
-import uwu.lopyluna.calamos.elements.items.potions.SimplePotionItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
-import uwu.lopyluna.calamos.elements.items.potions.SimplePotionItemWithCooldown;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
@@ -58,15 +55,54 @@ public final class ModItems {
     public static final DeferredItem<Item> TERRAULITE_INGOT = registerSimple("terraulite_ingot");
     public static final DeferredItem<Item> ULTIMITA_INGOT = registerSimple("ultimita_ingot");
     public static final DeferredItem<Item> VOLCANITE_INGOT = registerSimple("volcanite_ingot");
+    public static final DeferredItem<Item> STELLAR_INGOT = registerSimple("stellar_ingot");
+    public static final DeferredItem<Item> ELEGANT_BLOOM = registerSimple("elegant_bloom");
+
+    public static final DeferredItem<Item> BERSERKER_CRAW = registerSimple("berserker_craw");
 
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
+    public static final DeferredItem<Item> VOLCANITE_SWORD = register("volcanite_sword", () -> new CalamosSword(CalamosTiers.VOLCANITE, 3, -2.2F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> WINGS = register("wings", () -> new WingsItem(new Item.Properties()));
 
     //POTIONS
+
+    //HEALING POTIONS
+    public static int healingPotionCooldown = 80 * 20;
+    public static int recoveringPotionCooldown = 40 * 20;
+    public static float recoveringDivisionFactor = 0.75f;
+
+    public static int weakHealingFactor = 25;
+    public static int healingFactor = 75;
+    public static int duplexHealingFactor = 125;
+    public static int enhancedHealingFactor = 250;
+    public static int sublimeHealingFactor = 400;
+
     public static final DeferredItem<Item> WEAK_HEALING_POTION = register("weak_healing_potion", () ->
-            new HealingPotionItem(25, 60 * 20, 0, new Item.Properties()));
+            new HealingPotionItem(weakHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
+    public static final DeferredItem<Item> WEAK_RECOVERING_POTION = register("weak_recovering_potion", () ->
+            new HealingPotionItem((int) ((float) weakHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
+
+    public static final DeferredItem<Item> HEALING_POTION = register("healing_potion", () ->
+            new HealingPotionItem(healingFactor, healingPotionCooldown, 0, new Item.Properties()));
+    public static final DeferredItem<Item> RECOVERING_POTION = register("recovering_potion", () ->
+            new HealingPotionItem((int) ((float) healingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
+
+    public static final DeferredItem<Item> DUPLEX_HEALING_POTION = register("duplex_healing_potion", () ->
+            new HealingPotionItem(duplexHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
+    public static final DeferredItem<Item> DUPLEX_RECOVERING_POTION = register("duplex_recovering_potion", () ->
+            new HealingPotionItem((int) ((float) duplexHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
+
+    public static final DeferredItem<Item> ENHANCED_HEALING_POTION = register("enhanced_healing_potion", () ->
+            new HealingPotionItem(enhancedHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
+    public static final DeferredItem<Item> ENHANCED_RECOVERING_POTION = register("enhanced_recovering_potion", () ->
+            new HealingPotionItem((int) ((float) enhancedHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
+
+    public static final DeferredItem<Item> SUBLIME_HEALING_POTION = register("sublime_healing_potion", () ->
+            new HealingPotionItem(sublimeHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
+    public static final DeferredItem<Item> SUBLIME_RECOVERING_POTION = register("sublime_recovering_potion", () ->
+            new HealingPotionItem((int) ((float) sublimeHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
 
     private static DeferredItem<Item> registerSimple(String name, Item.Properties itemProperties) {
         return register(name, () -> new Item(itemProperties));

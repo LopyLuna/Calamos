@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.datagen;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -14,7 +13,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
@@ -56,10 +54,27 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.ULTIMITA_INGOT);
         this.basicItem(ModItems.PLATINUM_INGOT);
         this.basicItem(ModItems.VOLCANITE_INGOT);
+        this.basicItem(ModItems.STELLAR_INGOT);
+        this.basicItem(ModItems.ELEGANT_BLOOM);
+
+        this.basicItem(ModItems.BERSERKER_CRAW);
 
         this.basicItem(ModItems.TEST_LOOTBAG);
         this.handheld32(ModItems.METEORITE_REAPER, "gui", "handheld");
         this.handheld32(ModItems.METEORITE_SWORD, "gui", "handheld");
+
+        this.handheld32(ModItems.VOLCANITE_SWORD, "gui", "handheld");
+
+        this.basicItem(ModItems.WEAK_HEALING_POTION);
+        this.basicItem(ModItems.WEAK_RECOVERING_POTION);
+        this.basicItem(ModItems.HEALING_POTION);
+        this.basicItem(ModItems.RECOVERING_POTION);
+        this.basicItem(ModItems.DUPLEX_HEALING_POTION);
+        this.basicItem(ModItems.DUPLEX_RECOVERING_POTION);
+        this.basicItem(ModItems.ENHANCED_HEALING_POTION);
+        this.basicItem(ModItems.ENHANCED_RECOVERING_POTION);
+        this.basicItem(ModItems.SUBLIME_HEALING_POTION);
+        this.basicItem(ModItems.SUBLIME_RECOVERING_POTION);
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {

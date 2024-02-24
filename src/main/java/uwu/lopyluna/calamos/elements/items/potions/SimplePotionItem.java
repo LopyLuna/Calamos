@@ -41,21 +41,27 @@ public class SimplePotionItem extends Item {
     }
 
     @Override
-    public @NotNull ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+    @NotNull
+    public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
         super.finishUsingItem(pStack, pLevel, pEntityLiving);
-        if (pEntityLiving instanceof ServerPlayer serverplayer) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
-            serverplayer.awardStat(Stats.ITEM_USED.get(this));
-            pEntityLiving.gameEvent(GameEvent.DRINK);
-            if (!serverplayer.getAbilities().instabuild) {
-                pStack.shrink(1);
+        applyPotionFunction(pStack, pLevel, pEntityLiving);
+        return pStack;
+    }
+
+    public void applyPotionFunction(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+        if (!pLevel.isClientSide) {
+            if (pEntityLiving instanceof ServerPlayer serverplayer) {
+                CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, pStack);
+                serverplayer.awardStat(Stats.ITEM_USED.get(this));
+                pEntityLiving.gameEvent(GameEvent.DRINK);
+                if (!serverplayer.getAbilities().instabuild) {
+                    pStack.shrink(1);
+                }
             }
         }
-
         if (!pLevel.isClientSide) {
             pEntityLiving.addEffect(new MobEffectInstance(potionEffect, potionDuration, potionPower));
         }
-        return pStack;
     }
 
     @Override
@@ -72,22 +78,26 @@ public class SimplePotionItem extends Item {
     }
 
     @Override
-    public @NotNull UseAnim getUseAnimation(ItemStack pStack) {
+    @NotNull
+    public UseAnim getUseAnimation(ItemStack pStack) {
         return UseAnim.DRINK;
     }
 
     @Override
-    public @NotNull SoundEvent getDrinkingSound() {
+    @NotNull
+    public SoundEvent getDrinkingSound() {
         return SoundEvents.WITCH_DRINK;
     }
 
     @Override
-    public @NotNull SoundEvent getEatingSound() {
+    @NotNull
+    public SoundEvent getEatingSound() {
         return SoundEvents.WITCH_DRINK;
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+    @NotNull
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         return ItemUtils.startUsingInstantly(pLevel, pPlayer, pHand);
     }
 }

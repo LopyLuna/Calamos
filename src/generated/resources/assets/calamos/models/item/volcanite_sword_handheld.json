@@ -1,0 +1,6 @@
+{
+  "parent": "calamos:item/templates/handheld32x",
+  "textures": {
+    "layer0": "calamos:item/volcanite_sword"
+  }
+}

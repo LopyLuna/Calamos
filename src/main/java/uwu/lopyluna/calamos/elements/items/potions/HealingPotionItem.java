@@ -4,7 +4,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import uwu.lopyluna.calamos.elements.ModEffects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -20,11 +19,10 @@ public class HealingPotionItem extends SimplePotionItemWithCooldown {
         this.healingAmount = healingAmount;
     }
 
-    public @NotNull ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
-        super.finishUsingItem(pStack, pLevel, pEntityLiving);
-            if (!pLevel.isClientSide) {
-                pEntityLiving.heal(healingAmount);
-            }
-        return pStack;
+    public void applyCooldownPotionFunction(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
+        super.applyCooldownPotionFunction(pStack, pLevel, pEntityLiving);
+        if (!pLevel.isClientSide) {
+            pEntityLiving.heal(healingAmount);
+        }
     }
 }

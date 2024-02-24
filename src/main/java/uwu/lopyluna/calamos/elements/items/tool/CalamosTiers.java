@@ -8,7 +8,8 @@ import uwu.lopyluna.calamos.elements.ModItems;
 import java.util.function.Supplier;
 @SuppressWarnings("deprecation")
 public enum CalamosTiers implements Tier {
-    METEORITE(5, 5031, 9.0F, 8.5F, 13, () -> Ingredient.of(ModItems.METEORITE_INGOT.get())),
+    METEORITE(5, 5031, 9.0F, 8.5F, 14, () -> Ingredient.of(ModItems.METEORITE_INGOT.get())),
+    VOLCANITE(5, 10264, 10.0F, 9.5F, 21, () -> Ingredient.of(ModItems.VOLCANITE_INGOT.get())),
     ;
     
     
