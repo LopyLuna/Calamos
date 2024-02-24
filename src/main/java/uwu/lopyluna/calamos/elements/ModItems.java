@@ -1,13 +1,17 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
+import uwu.lopyluna.calamos.elements.items.potions.SimplePotionItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
+import uwu.lopyluna.calamos.elements.items.potions.SimplePotionItemWithCooldown;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
@@ -59,6 +63,10 @@ public final class ModItems {
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> WINGS = register("wings", () -> new WingsItem(new Item.Properties()));
+
+    //POTIONS
+    public static final DeferredItem<Item> WEAK_HEALING_POTION = register("weak_healing_potion", () ->
+            new HealingPotionItem(25, 60 * 20, 0, new Item.Properties()));
 
     private static DeferredItem<Item> registerSimple(String name, Item.Properties itemProperties) {
         return register(name, () -> new Item(itemProperties));
