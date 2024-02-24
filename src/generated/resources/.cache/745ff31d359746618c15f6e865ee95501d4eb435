@@ -1,2 +1,3 @@
-// 1.20.4	2024-02-10T17:05:28.1012457	Tags for minecraft:block mod id calamos
+// 1.20.4	2024-02-20T19:50:06.8571414	Tags for minecraft:block mod id calamos
 a364bedf8a10aa933d38695a02a7268c88a75d2b data/minecraft/tags/blocks/mineable/pickaxe.json
+f7d75716c06f36ffb4a15bae73edb021f173030b data/minecraft/tags/blocks/walls.json

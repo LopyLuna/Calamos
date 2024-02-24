@@ -3,6 +3,7 @@ package uwu.lopyluna.calamos.mixin;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,14 +25,14 @@ public abstract class HumanoidModelMixin {
         var model = ((HumanoidModel<LivingEntity>) (Object) this);
         if (entity.getMainHandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
             if (entity.swinging)
-                tool.swingPose(model, entity, false, entity.swingTime);
+                tool.swingPose(entity, false, entity.swingTime);
             else
-                tool.idleHeldPose(model, entity, false, ageInTicks);
+                tool.idleHeldPose(entity, false, ageInTicks);
         } else if (entity.getOffhandItem().getItem() instanceof CalamosTool tool && tool.isTwoHanded() && !tool.isBeingUsed() && tool.hasIdleHeldPose()) {
             if (entity.swinging)
-                tool.swingPose(model, entity, true, entity.swingTime);
+                tool.swingPose(entity, true, entity.swingTime);
             else
-                tool.idleHeldPose(model, entity, true, ageInTicks);
+                tool.idleHeldPose(entity, true, ageInTicks);
         }
     }
 }

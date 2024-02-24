@@ -1,16 +1,21 @@
 package uwu.lopyluna.calamos.datagen;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -60,6 +65,10 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.TEST_LOOTBAG);
         this.handheld32(ModItems.METEORITE_REAPER, "gui", "handheld");
         this.handheld32(ModItems.METEORITE_SWORD, "gui", "handheld");
+
+        this.wallItem(ModBlocks.POLISHED_METEORITE_WALL, ModBlocks.POLISHED_METEORITE);
+        this.wallItem(ModBlocks.METEORITE_WALL, ModBlocks.METEORITE);
+        this.wallItem(ModBlocks.SMOOTH_METEORITE_WALL, ModBlocks.SMOOTH_METEORITE);
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {
@@ -123,5 +132,10 @@ class ModItemModelProvider extends ItemModelProvider {
         separateTransform(item);
         basicItem(item, guiLocationModifier);
         return name;
+    }
+
+    private void wallItem(Supplier<? extends Block> block, Supplier<? extends Block> texture)  {
+        this.withExistingParent(BuiltInRegistries.BLOCK.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall", ModUtils.location("block/" + BuiltInRegistries.BLOCK.getKey(texture.get()).getPath()));
     }
 }

@@ -15,6 +15,26 @@
 					}
 				}
 			}
+		},
+		"scythe_swing": {
+			"animation_length": 0.58333,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"0.0": {
+							"vector": [-159.54691, 10.97276, 1.80396]
+						},
+						"0.3333": {
+							"vector": [-131.82069, 27.7414, -51.29706],
+							"easing": "easeInOutQuart"
+						},
+						"0.5417": {
+							"vector": [-42.20211, -1.70305, -89.45984],
+							"easing": "easeInOutCubic"
+						}
+					}
+				}
+			}
 		}
 	}
 }
