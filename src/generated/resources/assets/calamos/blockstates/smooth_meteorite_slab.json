@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/smooth_meteorite_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/smooth_meteorite"
+    },
+    "type=top": {
+      "model": "calamos:block/smooth_meteorite_slab_top"
+    }
+  }
+}

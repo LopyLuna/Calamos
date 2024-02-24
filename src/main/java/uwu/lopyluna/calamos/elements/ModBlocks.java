@@ -1,8 +1,7 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -110,6 +109,34 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> SMOOTH_METEORITE  = register("smooth_meteorite",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
+    public static final DeferredBlock<StairBlock> SMOOTH_METEORITE_STAIRS = register("smooth_meteorite_stairs",
+            () -> new StairBlock(() -> ModBlocks.SMOOTH_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<SlabBlock> SMOOTH_METEORITE_SLAB = register("smooth_meteorite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
+            ), new Item.Properties());
+    public static final DeferredBlock<StairBlock> METEORITE_STAIRS = register("meteorite_stairs",
+            () -> new StairBlock(() -> ModBlocks.METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<SlabBlock> METEORITE_SLAB = register("meteorite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
+            ), new Item.Properties());
+    public static final DeferredBlock<StairBlock> POLISHED_METEORITE_STAIRS = register("polished_meteorite_stairs",
+            () -> new StairBlock(() -> ModBlocks.POLISHED_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<SlabBlock> POLISHED_METEORITE_SLAB = register("polished_meteorite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
+            ), new Item.Properties());
+    public static final DeferredBlock<WallBlock> SMOOTH_METEORITE_WALL = register("smooth_meteorite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
+            ), new Item.Properties());
+    public static final DeferredBlock<WallBlock> METEORITE_WALL = register("meteorite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
+            ), new Item.Properties());
+    public static final DeferredBlock<WallBlock> POLISHED_METEORITE_WALL = register("polished_meteorite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
+            ), new Item.Properties());
+
     //Ores
     public static final DeferredBlock<Block> COPPER_ORE = register("copper_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)

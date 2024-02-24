@@ -18,7 +18,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.registerBlockMineables();
-        //this.registerMinecraftTags();
+        this.registerMinecraftTags();
         //this.registerForgeTags();
     }
     
@@ -50,7 +50,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         );
     }
     protected void registerMinecraftTags() {
-    
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.METEORITE_WALL.get())
+                .add(ModBlocks.SMOOTH_METEORITE_WALL.get())
+                .add(ModBlocks.POLISHED_METEORITE_WALL.get());
     }
     
     protected void registerForgeTags() {

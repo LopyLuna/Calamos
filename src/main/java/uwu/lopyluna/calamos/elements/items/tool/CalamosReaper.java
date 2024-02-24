@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import uwu.lopyluna.calamos.utilities.AnimationHandler;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 import uwu.lopyluna.calamos.utilities.RenderingUtils;
 
@@ -35,21 +36,27 @@ public class CalamosReaper extends SwordItem implements CalamosTool {
         }
         return super.use(pLevel, pPlayer, pUsedHand);
     }
+    /*
     @Override
-    public void idleHeldPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
+    public void idleHeldPose(Player entity, boolean offHand, float pAgeInTicks) {
         if (isTwoHanded()) {
-            RenderingUtils.twoHanded(model, entity, offHand, pAgeInTicks);
+
         }
     }
+     */
     @Override
-    public void swingPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
-        if (isTwoHanded()) {
-            RenderingUtils.reaperSwing(model, entity, offHand, pAgeInTicks);
-        }
+    public void swingPose(LivingEntity entity, boolean offHand, float pAgeInTicks) {
+        if (!entity.level.isClientSide() && !offHand)
+            AnimationHandler.playAnimationServer((Player) entity, "scythe_swing", false);
     }
-    
-    
-    
+
+    @Override
+    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
+        if (!entity.level.isClientSide())
+            AnimationHandler.playAnimationServer((Player) entity, "scythe_swing", false);
+        return super.onEntitySwing(stack, entity);
+    }
+
     public static InteractionResultHolder<ItemStack> harvest(int harvestRadius, Level world, Player player, InteractionHand hand) {
         BlockPos pos = player.getOnPos();
         BlockPos blockPos = new BlockPos(ModUtils.roundThat((float) pos.getX()), ModUtils.roundThat((float) pos.getZ()), ModUtils.roundThat((float) pos.getZ()));

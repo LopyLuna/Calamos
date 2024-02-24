@@ -16,13 +16,14 @@ public class CalamosSword extends SwordItem implements CalamosTool{
     public boolean isTwoHanded() {
         return twoHanded;
     }
-    
+    /*
     @Override
     public void idleHeldPose(HumanoidModel<LivingEntity> model, LivingEntity entity, boolean offHand, float pAgeInTicks) {
         if (isTwoHanded()) {
             RenderingUtils.twoHanded(model, entity, offHand, pAgeInTicks);
         }
     }
+     */
     @Override
     public boolean isBeingUsed() {
         return false;

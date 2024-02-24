@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "calamos:block/meteorite",
+    "side": "calamos:block/meteorite",
+    "top": "calamos:block/meteorite"
+  }
+}
