@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
@@ -58,13 +59,15 @@ public final class ModItems {
     public static final DeferredItem<Item> STELLAR_INGOT = registerSimple("stellar_ingot");
     public static final DeferredItem<Item> ELEGANT_BLOOM = registerSimple("elegant_bloom");
 
-    public static final DeferredItem<Item> BERSERKER_CRAW = registerSimple("berserker_craw");
 
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> VOLCANITE_SWORD = register("volcanite_sword", () -> new CalamosSword(CalamosTiers.VOLCANITE, 3, -2.2F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item> WINGS = register("wings", () -> new WingsItem(new Item.Properties()));
+
+    //CURIOS ITEMS
+    public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);
+    public static final DeferredItem<Item> WINGS = register("wings", WingsItem::new);
 
     //POTIONS
 

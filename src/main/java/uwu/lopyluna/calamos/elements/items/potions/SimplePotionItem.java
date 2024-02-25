@@ -69,7 +69,7 @@ public class SimplePotionItem extends Item {
         pTooltip.add(Component.nullToEmpty("§6" + displayName + (potionDuration + potionPower == 0 && drinkingDuration != 0 ? "" : "§9 - ")
                 + (potionDuration == 0 ? "" : "§9Timer: §6" + potionDuration / 20 + "§9 (Sec)") + (potionDuration + potionPower == 0 && drinkingDuration != 0 ? "" : " | ")
                 + (potionPower == 0 ? "" : "§9Level: §6" + (potionPower + 1)) + (potionPower == 0 && drinkingDuration != 0 ? "" : " | ")
-                + (drinkingDuration == 0 ? "§6'Instant'" : "")));
+                + (drinkingDuration == 0 ? "§6'Instant'" : "§9Drink Time: §6" + (float)drinkingDuration / 20 + "§9 (Sec)")));
     }
 
     @Override

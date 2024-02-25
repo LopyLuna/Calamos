@@ -53,7 +53,7 @@ public class SimplePotionItemWithCooldown extends SimplePotionItem {
                 + (potionDuration == 0 ? "" : "§9Timer: §6" + (float)potionDuration / 20 + "§9 (Sec)") + (potionDuration + potionPower == 0 || potionDuration + cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
                 + (potionPower == 0 ? "" : "§9Level: §6" + (potionPower + 1)) + (potionPower + cooldownDuration == 0  && drinkingDuration != 0 ? "" : " | ")
                 + (cooldownDuration == 0 ? "" : "§9Cooldown: §6" + (float)cooldownDuration / 20 + "§9 (Sec)") + (cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
-                + (drinkingDuration == 0 ? "§6'Instant'" : "")));
+                + (drinkingDuration == 0 ? "§6'Instant'" : "§9Drink Time: §6" + (float)drinkingDuration / 20 + "§9 (Sec)")));
     }
 
     @Override

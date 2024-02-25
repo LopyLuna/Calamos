@@ -38,6 +38,10 @@ description='''${mod_description}'''
     modId="terrablender"
     type="required"
     versionRange="[${terrablender_version},)"
+[[dependencies.calamos]]
+    modId="curios"
+    type="required"
+    versionRange="[${curios_version},)"
 #[[dependencies.calamos]]
 #    modId="veil"
 #    type="required"

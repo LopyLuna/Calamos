@@ -17,6 +17,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import uwu.lopyluna.calamos.elements.CalamosKeys;
 import uwu.lopyluna.calamos.elements.ModEnchantments;
 
@@ -24,10 +26,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class WingsItem extends Item implements Equipable {
+public class WingsItem extends Item implements Equipable, ICurioItem {
     public static final EquipmentSlot SLOT = EquipmentSlot.CHEST;
-    public WingsItem(Properties pProperties) {
-        super(pProperties.stacksTo(1));
+    public static SlotContext SLOTC;
+    public WingsItem() {
+        super(new Item.Properties().stacksTo(1));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
     }
     @Override
@@ -52,7 +55,6 @@ public class WingsItem extends Item implements Equipable {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         return this.swapWithEquipmentSlot(this, pLevel, pPlayer, pHand);
     }
-    
     @Nullable
     public static WingsItem getWornBy(Entity entity) {
         if (!(entity instanceof LivingEntity livingEntity)) {
@@ -63,36 +65,53 @@ public class WingsItem extends Item implements Equipable {
         }
         return item;
     }
+
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        Entity entity = slotContext.entity();
+        Level level = entity.level();
+        if (entity instanceof Player player) {
+            wingFunction(player, stack, level);
+        }
+        SLOTC = slotContext;
+    }
+
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, level, entity, itemSlot, isSelected);
-        boolean hasSavingGrace = stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()) > 0;
         if (entity instanceof Player player && isWearingWings(player)) {
-            BlockPos pos = player.blockPosition();
-            boolean hasMaxFlightMeter = getFlightMeter(player) >= getMaxFlightMeter(player);
-            if (!isOnGround(player)) {
-                player.resetFallDistance();
-            }
-            if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
-                decreaseFlightMeter(player,0.1f);
-                boostUpMovement(player, stack);
-            }
-            if (isOnGround(player) && !hasMaxFlightMeter) {
-                replenishFlightMeter(player, getReplenishRate(stack));
-            }
-            if (!isOnGround(player) && !level.getBlockState(pos.below(2)).isAir() && hasSavingGrace && player.fallDistance > 3.0f) {
-                decreaseFlightMeter(player, 4.0f - stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()));
-            }
-            if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
-                glidingMovement(player, stack);
-            } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && !player.isCrouching()) {
-                decreaseFlightMeter(player,0.025f);
-                glidingMovement(player, stack);
-            } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && player.isCrouching()) {
-                boostHoriztonalMovement(player, stack);
-            }
+            wingFunction(player, stack, level);
         }
     }
+
+    public void wingFunction(Player player, ItemStack stack, Level level) {
+        boolean hasSavingGrace = stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()) > 0;
+        BlockPos pos = player.blockPosition();
+        boolean hasMaxFlightMeter = getFlightMeter(player) >= getMaxFlightMeter(player);
+        if (!isOnGround(player)) {
+            player.resetFallDistance();
+        }
+        if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
+            decreaseFlightMeter(player,0.1f);
+            boostUpMovement(player, stack);
+        }
+        if (isOnGround(player) && !hasMaxFlightMeter) {
+            replenishFlightMeter(player, getReplenishRate(stack));
+        }
+        if (!isOnGround(player) && !level.getBlockState(pos.below(2)).isAir() && hasSavingGrace && player.fallDistance > 3.0f) {
+            decreaseFlightMeter(player, 4.0f - stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()));
+        }
+        if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
+            glidingMovement(player, stack);
+        } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && !player.isCrouching()) {
+            decreaseFlightMeter(player,0.025f);
+            glidingMovement(player, stack);
+        } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && player.isCrouching()) {
+            boostHoriztonalMovement(player, stack);
+        }
+
+    }
+
     public float getReplenishRate(ItemStack stack) {
         float defaultReplenishRate = 0.2f;
         boolean hasFlightCharge = stack.getEnchantmentLevel(ModEnchantments.FLIGHT_CHARGE.get()) > 0;
@@ -151,13 +170,13 @@ public class WingsItem extends Item implements Equipable {
             tag.putFloat("flight_meter", getMaxFlightMeter(player));
         tag.putFloat("flight_meter", amount);
     }
-    public float getFlightMeter(Player player) {
+    public static float getFlightMeter(Player player) {
         CompoundTag tag = player.getPersistentData();
         if (!tag.contains("flight_meter"))
             tag.putFloat("flight_meter", getMaxFlightMeter(player));
         return tag.getFloat("flight_meter");
     }
-    public float getMaxFlightMeter(Player player) {
+    public static float getMaxFlightMeter(Player player) {
         CompoundTag tag = player.getPersistentData();
         return tag.getFloat("max_flight_meter");
     }

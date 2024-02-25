@@ -8,7 +8,6 @@ import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.entity.layers.ElytraLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -22,14 +21,13 @@ import uwu.lopyluna.calamos.client.ModArmorLayers;
 import uwu.lopyluna.calamos.elements.items.wings.WingsItem;
 
 import java.util.List;
-import java.util.Map;
 
 
 public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
     
     private static final List<String> devNames = List.of("LopyLuna", "_Pouffy_");
-    
-    
+
+
     private static ResourceLocation textureLocation(String name) {
         if (!devNames.contains(name))
             return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/default.png");
@@ -50,7 +48,7 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
                        float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         if (pLivingEntity.getPose() == Pose.SLEEPING)
             return;
-        
+
         WingsItem item = WingsItem.getWornBy(pLivingEntity);
         if (item == null)
             return;
@@ -61,7 +59,10 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
             return;
         
         HumanoidModel<?> model = (HumanoidModel<?>) entityModel;
+
         ItemStack itemstack = pLivingEntity.getItemBySlot(EquipmentSlot.CHEST);
+
+
         ResourceLocation resourcelocation;
         resourcelocation = getTexture(pLivingEntity);
         pPoseStack.pushPose();

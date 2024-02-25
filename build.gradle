@@ -58,6 +58,10 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.blamejared.com"}
     maven {
@@ -71,7 +75,7 @@ dependencies {
 
     implementation "maven.modrinth:fusion-connected-textures:${fusion_version}-neoforge-mc${minecraft_version}"
     implementation "com.github.glitchfiend:TerraBlender-neoforge:${minecraft_version}-${terrablender_version}"
-    implementation "foundry.veil:Veil-neoforge-${minecraft_version}:${veil_version}"
+    //implementation "foundry.veil:Veil-neoforge-${minecraft_version}:${veil_version}"
     implementation "dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}+${minecraft_version}"
 
     runtimeOnly "maven.modrinth:ferrite-core:6.0.3-forge"
@@ -79,6 +83,10 @@ dependencies {
     runtimeOnly "maven.modrinth:wthit:neo-10.2.0"
     runtimeOnly "maven.modrinth:emi:1.1.0+1.20.4+neoforge"
     runtimeOnly "maven.modrinth:emitrades:neoforge-1.3.0+mc1.20.4"
+
+
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 
 }
 
@@ -98,7 +106,8 @@ tasks.withType(ProcessResources).configureEach {
             fusion_version         : fusion_version,
             terrablender_version   : terrablender_version,
             veil_version           : veil_version,
-            player_anim_version    : player_anim_version
+            player_anim_version    : player_anim_version,
+            curios_version         : curios_version
     ]
     inputs.properties replaceProperties
 

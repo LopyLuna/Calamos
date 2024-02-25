@@ -17,6 +17,7 @@ public class ModEnchantments {
     public static final DeferredHolder<Enchantment, Enchantment> SAVING_GRACE = ENCHANTMENTS.register("saving_grace", () -> new SavingGraceEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.CHEST));
     public static final DeferredHolder<Enchantment, Enchantment> FLIGHT_CHARGE = ENCHANTMENTS.register("flight_charge", () -> new FlightChargeEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.CHEST));
     public static final DeferredHolder<Enchantment, Enchantment> FAST_FLIGHT = ENCHANTMENTS.register("fast_flight", () -> new FastFlightEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.CHEST));
+    public static final DeferredHolder<Enchantment, Enchantment> BERSERKER_SPEED = ENCHANTMENTS.register("berserker_speed", () -> new FastFlightEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.CHEST));
     
     public static void staticInit() {
         CalamosMod.LOGGER.info("enchanted metbal");

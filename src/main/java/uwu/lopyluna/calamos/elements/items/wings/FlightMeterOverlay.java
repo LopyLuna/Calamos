@@ -10,6 +10,7 @@ import net.neoforged.neoforge.client.gui.overlay.ExtendedGui;
 import net.neoforged.neoforge.client.gui.overlay.IGuiOverlay;
 import uwu.lopyluna.calamos.CalamosMod;
 
+
 public class FlightMeterOverlay implements IGuiOverlay {
     public static final FlightMeterOverlay INSTANCE = new FlightMeterOverlay();
     public final static ResourceLocation flightMeter = new ResourceLocation(CalamosMod.MODID, "textures/gui/sprites/flight_meter.png");
@@ -20,24 +21,24 @@ public class FlightMeterOverlay implements IGuiOverlay {
     @Override
     public void render(ExtendedGui gui, GuiGraphics guiGraphics, float partialTick, int screenWidth, int screenHeight) {
         Minecraft mc = Minecraft.getInstance();
+        int barX, barY;
+        barX = screenWidth / 2 + 120;
+        barY = screenHeight - 53;
+
         if (mc.options.hideGui || mc.gameMode.getPlayerMode() == GameType.SPECTATOR)
             return;
 
         LocalPlayer player = mc.player;
-
         if (player == null)
             return;
 
-        if (!(player.getInventory().armor.get(2).getItem() instanceof WingsItem wingsItem))
+        if (!(player.getInventory().armor.get(2).getItem() instanceof WingsItem || !(WingsItem.defaultInstance.canUnequip(WingsItem.SLOTC))))
             return;
-        int barX, barY;
-        barX = screenWidth / 2 + 120;
-        barY = screenHeight - 53;
         guiGraphics.blit(flightMeter, barX, barY, 0, IMAGE_HEIGHT * 2, IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_HEIGHT);
-        guiGraphics.blit(flightMeterFull, barX, barY, 0, IMAGE_HEIGHT * 2, IMAGE_WIDTH, (int) (IMAGE_HEIGHT * getFlightMeterPercent(player, wingsItem) + (IMAGE_HEIGHT - 26) / 2), IMAGE_WIDTH, IMAGE_HEIGHT);
+        guiGraphics.blit(flightMeterFull, barX, barY, 0, IMAGE_HEIGHT * 2, IMAGE_WIDTH, (int) (IMAGE_HEIGHT * getFlightMeterPercent(player) + (IMAGE_HEIGHT - 26) / 2), IMAGE_WIDTH, IMAGE_HEIGHT);
     }
 
-    public float getFlightMeterPercent(Player player, WingsItem wings) {
-        return wings.getFlightMeter(player) / wings.getMaxFlightMeter(player);
+    public float getFlightMeterPercent(Player player) {
+        return WingsItem.getFlightMeter(player) / WingsItem.getMaxFlightMeter(player);
     }
 }
