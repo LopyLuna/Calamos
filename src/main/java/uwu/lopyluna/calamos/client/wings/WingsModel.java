@@ -29,13 +29,15 @@ public class WingsModel<T extends LivingEntity> extends EntityModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
         
-        PartDefinition left = partdefinition.addOrReplaceChild("left", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -32.0F, 0.0F, 39.0F, 32.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, -1.1345F, 0.0F));
+        PartDefinition left = partdefinition.addOrReplaceChild("left", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, -1.1345F, 0.0F));
         
         PartDefinition right = partdefinition.addOrReplaceChild("right", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
         
-        PartDefinition rightWing_r1 = right.addOrReplaceChild("rightWing_r1", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -32.0F, 0.0F, 39.0F, 32.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -2.0071F, 0.0F));
+        PartDefinition rightWing_r1 = right.addOrReplaceChild("rightWing_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-22.0F, 0.0F, 0.0F, 22.0F, 39.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 1.5708F));
         
-        return LayerDefinition.create(meshdefinition, 48, 32);
+        PartDefinition rightWing_r2 = right.addOrReplaceChild("rightWing_r2", CubeListBuilder.create().texOffs(0, 0).addBox(-22.0F, 0.0F, 0.0F, 22.0F, 39.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 2.3562F, 0.0F, 1.5708F));
+        
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
     
     @Override

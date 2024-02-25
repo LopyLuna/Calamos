@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 @SuppressWarnings({"unused"})
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = ModUtils.createRegister(DeferredRegister::createBlocks);
-
+    public static Collection<DeferredHolder<Block, ? extends Block>> decorativeBlocks;
     //Gem Blocks
     public static final DeferredBlock<Block> GARNET_BLOCK = register("garnet_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
@@ -79,67 +79,21 @@ public final class ModBlocks {
             () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
             new Item.Properties().fireResistant());
 
-    //Meteorite Blocks
-    public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> COBBLED_METEORITE  = register("cobbled_meteorite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> CUT_METEORITE  = register("cut_meteorite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> GILDED_METEORITE_BRICKS  = register("gilded_meteorite_bricks",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> LARGE_METEORITE_TILE  = register("large_meteorite_tile",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> METEORITE  = register("meteorite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> METEORITE_BRICKS  = register("meteorite_bricks",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> METEORITE_TILES  = register("meteorite_tiles",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> POLISHED_METEORITE  = register("polished_meteorite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<Block> SMOOTH_METEORITE  = register("smooth_meteorite",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-            ), new Item.Properties());
-    public static final DeferredBlock<StairBlock> SMOOTH_METEORITE_STAIRS = register("smooth_meteorite_stairs",
-            () -> new StairBlock(() -> ModBlocks.SMOOTH_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
-            ), new Item.Properties());
-    public static final DeferredBlock<SlabBlock> SMOOTH_METEORITE_SLAB = register("smooth_meteorite_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
-            ), new Item.Properties());
-    public static final DeferredBlock<StairBlock> METEORITE_STAIRS = register("meteorite_stairs",
-            () -> new StairBlock(() -> ModBlocks.METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
-            ), new Item.Properties());
-    public static final DeferredBlock<SlabBlock> METEORITE_SLAB = register("meteorite_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
-            ), new Item.Properties());
-    public static final DeferredBlock<StairBlock> POLISHED_METEORITE_STAIRS = register("polished_meteorite_stairs",
-            () -> new StairBlock(() -> ModBlocks.POLISHED_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
-            ), new Item.Properties());
-    public static final DeferredBlock<SlabBlock> POLISHED_METEORITE_SLAB = register("polished_meteorite_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
-            ), new Item.Properties());
-    public static final DeferredBlock<WallBlock> SMOOTH_METEORITE_WALL = register("smooth_meteorite_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
-            ), new Item.Properties());
-    public static final DeferredBlock<WallBlock> METEORITE_WALL = register("meteorite_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
-            ), new Item.Properties());
-    public static final DeferredBlock<WallBlock> POLISHED_METEORITE_WALL = register("polished_meteorite_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE_WALL)
-            ), new Item.Properties());
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     //Ores
     public static final DeferredBlock<Block> COPPER_ORE = register("copper_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 
@@ -170,4 +124,5 @@ public final class ModBlocks {
     public static Collection<DeferredHolder<Block, ? extends Block>> getBlocks() {
         return BLOCKS.getEntries();
     }
+    
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/smooth_soul_sandstone_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/smooth_soul_sandstone"
+    },
+    "type=top": {
+      "model": "calamos:block/smooth_soul_sandstone_slab_top"
+    }
+  }
+}

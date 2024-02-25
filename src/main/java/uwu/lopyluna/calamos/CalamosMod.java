@@ -33,6 +33,7 @@ public class CalamosMod {
 
         ModItems.staticInit();
         ModBlocks.staticInit();
+        ModDecorativeBlocks.staticInit();
         ModCreativeTab.staticInit();
         ModEntity.staticInit();
         CalamosMessages.init();

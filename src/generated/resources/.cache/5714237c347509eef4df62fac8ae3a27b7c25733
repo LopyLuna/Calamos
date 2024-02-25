@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-23T23:05:39.3122732	Item Models: calamos
+// 1.20.4	2024-02-25T15:35:10.282041	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -24,17 +24,14 @@ b5bd61bee0b5637895249a0004ba79480b387926 assets/calamos/models/item/meteorite_re
 2f6207791f20d68a276abf7cc7b10b5979ea1bfd assets/calamos/models/item/meteorite_sword.json
 7187a5676e1165e670e6083c8fa775433c090713 assets/calamos/models/item/meteorite_sword_gui.json
 66d0fe3278e90cf0639ac9807fc02c8ed027896b assets/calamos/models/item/meteorite_sword_handheld.json
-31dfcfc583e91363b7e64e46a385c21b6d8379ce assets/calamos/models/item/meteorite_wall.json
 54f50658e278a75cfb9b916edb62b78458242295 assets/calamos/models/item/moonstone.json
 56fdd8a3e991b8949da641aa4067796bee6c42a5 assets/calamos/models/item/obsteel_ingot.json
 f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
 b51945cd282cf790339e118622fe9f33a5af4e92 assets/calamos/models/item/platinum_ingot.json
-401627410d8a6673844c73273d76e91c9734b1e3 assets/calamos/models/item/polished_meteorite_wall.json
 3600654822eb3cbbf89c17e04971fee76899c9d0 assets/calamos/models/item/raw_meteorite.json
 258fcfd4b2ac8244cfde9d18dbfca134c7be163b assets/calamos/models/item/recovering_potion.json
 45c77cb4ca654ac6f113fc451c14863c13a9df77 assets/calamos/models/item/ruby.json
 f5618548defc95005dd2977c277e083e77ec0989 assets/calamos/models/item/sapphire.json
-9dde6f5edf9f0a72e61f7a593a71cdebcfa68393 assets/calamos/models/item/smooth_meteorite_wall.json
 c751ed428edc174114836b5297cb354577636084 assets/calamos/models/item/spinel.json
 b03e6e95b3a5fb0034d5c363d6e6aedbd55453ba assets/calamos/models/item/starinium_ingot.json
 a0ac7b3ad20ae7b40ffbb38742dff3283dab34b4 assets/calamos/models/item/stellar_ingot.json

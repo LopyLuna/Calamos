@@ -9,6 +9,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import oshi.util.tuples.Triplet;
+import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
@@ -25,16 +27,53 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.registerModTags();
         this.registerForgeTags();
+        this.registerMinecraftTags();
     }
-
+    
+    
+    private void registerMinecraftTags() {
+        tag(ItemTags.WALLS).add(
+                ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_WALL.get().asItem(),
+                ModDecorativeBlocks.SOUL_SANDSTONE_WALL.get().asItem(),
+                ModDecorativeBlocks.COBBLED_SANDSTONE_WALL.get().asItem(),
+                ModDecorativeBlocks.METEORITE_WALL.get().asItem(),
+                ModDecorativeBlocks.SMOOTH_METEORITE_WALL.get().asItem(),
+                ModDecorativeBlocks.POLISHED_METEORITE_WALL.get().asItem()
+        );
+        tag(ItemTags.SLABS).add(
+                ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_SLAB.get().asItem(),
+                ModDecorativeBlocks.SOUL_SANDSTONE_SLAB.get().asItem(),
+                ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get().asItem(),
+                ModDecorativeBlocks.CUT_SOUL_SANDSTONE_SLAB.get().asItem(),
+                ModDecorativeBlocks.COBBLED_SANDSTONE_SLAB.get().asItem(),
+                ModDecorativeBlocks.METEORITE_SLAB.get().asItem(),
+                ModDecorativeBlocks.SMOOTH_METEORITE_SLAB.get().asItem(),
+                ModDecorativeBlocks.POLISHED_METEORITE_SLAB.get().asItem()
+        );
+        tag(ItemTags.STAIRS).add(
+                ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.SOUL_SANDSTONE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.COBBLED_SANDSTONE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.METEORITE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS.get().asItem(),
+                ModDecorativeBlocks.POLISHED_METEORITE_STAIRS.get().asItem()
+        );
+    }
     private void registerModTags() {
-        this.tag(ModTags.modItemTag("wings")).add(
+        tag(ModTags.modItemTag("wings")).add(
                 ModItems.WINGS.get()
+        );
+        tag(ModTags.modItemTag("reapers")).add(
+                ModItems.METEORITE_REAPER.get()
         );
     }
 
     protected void registerForgeTags() {
-        this.tag(ModTags.forgeItemTag("gems")).add(
+        tag(ItemTags.SWORDS).add(
+                ModItems.METEORITE_SWORD.get()
+        );
+        tag(ModTags.forgeItemTag("gems")).add(
                 ModItems.GARNET.get(),
                 ModItems.JADE.get(),
                 ModItems.KUNZITE.get(),
@@ -47,7 +86,20 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TANZANITE.get(),
                 ModItems.TOPAZ.get()
         );
-        this.tag(ItemTags.TRIM_MATERIALS).add(
+        tag(ModTags.forgeItemTag("storage_blocks")).add(
+                ModBlocks.GARNET_BLOCK.get().asItem(),
+                ModBlocks.JADE_BLOCK.get().asItem(),
+                ModBlocks.KUNZITE_BLOCK.get().asItem(),
+                ModBlocks.MOONSTONE_BLOCK.get().asItem(),
+                ModBlocks.OPAL_BLOCK.get().asItem(),
+                ModBlocks.RUBY_BLOCK.get().asItem(),
+                ModBlocks.SAPPHIRE_BLOCK.get().asItem(),
+                ModBlocks.SPINEL_BLOCK.get().asItem(),
+                ModBlocks.SUNSTONE_BLOCK.get().asItem(),
+                ModBlocks.TANZANITE_BLOCK.get().asItem(),
+                ModBlocks.TOPAZ_BLOCK.get().asItem()
+        );
+        tag(ItemTags.TRIM_MATERIALS).add(
                 ModItems.GARNET.get(),
                 ModItems.JADE.get(),
                 ModItems.KUNZITE.get(),
@@ -60,7 +112,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TANZANITE.get(),
                 ModItems.TOPAZ.get()
         );
-        this.tag(Tags.Items.INGOTS).add(
+        tag(Tags.Items.INGOTS).add(
                 ModItems.METEORITE_INGOT.get(),
                 ModItems.BLOODBORE_INGOT.get(),
                 ModItems.CALAMATIUM_INGOT.get(),
@@ -71,13 +123,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.PLATINUM_INGOT.get(),
                 ModItems.STARINIUM_INGOT.get(),
                 ModItems.TERRAULITE_INGOT.get(),
-                ModItems.ULTIMITA_INGOT.get()
+                ModItems.ULTIMITA_INGOT.get(),
+                ModItems.VOLCANITE_INGOT.get()
         );
-        this.tag(Tags.Items.RAW_MATERIALS).add(
+        tag(Tags.Items.RAW_MATERIALS).add(
                 ModItems.RAW_METEORITE.get()
         );
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
-            super.tag(tag.getA()).add(tag.getB().get());
+            tag(tag.getA()).add(tag.getB().get());
+        }
+        for (Triplet<TagKey<Item>, Supplier<? extends Block>, String> tag : ModItemTags.BLOCK_ITEM_TAGS) {
+            tag(tag.getA()).add(tag.getB().get().asItem());
         }
     }
 }

@@ -19,6 +19,12 @@
     "calamos:meteorite_tiles",
     "calamos:large_meteorite_tile",
     "calamos:cut_meteorite",
+    "calamos:smooth_meteorite",
+    "calamos:soul_sandstone",
+    "calamos:cobbled_soul_sandstone",
+    "calamos:cobbled_sandstone",
+    "calamos:copper_ore",
+    "calamos:meteorite_ore",
     "calamos:stone",
     "calamos:umbralite",
     "calamos:purrasite"

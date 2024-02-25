@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "calamos:block/polished_meteorite"
-  }
+  "parent": "calamos:block/polished_meteorite_wall_inventory"
 }

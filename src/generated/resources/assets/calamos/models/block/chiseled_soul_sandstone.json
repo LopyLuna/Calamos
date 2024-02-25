@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "calamos:block/smooth_soul_sandstone",
+    "side": "calamos:block/chiseled_soul_sandstone",
+    "top": "calamos:block/smooth_soul_sandstone"
+  }
+}

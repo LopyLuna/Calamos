@@ -2,11 +2,17 @@ package uwu.lopyluna.calamos.datagen;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.function.Supplier;
@@ -23,24 +29,47 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.UMBRALITE);
         //meteorite
         this.simpleBlockItem(ModBlocks.METEORITE_ORE);
-        this.simpleBlockAndItem(ModBlocks.METEORITE);
-        this.simpleBlockAndItem(ModBlocks.METEORITE_BRICKS);
-        this.simpleBlockAndItem(ModBlocks.METEORITE_TILES);
-        this.simpleBlockAndItem(ModBlocks.GILDED_METEORITE_BRICKS);
-        this.simpleBlockAndItem(ModBlocks.LARGE_METEORITE_TILE);
-        this.simpleBlockAndItem(ModBlocks.COBBLED_METEORITE);
-        this.simpleBlockAndItem(ModBlocks.CUT_METEORITE);
-        this.simpleBlockAndItem(ModBlocks.POLISHED_METEORITE);
-        this.simpleBlockAndItem(ModBlocks.SMOOTH_METEORITE);
-        this.simpleStairs(ModBlocks.SMOOTH_METEORITE_STAIRS, ModBlocks.SMOOTH_METEORITE);
-        this.simpleSlab(ModBlocks.SMOOTH_METEORITE_SLAB, ModBlocks.SMOOTH_METEORITE);
-        this.simpleStairs(ModBlocks.POLISHED_METEORITE_STAIRS, ModBlocks.POLISHED_METEORITE);
-        this.simpleSlab(ModBlocks.POLISHED_METEORITE_SLAB, ModBlocks.POLISHED_METEORITE);
-        this.simpleStairs(ModBlocks.METEORITE_STAIRS, ModBlocks.METEORITE);
-        this.simpleSlab(ModBlocks.METEORITE_SLAB, ModBlocks.METEORITE);
-        this.simpleWall(ModBlocks.SMOOTH_METEORITE_WALL, ModBlocks.SMOOTH_METEORITE);
-        this.simpleWall(ModBlocks.METEORITE_WALL, ModBlocks.METEORITE);
-        this.simpleWall(ModBlocks.POLISHED_METEORITE_WALL, ModBlocks.POLISHED_METEORITE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.METEORITE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.METEORITE_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.METEORITE_TILES);
+        this.simpleBlockAndItem(ModDecorativeBlocks.GILDED_METEORITE_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_METEORITE_TILE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.COBBLED_METEORITE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.CUT_METEORITE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.POLISHED_METEORITE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SMOOTH_METEORITE);
+        this.simpleStairs(ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS, ModDecorativeBlocks.SMOOTH_METEORITE);
+        this.simpleSlab(ModDecorativeBlocks.SMOOTH_METEORITE_SLAB, ModDecorativeBlocks.SMOOTH_METEORITE);
+        this.simpleStairs(ModDecorativeBlocks.POLISHED_METEORITE_STAIRS, ModDecorativeBlocks.POLISHED_METEORITE);
+        this.simpleSlab(ModDecorativeBlocks.POLISHED_METEORITE_SLAB, ModDecorativeBlocks.POLISHED_METEORITE);
+        this.simpleStairs(ModDecorativeBlocks.METEORITE_STAIRS, ModDecorativeBlocks.METEORITE);
+        this.simpleSlab(ModDecorativeBlocks.METEORITE_SLAB, ModDecorativeBlocks.METEORITE);
+        this.simpleWall(ModDecorativeBlocks.SMOOTH_METEORITE_WALL, ModDecorativeBlocks.SMOOTH_METEORITE);
+        this.simpleWall(ModDecorativeBlocks.METEORITE_WALL, ModDecorativeBlocks.METEORITE);
+        this.simpleWall(ModDecorativeBlocks.POLISHED_METEORITE_WALL, ModDecorativeBlocks.POLISHED_METEORITE);
+        //soul sandstone
+        this.cubeBottomTop(ModDecorativeBlocks.SOUL_SANDSTONE, ModUtils.location("block/cobbled_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        this.sidedSlab(ModDecorativeBlocks.SOUL_SANDSTONE_SLAB, ModUtils.location("block/soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        this.sidedStairs(ModDecorativeBlocks.SOUL_SANDSTONE_STAIRS, ModUtils.location("block/soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        this.simpleWall(ModDecorativeBlocks.SOUL_SANDSTONE_WALL, ModDecorativeBlocks.SOUL_SANDSTONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE);
+        this.simpleSlab(ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_SLAB, ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE);
+        this.simpleStairs(ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_STAIRS, ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE);
+        this.simpleWall(ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_WALL, ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE);
+        this.simpleSlab(ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE_SLAB, ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE);
+        this.simpleStairs(ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS, ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE);
+        this.cubeBottomTop(ModDecorativeBlocks.CUT_SOUL_SANDSTONE, ModUtils.location("block/smooth_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        this.sidedSlab(ModDecorativeBlocks.CUT_SOUL_SANDSTONE_SLAB, ModUtils.location("block/cut_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        this.cubeBottomTop(ModDecorativeBlocks.CHISELED_SOUL_SANDSTONE, ModUtils.location("block/smooth_soul_sandstone"), ModUtils.location("block/smooth_soul_sandstone"));
+        
+        //vanilla variants
+        this.simpleBlockAndItem(ModDecorativeBlocks.COBBLED_SANDSTONE);
+        this.simpleStairs(ModDecorativeBlocks.COBBLED_SANDSTONE_STAIRS, ModDecorativeBlocks.COBBLED_SANDSTONE);
+        this.simpleSlab(ModDecorativeBlocks.COBBLED_SANDSTONE_SLAB, ModDecorativeBlocks.COBBLED_SANDSTONE);
+        this.simpleWall(ModDecorativeBlocks.COBBLED_SANDSTONE_WALL, ModDecorativeBlocks.COBBLED_SANDSTONE);
+        
+        
         //gems
         this.simpleBlockAndItem(ModBlocks.GARNET_BLOCK);
         this.simpleBlockAndItem(ModBlocks.JADE_BLOCK);
@@ -57,6 +86,8 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockItem(ModBlocks.COPPER_ORE);
     }
 
+    
+    
     private void simpleBlockItem(Supplier<? extends Block> block) {
         super.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
     }
@@ -67,17 +98,46 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(block.get());
         this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
     }
-
-    private void simpleStairs(Supplier<? extends StairBlock> block, Supplier<? extends Block> texture) {
-        this.stairsBlock(block.get(), blockTexture(texture.get()));
-        this.simpleBlockItem(block);
+    private void cubeBottomTop(Supplier<? extends Block> block, ResourceLocation top, ResourceLocation bottom) {
+        String name = this.name(block.get());
+        ResourceLocation side = ModUtils.location("block/" + name);
+        this.simpleBlock(block.get(), this.models().cubeBottomTop(name, side, top, bottom));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
     }
-    private void simpleSlab(Supplier<? extends SlabBlock> block, Supplier<? extends Block> texture) {
-        this.slabBlock(block.get(), blockTexture(texture.get()), blockTexture(texture.get()));
-        this.simpleBlockItem(block);
+    private void sidedSlab(Supplier<? extends Block> block, ResourceLocation side, ResourceLocation top, ResourceLocation bottom) {
+        String name = this.name(block.get());
+        ResourceLocation doubleSlab = ModUtils.location("block/" + name.replace("_slab", ""));
+        this.slabBlock((SlabBlock) block.get(), doubleSlab, side, top, bottom);
+        this.simpleBlockItem(block.get(), models().slab(name + "_inventory", side, top, bottom));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()) + "_inventory")));
     }
-    private void simpleWall(Supplier<? extends WallBlock> block, Supplier<? extends Block> texture) {
-        this.wallBlock(block.get(), blockTexture(texture.get()));
+    private void sidedStairs(Supplier<? extends Block> block, ResourceLocation side, ResourceLocation top, ResourceLocation bottom) {
+        String name = this.name(block.get());
+        this.stairsBlock((StairBlock) block.get(), name, side, top, bottom);
+        this.simpleBlockItem(block.get(), models().stairs(name + "_inventory", side, top, bottom));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()) + "_inventory")));
+    }
+    
+    private void simpleSlab(Supplier<? extends Block> block, Supplier<? extends Block> texture) {
+        String name = this.name(block.get());
+        ResourceLocation main = blockTexture(texture.get());
+        ResourceLocation doubleSlab = ModUtils.location("block/" + name.replace("_slab", ""));
+        this.slabBlock((SlabBlock) block.get(), doubleSlab, main, main, main);
+        this.simpleBlockItem(block.get(), models().slab(name + "_inventory", main, main, main));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()) + "_inventory")));
+    }
+    private void simpleStairs(Supplier<? extends Block> block, Supplier<? extends Block> texture) {
+        String name = this.name(block.get());
+        ResourceLocation main = blockTexture(texture.get());
+        this.stairsBlock((StairBlock) block.get(), name, main, main, main);
+        this.simpleBlockItem(block.get(), models().stairs(name + "_inventory", main, main, main));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()) + "_inventory")));
+    }
+    private void simpleWall(Supplier<? extends Block> block, Supplier<? extends Block> texture) {
+        String name = this.name(block.get());
+        this.wallBlock((WallBlock) block.get(), name, blockTexture(texture.get()));
+        this.simpleBlockItem(block.get(), models().wallInventory(name + "_inventory", blockTexture(texture.get())));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()) + "_inventory")));
     }
 
     private String name(Block block) {

@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 
 import static uwu.lopyluna.calamos.utilities.ModUtils.secondsToTicks;
@@ -26,8 +27,8 @@ public class FurnaceProvider {
         return new ResourceLocation(CalamosMod.MODID, typeStr + "/" + path);
     }
     private static void smelting(RecipeOutput consumer) {
-        smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.METEORITE.asItem(), ModBlocks.COBBLED_METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("meteorite_from_cobbled_meteorite", 0));
-        smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMOOTH_METEORITE.asItem(), ModBlocks.METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("smooth_meteorite_from_meteorite", 0));
+        smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.METEORITE.asItem(), ModDecorativeBlocks.COBBLED_METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("meteorite_from_cobbled_meteorite", 0));
+        smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.SMOOTH_METEORITE.asItem(), ModDecorativeBlocks.METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("smooth_meteorite_from_meteorite", 0));
     }
     
     private static void blasting(RecipeOutput consumer) {

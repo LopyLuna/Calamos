@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "calamos:block/cobbled_sandstone",
+    "side": "calamos:block/cobbled_sandstone",
+    "top": "calamos:block/cobbled_sandstone"
+  }
+}

@@ -1,5 +1,8 @@
 {
   "values": [
+    "calamos:soul_sandstone_wall",
+    "calamos:cobbled_soul_sandstone_wall",
+    "calamos:cobbled_sandstone_wall",
     "calamos:meteorite_wall",
     "calamos:smooth_meteorite_wall",
     "calamos:polished_meteorite_wall"

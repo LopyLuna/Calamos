@@ -13,6 +13,7 @@ import net.neoforged.neoforge.client.model.generators.loaders.SeparateTransforms
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -78,10 +79,6 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.ENHANCED_RECOVERING_POTION);
         this.basicItem(ModItems.SUBLIME_HEALING_POTION);
         this.basicItem(ModItems.SUBLIME_RECOVERING_POTION);
-
-        this.wallItem(ModBlocks.POLISHED_METEORITE_WALL, ModBlocks.POLISHED_METEORITE);
-        this.wallItem(ModBlocks.METEORITE_WALL, ModBlocks.METEORITE);
-        this.wallItem(ModBlocks.SMOOTH_METEORITE_WALL, ModBlocks.SMOOTH_METEORITE);
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {
@@ -145,10 +142,5 @@ class ModItemModelProvider extends ItemModelProvider {
         separateTransform(item);
         basicItem(item, guiLocationModifier);
         return name;
-    }
-
-    private void wallItem(Supplier<? extends Block> block, Supplier<? extends Block> texture)  {
-        this.withExistingParent(BuiltInRegistries.BLOCK.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
-                .texture("wall", ModUtils.location("block/" + BuiltInRegistries.BLOCK.getKey(texture.get()).getPath()));
     }
 }

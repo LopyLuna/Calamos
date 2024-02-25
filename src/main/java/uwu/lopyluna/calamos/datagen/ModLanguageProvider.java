@@ -37,6 +37,9 @@ class ModLanguageProvider extends LanguageProvider {
         for (DeferredHolder<Block, ? extends Block> registry : ModBlocks.getBlocks()) {
             this.block(registry);
         }
+        for (DeferredHolder<Block, ? extends Block> registry : ModDecorativeBlocks.getBlocks()) {
+            this.block(registry);
+        }
         /*
         this.item(ModItems.DEBUG_HEALTH);
         this.item(ModItems.GARNET);
@@ -103,6 +106,7 @@ class ModLanguageProvider extends LanguageProvider {
         //Tab//
          */
         this.tab(ModCreativeTab.CALAMOS_TAB);
+        this.tab(ModCreativeTab.DECORATION_TAB);
         //Trim Materials
         this.trimMaterial("garnet");
         this.trimMaterial("jade");
@@ -123,10 +127,25 @@ class ModLanguageProvider extends LanguageProvider {
         
         //Effects
         this.effect(ModEffects.PESTIS);
+        
+        //Tooltips
+        this.string("tooltip.calamos.potion.timer", "§9Timer: §6");
+        this.string("tooltip.calamos.potion.level", "§9Level: §6");
+        this.string("tooltip.calamos.potion.drink_time", "§9Drink Time: §6");
+        this.string("tooltip.calamos.potion.instant", "§6'Instant'");
+        this.string("tooltip.calamos.potion.seconds", "§9 (Sec)");
+        this.string("tooltip.calamos.potion.cooldown", "§9Cooldown: §6");
+        this.string("curios.identifier.wings", "Wings");
+        this.string("curios.identifier.accessory", "Accessory");
 
         this.container("hallow_workbench");
         
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
+            ResourceLocation tagId = tag.getA().location();
+            String tagNamespace = tagId.getNamespace().equals("forge") ? "c" : tagId.getNamespace();
+            super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
+        }
+        for (Triplet<TagKey<Item>, Supplier<? extends Block>, String> tag : ModItemTags.BLOCK_ITEM_TAGS) {
             ResourceLocation tagId = tag.getA().location();
             String tagNamespace = tagId.getNamespace().equals("forge") ? "c" : tagId.getNamespace();
             super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
@@ -145,6 +164,9 @@ class ModLanguageProvider extends LanguageProvider {
         this.add(itemHolder, "item");
     }
 
+    private void string(String key, String value) {
+        super.add(key, value);
+    }
     private void trimMaterial(String material) {
         String translated = transform(material) + " Material";
         super.add("trim_material.%s.%s".formatted(MODID, material), translated);

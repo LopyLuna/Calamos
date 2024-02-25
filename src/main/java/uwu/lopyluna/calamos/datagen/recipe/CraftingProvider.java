@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModBlocks;
+import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 
 public class CraftingProvider {
@@ -34,11 +35,11 @@ public class CraftingProvider {
         compressedBlock(ModBlocks.TANZANITE_BLOCK.asItem(), ModItems.TANZANITE, false).save(consumer, location("tanzanite_block"));
         compressedBlock(ModBlocks.TOPAZ_BLOCK.asItem(), ModItems.TOPAZ, false).save(consumer, location("topaz_block"));
         
-        compressedBlock(ModBlocks.CUT_METEORITE.asItem(), ModBlocks.METEORITE.asItem(), true, 4).save(consumer, location("cut_meteorite"));
-        compressedBlock(ModBlocks.POLISHED_METEORITE.asItem(), ModBlocks.COBBLED_METEORITE.asItem(), true, 4).save(consumer, location("polished_meteorite"));
-        compressedBlock(ModBlocks.METEORITE_BRICKS.asItem(), ModBlocks.POLISHED_METEORITE.asItem(), true, 4).save(consumer, location("meteorite_bricks"));
-        compressedBlock(ModBlocks.METEORITE_TILES.asItem(), ModBlocks.METEORITE_BRICKS.asItem(), true, 4).save(consumer, location("meteorite_tiles"));
-        compressedBlock(ModBlocks.LARGE_METEORITE_TILE.asItem(), ModBlocks.METEORITE_TILES.asItem(), true, 4).save(consumer, location("large_meteorite_tile"));
+        compressedBlock(ModDecorativeBlocks.CUT_METEORITE.asItem(), ModDecorativeBlocks.METEORITE.asItem(), true, 4).save(consumer, location("cut_meteorite"));
+        compressedBlock(ModDecorativeBlocks.POLISHED_METEORITE.asItem(), ModDecorativeBlocks.COBBLED_METEORITE.asItem(), true, 4).save(consumer, location("polished_meteorite"));
+        compressedBlock(ModDecorativeBlocks.METEORITE_BRICKS.asItem(), ModDecorativeBlocks.POLISHED_METEORITE.asItem(), true, 4).save(consumer, location("meteorite_bricks"));
+        compressedBlock(ModDecorativeBlocks.METEORITE_TILES.asItem(), ModDecorativeBlocks.METEORITE_BRICKS.asItem(), true, 4).save(consumer, location("meteorite_tiles"));
+        compressedBlock(ModDecorativeBlocks.LARGE_METEORITE_TILE.asItem(), ModDecorativeBlocks.METEORITE_TILES.asItem(), true, 4).save(consumer, location("large_meteorite_tile"));
     }
     private static void recipesItems(RecipeOutput consumer) {
         decompressedBlock(ModItems.GARNET.get(), ModBlocks.GARNET_BLOCK.asItem(), false).save(consumer, location("garnet"));

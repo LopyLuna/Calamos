@@ -49,11 +49,17 @@ public class SimplePotionItemWithCooldown extends SimplePotionItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        String transTimer = Component.translatable("calamos.potion.tooltip.timer").getString();
+        String transLevel = Component.translatable("calamos.potion.tooltip.level").getString();
+        String transDrinkTime = Component.translatable("calamos.potion.tooltip.drink_time").getString();
+        String transInstant = Component.translatable("calamos.potion.tooltip.instant").getString();
+        String transSeconds = Component.translatable("calamos.potion.tooltip.seconds").getString();
+        String transCooldown = Component.translatable("calamos.potion.tooltip.cooldown").getString();
         pTooltip.add(Component.nullToEmpty("§6" + displayName + (potionDuration + potionPower + cooldownDuration + drinkingDuration == 0 ? "" : "§9 - ")
-                + (potionDuration == 0 ? "" : "§9Timer: §6" + (float)potionDuration / 20 + "§9 (Sec)") + (potionDuration + potionPower == 0 || potionDuration + cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
-                + (potionPower == 0 ? "" : "§9Level: §6" + (potionPower + 1)) + (potionPower + cooldownDuration == 0  && drinkingDuration != 0 ? "" : " | ")
-                + (cooldownDuration == 0 ? "" : "§9Cooldown: §6" + (float)cooldownDuration / 20 + "§9 (Sec)") + (cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
-                + (drinkingDuration == 0 ? "§6'Instant'" : "§9Drink Time: §6" + (float)drinkingDuration / 20 + "§9 (Sec)")));
+                + (potionDuration == 0 ? "" : transTimer + (float)potionDuration / 20 + transSeconds) + (potionDuration + potionPower == 0 || potionDuration + cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
+                + (potionPower == 0 ? "" : transLevel + (potionPower + 1)) + (potionPower + cooldownDuration == 0  && drinkingDuration != 0 ? "" : " | ")
+                + (cooldownDuration == 0 ? "" : transCooldown + (float)cooldownDuration / 20 + transSeconds) + (cooldownDuration == 0 && drinkingDuration != 0 ? "" : " | ")
+                + (drinkingDuration == 0 ? transInstant : transDrinkTime + (float)drinkingDuration / 20 + transSeconds)));
     }
 
     @Override
