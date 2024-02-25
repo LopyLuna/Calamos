@@ -129,12 +129,12 @@ class ModLanguageProvider extends LanguageProvider {
         this.effect(ModEffects.PESTIS);
         
         //Tooltips
-        this.string("tooltip.calamos.potion.timer", "§9Timer: §6");
-        this.string("tooltip.calamos.potion.level", "§9Level: §6");
-        this.string("tooltip.calamos.potion.drink_time", "§9Drink Time: §6");
-        this.string("tooltip.calamos.potion.instant", "§6'Instant'");
-        this.string("tooltip.calamos.potion.seconds", "§9 (Sec)");
-        this.string("tooltip.calamos.potion.cooldown", "§9Cooldown: §6");
+        this.string("calamos.potion.tooltip.timer", "§9Timer: §6");
+        this.string("calamos.potion.tooltip.level", "§9Level: §6");
+        this.string("calamos.potion.tooltip.drink_time", "§9Drink Time: §6");
+        this.string("calamos.potion.tooltip.instant", "§6'Instant'");
+        this.string("calamos.potion.tooltip.seconds", "§9 (Sec)");
+        this.string("calamos.potion.tooltip.cooldown", "§9Cooldown: §6");
         this.string("curios.identifier.wings", "Wings");
         this.string("curios.identifier.accessory", "Accessory");
 
