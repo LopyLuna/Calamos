@@ -84,6 +84,10 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.TOPAZ_BLOCK);
         //ores
         this.simpleBlockItem(ModBlocks.COPPER_ORE);
+
+
+        this.blockBottomTop(ModBlocks.ULTIMITA_TNT);
+        this.blockBottomTop(ModBlocks.UNSTABLE_ULTIMITA_TNT);
     }
 
     
@@ -102,6 +106,14 @@ class ModBlockStateProvider extends BlockStateProvider {
         String name = this.name(block.get());
         ResourceLocation side = ModUtils.location("block/" + name);
         this.simpleBlock(block.get(), this.models().cubeBottomTop(name, side, top, bottom));
+        this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
+    }
+    private void blockBottomTop(Supplier<? extends Block> block) {
+        String name = this.name(block.get());
+        ResourceLocation side = ModUtils.location("block/" + name);
+        ResourceLocation top = ModUtils.location("block/" + name + "_top");
+        ResourceLocation bottom = ModUtils.location("block/" + name + "_bottom");
+        this.simpleBlock(block.get(), this.models().cubeBottomTop(name, side, bottom, top));
         this.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
     }
     private void sidedSlab(Supplier<? extends Block> block, ResourceLocation side, ResourceLocation top, ResourceLocation bottom) {

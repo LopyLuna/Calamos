@@ -8,7 +8,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
-import uwu.lopyluna.calamos.elements.block.IGoBoomBoomBoomTroom;
+import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
+import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -79,15 +80,6 @@ public final class ModBlocks {
             () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
             new Item.Properties().fireResistant());
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     //Ores
     public static final DeferredBlock<Block> COPPER_ORE = register("copper_ore",
@@ -99,11 +91,11 @@ public final class ModBlocks {
 
 
     public static final DeferredBlock<Block> UNSTABLE_ULTIMITA_TNT = register("unstable_ultimita_tnt",
-            () -> new IGoBoomBoomBoomTroom(25.0F, true, false, BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
+            () -> new UnstableUltimitaTNT(BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
             ), new Item.Properties());
 
     public static final DeferredBlock<Block> ULTIMITA_TNT = register("ultimita_tnt",
-            () -> new IGoBoomBoomBoomTroom(20.0F, false, true, BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
+            () -> new StableUltimitaTNT(BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
             ), new Item.Properties());
 
 

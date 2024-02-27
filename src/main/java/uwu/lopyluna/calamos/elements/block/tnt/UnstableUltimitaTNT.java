@@ -1,8 +1,7 @@
-package uwu.lopyluna.calamos.elements.block;
+package uwu.lopyluna.calamos.elements.block.tnt;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,6 +12,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -21,18 +21,14 @@ import net.minecraft.world.phys.Vec3;
 import javax.annotation.Nullable;
 
 @SuppressWarnings({"deprecation", "all"})
-public class IGoBoomBoomBoomTroom extends Block {
+public class UnstableUltimitaTNT extends Block {
 
-    public static float blastRadius;
-    public static boolean haveFire;
-    public static boolean stable;
-
-    public IGoBoomBoomBoomTroom(float blastRadius, boolean haveFire, boolean stable, Properties properties) {
+    public UnstableUltimitaTNT(Properties properties) {
         super(properties);
-        this.blastRadius = blastRadius;
-        this.haveFire = haveFire;
-        this.stable = stable;
     }
+
+    public static float blastRadius = 25.0F;
+    public static boolean haveFire = true;
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -45,14 +41,12 @@ public class IGoBoomBoomBoomTroom extends Block {
 
     @Override
     public void onCaughtFire(BlockState pState, Level pLevel, BlockPos pPos, @Nullable net.minecraft.core.Direction face, @Nullable LivingEntity pEntity) {
-        if (!stable) {
-            explode(pLevel, pPos);
-        }
+        explode(pLevel, pPos);
     }
 
     @Override
     public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        if (stable) {return false;} else {return true;}
+        return true;
     }
 
     @Override
@@ -63,24 +57,15 @@ public class IGoBoomBoomBoomTroom extends Block {
 
     @Override
     public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState, @org.jetbrains.annotations.Nullable BlockEntity pBlockEntity, ItemStack pTool) {
-        if (stable) {
-            pPlayer.awardStat(Stats.BLOCK_MINED.get(this));
-            pPlayer.causeFoodExhaustion(0.005F);
-            explode(pLevel, pPos);
-        } else {
-            explode(pLevel, pPos);
-        }
+        explode(pLevel, pPos);
     }
 
     private static void explode(Level pLevel, BlockPos pPos) {
         if (!pLevel.isClientSide) {
             Vec3 vec3 = pPos.getCenter();
             pLevel.removeBlock(pPos, false);
-            if (stable) {
-                pLevel.explode(null, pLevel.damageSources().badRespawnPointExplosion(vec3), null, vec3, blastRadius, haveFire, Level.ExplosionInteraction.TNT);
-            } else {
-                pLevel.explode(null, pLevel.damageSources().badRespawnPointExplosion(vec3), null, vec3, blastRadius, haveFire, Level.ExplosionInteraction.BLOW);
-            }
+            pLevel.explode(null, pLevel.damageSources().badRespawnPointExplosion(vec3), null, vec3, blastRadius, haveFire, Level.ExplosionInteraction.BLOW);
+            pLevel.setBlock(pPos, Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3);
         }
     }
 }

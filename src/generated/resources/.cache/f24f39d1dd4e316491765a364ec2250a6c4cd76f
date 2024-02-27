@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-25T17:13:02.7618735	Block States: calamos
+// 1.20.4	2024-02-26T16:09:42.2160236	Block States: calamos
 b4f1e698ac2286abe638d97f5de99c02f6ea3584 assets/calamos/blockstates/chiseled_soul_sandstone.json
 0ca8c840a11f034c868862fc6eada8f501945094 assets/calamos/blockstates/cobbled_meteorite.json
 2bb9a64efa311d369cc9d35e73fb984cdf5f545f assets/calamos/blockstates/cobbled_sandstone.json
@@ -48,7 +48,9 @@ fab707134a74fc14975870a0cb4da388474a699d assets/calamos/blockstates/stone.json
 d0f26964939c71ac59e0b346980705a4bfb84e00 assets/calamos/blockstates/sunstone_block.json
 1edf874c46ab3c031c49cb0001df6cea1dcf958f assets/calamos/blockstates/tanzanite_block.json
 d4c8d789b0ad649601de3fbf4e53d3ce2bde6657 assets/calamos/blockstates/topaz_block.json
+2a10f2e6ed11e29488527a95a8fc9a74df9f95fe assets/calamos/blockstates/ultimita_tnt.json
 c2d15efffc10de53b0a9abd23f336198bdbbddcc assets/calamos/blockstates/umbralite.json
+fdc27a8fed209734f7e6d32afc23b96285d387b8 assets/calamos/blockstates/unstable_ultimita_tnt.json
 222b5121bc086f2877860d9de71686d81f8c697a assets/calamos/models/block/chiseled_soul_sandstone.json
 16020961c55c1e8848099b0d273f150db0548a61 assets/calamos/models/block/cobbled_meteorite.json
 c287c0466a83237f0dc69897a99e45f686206c07 assets/calamos/models/block/cobbled_sandstone.json
@@ -153,7 +155,9 @@ f3a3214e53d377d20d57f287aa07e1720164b854 assets/calamos/models/block/spinel_bloc
 5943fce2cc59b9371ed76900a8c452d249ec5849 assets/calamos/models/block/sunstone_block.json
 7f65cd34108e219a2beefe6950568d30fb69900e assets/calamos/models/block/tanzanite_block.json
 64a7acb4ecbfee07475572d2bccd63bdfbe21d4a assets/calamos/models/block/topaz_block.json
+3fdd651a001f8bc1bf74c2ab6f3ac2bd00866e43 assets/calamos/models/block/ultimita_tnt.json
 1eaa1cd73486c822ce53410668b136898bf4765e assets/calamos/models/block/umbralite.json
+fd855742a0f83faaa16094620efce550ae34b58f assets/calamos/models/block/unstable_ultimita_tnt.json
 3e0fef6ed9d79f435572284b269930496c85a0f9 assets/calamos/models/item/chiseled_soul_sandstone.json
 c7b99820723a51782046eafa0776e73435c50483 assets/calamos/models/item/cobbled_meteorite.json
 681acabb0a6dc1174e8953672115be02abf3e71e assets/calamos/models/item/cobbled_sandstone.json
@@ -205,4 +209,6 @@ b23ac41019626b3e6e9de3599dbf821a7309132d assets/calamos/models/item/stone.json
 4c707606e8c6e065de45f4132f0bacae0f3a7019 assets/calamos/models/item/sunstone_block.json
 7b3234752da3a266990ec239e1785b6b72a9fcd2 assets/calamos/models/item/tanzanite_block.json
 df2602254619b81fbd0f3504aef4d6d2d88f6dd1 assets/calamos/models/item/topaz_block.json
+cbf5a8c8445c45577e715ae13963d77226b83167 assets/calamos/models/item/ultimita_tnt.json
 8698a9d0344583dc2a3d071959c4cc1d13763808 assets/calamos/models/item/umbralite.json
+d349e0617cdca1818c6e53e2c394ce07ba17161d assets/calamos/models/item/unstable_ultimita_tnt.json

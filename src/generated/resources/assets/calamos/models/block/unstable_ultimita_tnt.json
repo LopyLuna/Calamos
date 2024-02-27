@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "calamos:block/unstable_ultimita_tnt_bottom",
+    "side": "calamos:block/unstable_ultimita_tnt",
+    "top": "calamos:block/unstable_ultimita_tnt_top"
+  }
+}
