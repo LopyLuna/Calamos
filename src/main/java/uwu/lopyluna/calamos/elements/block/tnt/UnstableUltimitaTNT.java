@@ -64,6 +64,7 @@ public class UnstableUltimitaTNT extends Block {
         if (!pLevel.isClientSide) {
             Vec3 vec3 = pPos.getCenter();
             pLevel.removeBlock(pPos, false);
+            if (haveFire) {pLevel.explode(null, pLevel.damageSources().badRespawnPointExplosion(vec3), null, vec3, blastRadius, false, Level.ExplosionInteraction.BLOW);}
             pLevel.explode(null, pLevel.damageSources().badRespawnPointExplosion(vec3), null, vec3, blastRadius, haveFire, Level.ExplosionInteraction.BLOW);
             pLevel.setBlock(pPos, Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3);
         }
