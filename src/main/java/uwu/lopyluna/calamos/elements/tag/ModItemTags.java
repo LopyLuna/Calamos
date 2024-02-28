@@ -6,7 +6,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import oshi.util.tuples.Triplet;
-import uwu.lopyluna.calamos.elements.ModBlocks;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,6 +13,8 @@ import java.util.function.Supplier;
 
 import static uwu.lopyluna.calamos.elements.ModBlocks.*;
 import static uwu.lopyluna.calamos.elements.ModItems.*;
+
+@SuppressWarnings({"unused"})
 public class ModItemTags {
     //tag, respective item, ENG translation
     public static final Set<Triplet<TagKey<Item>, Supplier<? extends Item>, String>> ALL_TAGS = new LinkedHashSet<>();
