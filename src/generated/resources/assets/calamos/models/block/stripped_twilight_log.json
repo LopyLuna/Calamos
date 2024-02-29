@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "calamos:block/stripped_twilight_log_top",
+    "side": "calamos:block/stripped_twilight_log"
+  }
+}

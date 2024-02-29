@@ -1,5 +1,6 @@
 package uwu.lopyluna.calamos.datagen;
 
+import com.google.errorprone.annotations.SuppressPackageLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -79,6 +80,14 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.ENHANCED_RECOVERING_POTION);
         this.basicItem(ModItems.SUBLIME_HEALING_POTION);
         this.basicItem(ModItems.SUBLIME_RECOVERING_POTION);
+
+        this.doorItem(ModDecorativeBlocks.OTHERWORLD_OAK_DOOR);
+        this.basicItem(ModItems.OTHERWORLD_OAK_SIGN);
+        this.basicItem(ModItems.OTHERWORLD_OAK_HANGING_SIGN);
+
+        this.doorItem(ModDecorativeBlocks.TWILIGHT_DOOR);
+        this.basicItem(ModItems.TWILIGHT_SIGN);
+        this.basicItem(ModItems.TWILIGHT_HANGING_SIGN);
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {
@@ -142,5 +151,12 @@ class ModItemModelProvider extends ItemModelProvider {
         separateTransform(item);
         basicItem(item, guiLocationModifier);
         return name;
+    }
+
+    private ItemModelBuilder doorItem(Supplier<? extends Block> block) {
+        String name = BuiltInRegistries.BLOCK.getKey(block.get()).getPath();
+        return getBuilder(name)
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", ModUtils.location("item/" + name + "_item"));
     }
 }

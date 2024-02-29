@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "calamos:block/twilight_planks",
+    "side": "calamos:block/twilight_planks",
+    "top": "calamos:block/twilight_planks"
+  }
+}

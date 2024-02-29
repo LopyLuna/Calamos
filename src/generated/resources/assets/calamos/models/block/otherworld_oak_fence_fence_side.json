@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "calamos:block/otherworld_oak_planks"
+  }
+}

@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-25T17:13:02.7643951	Item Models: calamos
+// 1.20.4	2024-02-28T21:52:24.8435718	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -27,6 +27,9 @@ b5bd61bee0b5637895249a0004ba79480b387926 assets/calamos/models/item/meteorite_re
 54f50658e278a75cfb9b916edb62b78458242295 assets/calamos/models/item/moonstone.json
 56fdd8a3e991b8949da641aa4067796bee6c42a5 assets/calamos/models/item/obsteel_ingot.json
 f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
+0c11d6e93623f6660afe5c900da656af930075c9 assets/calamos/models/item/otherworld_oak_door.json
+77111829232d46adbd169fe634dba972ba679e4a assets/calamos/models/item/otherworld_oak_hanging_sign.json
+327ceb4f2b1b8588c94a3f39947ff4189415ba03 assets/calamos/models/item/otherworld_oak_sign.json
 b51945cd282cf790339e118622fe9f33a5af4e92 assets/calamos/models/item/platinum_ingot.json
 3600654822eb3cbbf89c17e04971fee76899c9d0 assets/calamos/models/item/raw_meteorite.json
 258fcfd4b2ac8244cfde9d18dbfca134c7be163b assets/calamos/models/item/recovering_potion.json
@@ -42,6 +45,9 @@ eb6ec291ffa2dc4805a8d39a54838b78a120a880 assets/calamos/models/item/tanzanite.js
 e1396429cf2a347da45809ef212489cf043b0a7a assets/calamos/models/item/terraulite_ingot.json
 e4fed7fdcb2cecb1a3f31c639cc447c506cdc56b assets/calamos/models/item/test_lootbag.json
 3b88cd484957ade5177261544a67c311c4efd834 assets/calamos/models/item/topaz.json
+3c57fe6d47797a89a115d52b6f4c628479539bc3 assets/calamos/models/item/twilight_door.json
+f42a59c4275e9254b04dde46ae306dd34ddb2c1c assets/calamos/models/item/twilight_hanging_sign.json
+af606f5a103a7a3dacc8f648f5251747f671f4f1 assets/calamos/models/item/twilight_sign.json
 3d9f5be3b858d99707a29738cb4b9418ed94efe3 assets/calamos/models/item/ultimita_ingot.json
 ec3be0ead558d2bc8815d6c19f952dd83e1e981a assets/calamos/models/item/volcanite_ingot.json
 330300826172034d05860fcc1703f332653995b8 assets/calamos/models/item/volcanite_sword.json

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "calamos:block/otherworld_oak_log_top",
+    "side": "calamos:block/otherworld_oak_log"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "calamos:block/stripped_twilight_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "calamos:block/stripped_twilight_log"
+    },
+    "axis=z": {
+      "model": "calamos:block/stripped_twilight_log_horizontal",
+      "x": 90
+    }
+  }
+}

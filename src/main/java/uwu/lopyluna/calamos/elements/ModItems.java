@@ -1,7 +1,9 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -64,6 +66,15 @@ public final class ModItems {
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> VOLCANITE_SWORD = register("volcanite_sword", () -> new CalamosSword(CalamosTiers.VOLCANITE, 3, -2.2F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
+    //SIGNS
+    public static final DeferredItem<Item> OTHERWORLD_OAK_SIGN = register("otherworld_oak_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get()));
+    public static final DeferredItem<Item> OTHERWORLD_OAK_HANGING_SIGN = register("otherworld_oak_hanging_sign",
+            () -> new HangingSignItem(ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> TWILIGHT_SIGN = register("twilight_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.TWILIGHT_SIGN.get(), ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get()));
+    public static final DeferredItem<Item> TWILIGHT_HANGING_SIGN = register("twilight_hanging_sign",
+            () -> new HangingSignItem(ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(), ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);

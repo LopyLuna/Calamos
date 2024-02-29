@@ -77,6 +77,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.SMOOTH_METEORITE_WALL.get(),
                 ModDecorativeBlocks.POLISHED_METEORITE_WALL.get()
         );
+        tag(BlockTags.WOODEN_FENCES).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE.get()
+        );
+        tag(BlockTags.FENCE_GATES).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE_GATE.get()
+        );
         tag(BlockTags.SLABS).add(
                 ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_SLAB.get(),
                 ModDecorativeBlocks.SOUL_SANDSTONE_SLAB.get(),

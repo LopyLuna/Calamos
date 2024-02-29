@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
+import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -85,7 +86,46 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> COPPER_ORE = register("copper_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
+    public static final DeferredBlock<Block> IRON_ORE = register("iron_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> GOLD_ORE = register("gold_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
     public static final DeferredBlock<Block> METEORITE_ORE = register("meteorite_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> GARNET_ORE = register("garnet_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> JADE_ORE = register("jade_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> KUNZITE_ORE = register("kunzite_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> MOONSTONE_ORE = register("moonstone_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> OPAL_ORE = register("opal_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> RUBY_ORE = register("ruby_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SAPPHIRE_ORE = register("sapphire_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SPINEL_ORE = register("spinel_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SUNSTONE_ORE = register("sunstone_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> TANZANITE_ORE = register("tanzanite_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> TOPAZ_ORE = register("topaz_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 
@@ -97,6 +137,7 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> ULTIMITA_TNT = register("ultimita_tnt",
             () -> new StableUltimitaTNT(BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
             ), new Item.Properties());
+
 
 
     //Extra Cool shit :3

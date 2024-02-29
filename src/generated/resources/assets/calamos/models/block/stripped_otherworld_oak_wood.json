@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "calamos:block/stripped_otherworld_oak_wood"
+  }
+}
