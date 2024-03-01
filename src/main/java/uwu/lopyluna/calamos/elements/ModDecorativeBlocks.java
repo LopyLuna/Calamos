@@ -12,6 +12,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.lopyluna.calamos.elements.block.ModCeilingHangingSignBlock;
 import uwu.lopyluna.calamos.elements.block.ModHangingSignBlock;
 import uwu.lopyluna.calamos.elements.block.ModStandingSignBlock;
 import uwu.lopyluna.calamos.elements.block.ModWallSignBlock;
@@ -184,9 +185,9 @@ public class ModDecorativeBlocks {
     public static final DeferredBlock<Block> OTHERWORLD_OAK_WALL_SIGN = BLOCKS.register("otherworld_oak_wall_sign",
             () -> new ModWallSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)));
     public static final DeferredBlock<Block> OTHERWORLD_OAK_HANGING_SIGN = BLOCKS.register("otherworld_oak_hanging_sign",
-            () -> new ModHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
+            () -> new ModCeilingHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> OTHERWORLD_OAK_WALL_HANGING_SIGN = BLOCKS.register("otherworld_oak_wall_hanging_sign",
-            () -> new ModWallSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+            () -> new ModHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
     //Twilight
     public static final DeferredBlock<Block> TWILIGHT_LOG = register("twilight_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
@@ -212,6 +213,9 @@ public class ModDecorativeBlocks {
     public static final DeferredBlock<Block> TWILIGHT_DOOR = register("twilight_door",
             () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
             ), new Item.Properties());
+    public static final DeferredBlock<Block> TWILIGHT_TRAPDOOR = register("twilight_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
+            ), new Item.Properties());
     public static final DeferredBlock<Block> TWILIGHT_FENCE = register("twilight_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)
             ), new Item.Properties());
@@ -229,9 +233,9 @@ public class ModDecorativeBlocks {
     public static final DeferredBlock<Block> TWILIGHT_WALL_SIGN = BLOCKS.register("twilight_wall_sign",
             () -> new ModWallSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_HANGING_SIGN = BLOCKS.register("twilight_hanging_sign",
-            () -> new ModHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
+            () -> new ModCeilingHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_WALL_HANGING_SIGN = BLOCKS.register("twilight_wall_hanging_sign",
-            () -> new ModWallSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+            () -> new ModHangingSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
 
     
     

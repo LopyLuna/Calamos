@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.datagen;
 
 import com.supermartijn642.fusion.api.provider.FusionModelProvider;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -98,42 +99,48 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockItem(ModBlocks.TANZANITE_ORE);
         this.simpleBlockItem(ModBlocks.TOPAZ_ORE);
         //otherworld oak
-        this.simpleLogBlock(ModDecorativeBlocks.OTHERWORLD_OAK_LOG);
-        this.simpleBlockAndItem(ModDecorativeBlocks.OTHERWORLD_OAK_WOOD);
-        this.simpleLogBlock(ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG);
-        this.simpleBlockAndItem(ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD);
-        this.simpleBlockAndItem(ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleStairs(ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleSlab(ModDecorativeBlocks.OTHERWORLD_OAK_SLAB, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleDoorBlock(ModDecorativeBlocks.OTHERWORLD_OAK_DOOR);
-        this.simpleTrapDoorBlock(ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR);
-        this.simpleFence(ModDecorativeBlocks.OTHERWORLD_OAK_FENCE, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleFenceGate(ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simplePressurePlate(ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleButton(ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleSignBlock(ModDecorativeBlocks.OTHERWORLD_OAK_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
-        this.simpleHangingSignBlock(ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS);
+        this.woodSet(ModDecorativeBlocks.OTHERWORLD_OAK_LOG, ModDecorativeBlocks.OTHERWORLD_OAK_WOOD, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS, ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS, ModDecorativeBlocks.OTHERWORLD_OAK_SLAB, ModDecorativeBlocks.OTHERWORLD_OAK_DOOR, ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR, ModDecorativeBlocks.OTHERWORLD_OAK_FENCE, ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE, ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE, ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON, ModDecorativeBlocks.OTHERWORLD_OAK_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN);
         //Twilight
-        this.simpleLogBlock(ModDecorativeBlocks.TWILIGHT_LOG);
-        this.simpleBlockAndItem(ModDecorativeBlocks.TWILIGHT_WOOD);
-        this.simpleLogBlock(ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG);
-        this.simpleBlockAndItem(ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD);
-        this.simpleBlockAndItem(ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleStairs(ModDecorativeBlocks.TWILIGHT_STAIRS, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleSlab(ModDecorativeBlocks.TWILIGHT_SLAB, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleDoorBlock(ModDecorativeBlocks.TWILIGHT_DOOR);
-        this.simpleFence(ModDecorativeBlocks.TWILIGHT_FENCE, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleFenceGate(ModDecorativeBlocks.TWILIGHT_FENCE_GATE, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simplePressurePlate(ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleButton(ModDecorativeBlocks.TWILIGHT_BUTTON, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleSignBlock(ModDecorativeBlocks.TWILIGHT_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_SIGN, ModDecorativeBlocks.TWILIGHT_PLANKS);
-        this.simpleHangingSignBlock(ModDecorativeBlocks.TWILIGHT_HANGING_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN, ModDecorativeBlocks.TWILIGHT_PLANKS);
+        this.woodSet(ModDecorativeBlocks.TWILIGHT_LOG, ModDecorativeBlocks.TWILIGHT_WOOD, ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG, ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD, ModDecorativeBlocks.TWILIGHT_PLANKS, ModDecorativeBlocks.TWILIGHT_STAIRS, ModDecorativeBlocks.TWILIGHT_SLAB, ModDecorativeBlocks.TWILIGHT_DOOR, ModDecorativeBlocks.TWILIGHT_TRAPDOOR, ModDecorativeBlocks.TWILIGHT_FENCE, ModDecorativeBlocks.TWILIGHT_FENCE_GATE, ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE, ModDecorativeBlocks.TWILIGHT_BUTTON, ModDecorativeBlocks.TWILIGHT_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_SIGN, ModDecorativeBlocks.TWILIGHT_HANGING_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN);
 
         this.blockBottomTop(ModBlocks.ULTIMITA_TNT);
         this.blockBottomTop(ModBlocks.UNSTABLE_ULTIMITA_TNT);
     }
-
     
+    private void woodSet(Supplier<? extends Block> log,
+                         Supplier<? extends Block> wood,
+                         Supplier<? extends Block> strippedLog,
+                         Supplier<? extends Block> strippedWood,
+                         Supplier<? extends Block>planks,
+                         Supplier<? extends Block> stairs,
+                         Supplier<? extends Block> slab,
+                         Supplier<? extends Block> door,
+                         Supplier<? extends Block> trapDoor,
+                         Supplier<? extends Block> fence,
+                         Supplier<? extends Block> fenceGate,
+                         Supplier<? extends Block> pressurePlate,
+                         Supplier<? extends Block> button,
+                         Supplier<? extends Block> sign,
+                         Supplier<? extends Block> wallSign,
+                         Supplier<? extends Block> hangingSign,
+                         Supplier<? extends Block> wallHangingSign
+    ) {
+        this.simpleLogBlock(log);
+        this.simpleBlockAndItem(wood);
+        this.simpleLogBlock(strippedLog);
+        this.simpleBlockAndItem(strippedWood);
+        this.simpleBlockAndItem(planks);
+        this.simpleStairs(stairs, planks);
+        this.simpleSlab(slab, planks);
+        this.simpleDoorBlock(door);
+        this.simpleTrapDoorBlock(trapDoor);
+        this.simpleFence(fence, planks);
+        this.simpleFenceGate(fenceGate, planks);
+        this.simplePressurePlate(pressurePlate, planks);
+        this.simpleButton(button, planks);
+        this.simpleSignBlock(sign, wallSign, planks);
+        this.simpleHangingSignBlock(hangingSign, wallHangingSign, planks);
+    }
     
     private void simpleBlockItem(Supplier<? extends Block> block) {
         super.simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + this.name(block.get()))));
