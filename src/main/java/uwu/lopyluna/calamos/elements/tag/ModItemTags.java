@@ -6,6 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import oshi.util.tuples.Triplet;
+import uwu.lopyluna.calamos.CalamosMod;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -42,6 +43,8 @@ public class ModItemTags {
     public static final TagKey<Item> INGOTS_TERRAULITE = createForge("ingots/terraulite", TERRAULITE_INGOT, "Terraulite Ingots");
     public static final TagKey<Item> INGOTS_ULTIMITA = createForge("ingots/ultimita", ULTIMITA_INGOT, "Ultimita Ingots");
     public static final TagKey<Item> INGOTS_VOLCANITE = createForge("ingots/volcanite", VOLCANITE_INGOT, "Volcanite Ingots");
+    public static final TagKey<Item> INGOTS_URANIUM = createForge("ingots/uranium", URANIUM_INGOT, "Uranium Ingots");
+    public static final TagKey<Item> RAW_MATERIALS_URANIUM = createForge("raw_materials/uranium", RAW_URANIUM, "Raw Uranium");
     public static final TagKey<Item> STORAGE_BLOCKS_GARNET = createForgeBlockItem("storage_blocks/garnet", GARNET_BLOCK, "Garnet Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_JADE = createForgeBlockItem("storage_blocks/jade", JADE_BLOCK, "Jade Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_KUNZITE = createForgeBlockItem("storage_blocks/kunzite", KUNZITE_BLOCK, "Kunzite Storage Blocks");
@@ -53,12 +56,16 @@ public class ModItemTags {
     public static final TagKey<Item> STORAGE_BLOCKS_SUNSTONE = createForgeBlockItem("storage_blocks/sunstone", SUNSTONE_BLOCK, "Sunstone Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_TANZANITE = createForgeBlockItem("storage_blocks/tanzanite", TANZANITE_BLOCK, "Tanzanite Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_TOPAZ = createForgeBlockItem("storage_blocks/topaz", TOPAZ_BLOCK, "Topaz Storage Blocks");
+    public static final TagKey<Item> STORAGE_BLOCKS_URANIUM = createForgeBlockItem("storage_blocks/uranium", URANIUM_BLOCK, "Uranium Storage Blocks");
     private static TagKey<Item> createForge(String name, Supplier<? extends Item> value, String engTranslation) {
         return create(new ResourceLocation("forge", name), value, engTranslation);
     }
     
     private static TagKey<Item> createForgeBlockItem(String name, Supplier<? extends Block> value, String engTranslation) {
         return createBlockItem(new ResourceLocation("forge", name), value, engTranslation);
+    }
+    private static TagKey<Item> createModBlockItem(String name, Supplier<? extends Block> value, String engTranslation) {
+        return createBlockItem(new ResourceLocation(CalamosMod.MODID, name), value, engTranslation);
     }
 
     private static TagKey<Item> create(ResourceLocation name, Supplier<? extends Item> value, String engTranslation) {

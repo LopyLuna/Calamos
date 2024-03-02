@@ -150,6 +150,7 @@ class ModLanguageProvider extends LanguageProvider {
             String tagNamespace = tagId.getNamespace().equals("forge") ? "c" : tagId.getNamespace();
             super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
         }
+        this.add("tag.item.calamos.large_planks", "Large Planks");
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {

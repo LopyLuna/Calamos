@@ -21,6 +21,20 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.registerBlockMineables();
         this.registerMinecraftTags();
         this.registerForgeTags();
+        this.registerModTags();
+    }
+    
+    protected void registerModTags() {
+        tag(ModTags.modBlockTag("large_planks")).add(
+                ModDecorativeBlocks.LARGE_ACACIA_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_OAK_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_WARPED_PLANKS.get()
+        );
     }
     
     protected void registerBlockMineables() {
@@ -38,14 +52,20 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.TOPAZ_BLOCK.get(),
                 ModBlocks.URANIUM_BLOCK.get(),
                 ModDecorativeBlocks.METEORITE.get(),
+                ModDecorativeBlocks.METEORITE_STAIRS.get(),
+                ModDecorativeBlocks.METEORITE_SLAB.get(),
                 ModDecorativeBlocks.COBBLED_METEORITE.get(),
                 ModDecorativeBlocks.POLISHED_METEORITE.get(),
+                ModDecorativeBlocks.POLISHED_METEORITE_STAIRS.get(),
+                ModDecorativeBlocks.POLISHED_METEORITE_SLAB.get(),
                 ModDecorativeBlocks.METEORITE_BRICKS.get(),
                 ModDecorativeBlocks.GILDED_METEORITE_BRICKS.get(),
                 ModDecorativeBlocks.METEORITE_TILES.get(),
                 ModDecorativeBlocks.LARGE_METEORITE_TILE.get(),
                 ModDecorativeBlocks.CUT_METEORITE.get(),
                 ModDecorativeBlocks.SMOOTH_METEORITE.get(),
+                ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS.get(),
+                ModDecorativeBlocks.SMOOTH_METEORITE_SLAB.get(),
                 ModDecorativeBlocks.SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.COBBLED_SANDSTONE.get(),
@@ -66,10 +86,115 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
                 ModBlocks.STONE.get(),
                 ModBlocks.UMBRALITE.get(),
-                ModBlocks.PURRASITE.get()
+                ModBlocks.PURRASITE.get(),
+                
+                ModDecorativeBlocks.AMETHYST_BRICKS.get(),
+                ModDecorativeBlocks.CRYING_OBSIDIAN_BRICKS.get(),
+                ModDecorativeBlocks.OBSIDIAN_BRICKS.get(),
+                ModDecorativeBlocks.COBBLESTONE_BRICKS.get(),
+                ModDecorativeBlocks.BASALT_BRICKS.get(),
+                ModDecorativeBlocks.BONE_BRICKS.get(),
+                ModDecorativeBlocks.NETHERRACK_BRICKS.get(),
+                
+                ModDecorativeBlocks.POLISHED_AMETHYST.get(),
+                ModDecorativeBlocks.POLISHED_STONE.get(),
+                ModDecorativeBlocks.POLISHED_NETHERRACK.get(),
+                
+                ModDecorativeBlocks.CUT_AMETHYST.get(),
+                ModDecorativeBlocks.CUT_BASALT.get(),
+                
+                ModDecorativeBlocks.STONE_TILES.get(),
+                ModDecorativeBlocks.BLACKSTONE_TILES.get(),
+                
+                ModDecorativeBlocks.SMOOTH_COBBLESTONE.get(),
+                ModDecorativeBlocks.SMOOTH_DEEPSLATE.get(),
+                ModDecorativeBlocks.SMOOTH_NETHERRACK.get(),
+                
+                ModDecorativeBlocks.CHISELED_RED_NETHER_BRICKS.get(),
+                ModDecorativeBlocks.CHISELED_BONE.get(),
+                
+                ModDecorativeBlocks.LARGE_BRICKS.get()
         );
+        
+        tag(BlockTags.MINEABLE_WITH_AXE).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_LOG.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_WOOD.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_DOOR.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_PLANKS.get(),
+                ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+                ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE_GATE.get(),
+                ModDecorativeBlocks.TWILIGHT_LOG.get(),
+                ModDecorativeBlocks.TWILIGHT_WOOD.get(),
+                ModDecorativeBlocks.TWILIGHT_DOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_TRAPDOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_BUTTON.get(),
+                ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.get(),
+                ModDecorativeBlocks.TWILIGHT_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(),
+                
+                //LARGE PLANKS
+                ModDecorativeBlocks.LARGE_ACACIA_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_SLAB.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_SLAB.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_OAK_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_WARPED_PLANKS.get(),
+                ModDecorativeBlocks.LARGE_WARPED_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_WARPED_SLAB.get()
+        );
+        
+        
     }
     protected void registerMinecraftTags() {
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
+                ModDecorativeBlocks.CRYING_OBSIDIAN_BRICKS.get(),
+                ModDecorativeBlocks.OBSIDIAN_BRICKS.get()
+        );
+        tag(BlockTags.DRAGON_IMMUNE).add(
+                ModDecorativeBlocks.CRYING_OBSIDIAN_BRICKS.get(),
+                ModDecorativeBlocks.OBSIDIAN_BRICKS.get()
+        );
+        tag(BlockTags.CRYSTAL_SOUND_BLOCKS).add(
+                ModDecorativeBlocks.POLISHED_AMETHYST.get(),
+                ModDecorativeBlocks.AMETHYST_BRICKS.get(),
+                ModDecorativeBlocks.CUT_AMETHYST.get()
+        );
         tag(BlockTags.COPPER_ORES).add(ModBlocks.COPPER_ORE.get());
         tag(BlockTags.SCULK_REPLACEABLE).add(ModDecorativeBlocks.SOUL_SANDSTONE.get());
         tag(BlockTags.SCULK_REPLACEABLE_WORLD_GEN).add(ModDecorativeBlocks.SOUL_SANDSTONE.get());
@@ -80,6 +205,21 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.CUT_SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.CHISELED_SOUL_SANDSTONE.get()
+        );
+        tag(BlockTags.INFINIBURN_END).add(
+                ModDecorativeBlocks.NETHERRACK_BRICKS.get(),
+                ModDecorativeBlocks.SMOOTH_NETHERRACK.get(),
+                ModDecorativeBlocks.POLISHED_NETHERRACK.get()
+        );
+        tag(BlockTags.INFINIBURN_NETHER).add(
+                ModDecorativeBlocks.NETHERRACK_BRICKS.get(),
+                ModDecorativeBlocks.SMOOTH_NETHERRACK.get(),
+                ModDecorativeBlocks.POLISHED_NETHERRACK.get()
+        );
+        tag(BlockTags.INFINIBURN_OVERWORLD).add(
+                ModDecorativeBlocks.NETHERRACK_BRICKS.get(),
+                ModDecorativeBlocks.SMOOTH_NETHERRACK.get(),
+                ModDecorativeBlocks.POLISHED_NETHERRACK.get()
         );
         tag(BlockTags.WALLS).add(
                 ModDecorativeBlocks.SOUL_SANDSTONE_WALL.get(),
@@ -93,6 +233,60 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_FENCES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.get(),
                 ModDecorativeBlocks.TWILIGHT_FENCE.get()
+        );
+        tag(BlockTags.WOODEN_SLABS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.get(),
+                ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+                ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_SLAB.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_SLAB.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_MANGROVE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_SLAB.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_SLAB.get(),
+                ModDecorativeBlocks.LARGE_WARPED_SLAB.get()
+        );
+        tag(BlockTags.WOODEN_STAIRS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.get(),
+                ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_MANGROVE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_WARPED_STAIRS.get()
+        );
+        tag(BlockTags.WOODEN_TRAPDOORS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_TRAPDOOR.get()
+        );
+        tag(BlockTags.WOODEN_DOORS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_DOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_DOOR.get()
+        );
+        tag(BlockTags.WOODEN_BUTTONS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON.get(),
+                ModDecorativeBlocks.TWILIGHT_BUTTON.get()
+        );
+        tag(BlockTags.WOODEN_PRESSURE_PLATES).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE.get()
+        );
+        tag(BlockTags.SIGNS).add(
+                ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get()
         );
         tag(BlockTags.FENCE_GATES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE.get(),
@@ -113,6 +307,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
                 ModDecorativeBlocks.LARGE_BIRCH_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_SLAB.get(),
                 ModDecorativeBlocks.LARGE_JUNGLE_SLAB.get(),
                 ModDecorativeBlocks.LARGE_ACACIA_SLAB.get(),
                 ModDecorativeBlocks.LARGE_DARK_OAK_SLAB.get(),
@@ -137,6 +332,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_BIRCH_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_JUNGLE_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_ACACIA_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_DARK_OAK_STAIRS.get(),

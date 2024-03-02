@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "calamos:stripped_otherworld_oak_log"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "C C",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "calamos:otherworld_oak_hanging_sign"
+  }
+}
