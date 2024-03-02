@@ -1,6 +1,8 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
@@ -9,6 +11,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
+import uwu.lopyluna.calamos.elements.items.ParticleSpewingItem;
 import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
@@ -60,9 +64,9 @@ public final class ModItems {
     public static final DeferredItem<Item> VOLCANITE_INGOT = registerSimple("volcanite_ingot");
     public static final DeferredItem<Item> STELLAR_INGOT = registerSimple("stellar_ingot");
     public static final DeferredItem<Item> ELEGANT_BLOOM = registerSimple("elegant_bloom");
-    public static final DeferredItem<Item> URANIUM_INGOT = registerSimple("uranium_ingot");
-    public static final DeferredItem<Item> RAW_URANIUM = registerSimple("raw_uranium");
-    public static final DeferredItem<Item> URANIUM_NUGGET = registerSimple("uranium_nugget");
+    public static final DeferredItem<Item> URANIUM_INGOT = register("uranium_ingot", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
+    public static final DeferredItem<Item> RAW_URANIUM = register("raw_uranium", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
+    public static final DeferredItem<Item> URANIUM_NUGGET = register("uranium_nugget", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
 
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
@@ -119,7 +123,10 @@ public final class ModItems {
             new HealingPotionItem(sublimeHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
     public static final DeferredItem<Item> SUBLIME_RECOVERING_POTION = register("sublime_recovering_potion", () ->
             new HealingPotionItem((int) ((float) sublimeHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
-
+    
+    public static final DeferredItem<Item> URANIUM_BLOCK = register("uranium_block", () -> new ParticleSpewingBlockItem(ModBlocks.URANIUM_BLOCK.get(), new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
+    public static final DeferredItem<Item> RAW_URANIUM_BLOCK = register("raw_uranium_block", () -> new ParticleSpewingBlockItem(ModBlocks.RAW_URANIUM_BLOCK.get(), new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
+    
     private static DeferredItem<Item> registerSimple(String name, Item.Properties itemProperties) {
         return register(name, () -> new Item(itemProperties));
     }
@@ -144,6 +151,9 @@ public final class ModItems {
     //private-package so block register class can use
     static void registerBlockItem(Holder<Block> blockHolder, Item.Properties properties) {
         ITEMS.registerSimpleBlockItem(blockHolder, properties);
+    }
+    static void registerSpecialBlockItem(Holder<Block> blockHolder, Supplier<? extends BlockItem> sup) {
+        ITEMS.register(blockHolder.unwrapKey().get().toString(), sup);
     }
 
     static void registerSimpleItem(String name) {

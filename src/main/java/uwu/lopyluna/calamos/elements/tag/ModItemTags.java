@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.ModItems;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -56,7 +57,7 @@ public class ModItemTags {
     public static final TagKey<Item> STORAGE_BLOCKS_SUNSTONE = createForgeBlockItem("storage_blocks/sunstone", SUNSTONE_BLOCK, "Sunstone Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_TANZANITE = createForgeBlockItem("storage_blocks/tanzanite", TANZANITE_BLOCK, "Tanzanite Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_TOPAZ = createForgeBlockItem("storage_blocks/topaz", TOPAZ_BLOCK, "Topaz Storage Blocks");
-    public static final TagKey<Item> STORAGE_BLOCKS_URANIUM = createForgeBlockItem("storage_blocks/uranium", URANIUM_BLOCK, "Uranium Storage Blocks");
+    public static final TagKey<Item> STORAGE_BLOCKS_URANIUM = createForge("storage_blocks/uranium", ModItems.URANIUM_BLOCK, "Uranium Storage Blocks");
     private static TagKey<Item> createForge(String name, Supplier<? extends Item> value, String engTranslation) {
         return create(new ResourceLocation("forge", name), value, engTranslation);
     }

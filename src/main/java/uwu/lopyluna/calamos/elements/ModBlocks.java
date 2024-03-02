@@ -1,15 +1,26 @@
 package uwu.lopyluna.calamos.elements;
 
+import net.minecraft.client.particle.SpellParticle;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.ParticleUtils;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
+import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
 import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -54,12 +65,10 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> TOPAZ_BLOCK = register("topaz_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
             new Item.Properties());
-    public static final DeferredBlock<Block> URANIUM_BLOCK = register("uranium_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
-            new Item.Properties());
-    public static final DeferredBlock<Block> RAW_URANIUM_BLOCK = register("raw_uranium_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK)),
-            new Item.Properties());
+    public static final DeferredBlock<Block> URANIUM_BLOCK = registerNoItem("uranium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
+    public static final DeferredBlock<Block> RAW_URANIUM_BLOCK = registerNoItem("raw_uranium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK)));
 
     public static final DeferredBlock<Block> STONE = register("stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
@@ -155,16 +164,20 @@ public final class ModBlocks {
         makeBlockItem(toReturn, pIProp);
         return toReturn;
     }
-
+    private static <T extends Block> DeferredBlock<T> registerNoItem(String id, Supplier<T> block) {
+        return BLOCKS.register(id.toLowerCase(), block);
+    }
     private static <T extends Block> void makeBlockItem(DeferredBlock<T> block, Item.Properties pIProp) {
         ModItems.registerBlockItem(block, pIProp);
     }
-
+    private static <T extends Block> void makeSpecialBlockItem(DeferredBlock<T> block, Item.Properties pIProp, Supplier<? extends BlockItem> sup) {
+        ModItems.registerSpecialBlockItem(block, sup);
+    }
+    
     public static void staticInit() {
     }
 
     public static Collection<DeferredHolder<Block, ? extends Block>> getBlocks() {
         return BLOCKS.getEntries();
     }
-    
 }
