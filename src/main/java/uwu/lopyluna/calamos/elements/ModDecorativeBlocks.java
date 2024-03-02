@@ -236,7 +236,192 @@ public class ModDecorativeBlocks {
             () -> new ModCeilingHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_WALL_HANGING_SIGN = BLOCKS.register("twilight_wall_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
-
+    //Amethyst
+    public static final DeferredBlock<Block> AMETHYST_BRICKS = register("amethyst_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> CUT_AMETHYST = register("cut_amethyst",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> POLISHED_AMETHYST = register("polished_amethyst",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)
+            ), new Item.Properties());
+    //Basalt
+    public static final DeferredBlock<Block> BASALT_BRICKS = register("basalt_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> CUT_BASALT = register("cut_basalt",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
+            ), new Item.Properties());
+    //Blackstone
+    public static final DeferredBlock<Block> BLACKSTONE_TILES = register("blackstone_tiles",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)
+            ), new Item.Properties());
+    //Bone
+    public static final DeferredBlock<Block> BONE_BRICKS = register("bone_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> CHISELED_BONE = register("chiseled_bone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)
+            ), new Item.Properties());
+    //Red Nether
+    public static final DeferredBlock<Block> CHISELED_RED_NETHER_BRICKS = register("chiseled_red_nether_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_NETHER_BRICKS)
+            ), new Item.Properties());
+    //Stone
+    public static final DeferredBlock<Block> COBBLESTONE_BRICKS = register("cobblestone_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> COBBLESTONE_BRICK_STAIRS = register("cobblestone_brick_stairs",
+            () -> new StairBlock(COBBLESTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> COBBLESTONE_BRICK_SLAB = register("cobblestone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> COBBLESTONE_BRICK_WALL = register("cobblestone_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SMOOTH_COBBLESTONE = register("smooth_cobblestone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> POLISHED_STONE = register("polished_stone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> STONE_TILES = register("stone_tiles",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SMOOTH_DEEPSLATE = register("smooth_deepslate",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)
+            ), new Item.Properties());
+    //Obsidian
+    public static final DeferredBlock<Block> CRYING_OBSIDIAN_BRICKS = register("crying_obsidian_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRYING_OBSIDIAN)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> OBSIDIAN_BRICKS = register("obsidian_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            ), new Item.Properties());
+    //Netherrack
+    public static final DeferredBlock<Block> NETHERRACK_BRICKS = register("netherrack_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERRACK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SMOOTH_NETHERRACK = register("smooth_netherrack",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERRACK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> POLISHED_NETHERRACK = register("polished_netherrack",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERRACK)
+            ), new Item.Properties());
+    //Brick
+    public static final DeferredBlock<Block> LARGE_BRICKS = register("large_bricks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)
+            ), new Item.Properties());
+    //Large Planks
+        //Acacia
+    public static final DeferredBlock<Block> LARGE_ACACIA_PLANKS = register("large_acacia_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_ACACIA_STAIRS = register("large_acacia_stairs",
+            () -> new StairBlock(LARGE_ACACIA_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_ACACIA_SLAB = register("large_acacia_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_SLAB)
+            ), new Item.Properties());
+        //Bamboo
+    public static final DeferredBlock<Block> LARGE_BAMBOO_PLANKS = register("large_bamboo_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_BAMBOO_STAIRS = register("large_bamboo_stairs",
+            () -> new StairBlock(LARGE_BAMBOO_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_BAMBOO_SLAB = register("large_bamboo_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_SLAB)
+            ), new Item.Properties());
+        //Birch
+    public static final DeferredBlock<Block> LARGE_BIRCH_PLANKS = register("large_birch_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_BIRCH_STAIRS = register("large_birch_stairs",
+            () -> new StairBlock(LARGE_BIRCH_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_BIRCH_SLAB = register("large_birch_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_SLAB)
+            ), new Item.Properties());
+        //Crimson
+    public static final DeferredBlock<Block> LARGE_CRIMSON_PLANKS = register("large_crimson_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_CRIMSON_STAIRS = register("large_crimson_stairs",
+            () -> new StairBlock(LARGE_CRIMSON_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_CRIMSON_SLAB = register("large_crimson_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)
+            ), new Item.Properties());
+        //Dark Oak
+    public static final DeferredBlock<Block> LARGE_DARK_OAK_PLANKS = register("large_dark_oak_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_DARK_OAK_STAIRS = register("large_dark_oak_stairs",
+            () -> new StairBlock(LARGE_DARK_OAK_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_DARK_OAK_SLAB = register("large_dark_oak_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_SLAB)
+            ), new Item.Properties());
+        //Jungle
+    public static final DeferredBlock<Block> LARGE_JUNGLE_PLANKS = register("large_jungle_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_JUNGLE_STAIRS = register("large_jungle_stairs",
+            () -> new StairBlock(LARGE_JUNGLE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_JUNGLE_SLAB = register("large_jungle_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_SLAB)
+            ), new Item.Properties());
+        //Mangrove
+    public static final DeferredBlock<Block> LARGE_MANGROVE_PLANKS = register("large_mangrove_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_MANGROVE_STAIRS = register("large_mangrove_stairs",
+            () -> new StairBlock(LARGE_MANGROVE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_MANGROVE_SLAB = register("large_mangrove_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_SLAB)
+            ), new Item.Properties());
+        //Oak
+    public static final DeferredBlock<Block> LARGE_OAK_PLANKS = register("large_oak_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_OAK_STAIRS = register("large_oak_stairs",
+            () -> new StairBlock(LARGE_OAK_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_OAK_SLAB = register("large_oak_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)
+            ), new Item.Properties());
+        //Spruce
+    public static final DeferredBlock<Block> LARGE_SPRUCE_PLANKS = register("large_spruce_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_SPRUCE_STAIRS = register("large_spruce_stairs",
+            () -> new StairBlock(LARGE_SPRUCE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_SPRUCE_SLAB = register("large_spruce_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SLAB)
+            ), new Item.Properties());
+        //Warped
+    public static final DeferredBlock<Block> LARGE_WARPED_PLANKS = register("large_warped_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_WARPED_STAIRS = register("large_warped_stairs",
+            () -> new StairBlock(LARGE_WARPED_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_WARPED_SLAB = register("large_warped_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)
+            ), new Item.Properties());
+    //Tiles
+    public static final DeferredBlock<Block> ENDSTONE_TILES = register("endstone_tiles",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> MUD_TILES = register("mud_tiles",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)
+            ), new Item.Properties());
     
     
     private static <T extends Block> DeferredBlock<T> register(String id, Supplier<T> block, Item.Properties pIProp) {

@@ -82,6 +82,8 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.SUNSTONE_BLOCK);
         this.simpleBlockAndItem(ModBlocks.TANZANITE_BLOCK);
         this.simpleBlockAndItem(ModBlocks.TOPAZ_BLOCK);
+        this.simpleBlockAndItem(ModBlocks.URANIUM_BLOCK);
+        this.simpleBlockAndItem(ModBlocks.RAW_URANIUM_BLOCK);
         //ores
         this.simpleBlockItem(ModBlocks.COPPER_ORE);
         this.simpleBlockItem(ModBlocks.IRON_ORE);
@@ -97,10 +99,121 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockItem(ModBlocks.SUNSTONE_ORE);
         this.simpleBlockItem(ModBlocks.TANZANITE_ORE);
         this.simpleBlockItem(ModBlocks.TOPAZ_ORE);
+        this.simpleBlockItem(ModBlocks.URANIUM_ORE);
         //otherworld oak
-        this.woodSet(ModDecorativeBlocks.OTHERWORLD_OAK_LOG, ModDecorativeBlocks.OTHERWORLD_OAK_WOOD, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS, ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS, ModDecorativeBlocks.OTHERWORLD_OAK_SLAB, ModDecorativeBlocks.OTHERWORLD_OAK_DOOR, ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR, ModDecorativeBlocks.OTHERWORLD_OAK_FENCE, ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE, ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE, ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON, ModDecorativeBlocks.OTHERWORLD_OAK_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN, ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN);
+        this.woodSet(ModDecorativeBlocks.OTHERWORLD_OAK_LOG,
+                ModDecorativeBlocks.OTHERWORLD_OAK_WOOD,
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG,
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD,
+                ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS,
+                ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS,
+                ModDecorativeBlocks.OTHERWORLD_OAK_SLAB,
+                ModDecorativeBlocks.OTHERWORLD_OAK_DOOR,
+                ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR,
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE,
+                ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE,
+                ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE,
+                ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON,
+                ModDecorativeBlocks.OTHERWORLD_OAK_SIGN,
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN,
+                ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN,
+                ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN);
         //Twilight
-        this.woodSet(ModDecorativeBlocks.TWILIGHT_LOG, ModDecorativeBlocks.TWILIGHT_WOOD, ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG, ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD, ModDecorativeBlocks.TWILIGHT_PLANKS, ModDecorativeBlocks.TWILIGHT_STAIRS, ModDecorativeBlocks.TWILIGHT_SLAB, ModDecorativeBlocks.TWILIGHT_DOOR, ModDecorativeBlocks.TWILIGHT_TRAPDOOR, ModDecorativeBlocks.TWILIGHT_FENCE, ModDecorativeBlocks.TWILIGHT_FENCE_GATE, ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE, ModDecorativeBlocks.TWILIGHT_BUTTON, ModDecorativeBlocks.TWILIGHT_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_SIGN, ModDecorativeBlocks.TWILIGHT_HANGING_SIGN, ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN);
+        this.woodSet(ModDecorativeBlocks.TWILIGHT_LOG,
+                ModDecorativeBlocks.TWILIGHT_WOOD,
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG,
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD,
+                ModDecorativeBlocks.TWILIGHT_PLANKS,
+                ModDecorativeBlocks.TWILIGHT_STAIRS,
+                ModDecorativeBlocks.TWILIGHT_SLAB,
+                ModDecorativeBlocks.TWILIGHT_DOOR,
+                ModDecorativeBlocks.TWILIGHT_TRAPDOOR,
+                ModDecorativeBlocks.TWILIGHT_FENCE,
+                ModDecorativeBlocks.TWILIGHT_FENCE_GATE,
+                ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE,
+                ModDecorativeBlocks.TWILIGHT_BUTTON,
+                ModDecorativeBlocks.TWILIGHT_SIGN,
+                ModDecorativeBlocks.TWILIGHT_WALL_SIGN,
+                ModDecorativeBlocks.TWILIGHT_HANGING_SIGN,
+                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN);
+
+        //Amethyst
+        this.simpleBlockAndItem(ModDecorativeBlocks.AMETHYST_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.CUT_AMETHYST);
+        this.simpleBlockAndItem(ModDecorativeBlocks.POLISHED_AMETHYST);
+        //Basalt
+        this.simpleBlockAndItem(ModDecorativeBlocks.BASALT_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.CUT_BASALT);
+        //Blackstone
+        this.simpleBlockAndItem(ModDecorativeBlocks.BLACKSTONE_TILES);
+        //Bone
+        this.simpleBlockAndItem(ModDecorativeBlocks.BONE_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.CHISELED_BONE);
+        //Red Nether
+        this.simpleBlockAndItem(ModDecorativeBlocks.CHISELED_RED_NETHER_BRICKS);
+        //Stone
+        this.simpleBlockAndItem(ModDecorativeBlocks.COBBLESTONE_BRICKS);
+        this.simpleStairs(ModDecorativeBlocks.COBBLESTONE_BRICK_STAIRS, ModDecorativeBlocks.COBBLESTONE_BRICKS);
+        this.simpleSlab(ModDecorativeBlocks.COBBLESTONE_BRICK_SLAB, ModDecorativeBlocks.COBBLESTONE_BRICKS);
+        this.simpleWall(ModDecorativeBlocks.COBBLESTONE_BRICK_WALL, ModDecorativeBlocks.COBBLESTONE_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SMOOTH_COBBLESTONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.POLISHED_STONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.STONE_TILES);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SMOOTH_DEEPSLATE);
+        //Obsidian
+        this.simpleBlockAndItem(ModDecorativeBlocks.CRYING_OBSIDIAN_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.OBSIDIAN_BRICKS);
+        //Netherrack
+        this.simpleBlockAndItem(ModDecorativeBlocks.NETHERRACK_BRICKS);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SMOOTH_NETHERRACK);
+        this.simpleBlockAndItem(ModDecorativeBlocks.POLISHED_NETHERRACK);
+        //Brick
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_BRICKS);
+        //--Large Planks--//
+        //Acacia
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_ACACIA_STAIRS, ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_ACACIA_SLAB, ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
+        //Bamboo
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_BAMBOO_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_BAMBOO_STAIRS, ModDecorativeBlocks.LARGE_BAMBOO_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_BAMBOO_SLAB, ModDecorativeBlocks.LARGE_BAMBOO_PLANKS);
+        //Birch
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_BIRCH_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_BIRCH_STAIRS, ModDecorativeBlocks.LARGE_BIRCH_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_BIRCH_SLAB, ModDecorativeBlocks.LARGE_BIRCH_PLANKS);
+        //Crimson
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_CRIMSON_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_CRIMSON_STAIRS, ModDecorativeBlocks.LARGE_CRIMSON_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_CRIMSON_SLAB, ModDecorativeBlocks.LARGE_CRIMSON_PLANKS);
+        //Dark Oak
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_DARK_OAK_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_DARK_OAK_STAIRS, ModDecorativeBlocks.LARGE_DARK_OAK_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_DARK_OAK_SLAB, ModDecorativeBlocks.LARGE_DARK_OAK_PLANKS);
+        //Jungle
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_JUNGLE_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_JUNGLE_STAIRS, ModDecorativeBlocks.LARGE_JUNGLE_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_JUNGLE_SLAB, ModDecorativeBlocks.LARGE_JUNGLE_PLANKS);
+        //Mangrove
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_MANGROVE_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_MANGROVE_STAIRS, ModDecorativeBlocks.LARGE_MANGROVE_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_MANGROVE_SLAB, ModDecorativeBlocks.LARGE_MANGROVE_PLANKS);
+        //Oak
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_OAK_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_OAK_STAIRS, ModDecorativeBlocks.LARGE_OAK_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_OAK_SLAB, ModDecorativeBlocks.LARGE_OAK_PLANKS);
+        //Spruce
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_SPRUCE_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_SPRUCE_STAIRS, ModDecorativeBlocks.LARGE_SPRUCE_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_SPRUCE_SLAB, ModDecorativeBlocks.LARGE_SPRUCE_PLANKS);
+        //Warped
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_WARPED_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_WARPED_STAIRS, ModDecorativeBlocks.LARGE_WARPED_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_WARPED_SLAB, ModDecorativeBlocks.LARGE_WARPED_PLANKS);
+        //----//
+        //Tiles
+        this.simpleBlockAndItem(ModDecorativeBlocks.ENDSTONE_TILES);
+        this.simpleBlockAndItem(ModDecorativeBlocks.MUD_TILES);
 
         this.blockBottomTop(ModBlocks.ULTIMITA_TNT);
         this.blockBottomTop(ModBlocks.UNSTABLE_ULTIMITA_TNT);
@@ -125,9 +238,9 @@ class ModBlockStateProvider extends BlockStateProvider {
                          Supplier<? extends Block> wallHangingSign
     ) {
         this.simpleLogBlock(log);
-        this.simpleBlockAndItem(wood);
+        this.simpleWoodBlock(wood);
         this.simpleLogBlock(strippedLog);
-        this.simpleBlockAndItem(strippedWood);
+        this.simpleWoodBlock(strippedWood);
         this.simpleBlockAndItem(planks);
         this.simpleStairs(stairs, planks);
         this.simpleSlab(slab, planks);
@@ -226,6 +339,10 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.logBlock((RotatedPillarBlock) block.get());
         this.simpleBlockItem(block);
     }
+    private void simpleWoodBlock(Supplier<? extends Block> block) {
+        this.axisBlock((RotatedPillarBlock) block.get(), blockTexture(block.get()), extend(blockTexture(block.get()), ""));
+        this.simpleBlockItem(block);
+    }
     private void simpleDoorBlock(Supplier<? extends Block> block) {
         String name = this.name(block.get());
         ResourceLocation bottomLocation = ModUtils.location("block/" + name + "_bottom");
@@ -246,6 +363,8 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(block.get(), sign);
         this.simpleBlock(wallBlock.get(), sign);
     }
+
+    private ResourceLocation extend(ResourceLocation rl, String suffix) {return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);}
 
     private String name(Block block) {
         return BuiltInRegistries.BLOCK.getKey(block).getPath();

@@ -4,7 +4,7 @@
       "model": "calamos:block/large_crimson_slab"
     },
     "type=double": {
-      "model": "calamos:block/large_oak_planks"
+      "model": "calamos:block/large_crimson_planks"
     },
     "type=top": {
       "model": "calamos:block/large_crimson_slab_top"

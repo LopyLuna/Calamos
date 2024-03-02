@@ -4,7 +4,7 @@
       "model": "calamos:block/large_warped_slab"
     },
     "type=double": {
-      "model": "calamos:block/large_crimson_planks"
+      "model": "calamos:block/large_warped_planks"
     },
     "type=top": {
       "model": "calamos:block/large_warped_slab_top"
