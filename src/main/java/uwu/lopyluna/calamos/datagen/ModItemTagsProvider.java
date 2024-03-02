@@ -97,7 +97,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModBlocks.SPINEL_BLOCK.get().asItem(),
                 ModBlocks.SUNSTONE_BLOCK.get().asItem(),
                 ModBlocks.TANZANITE_BLOCK.get().asItem(),
-                ModBlocks.TOPAZ_BLOCK.get().asItem()
+                ModBlocks.TOPAZ_BLOCK.get().asItem(),
+                ModBlocks.URANIUM_BLOCK.get().asItem()
         );
         tag(ItemTags.TRIM_MATERIALS).add(
                 ModItems.GARNET.get(),
@@ -124,10 +125,15 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.STARINIUM_INGOT.get(),
                 ModItems.TERRAULITE_INGOT.get(),
                 ModItems.ULTIMITA_INGOT.get(),
-                ModItems.VOLCANITE_INGOT.get()
+                ModItems.VOLCANITE_INGOT.get(),
+                ModItems.URANIUM_INGOT.get()
+        );
+        tag(Tags.Items.NUGGETS).add(
+                ModItems.URANIUM_NUGGET.get()
         );
         tag(Tags.Items.RAW_MATERIALS).add(
-                ModItems.RAW_METEORITE.get()
+                ModItems.RAW_METEORITE.get(),
+                ModItems.RAW_URANIUM.get()
         );
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             tag(tag.getA()).add(tag.getB().get());

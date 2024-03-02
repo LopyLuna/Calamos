@@ -54,6 +54,12 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> TOPAZ_BLOCK = register("topaz_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
             new Item.Properties());
+    public static final DeferredBlock<Block> URANIUM_BLOCK = register("uranium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)),
+            new Item.Properties());
+    public static final DeferredBlock<Block> RAW_URANIUM_BLOCK = register("raw_uranium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK)),
+            new Item.Properties());
 
     public static final DeferredBlock<Block> STONE = register("stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
@@ -126,6 +132,9 @@ public final class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<Block> TOPAZ_ORE = register("topaz_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> URANIUM_ORE = register("uranium_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 

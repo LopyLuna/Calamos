@@ -61,6 +61,9 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.VOLCANITE_INGOT);
         this.basicItem(ModItems.STELLAR_INGOT);
         this.basicItem(ModItems.ELEGANT_BLOOM);
+        this.basicItem(ModItems.URANIUM_INGOT);
+        this.basicItem(ModItems.RAW_URANIUM);
+        this.basicItem(ModItems.URANIUM_NUGGET);
 
         this.basicItem(ModItems.BERSERKER_CRAW);
 

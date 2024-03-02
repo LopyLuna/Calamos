@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-25T17:13:02.7658463	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-02-29T16:44:22.8953945	Tags for minecraft:item mod id vanilla
 1b348ed0f03000ab78d7bf44df5f88aab13e029f data/calamos/tags/items/reapers.json
 afddf984617f0d518279779172dfac30220f7de4 data/calamos/tags/items/wings.json
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
@@ -12,7 +12,7 @@ a82d96d7e67ecd25ebb33373bb31721cda3f3b56 data/forge/tags/items/gems/ruby.json
 46aae01f5a007b991112a530a9951412aa4e2e50 data/forge/tags/items/gems/sunstone.json
 957572354cee4f75bd092503b6e4193dfd3ebf65 data/forge/tags/items/gems/tanzanite.json
 6ea3ccc9d862927a2ebfe3343667ae3282d64119 data/forge/tags/items/gems/topaz.json
-58de3c584aac7188efffc008dd8337e402a3d0c1 data/forge/tags/items/ingots.json
+5ff36766f6c997caa2330dbca3ad3331ef6618d0 data/forge/tags/items/ingots.json
 72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/forge/tags/items/ingots/bloodbore.json
 ba08a9f2a5781f9783f511f3d789493e2928ef46 data/forge/tags/items/ingots/calamatium.json
 445a812d45241ecdd5fee4ddd42d362900a48af5 data/forge/tags/items/ingots/ectolight.json
@@ -25,9 +25,10 @@ a02ed117ba5a5c8e2aed3c465703f08963670867 data/forge/tags/items/ingots/obsteel.js
 faa1fad4d6b1805e73007c7ecf2033e32534e763 data/forge/tags/items/ingots/terraulite.json
 f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/forge/tags/items/ingots/ultimita.json
 66776610b9ca08e1498f9d9d8ac131260bd20ce3 data/forge/tags/items/ingots/volcanite.json
-d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials.json
+94e257497b177f5e3b2e1fba59c1c6a6f9e96377 data/forge/tags/items/nuggets.json
+50b936894027e4d28ae3b4721d680d467065f37c data/forge/tags/items/raw_materials.json
 d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials/meteorite.json
-ad85423740bb103626e1963e4e46d831b56cc0c9 data/forge/tags/items/storage_blocks.json
+77404290bdea42866e4ea5b526c5f938c51b314a data/forge/tags/items/storage_blocks.json
 ba42597e05a092727017901114c09279918c1aa5 data/forge/tags/items/storage_blocks/garnet.json
 ac9b03a0ab41bc30a8a1951d1aec23135101e421 data/forge/tags/items/storage_blocks/jade.json
 164a249014a953936edab501c440eb1049ae8c1c data/forge/tags/items/storage_blocks/kunzite.json

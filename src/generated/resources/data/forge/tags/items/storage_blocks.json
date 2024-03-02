@@ -10,6 +10,7 @@
     "calamos:spinel_block",
     "calamos:sunstone_block",
     "calamos:tanzanite_block",
-    "calamos:topaz_block"
+    "calamos:topaz_block",
+    "calamos:uranium_block"
   ]
 }

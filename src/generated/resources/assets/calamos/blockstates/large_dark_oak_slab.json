@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/large_dark_oak_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/large_dark_oak_planks"
+    },
+    "type=top": {
+      "model": "calamos:block/large_dark_oak_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/large_jungle_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/large_jungle_planks"
+    },
+    "type=top": {
+      "model": "calamos:block/large_jungle_slab_top"
+    }
+  }
+}

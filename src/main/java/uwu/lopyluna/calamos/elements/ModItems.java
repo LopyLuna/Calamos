@@ -60,7 +60,9 @@ public final class ModItems {
     public static final DeferredItem<Item> VOLCANITE_INGOT = registerSimple("volcanite_ingot");
     public static final DeferredItem<Item> STELLAR_INGOT = registerSimple("stellar_ingot");
     public static final DeferredItem<Item> ELEGANT_BLOOM = registerSimple("elegant_bloom");
-
+    public static final DeferredItem<Item> URANIUM_INGOT = registerSimple("uranium_ingot");
+    public static final DeferredItem<Item> RAW_URANIUM = registerSimple("raw_uranium");
+    public static final DeferredItem<Item> URANIUM_NUGGET = registerSimple("uranium_nugget");
 
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));

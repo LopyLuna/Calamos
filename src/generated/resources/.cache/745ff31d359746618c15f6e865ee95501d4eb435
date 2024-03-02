@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-28T21:52:24.8445721	Tags for minecraft:block mod id calamos
+// 1.20.4	2024-02-29T18:16:17.5496972	Tags for minecraft:block mod id calamos
 d24286d31dd0d31470927e5519943a663ff32f3e data/forge/tags/blocks/cobbled_sandstone.json
 a1f90df9457b02055e9182e46e3bd97542ea1030 data/forge/tags/blocks/cobbled_sandstone/normal.json
 de57a18f85d09ee715a9eee4a97106c5ccda8d1b data/forge/tags/blocks/cobbled_sandstone/soul.json
@@ -6,7 +6,7 @@ de57a18f85d09ee715a9eee4a97106c5ccda8d1b data/forge/tags/blocks/cobbled_sandston
 1c68cfdcfebc9ae00a53b84321bbc6ff592a26e8 data/forge/tags/blocks/ores/copper.json
 72b028b860e901e33781121a601ac14c2453971d data/forge/tags/blocks/ores/meteorite.json
 48f76ef1ee906e045c15fd208773d300cf2556d5 data/forge/tags/blocks/soul_sandstone.json
-ad85423740bb103626e1963e4e46d831b56cc0c9 data/forge/tags/blocks/storage_blocks.json
+77404290bdea42866e4ea5b526c5f938c51b314a data/forge/tags/blocks/storage_blocks.json
 ba42597e05a092727017901114c09279918c1aa5 data/forge/tags/blocks/storage_blocks/garnet.json
 ac9b03a0ab41bc30a8a1951d1aec23135101e421 data/forge/tags/blocks/storage_blocks/jade.json
 164a249014a953936edab501c440eb1049ae8c1c data/forge/tags/blocks/storage_blocks/kunzite.json
@@ -18,14 +18,15 @@ eae03830281f0104cc28fdd5ae5f596439b7fe1e data/forge/tags/blocks/storage_blocks/s
 684575056f319cab12963e32f1be59ff90d9e7d1 data/forge/tags/blocks/storage_blocks/sunstone.json
 98ef7e8014cc10a324312046c3a551ffbcad5eca data/forge/tags/blocks/storage_blocks/tanzanite.json
 6825b528ef953b9c8e473a3ca78197bc95252466 data/forge/tags/blocks/storage_blocks/topaz.json
+18ff576dd62e5af49b114c17b4248cd1b6c1b200 data/forge/tags/blocks/storage_blocks/uranium.json
 1c68cfdcfebc9ae00a53b84321bbc6ff592a26e8 data/minecraft/tags/blocks/copper_ores.json
 4a180eeb69cdb801f92007c8071705b942cacc2a data/minecraft/tags/blocks/fence_gates.json
-6ac7fd0e9c8122f996978af4e02be13e5ad8a88a data/minecraft/tags/blocks/mineable/pickaxe.json
+381dd0b6b2504bb0b5dcd6c2570a553f009546c3 data/minecraft/tags/blocks/mineable/pickaxe.json
 99899b02a89f8bb9e4c58efc4ad28ffe6311a247 data/minecraft/tags/blocks/nether_carver_replaceables.json
 99899b02a89f8bb9e4c58efc4ad28ffe6311a247 data/minecraft/tags/blocks/sculk_replaceable.json
 99899b02a89f8bb9e4c58efc4ad28ffe6311a247 data/minecraft/tags/blocks/sculk_replaceable_world_gen.json
-bd095dd5eab8ed7f7a83ff4d8e7b585807231447 data/minecraft/tags/blocks/slabs.json
+d6bfab1a5686ae687741e6ce5c88c8d5c698fcff data/minecraft/tags/blocks/slabs.json
 7aaf94fac7cc3cec85cd23b639431923efa8c347 data/minecraft/tags/blocks/soul_fire_base_blocks.json
-bbdcda75b1204aa0b76fa4c2be8e96dc1e86fc68 data/minecraft/tags/blocks/stairs.json
-586325c65db1b73eff4992f85e0c5366e5290d0b data/minecraft/tags/blocks/walls.json
+7a24291243a5a3e0df7fe46c68aa4aa7961eff61 data/minecraft/tags/blocks/stairs.json
+b572b588caba3ed54dd921e12bbf1c4a17a5478b data/minecraft/tags/blocks/walls.json
 59a809ac73a2fbca4388a09c9fc3dcdb201f2038 data/minecraft/tags/blocks/wooden_fences.json

@@ -1,7 +1,6 @@
 package uwu.lopyluna.calamos.datagen;
 
 import com.supermartijn642.fusion.api.provider.FusionModelProvider;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

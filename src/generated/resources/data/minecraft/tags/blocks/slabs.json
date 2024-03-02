@@ -7,6 +7,19 @@
     "calamos:cobbled_sandstone_slab",
     "calamos:meteorite_slab",
     "calamos:polished_meteorite_slab",
-    "calamos:smooth_meteorite_slab"
+    "calamos:smooth_meteorite_slab",
+    "calamos:otherworld_oak_slab",
+    "calamos:twilight_slab",
+    "calamos:large_oak_slab",
+    "calamos:large_spruce_slab",
+    "calamos:large_birch_slab",
+    "calamos:large_jungle_slab",
+    "calamos:large_acacia_slab",
+    "calamos:large_dark_oak_slab",
+    "calamos:large_mangrove_slab",
+    "calamos:large_bamboo_slab",
+    "calamos:large_crimson_slab",
+    "calamos:large_warped_slab",
+    "calamos:cobblestone_brick_slab"
   ]
 }

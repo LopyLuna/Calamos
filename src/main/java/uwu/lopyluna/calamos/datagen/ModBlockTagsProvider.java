@@ -36,6 +36,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.SUNSTONE_BLOCK.get(),
                 ModBlocks.TANZANITE_BLOCK.get(),
                 ModBlocks.TOPAZ_BLOCK.get(),
+                ModBlocks.URANIUM_BLOCK.get(),
                 ModDecorativeBlocks.METEORITE.get(),
                 ModDecorativeBlocks.COBBLED_METEORITE.get(),
                 ModDecorativeBlocks.POLISHED_METEORITE.get(),
@@ -51,6 +52,17 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 
                 ModBlocks.COPPER_ORE.get(),
                 ModBlocks.METEORITE_ORE.get(),
+                ModBlocks.GARNET_ORE.get(),
+                ModBlocks.URANIUM_ORE.get(),
+                ModBlocks.GOLD_ORE.get(),
+                ModBlocks.IRON_ORE.get(),
+                ModBlocks.OPAL_ORE.get(),
+                ModBlocks.JADE_ORE.get(),
+                ModBlocks.KUNZITE_ORE.get(),
+                ModBlocks.RUBY_ORE.get(),
+                ModBlocks.MOONSTONE_ORE.get(),
+                ModBlocks.SAPPHIRE_ORE.get(),
+                ModBlocks.SPINEL_ORE.get(),
 
                 ModBlocks.STONE.get(),
                 ModBlocks.UMBRALITE.get(),
@@ -75,7 +87,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.COBBLED_SANDSTONE_WALL.get(),
                 ModDecorativeBlocks.METEORITE_WALL.get(),
                 ModDecorativeBlocks.SMOOTH_METEORITE_WALL.get(),
-                ModDecorativeBlocks.POLISHED_METEORITE_WALL.get()
+                ModDecorativeBlocks.POLISHED_METEORITE_WALL.get(),
+                ModDecorativeBlocks.COBBLESTONE_BRICK_WALL.get()
         );
         tag(BlockTags.WOODEN_FENCES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.get(),
@@ -93,7 +106,22 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.COBBLED_SANDSTONE_SLAB.get(),
                 ModDecorativeBlocks.METEORITE_SLAB.get(),
                 ModDecorativeBlocks.POLISHED_METEORITE_SLAB.get(),
-                ModDecorativeBlocks.SMOOTH_METEORITE_SLAB.get()
+                ModDecorativeBlocks.SMOOTH_METEORITE_SLAB.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.get(),
+                ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+
+                ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_SLAB.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_SLAB.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_SLAB.get(),
+                ModDecorativeBlocks.LARGE_MANGROVE_SLAB.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_SLAB.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_SLAB.get(),
+                ModDecorativeBlocks.LARGE_WARPED_SLAB.get(),
+
+                ModDecorativeBlocks.COBBLESTONE_BRICK_SLAB.get()
         );
         tag(BlockTags.STAIRS).add(
                 ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_STAIRS.get(),
@@ -102,7 +130,22 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.COBBLED_SANDSTONE_STAIRS.get(),
                 ModDecorativeBlocks.METEORITE_STAIRS.get(),
                 ModDecorativeBlocks.POLISHED_METEORITE_STAIRS.get(),
-                ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS.get()
+                ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS.get(),
+                ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.get(),
+                ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+
+                ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BIRCH_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_JUNGLE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_ACACIA_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_DARK_OAK_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_MANGROVE_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_BAMBOO_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_CRIMSON_STAIRS.get(),
+                ModDecorativeBlocks.LARGE_WARPED_STAIRS.get(),
+
+                ModDecorativeBlocks.COBBLESTONE_BRICK_STAIRS.get()
         );
     }
     
@@ -138,7 +181,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.SPINEL_BLOCK.get(),
                 ModBlocks.SUNSTONE_BLOCK.get(),
                 ModBlocks.TANZANITE_BLOCK.get(),
-                ModBlocks.TOPAZ_BLOCK.get()
+                ModBlocks.TOPAZ_BLOCK.get(),
+                ModBlocks.URANIUM_BLOCK.get()
         );
         tag(ModTags.forgeBlockTag("ores/copper")).add(ModBlocks.COPPER_ORE.get());
         tag(ModTags.forgeBlockTag("ores/meteorite")).add(ModBlocks.METEORITE_ORE.get());
@@ -153,6 +197,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(ModTags.forgeBlockTag("storage_blocks/sunstone")).add(ModBlocks.SUNSTONE_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/tanzanite")).add(ModBlocks.TANZANITE_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/topaz")).add(ModBlocks.TOPAZ_BLOCK.get());
-        
+        tag(ModTags.forgeBlockTag("storage_blocks/uranium")).add(ModBlocks.URANIUM_BLOCK.get());
+
     }
 }

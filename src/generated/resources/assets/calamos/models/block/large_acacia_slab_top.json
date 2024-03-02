@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "calamos:block/large_acacia_planks",
+    "side": "calamos:block/large_acacia_planks",
+    "top": "calamos:block/large_acacia_planks"
+  }
+}

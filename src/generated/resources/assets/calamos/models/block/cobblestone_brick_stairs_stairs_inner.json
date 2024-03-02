@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "calamos:block/cobblestone_bricks",
+    "side": "calamos:block/cobblestone_bricks",
+    "top": "calamos:block/cobblestone_bricks"
+  }
+}

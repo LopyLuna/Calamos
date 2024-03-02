@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/cobblestone_brick_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/cobblestone_bricks"
+    },
+    "type=top": {
+      "model": "calamos:block/cobblestone_brick_slab_top"
+    }
+  }
+}
