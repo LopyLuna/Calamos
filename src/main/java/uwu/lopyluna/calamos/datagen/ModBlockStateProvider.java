@@ -90,6 +90,8 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModBlocks.TOPAZ_BLOCK);
         this.simpleBlockAndItem(ModBlocks.URANIUM_BLOCK);
         this.simpleBlockAndItem(ModBlocks.RAW_URANIUM_BLOCK);
+        this.simpleBlockAndItem(ModBlocks.PALLADIUM_BLOCK);
+        this.simpleBlockAndItem(ModBlocks.RAW_PALLADIUM_BLOCK);
         //ores
         this.simpleBlockItem(ModBlocks.COPPER_ORE);
         this.simpleBlockItem(ModBlocks.IRON_ORE);
@@ -106,6 +108,7 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockItem(ModBlocks.TANZANITE_ORE);
         this.simpleBlockItem(ModBlocks.TOPAZ_ORE);
         this.simpleBlockItem(ModBlocks.URANIUM_ORE);
+        this.simpleBlockItem(ModBlocks.PALLADIUM_ORE);
         //otherworld oak
         this.woodSet(ModDecorativeBlocks.OTHERWORLD_OAK_LOG,
                 ModDecorativeBlocks.OTHERWORLD_OAK_WOOD,
@@ -142,6 +145,24 @@ class ModBlockStateProvider extends BlockStateProvider {
                 ModDecorativeBlocks.TWILIGHT_WALL_SIGN,
                 ModDecorativeBlocks.TWILIGHT_HANGING_SIGN,
                 ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN);
+        //Hollow
+        this.woodSet(ModDecorativeBlocks.HOLLOW_LOG,
+                ModDecorativeBlocks.HOLLOW_WOOD,
+                ModDecorativeBlocks.STRIPPED_HOLLOW_LOG,
+                ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD,
+                ModDecorativeBlocks.HOLLOW_PLANKS,
+                ModDecorativeBlocks.HOLLOW_STAIRS,
+                ModDecorativeBlocks.HOLLOW_SLAB,
+                ModDecorativeBlocks.HOLLOW_DOOR,
+                ModDecorativeBlocks.HOLLOW_TRAPDOOR,
+                ModDecorativeBlocks.HOLLOW_FENCE,
+                ModDecorativeBlocks.HOLLOW_FENCE_GATE,
+                ModDecorativeBlocks.HOLLOW_PRESSURE_PLATE,
+                ModDecorativeBlocks.HOLLOW_BUTTON,
+                ModDecorativeBlocks.HOLLOW_SIGN,
+                ModDecorativeBlocks.HOLLOW_WALL_SIGN,
+                ModDecorativeBlocks.HOLLOW_HANGING_SIGN,
+                ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN);
 
         //Amethyst
         this.simpleBlockAndItem(ModDecorativeBlocks.AMETHYST_BRICKS);

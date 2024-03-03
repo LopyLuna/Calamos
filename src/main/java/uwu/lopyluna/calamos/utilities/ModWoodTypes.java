@@ -8,4 +8,5 @@ public class ModWoodTypes {
     private static String id = CalamosMod.MODID;
     public static final WoodType OTHERWORLD_OAK = WoodType.register(new WoodType(id + ":otherworld_oak", BlockSetType.OAK));
     public static final WoodType TWILIGHT = WoodType.register(new WoodType(id + ":twilight", BlockSetType.OAK));
+    public static final WoodType HOLLOW = WoodType.register(new WoodType(id + ":hollow", BlockSetType.OAK));
 }

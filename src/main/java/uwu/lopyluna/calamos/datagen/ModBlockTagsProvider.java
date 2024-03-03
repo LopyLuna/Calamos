@@ -51,6 +51,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.TANZANITE_BLOCK.get(),
                 ModBlocks.TOPAZ_BLOCK.get(),
                 ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.PALLADIUM_ORE.get(),
                 ModDecorativeBlocks.METEORITE.get(),
                 ModDecorativeBlocks.METEORITE_STAIRS.get(),
                 ModDecorativeBlocks.METEORITE_SLAB.get(),
@@ -83,6 +84,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.MOONSTONE_ORE.get(),
                 ModBlocks.SAPPHIRE_ORE.get(),
                 ModBlocks.SPINEL_ORE.get(),
+                ModBlocks.PALLADIUM_ORE.get(),
 
                 ModBlocks.STONE.get(),
                 ModBlocks.UMBRALITE.get(),
@@ -151,6 +153,41 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get(),
                 ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(),
                 ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_PLANKS.get(),
+                ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+                ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE.get(),
+                ModDecorativeBlocks.TWILIGHT_FENCE_GATE.get(),
+                ModDecorativeBlocks.TWILIGHT_LOG.get(),
+                ModDecorativeBlocks.TWILIGHT_WOOD.get(),
+                ModDecorativeBlocks.TWILIGHT_DOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_TRAPDOOR.get(),
+                ModDecorativeBlocks.TWILIGHT_BUTTON.get(),
+                ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.get(),
+                ModDecorativeBlocks.TWILIGHT_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(),
+                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(),
+
+                ModDecorativeBlocks.HOLLOW_PLANKS.get(),
+                ModDecorativeBlocks.HOLLOW_STAIRS.get(),
+                ModDecorativeBlocks.HOLLOW_SLAB.get(),
+                ModDecorativeBlocks.HOLLOW_FENCE.get(),
+                ModDecorativeBlocks.HOLLOW_FENCE_GATE.get(),
+                ModDecorativeBlocks.HOLLOW_LOG.get(),
+                ModDecorativeBlocks.HOLLOW_WOOD.get(),
+                ModDecorativeBlocks.HOLLOW_DOOR.get(),
+                ModDecorativeBlocks.HOLLOW_TRAPDOOR.get(),
+                ModDecorativeBlocks.HOLLOW_BUTTON.get(),
+                ModDecorativeBlocks.HOLLOW_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get(),
+                ModDecorativeBlocks.HOLLOW_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_WALL_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_HANGING_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN.get(),
                 
                 //LARGE PLANKS
                 ModDecorativeBlocks.LARGE_ACACIA_PLANKS.get(),
@@ -232,11 +269,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         );
         tag(BlockTags.WOODEN_FENCES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.get(),
-                ModDecorativeBlocks.TWILIGHT_FENCE.get()
+                ModDecorativeBlocks.TWILIGHT_FENCE.get(),
+                ModDecorativeBlocks.HOLLOW_FENCE.get()
         );
         tag(BlockTags.WOODEN_SLABS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.get(),
                 ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+                ModDecorativeBlocks.HOLLOW_SLAB.get(),
+
                 ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
                 ModDecorativeBlocks.LARGE_BIRCH_SLAB.get(),
@@ -251,6 +291,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_STAIRS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.get(),
                 ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+                ModDecorativeBlocks.HOLLOW_STAIRS.get(),
+
                 ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_BIRCH_STAIRS.get(),
@@ -264,19 +306,23 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         );
         tag(BlockTags.WOODEN_TRAPDOORS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR.get(),
-                ModDecorativeBlocks.TWILIGHT_TRAPDOOR.get()
+                ModDecorativeBlocks.TWILIGHT_TRAPDOOR.get(),
+                ModDecorativeBlocks.HOLLOW_TRAPDOOR.get()
         );
         tag(BlockTags.WOODEN_DOORS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_DOOR.get(),
-                ModDecorativeBlocks.TWILIGHT_DOOR.get()
+                ModDecorativeBlocks.TWILIGHT_DOOR.get(),
+                ModDecorativeBlocks.HOLLOW_DOOR.get()
         );
         tag(BlockTags.WOODEN_BUTTONS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON.get(),
-                ModDecorativeBlocks.TWILIGHT_BUTTON.get()
+                ModDecorativeBlocks.TWILIGHT_BUTTON.get(),
+                ModDecorativeBlocks.HOLLOW_BUTTON.get()
         );
         tag(BlockTags.WOODEN_PRESSURE_PLATES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_PRESSURE_PLATE.get(),
-                ModDecorativeBlocks.TWILIGHT_PRESSURE_PLATE.get()
+                ModDecorativeBlocks.HOLLOW_PRESSURE_PLATE.get(),
+                ModDecorativeBlocks.HOLLOW_PRESSURE_PLATE.get()
         );
         tag(BlockTags.SIGNS).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(),
@@ -286,11 +332,16 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.TWILIGHT_SIGN.get(),
                 ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get(),
                 ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(),
-                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get()
+                ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_WALL_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_HANGING_SIGN.get(),
+                ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN.get()
         );
         tag(BlockTags.FENCE_GATES).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE.get(),
-                ModDecorativeBlocks.TWILIGHT_FENCE_GATE.get()
+                ModDecorativeBlocks.TWILIGHT_FENCE_GATE.get(),
+                ModDecorativeBlocks.HOLLOW_FENCE_GATE.get()
         );
         tag(BlockTags.SLABS).add(
                 ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_SLAB.get(),
@@ -303,6 +354,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.SMOOTH_METEORITE_SLAB.get(),
                 ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.get(),
                 ModDecorativeBlocks.TWILIGHT_SLAB.get(),
+                ModDecorativeBlocks.HOLLOW_SLAB.get(),
 
                 ModDecorativeBlocks.LARGE_OAK_SLAB.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
@@ -328,6 +380,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.SMOOTH_METEORITE_STAIRS.get(),
                 ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.get(),
                 ModDecorativeBlocks.TWILIGHT_STAIRS.get(),
+                ModDecorativeBlocks.HOLLOW_STAIRS.get(),
 
                 ModDecorativeBlocks.LARGE_OAK_STAIRS.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.get(),
@@ -364,7 +417,22 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         );
         tag(ModTags.forgeBlockTag("ores")).add(
                 ModBlocks.COPPER_ORE.get(),
-                ModBlocks.METEORITE_ORE.get()
+                ModBlocks.IRON_ORE.get(),
+                ModBlocks.GOLD_ORE.get(),
+                ModBlocks.METEORITE_ORE.get(),
+                ModBlocks.GARNET_ORE.get(),
+                ModBlocks.JADE_ORE.get(),
+                ModBlocks.KUNZITE_ORE.get(),
+                ModBlocks.MOONSTONE_ORE.get(),
+                ModBlocks.OPAL_ORE.get(),
+                ModBlocks.RUBY_ORE.get(),
+                ModBlocks.SAPPHIRE_ORE.get(),
+                ModBlocks.SPINEL_ORE.get(),
+                ModBlocks.SUNSTONE_ORE.get(),
+                ModBlocks.TANZANITE_ORE.get(),
+                ModBlocks.TOPAZ_ORE.get(),
+                ModBlocks.URANIUM_ORE.get(),
+                ModBlocks.PALLADIUM_ORE.get()
         );
         tag(ModTags.forgeBlockTag("storage_blocks")).add(
                 ModBlocks.GARNET_BLOCK.get(),
@@ -378,10 +446,26 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.SUNSTONE_BLOCK.get(),
                 ModBlocks.TANZANITE_BLOCK.get(),
                 ModBlocks.TOPAZ_BLOCK.get(),
-                ModBlocks.URANIUM_BLOCK.get()
+                ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.PALLADIUM_BLOCK.get()
         );
         tag(ModTags.forgeBlockTag("ores/copper")).add(ModBlocks.COPPER_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/meteorite")).add(ModBlocks.METEORITE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/iron")).add(ModBlocks.IRON_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/gold")).add(ModBlocks.GOLD_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/garnet")).add(ModBlocks.GARNET_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/jade")).add(ModBlocks.JADE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/kunzite")).add(ModBlocks.KUNZITE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/moonstone")).add(ModBlocks.MOONSTONE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/opal")).add(ModBlocks.OPAL_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/ruby")).add(ModBlocks.RUBY_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/sapphire")).add(ModBlocks.SAPPHIRE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/spinel")).add(ModBlocks.SPINEL_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/sunstone")).add(ModBlocks.SUNSTONE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/tanzanite")).add(ModBlocks.TANZANITE_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/topaz")).add(ModBlocks.TOPAZ_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/uranium")).add(ModBlocks.URANIUM_ORE.get());
+        tag(ModTags.forgeBlockTag("ores/palladium")).add(ModBlocks.PALLADIUM_ORE.get());
+
         tag(ModTags.forgeBlockTag("storage_blocks/garnet")).add(ModBlocks.GARNET_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/jade")).add(ModBlocks.JADE_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/kunzite")).add(ModBlocks.KUNZITE_BLOCK.get());
@@ -394,6 +478,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(ModTags.forgeBlockTag("storage_blocks/tanzanite")).add(ModBlocks.TANZANITE_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/topaz")).add(ModBlocks.TOPAZ_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/uranium")).add(ModBlocks.URANIUM_BLOCK.get());
+        tag(ModTags.forgeBlockTag("storage_blocks/palladium")).add(ModBlocks.PALLADIUM_BLOCK.get());
 
     }
 }

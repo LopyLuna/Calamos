@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "calamos:block/stripped_hollow_log_top",
+    "side": "calamos:block/stripped_hollow_log"
+  }
+}

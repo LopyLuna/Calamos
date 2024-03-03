@@ -64,6 +64,9 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.URANIUM_INGOT);
         this.basicItem(ModItems.RAW_URANIUM);
         this.basicItem(ModItems.URANIUM_NUGGET);
+        this.basicItem(ModItems.PALLADIUM_INGOT);
+        this.basicItem(ModItems.RAW_PALLADIUM);
+        this.basicItem(ModItems.PALLADIUM_NUGGET);
 
         this.basicItem(ModItems.BERSERKER_CRAW);
 
@@ -91,6 +94,10 @@ class ModItemModelProvider extends ItemModelProvider {
         this.doorItem(ModDecorativeBlocks.TWILIGHT_DOOR);
         this.basicItem(ModItems.TWILIGHT_SIGN);
         this.basicItem(ModItems.TWILIGHT_HANGING_SIGN);
+
+        this.doorItem(ModDecorativeBlocks.HOLLOW_DOOR);
+        this.basicItem(ModItems.HOLLOW_SIGN);
+        this.basicItem(ModItems.HOLLOW_HANGING_SIGN);
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {

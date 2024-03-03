@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1200,
+  "experience": 0.65,
+  "ingredient": {
+    "item": "calamos:raw_palladium"
+  },
+  "result": "calamos:palladium_ingot"
+}

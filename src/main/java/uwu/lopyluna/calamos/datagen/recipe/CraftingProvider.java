@@ -40,6 +40,8 @@ public class CraftingProvider {
         compressedBlock(ModBlocks.TOPAZ_BLOCK.asItem(), ModItems.TOPAZ, false).save(consumer, location("topaz_block"));
         compressedBlock(ModBlocks.URANIUM_BLOCK.asItem(), ModItems.URANIUM_INGOT, false).save(consumer, location("uranium_block"));
         compressedBlock(ModBlocks.RAW_URANIUM_BLOCK.asItem(), ModItems.RAW_URANIUM, false).save(consumer, location("raw_uranium_block"));
+        compressedBlock(ModBlocks.PALLADIUM_BLOCK.asItem(), ModItems.PALLADIUM_INGOT, false).save(consumer, location("palladium_block"));
+        compressedBlock(ModBlocks.RAW_PALLADIUM_BLOCK.asItem(), ModItems.RAW_PALLADIUM, false).save(consumer, location("raw_palladium_block"));
         
         compressedBlock(ModDecorativeBlocks.CUT_METEORITE.asItem(), ModDecorativeBlocks.METEORITE.asItem(), true, 4).save(consumer, location("cut_meteorite"));
         compressedBlock(ModDecorativeBlocks.POLISHED_METEORITE.asItem(), ModDecorativeBlocks.COBBLED_METEORITE.asItem(), true, 4).save(consumer, location("polished_meteorite"));
@@ -76,40 +78,52 @@ public class CraftingProvider {
         //WOOD
         halfCompress(ModDecorativeBlocks.OTHERWORLD_OAK_WOOD.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_LOG.asItem(), 3).save(consumer, location("otherworld_oak_wood"));
         halfCompress(ModDecorativeBlocks.TWILIGHT_WOOD.asItem(), ModDecorativeBlocks.TWILIGHT_LOG.asItem(), 3).save(consumer, location("twilight_wood"));
-        
+        halfCompress(ModDecorativeBlocks.HOLLOW_WOOD.asItem(), ModDecorativeBlocks.HOLLOW_LOG.asItem(), 3).save(consumer, location("hollow_wood"));
+
         halfCompress(ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD.asItem(), ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG.asItem(), 3).save(consumer, location("stripped_otherworld_oak_wood"));
         halfCompress(ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.asItem(), ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.asItem(), 3).save(consumer, location("stripped_twilight_wood"));
-        
+        halfCompress(ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.asItem(), ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.asItem(), 3).save(consumer, location("stripped_hollow_wood"));
+
         simpleStairs(ModDecorativeBlocks.OTHERWORLD_OAK_STAIRS.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_stairs"));
         simpleStairs(ModDecorativeBlocks.TWILIGHT_STAIRS.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_stairs"));
-        
+        simpleStairs(ModDecorativeBlocks.HOLLOW_STAIRS.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_stairs"));
+
         simpleSlab(ModDecorativeBlocks.OTHERWORLD_OAK_SLAB.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_slab"));
         simpleSlab(ModDecorativeBlocks.TWILIGHT_SLAB.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_slab"));
-        
+        simpleSlab(ModDecorativeBlocks.HOLLOW_SLAB.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_slab"));
+
         simpleFence(ModDecorativeBlocks.OTHERWORLD_OAK_FENCE.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_fence"));
         simpleFence(ModDecorativeBlocks.TWILIGHT_FENCE.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_fence"));
-        
+        simpleFence(ModDecorativeBlocks.HOLLOW_FENCE.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_fence"));
+
         simpleFenceGate(ModDecorativeBlocks.OTHERWORLD_OAK_FENCE_GATE.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_fence_gate"));
         simpleFenceGate(ModDecorativeBlocks.TWILIGHT_FENCE_GATE.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_fence_gate"));
-        
+        simpleFenceGate(ModDecorativeBlocks.HOLLOW_FENCE_GATE.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_fence_gate"));
+
         simpleDoor(ModDecorativeBlocks.OTHERWORLD_OAK_DOOR.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_door"));
         simpleDoor(ModDecorativeBlocks.TWILIGHT_DOOR.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_door"));
-        
+        simpleDoor(ModDecorativeBlocks.HOLLOW_DOOR.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_door"));
+
         simpleTrapdoor(ModDecorativeBlocks.OTHERWORLD_OAK_TRAPDOOR.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_trapdoor"));
         simpleTrapdoor(ModDecorativeBlocks.TWILIGHT_TRAPDOOR.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_trapdoor"));
-        
+        simpleTrapdoor(ModDecorativeBlocks.HOLLOW_TRAPDOOR.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_trapdoor"));
+
         simpleSign(ModItems.OTHERWORLD_OAK_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("otherworld_oak_sign"));
         simpleSign(ModItems.TWILIGHT_SIGN.get(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem()).save(consumer, location("twilight_sign"));
-        
+        simpleSign(ModItems.HOLLOW_SIGN.get(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem()).save(consumer, location("hollow_sign"));
+
         simpleHangingSign(ModItems.OTHERWORLD_OAK_HANGING_SIGN.get(), ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG.asItem()).save(consumer, location("otherworld_oak_hanging_sign"));
         simpleHangingSign(ModItems.TWILIGHT_HANGING_SIGN.get(), ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.asItem()).save(consumer, location("twilight_hanging_sign"));
-        
+        simpleHangingSign(ModItems.HOLLOW_HANGING_SIGN.get(), ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.asItem()).save(consumer, location("hollow_hanging_sign"));
+
         simpleShapeless(ModDecorativeBlocks.OTHERWORLD_OAK_BUTTON.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem(), 1).save(consumer, location("otherworld_oak_button"));
         simpleShapeless(ModDecorativeBlocks.TWILIGHT_BUTTON.asItem(), ModDecorativeBlocks.TWILIGHT_PLANKS.asItem(), 1).save(consumer, location("twilight_button"));
-        
+        simpleShapeless(ModDecorativeBlocks.HOLLOW_BUTTON.asItem(), ModDecorativeBlocks.HOLLOW_PLANKS.asItem(), 1).save(consumer, location("hollow_button"));
+
         simpleShapeless(ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS.asItem(), ModDecorativeBlocks.OTHERWORLD_OAK_LOG.asItem(), 4).save(consumer, location("otherworld_oak_planks"));
         simpleShapeless(ModDecorativeBlocks.TWILIGHT_PLANKS.asItem(), ModDecorativeBlocks.TWILIGHT_LOG.asItem(), 4).save(consumer, location("twilight_planks"));
-        
+        simpleShapeless(ModDecorativeBlocks.HOLLOW_PLANKS.asItem(), ModDecorativeBlocks.HOLLOW_LOG.asItem(), 4).save(consumer, location("hollow_planks"));
+
         simpleStairs(ModDecorativeBlocks.LARGE_ACACIA_STAIRS.asItem(), ModDecorativeBlocks.LARGE_ACACIA_PLANKS.asItem()).save(consumer, location("large_acacia_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_BIRCH_STAIRS.asItem(), ModDecorativeBlocks.LARGE_BIRCH_PLANKS.asItem()).save(consumer, location("large_birch_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_CRIMSON_STAIRS.asItem(), ModDecorativeBlocks.LARGE_CRIMSON_PLANKS.asItem()).save(consumer, location("large_crimson_stairs"));
@@ -156,8 +170,12 @@ public class CraftingProvider {
         decompressedBlock(ModItems.URANIUM_INGOT.get(), ModBlocks.URANIUM_BLOCK.asItem(), false).save(consumer, location("uranium_ingot_from_uranium_block"));
         decompressedBlock(ModItems.RAW_URANIUM.get(), ModBlocks.RAW_URANIUM_BLOCK.asItem(), false).save(consumer, location("raw_uranium"));
         decompressedBlock(ModItems.URANIUM_NUGGET.get(), ModItems.URANIUM_INGOT.get(), false).save(consumer, location("uranium_nugget"));
+        decompressedBlock(ModItems.PALLADIUM_INGOT.get(), ModBlocks.PALLADIUM_BLOCK.asItem(), false).save(consumer, location("palladium_ingot_from_palladium_block"));
+        decompressedBlock(ModItems.RAW_PALLADIUM.get(), ModBlocks.RAW_PALLADIUM_BLOCK.asItem(), false).save(consumer, location("raw_palladium"));
+        decompressedBlock(ModItems.PALLADIUM_NUGGET.get(), ModItems.PALLADIUM_INGOT.get(), false).save(consumer, location("palladium_nugget"));
         
         compressedBlock(ModItems.URANIUM_INGOT.get(), ModItems.URANIUM_NUGGET.get(), false).save(consumer, location("uranium_ingot_from_nuggets"));
+        compressedBlock(ModItems.PALLADIUM_INGOT.get(), ModItems.PALLADIUM_NUGGET.get(), false).save(consumer, location("palladium_ingot_from_nuggets"));
     }
     private static void recipesSpecial(RecipeOutput consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.BLAST_FURNACE, 1)

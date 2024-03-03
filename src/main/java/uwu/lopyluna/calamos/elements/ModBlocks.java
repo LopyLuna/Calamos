@@ -70,6 +70,12 @@ public final class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
     public static final DeferredBlock<Block> RAW_URANIUM_BLOCK = registerNoItem("raw_uranium_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK)));
+    public static final DeferredBlock<Block> PALLADIUM_BLOCK = register("palladium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> RAW_PALLADIUM_BLOCK = register("raw_palladium_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK)
+            ), new Item.Properties());
 
     public static final DeferredBlock<Block> STONE = register("stone",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
@@ -152,6 +158,9 @@ public final class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<Block> URANIUM_ORE = register("uranium_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> PALLADIUM_ORE = register("palladium_ore",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 

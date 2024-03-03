@@ -7,6 +7,10 @@
     "calamos:twilight_sign",
     "calamos:twilight_wall_sign",
     "calamos:twilight_hanging_sign",
-    "calamos:twilight_wall_hanging_sign"
+    "calamos:twilight_wall_hanging_sign",
+    "calamos:hollow_sign",
+    "calamos:hollow_wall_sign",
+    "calamos:hollow_hanging_sign",
+    "calamos:hollow_wall_hanging_sign"
   ]
 }

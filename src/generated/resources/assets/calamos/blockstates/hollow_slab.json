@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/hollow_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/hollow_planks"
+    },
+    "type=top": {
+      "model": "calamos:block/hollow_slab_top"
+    }
+  }
+}

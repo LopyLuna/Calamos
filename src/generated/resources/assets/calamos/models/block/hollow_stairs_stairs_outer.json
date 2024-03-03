@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "calamos:block/hollow_planks",
+    "side": "calamos:block/hollow_planks",
+    "top": "calamos:block/hollow_planks"
+  }
+}

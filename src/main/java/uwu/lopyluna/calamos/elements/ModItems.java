@@ -67,6 +67,9 @@ public final class ModItems {
     public static final DeferredItem<Item> URANIUM_INGOT = register("uranium_ingot", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
     public static final DeferredItem<Item> RAW_URANIUM = register("raw_uranium", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
     public static final DeferredItem<Item> URANIUM_NUGGET = register("uranium_nugget", () -> new ParticleSpewingItem(new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
+    public static final DeferredItem<Item> PALLADIUM_INGOT = registerSimple("palladium_ingot");
+    public static final DeferredItem<Item> RAW_PALLADIUM = registerSimple("raw_palladium");
+    public static final DeferredItem<Item> PALLADIUM_NUGGET = registerSimple("palladium_nugget");
 
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
@@ -77,10 +80,16 @@ public final class ModItems {
             () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get()));
     public static final DeferredItem<Item> OTHERWORLD_OAK_HANGING_SIGN = register("otherworld_oak_hanging_sign",
             () -> new HangingSignItem(ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+
     public static final DeferredItem<Item> TWILIGHT_SIGN = register("twilight_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.TWILIGHT_SIGN.get(), ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get()));
     public static final DeferredItem<Item> TWILIGHT_HANGING_SIGN = register("twilight_hanging_sign",
             () -> new HangingSignItem(ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(), ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> HOLLOW_SIGN = register("hollow_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.HOLLOW_SIGN.get(), ModDecorativeBlocks.HOLLOW_WALL_SIGN.get()));
+    public static final DeferredItem<Item> HOLLOW_HANGING_SIGN = register("hollow_hanging_sign",
+            () -> new HangingSignItem(ModDecorativeBlocks.HOLLOW_HANGING_SIGN.get(), ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);

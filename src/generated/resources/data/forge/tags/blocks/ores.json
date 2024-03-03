@@ -1,6 +1,21 @@
 {
   "values": [
     "calamos:copper_ore",
-    "calamos:meteorite_ore"
+    "calamos:iron_ore",
+    "calamos:gold_ore",
+    "calamos:meteorite_ore",
+    "calamos:garnet_ore",
+    "calamos:jade_ore",
+    "calamos:kunzite_ore",
+    "calamos:moonstone_ore",
+    "calamos:opal_ore",
+    "calamos:ruby_ore",
+    "calamos:sapphire_ore",
+    "calamos:spinel_ore",
+    "calamos:sunstone_ore",
+    "calamos:tanzanite_ore",
+    "calamos:topaz_ore",
+    "calamos:uranium_ore",
+    "calamos:palladium_ore"
   ]
 }

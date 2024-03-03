@@ -233,9 +233,57 @@ public class ModDecorativeBlocks {
     public static final DeferredBlock<Block> TWILIGHT_WALL_SIGN = BLOCKS.register("twilight_wall_sign",
             () -> new ModWallSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_HANGING_SIGN = BLOCKS.register("twilight_hanging_sign",
-            () -> new ModCeilingHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
+            () -> new ModCeilingHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_WALL_HANGING_SIGN = BLOCKS.register("twilight_wall_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+    //Hollow
+    public static final DeferredBlock<Block> HOLLOW_LOG = register("hollow_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_WOOD = register("hollow_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> STRIPPED_HOLLOW_LOG = register("stripped_hollow_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> STRIPPED_HOLLOW_WOOD = register("stripped_hollow_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_PLANKS = register("hollow_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_STAIRS = register("hollow_stairs",
+            () -> new StairBlock(HOLLOW_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_SLAB = register("hollow_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_DOOR = register("hollow_door",
+            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_TRAPDOOR = register("hollow_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_FENCE = register("hollow_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_FENCE_GATE = register("hollow_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_PRESSURE_PLATE = register("hollow_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_BUTTON = register("hollow_button",
+            () -> new ButtonBlock(BlockSetType.OAK, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> HOLLOW_SIGN = BLOCKS.register("hollow_sign",
+            () -> new ModStandingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)));
+    public static final DeferredBlock<Block> HOLLOW_WALL_SIGN = BLOCKS.register("hollow_wall_sign",
+            () -> new ModWallSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)));
+    public static final DeferredBlock<Block> HOLLOW_HANGING_SIGN = BLOCKS.register("hollow_hanging_sign",
+            () -> new ModCeilingHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
+    public static final DeferredBlock<Block> HOLLOW_WALL_HANGING_SIGN = BLOCKS.register("hollow_wall_hanging_sign",
+            () -> new ModHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
     //Amethyst
     public static final DeferredBlock<Block> AMETHYST_BRICKS = register("amethyst_bricks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)

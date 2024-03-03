@@ -36,6 +36,7 @@ public class FurnaceProvider {
     private static void blasting(RecipeOutput consumer) {
         smeltAndBlast(RecipeCategory.MISC, ModItems.METEORITE_INGOT.get(), ModItems.RAW_METEORITE.get(), 0.65f, secondsToTicks(120), consumer);
         smeltAndBlast(RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), ModItems.RAW_URANIUM.get(), 0.65f, secondsToTicks(120), consumer);
+        smeltAndBlast(RecipeCategory.MISC, ModItems.PALLADIUM_INGOT.get(), ModItems.RAW_PALLADIUM.get(), 0.65f, secondsToTicks(120), consumer);
         blastingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.SMOOTH_NETHERRACK.asItem(), Items.NETHERRACK, 0.1f, secondsToTicks(10)).save(consumer, location("smooth_netherrack_from_netherrack", 1));
     }
     

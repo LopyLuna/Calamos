@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-02T19:55:09.1340239	Item Models: calamos
+// 1.20.4	2024-03-02T19:58:12.0404912	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -13,6 +13,9 @@ fd0a14dfdd351618049ac711dad982b4da2fae0f assets/calamos/models/item/enhanced_hea
 d2cfd306039224612cf935a05a25e485a7077145 assets/calamos/models/item/enhanced_recovering_potion.json
 2bacb0acd54dcf23fd569e5a9429b3192d07b848 assets/calamos/models/item/garnet.json
 3b8825fc109e8da88713b9b778bc431983293e13 assets/calamos/models/item/healing_potion.json
+b71392d0b0cd6f54eb94b8f79191747c284ac197 assets/calamos/models/item/hollow_door.json
+a99d58a77e7251107a253390894b3bffc2fa18f4 assets/calamos/models/item/hollow_hanging_sign.json
+40314174b1f78fb6e3fe10e121516064432d2aa5 assets/calamos/models/item/hollow_sign.json
 25aae928f6f9d503d76f0ba995a6a01ed12e8c91 assets/calamos/models/item/jade.json
 cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
 fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
@@ -30,8 +33,11 @@ f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
 0c11d6e93623f6660afe5c900da656af930075c9 assets/calamos/models/item/otherworld_oak_door.json
 77111829232d46adbd169fe634dba972ba679e4a assets/calamos/models/item/otherworld_oak_hanging_sign.json
 327ceb4f2b1b8588c94a3f39947ff4189415ba03 assets/calamos/models/item/otherworld_oak_sign.json
+4204ef16a013acc53390c2541e19a09cc6412f60 assets/calamos/models/item/palladium_ingot.json
+d8b3fa07b0ee6df5d754f025460a2e36e0abcd80 assets/calamos/models/item/palladium_nugget.json
 b51945cd282cf790339e118622fe9f33a5af4e92 assets/calamos/models/item/platinum_ingot.json
 3600654822eb3cbbf89c17e04971fee76899c9d0 assets/calamos/models/item/raw_meteorite.json
+cc7fa349495dcb74c213d09e872a892f8bb3d123 assets/calamos/models/item/raw_palladium.json
 cd2bb56e5a38b7f4ccd209a4f314a3e2d7ac5ec6 assets/calamos/models/item/raw_uranium.json
 258fcfd4b2ac8244cfde9d18dbfca134c7be163b assets/calamos/models/item/recovering_potion.json
 45c77cb4ca654ac6f113fc451c14863c13a9df77 assets/calamos/models/item/ruby.json
