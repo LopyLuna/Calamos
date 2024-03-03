@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "calamos:block/sawmill",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "calamos:block/sawmill"
+    },
+    "facing=south": {
+      "model": "calamos:block/sawmill",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "calamos:block/sawmill",
+      "y": 270
+    }
+  }
+}

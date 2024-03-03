@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.datagen;
 
 import com.supermartijn642.fusion.api.provider.FusionModelProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -9,13 +10,18 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 class ModBlockStateProvider extends BlockStateProvider {
@@ -217,6 +223,9 @@ class ModBlockStateProvider extends BlockStateProvider {
 
         this.blockBottomTop(ModBlocks.ULTIMITA_TNT);
         this.blockBottomTop(ModBlocks.UNSTABLE_ULTIMITA_TNT);
+
+        this.simpleSawBlock(ModBlocks.METAL_GRINDER);
+        this.simpleSawBlock(ModBlocks.SAWMILL);
     }
     
     private void woodSet(Supplier<? extends Block> log,
@@ -363,6 +372,19 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlock(block.get(), sign);
         this.simpleBlock(wallBlock.get(), sign);
     }
+    private void simpleSawBlock(Supplier<? extends Block> block) {
+        String name  = this.name(block.get());
+        this.models().withExistingParent(name, "block/stonecutter")
+                .texture("particle", ModUtils.location("block/" + name + "/"+ name + "_bottom"))
+                .texture("bottom", ModUtils.location("block/" + name + "/"+ name + "_bottom"))
+                .texture("top", ModUtils.location("block/" + name + "/"+ name + "_top"))
+                .texture("side", ModUtils.location("block/" + name + "/"+ name + "_side"))
+                .texture("saw", ModUtils.location("block/" + name + "/"+ name + "_saw"))
+                .renderType("cutout");
+        this.horizontalBlock(block.get(), new ModelFile.UncheckedModelFile(ModUtils.location("block/" + name)));
+        this.simpleBlockItem(block);
+    }
+
 
     private ResourceLocation extend(ResourceLocation rl, String suffix) {return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);}
 

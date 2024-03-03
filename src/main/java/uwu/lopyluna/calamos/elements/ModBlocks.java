@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
+import uwu.lopyluna.calamos.elements.block.SawmillBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
@@ -83,8 +84,15 @@ public final class ModBlocks {
             ), new Item.Properties()
                     .fireResistant());
 
+    //Menu Type Blocks
     public static final DeferredBlock<HallowWorkbenchBlock> HALLOW_WORKBENCH = register("hallow_workbench",
             () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
+            new Item.Properties().fireResistant());
+    public static final DeferredBlock<Block> METAL_GRINDER = register("metal_grinder",
+            () -> new StonecutterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER)),
+            new Item.Properties().fireResistant());
+    public static final DeferredBlock<Block> SAWMILL = register("sawmill",
+            () -> new SawmillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER)),
             new Item.Properties().fireResistant());
 
 

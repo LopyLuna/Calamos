@@ -23,6 +23,7 @@ import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.ModMenuType;
 import uwu.lopyluna.calamos.elements.items.wings.FlightMeterOverlay;
 import uwu.lopyluna.calamos.elements.screens.HallowWorkbenchScreen;
+import uwu.lopyluna.calamos.elements.screens.SawmillScreen;
 import uwu.lopyluna.calamos.utilities.ModWoodTypes;
 
 @SuppressWarnings("removal")
@@ -37,6 +38,7 @@ public class CalamosClient {
     @SubscribeEvent
     public static void registerMenuScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuType.HALLOW_WORKBENCH_MENU.get(), HallowWorkbenchScreen::new);
+        event.register(ModMenuType.SAWMILL_MENU.get(), SawmillScreen::new);
     }
     
     @SubscribeEvent

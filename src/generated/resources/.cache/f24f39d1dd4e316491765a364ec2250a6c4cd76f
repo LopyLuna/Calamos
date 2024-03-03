@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-01T21:42:47.5470498	Block States: calamos
+// 1.20.4	2024-03-02T12:07:58.366239	Block States: calamos
 757297d0a907bd4fbc4f794944d8b562d4963303 assets/calamos/blockstates/amethyst_bricks.json
 f26cb51bf21355ebc540d22928518190ddfdb234 assets/calamos/blockstates/basalt_bricks.json
 5552a4442afc1243ece858038136991d6c842cb5 assets/calamos/blockstates/blackstone_tiles.json
@@ -62,6 +62,7 @@ c5aca5f60b5ffc9b4bb5a80101b0749bce7c281c assets/calamos/blockstates/large_mangro
 a943659d791099fac9bc344dabba888f3778bfb0 assets/calamos/blockstates/large_warped_planks.json
 92754d5ccc956f5cfa24292eebad13abf40e3d5a assets/calamos/blockstates/large_warped_slab.json
 824793b75026da2c54d92ba29e5450b38f0e1a38 assets/calamos/blockstates/large_warped_stairs.json
+31f3821299c3f05506a593dc47d35ccf43cb17fa assets/calamos/blockstates/metal_grinder.json
 3240b148dbe18b81435e152b9ea22b813d793560 assets/calamos/blockstates/meteorite.json
 775d9db7d9c42a1130e39dce89918fd3f74df56e assets/calamos/blockstates/meteorite_bricks.json
 51d03d7542322d40ffa3b1e4f7e45de5d228225e assets/calamos/blockstates/meteorite_slab.json
@@ -99,6 +100,7 @@ bdbfe992a6ecf9fca48729725930f1dcfb5d64ed assets/calamos/blockstates/polished_net
 8d09d2068e02c2d5db40fb4deaf755be1fd67d6c assets/calamos/blockstates/raw_uranium_block.json
 931d0429489f1d214eda57e7a6866e37b496eb0f assets/calamos/blockstates/ruby_block.json
 a0bdaaf7c7fa742b909e2341ed2f5e82b372481a assets/calamos/blockstates/sapphire_block.json
+0d9293e00eeb0edd808a4e83d0b0b4564c930d10 assets/calamos/blockstates/sawmill.json
 faae845631223845162b9673d5187da4a694eb94 assets/calamos/blockstates/smooth_cobblestone.json
 1ce82f96e749b8c647a0f684ddd134b5bb553e4c assets/calamos/blockstates/smooth_deepslate.json
 82124c8347d2ae1d9e44613001c9bca3d39a868c assets/calamos/blockstates/smooth_meteorite.json
@@ -281,6 +283,7 @@ f3ea2f94d390ae8440a78c41a4d822772acae960 assets/calamos/models/block/large_warpe
 f3ea2f94d390ae8440a78c41a4d822772acae960 assets/calamos/models/block/large_warped_stairs_stairs.json
 d4f289e39d982724adf8270418868bef729bcee3 assets/calamos/models/block/large_warped_stairs_stairs_inner.json
 599827ecb9eb72464731bbd8f58ec62e3e1fbab7 assets/calamos/models/block/large_warped_stairs_stairs_outer.json
+663f2fa98487c304bff375254f28a517e9eee60c assets/calamos/models/block/metal_grinder.json
 ec09bd28d7a60a3c3db26fd0bcf4c8becbd59b58 assets/calamos/models/block/meteorite.json
 61f469e9437967e98aabda7464f6f363e1862ae1 assets/calamos/models/block/meteorite_bricks.json
 1e1428e15d97b9ac6bef64ec94fe4fb85739d8b8 assets/calamos/models/block/meteorite_slab.json
@@ -358,6 +361,7 @@ f03f747af09d689b300daa06fec5d789be851483 assets/calamos/models/block/polished_st
 a52f13f173a66152705d51a7f16210f2ace6143e assets/calamos/models/block/raw_uranium_block.json
 0bd218cd1c2fe3b977dc6a165103e3737235c4e3 assets/calamos/models/block/ruby_block.json
 416f387542b16f8fafb783b78c8a6160a59ef509 assets/calamos/models/block/sapphire_block.json
+f4adfa8b09507c19ddde3aca4a8bd59dda9ac2a2 assets/calamos/models/block/sawmill.json
 053bf962f7b83ea923b31ca4d49dcca94206a7b0 assets/calamos/models/block/smooth_cobblestone.json
 ac18d93e0b775b821171c1dbc401b86749136522 assets/calamos/models/block/smooth_deepslate.json
 ec42730c6fbf4561dfce93deb6553cc851683def assets/calamos/models/block/smooth_meteorite.json
@@ -519,6 +523,7 @@ cada7473147c1ac93d0402c2a3d05cc19a6d9aef assets/calamos/models/item/large_spruce
 e473e52f0ed340cf50710c937c9a85d49867fde7 assets/calamos/models/item/large_warped_planks.json
 e62e281086bd96c4e8adcadf1237afbfe3836bdf assets/calamos/models/item/large_warped_slab.json
 67cfa242a13c8aa491894fd0186f213fddea646a assets/calamos/models/item/large_warped_stairs.json
+d14d0ac98c1e4d1ddfd9c796e2a080e7af53c959 assets/calamos/models/item/metal_grinder.json
 876b013fe3ba1c23cc1bdc8f9be7065043dcee42 assets/calamos/models/item/meteorite.json
 2ee00cdf7cc2bc7135f81797fdaddd106694c11e assets/calamos/models/item/meteorite_bricks.json
 94273593f42aab11b7ad05787b6f6d3ed9e027a6 assets/calamos/models/item/meteorite_ore.json
@@ -556,6 +561,7 @@ b84b4bfe557f2c7768ec257c5a522f6a803ff592 assets/calamos/models/item/ruby_block.j
 de47601b38b484ca443d56a98d17316080873a35 assets/calamos/models/item/ruby_ore.json
 20d5e179c57ce5fe55d925ca8c16699277b1a6b6 assets/calamos/models/item/sapphire_block.json
 bc4f8dcf44773e9409b7c8fa610fd54028ee4dbb assets/calamos/models/item/sapphire_ore.json
+a6127e5055381fea15039f7f3a180d9de7dc2678 assets/calamos/models/item/sawmill.json
 838a52ec00d68ce5a17416fa58ce7bab571e8cde assets/calamos/models/item/smooth_cobblestone.json
 58e47d66e6524b7b6c0a9f7ad09e8e6f66078945 assets/calamos/models/item/smooth_deepslate.json
 10924c9be08d7622d368f75264c46f67a89a59af assets/calamos/models/item/smooth_meteorite.json

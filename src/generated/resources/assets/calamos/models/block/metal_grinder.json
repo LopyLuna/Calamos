@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/stonecutter",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "calamos:block/metal_grinder/metal_grinder_bottom",
+    "particle": "calamos:block/metal_grinder/metal_grinder_bottom",
+    "saw": "calamos:block/metal_grinder/metal_grinder_saw",
+    "side": "calamos:block/metal_grinder/metal_grinder_side",
+    "top": "calamos:block/metal_grinder/metal_grinder_top"
+  }
+}

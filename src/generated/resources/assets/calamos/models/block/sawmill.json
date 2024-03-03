@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/stonecutter",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "calamos:block/sawmill/sawmill_bottom",
+    "particle": "calamos:block/sawmill/sawmill_bottom",
+    "saw": "calamos:block/sawmill/sawmill_saw",
+    "side": "calamos:block/sawmill/sawmill_side",
+    "top": "calamos:block/sawmill/sawmill_top"
+  }
+}
