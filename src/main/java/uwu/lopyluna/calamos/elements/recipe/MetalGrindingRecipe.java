@@ -7,9 +7,9 @@ import net.minecraft.world.level.Level;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModRecipes;
 
-public class SawmillRecipe extends ModSingleItemRecipe {
-    public SawmillRecipe(String pGroup, Ingredient pIngredient, ItemStack pResult) {
-        super(ModRecipes.SAW_MILLING.get(), ModRecipes.SAW_MILLING_SER.get(), pGroup, pIngredient, pResult);
+public class MetalGrindingRecipe extends ModSingleItemRecipe {
+    public MetalGrindingRecipe(String pGroup, Ingredient pIngredient, ItemStack pResult) {
+        super(ModRecipes.METAL_GRINDING.get(), ModRecipes.METAL_GRINDING_SER.get(), pGroup, pIngredient, pResult);
     }
     
     /**
@@ -23,6 +23,6 @@ public class SawmillRecipe extends ModSingleItemRecipe {
     
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(ModBlocks.SAWMILL);
+        return new ItemStack(ModBlocks.METAL_GRINDER);
     }
 }

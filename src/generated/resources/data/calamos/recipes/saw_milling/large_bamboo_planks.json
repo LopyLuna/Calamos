@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:bamboo_planks"
+  },
+  "result": "calamos:large_bamboo_planks"
+}

@@ -8,6 +8,7 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.menu.HallowWorkbenchMenu;
+import uwu.lopyluna.calamos.elements.menu.MetalGrinderMenu;
 import uwu.lopyluna.calamos.elements.menu.SawmillMenu;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -18,6 +19,8 @@ public class ModMenuType {
             HallowWorkbenchMenu::new);
     public static final DeferredHolder<MenuType<?>, MenuType<SawmillMenu>> SAWMILL_MENU = register("sawmill_menu",
             SawmillMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<MetalGrinderMenu>> METAL_GRINDER_MENU = register("metal_grinder_menu",
+            MetalGrinderMenu::new);
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>, MenuType<T>> register(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IMenuTypeExtension.create(factory));

@@ -3,22 +3,19 @@ package uwu.lopyluna.calamos.elements.screens;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.StonecutterScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.StonecutterMenu;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
-import uwu.lopyluna.calamos.elements.menu.SawmillMenu;
-import uwu.lopyluna.calamos.elements.recipe.SawmillRecipe;
+import uwu.lopyluna.calamos.elements.menu.MetalGrinderMenu;
+import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
 
 import java.util.List;
 
-public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
+public class MetalGrinderScreen extends AbstractContainerScreen<MetalGrinderMenu> {
     private static final ResourceLocation SCROLLER_SPRITE = new ResourceLocation("container/stonecutter/scroller");
     private static final ResourceLocation SCROLLER_DISABLED_SPRITE = new ResourceLocation("container/stonecutter/scroller_disabled");
     private static final ResourceLocation RECIPE_SELECTED_SPRITE = new ResourceLocation("container/stonecutter/recipe_selected");
@@ -45,13 +42,13 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
      */
     private int startIndex;
     private boolean displayRecipes;
-
-    public SawmillScreen(SawmillMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    
+    public MetalGrinderScreen(MetalGrinderMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         pMenu.registerUpdateListener(this::containerChanged);
         --this.titleLabelY;
     }
-
+    
     /**
      * Renders the graphical user interface (GUI) element.
      *
@@ -65,7 +62,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
     }
-
+    
     @Override
     protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         int i = this.leftPos;
@@ -80,7 +77,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
         this.renderButtons(pGuiGraphics, pMouseX, pMouseY, l, i1, j1);
         this.renderRecipes(pGuiGraphics, l, i1, j1);
     }
-
+    
     @Override
     protected void renderTooltip(GuiGraphics pGuiGraphics, int pX, int pY) {
         super.renderTooltip(pGuiGraphics, pX, pY);
@@ -88,8 +85,8 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             int i = this.leftPos + 52;
             int j = this.topPos + 14;
             int k = this.startIndex + 12;
-            List<RecipeHolder<SawmillRecipe>> list = this.menu.getRecipes();
-
+            List<RecipeHolder<MetalGrindingRecipe>> list = this.menu.getRecipes();
+            
             for(int l = this.startIndex; l < k && l < this.menu.getNumRecipes(); ++l) {
                 int i1 = l - this.startIndex;
                 int j1 = i + i1 % 4 * 16;
@@ -100,7 +97,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             }
         }
     }
-
+    
     private void renderButtons(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, int pX, int pY, int pLastVisibleElementIndex) {
         for(int i = this.startIndex; i < pLastVisibleElementIndex && i < this.menu.getNumRecipes(); ++i) {
             int j = i - this.startIndex;
@@ -115,14 +112,14 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             } else {
                 resourcelocation = RECIPE_SPRITE;
             }
-
+            
             pGuiGraphics.blitSprite(resourcelocation, k, i1 - 1, 16, 18);
         }
     }
-
+    
     private void renderRecipes(GuiGraphics pGuiGraphics, int pX, int pY, int pStartIndex) {
-        List<RecipeHolder<SawmillRecipe>> list = this.menu.getRecipes();
-
+        List<RecipeHolder<MetalGrindingRecipe>> list = this.menu.getRecipes();
+        
         for(int i = this.startIndex; i < pStartIndex && i < this.menu.getNumRecipes(); ++i) {
             int j = i - this.startIndex;
             int k = pX + j % 4 * 16;
@@ -131,7 +128,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             pGuiGraphics.renderItem(list.get(i).value().getResultItem(this.minecraft.level.registryAccess()), k, i1);
         }
     }
-
+    
     /**
      * Called when a mouse button is clicked within the GUI element.
      * <p>
@@ -148,7 +145,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             int i = this.leftPos + 52;
             int j = this.topPos + 14;
             int k = this.startIndex + 12;
-
+            
             for(int l = this.startIndex; l < k; ++l) {
                 int i1 = l - this.startIndex;
                 double d0 = pMouseX - (double)(i + i1 % 4 * 16);
@@ -159,17 +156,17 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
                     return true;
                 }
             }
-
+            
             i = this.leftPos + 119;
             j = this.topPos + 9;
             if (pMouseX >= (double)i && pMouseX < (double)(i + 12) && pMouseY >= (double)j && pMouseY < (double)(j + 54)) {
                 this.scrolling = true;
             }
         }
-
+        
         return super.mouseClicked(pMouseX, pMouseY, pButton);
     }
-
+    
     /**
      * Called when the mouse is dragged within the GUI element.
      * <p>
@@ -194,7 +191,7 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         }
     }
-
+    
     @Override
     public boolean mouseScrolled(double pMouseX, double pMouseY, double pScrollX, double pScrollY) {
         if (this.isScrollBarActive()) {
@@ -203,18 +200,18 @@ public class SawmillScreen extends AbstractContainerScreen<SawmillMenu> {
             this.scrollOffs = Mth.clamp(this.scrollOffs - f, 0.0F, 1.0F);
             this.startIndex = (int)((double)(this.scrollOffs * (float)i) + 0.5) * 4;
         }
-
+        
         return true;
     }
-
+    
     private boolean isScrollBarActive() {
         return this.displayRecipes && this.menu.getNumRecipes() > 12;
     }
-
+    
     protected int getOffscreenRows() {
         return (this.menu.getNumRecipes() + 4 - 1) / 4 - 3;
     }
-
+    
     /**
      * Called every time this screen's container is changed (is marked as dirty).
      */
