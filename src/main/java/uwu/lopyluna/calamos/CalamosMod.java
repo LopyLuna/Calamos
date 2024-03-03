@@ -11,6 +11,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import org.slf4j.Logger;
 import uwu.lopyluna.calamos.client.ClientProxy;
+import uwu.lopyluna.calamos.compat.emi.CalamosEmiPlugin;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
