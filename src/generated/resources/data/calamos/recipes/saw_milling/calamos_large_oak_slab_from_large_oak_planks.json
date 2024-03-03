@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 2,
+  "ingredient": {
+    "item": "calamos:large_oak_planks"
+  },
+  "result": "calamos:large_oak_slab"
+}

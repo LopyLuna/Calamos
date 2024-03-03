@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:warped_planks"
+  },
+  "result": "calamos:large_warped_slab"
+}

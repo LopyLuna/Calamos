@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:large_spruce_planks"
+  },
+  "result": "calamos:large_spruce_stairs"
+}
