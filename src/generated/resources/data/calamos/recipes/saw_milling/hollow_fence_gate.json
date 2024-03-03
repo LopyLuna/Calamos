@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:hollow_planks"
+  },
+  "result": "calamos:hollow_fence_gate"
+}

@@ -139,6 +139,8 @@ class ModLanguageProvider extends LanguageProvider {
         this.string("curios.identifier.accessory", "Accessory");
 
         this.container("hallow_workbench");
+        this.container("sawmill");
+        this.container("metal_grinder");
         
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             ResourceLocation tagId = tag.getA().location();
@@ -151,6 +153,8 @@ class ModLanguageProvider extends LanguageProvider {
             super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
         }
         this.add("tag.item.calamos.large_planks", "Large Planks");
+        this.add("emi.category.calamos.sawmilling", "Sawmilling");
+        this.add("emi.category.calamos.metal_grinding", "Metal Grinding");
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {
