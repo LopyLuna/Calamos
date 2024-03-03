@@ -1,5 +1,8 @@
-// 1.20.4	2024-02-29T16:44:22.8953945	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-03-02T19:58:31.9293655	Tags for minecraft:item mod id vanilla
+5d4030d286703f743fe5842da356905ca2137013 data/calamos/tags/items/large_planks.json
+142a8a18eb83436a386a5635b3606f31307fce2b data/calamos/tags/items/otherworld_oak_logs.json
 1b348ed0f03000ab78d7bf44df5f88aab13e029f data/calamos/tags/items/reapers.json
+fa1c6eff4cce5e0908875bb7b7d8b4168421c5d0 data/calamos/tags/items/twilight_logs.json
 afddf984617f0d518279779172dfac30220f7de4 data/calamos/tags/items/wings.json
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
 55007667d8dc4027a4cd207180350554a71e150f data/forge/tags/items/gems/garnet.json
@@ -12,7 +15,7 @@ a82d96d7e67ecd25ebb33373bb31721cda3f3b56 data/forge/tags/items/gems/ruby.json
 46aae01f5a007b991112a530a9951412aa4e2e50 data/forge/tags/items/gems/sunstone.json
 957572354cee4f75bd092503b6e4193dfd3ebf65 data/forge/tags/items/gems/tanzanite.json
 6ea3ccc9d862927a2ebfe3343667ae3282d64119 data/forge/tags/items/gems/topaz.json
-5ff36766f6c997caa2330dbca3ad3331ef6618d0 data/forge/tags/items/ingots.json
+a98b06cf78479bcca51d14c479dde14a22f08a17 data/forge/tags/items/ingots.json
 72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/forge/tags/items/ingots/bloodbore.json
 ba08a9f2a5781f9783f511f3d789493e2928ef46 data/forge/tags/items/ingots/calamatium.json
 445a812d45241ecdd5fee4ddd42d362900a48af5 data/forge/tags/items/ingots/ectolight.json
@@ -24,10 +27,12 @@ a02ed117ba5a5c8e2aed3c465703f08963670867 data/forge/tags/items/ingots/obsteel.js
 2dc740f20ccef668a6a44ad0f037183cbfaa3460 data/forge/tags/items/ingots/starinium.json
 faa1fad4d6b1805e73007c7ecf2033e32534e763 data/forge/tags/items/ingots/terraulite.json
 f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/forge/tags/items/ingots/ultimita.json
+2990120421e0c5481b305092a913020e1cc34a20 data/forge/tags/items/ingots/uranium.json
 66776610b9ca08e1498f9d9d8ac131260bd20ce3 data/forge/tags/items/ingots/volcanite.json
 94e257497b177f5e3b2e1fba59c1c6a6f9e96377 data/forge/tags/items/nuggets.json
 50b936894027e4d28ae3b4721d680d467065f37c data/forge/tags/items/raw_materials.json
 d907c0a9cfd82cda33cdf758e1c0b53de8f07044 data/forge/tags/items/raw_materials/meteorite.json
+a68aad2305f01042ec8dfc407fc6132aa3df9449 data/forge/tags/items/raw_materials/uranium.json
 77404290bdea42866e4ea5b526c5f938c51b314a data/forge/tags/items/storage_blocks.json
 ba42597e05a092727017901114c09279918c1aa5 data/forge/tags/items/storage_blocks/garnet.json
 ac9b03a0ab41bc30a8a1951d1aec23135101e421 data/forge/tags/items/storage_blocks/jade.json
@@ -40,8 +45,22 @@ eae03830281f0104cc28fdd5ae5f596439b7fe1e data/forge/tags/items/storage_blocks/sa
 684575056f319cab12963e32f1be59ff90d9e7d1 data/forge/tags/items/storage_blocks/sunstone.json
 98ef7e8014cc10a324312046c3a551ffbcad5eca data/forge/tags/items/storage_blocks/tanzanite.json
 6825b528ef953b9c8e473a3ca78197bc95252466 data/forge/tags/items/storage_blocks/topaz.json
-4709077f2fe368a23915fd68d8e8cf773a3cef4f data/minecraft/tags/items/slabs.json
-4ddc04738e9c3957f701ef2293063f899711cd3f data/minecraft/tags/items/stairs.json
+18ff576dd62e5af49b114c17b4248cd1b6c1b200 data/forge/tags/items/storage_blocks/uranium.json
+4a180eeb69cdb801f92007c8071705b942cacc2a data/minecraft/tags/items/fence_gates.json
+1c14389f1ed9a32f9eb0959553407ef154758e12 data/minecraft/tags/items/hanging_signs.json
+dd98804aad79fff774515b4d5fab6f51ca78dcb3 data/minecraft/tags/items/logs.json
+dd98804aad79fff774515b4d5fab6f51ca78dcb3 data/minecraft/tags/items/logs_that_burn.json
+d8c3c3c8b065f619020033f7c9f1f21785d799c4 data/minecraft/tags/items/planks.json
+1c14389f1ed9a32f9eb0959553407ef154758e12 data/minecraft/tags/items/signs.json
+4e2741ca2fb39f21b7f4dec80a5a93132bd944f3 data/minecraft/tags/items/slabs.json
+f54f45011f2ffa37324cff52ec271fd6c764aff2 data/minecraft/tags/items/stairs.json
 2392e4d17dd8fb27bba6de3ca2bf43c5adb0cc01 data/minecraft/tags/items/swords.json
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/minecraft/tags/items/trim_materials.json
 7a373bb550b4e27d3c7b4ca29c27ecf977df86a3 data/minecraft/tags/items/walls.json
+352ce1cf7da6fcaca1cec6493a22fbe6d8356f10 data/minecraft/tags/items/wooden_buttons.json
+00b8bf35a4c8df742b9d18850029c61ce775ce40 data/minecraft/tags/items/wooden_doors.json
+59a809ac73a2fbca4388a09c9fc3dcdb201f2038 data/minecraft/tags/items/wooden_fences.json
+559a442ab39e5e861833571d8e045ee61a98cc00 data/minecraft/tags/items/wooden_pressure_plates.json
+206858080c530f76a07158572c1f0fd613ad8639 data/minecraft/tags/items/wooden_slabs.json
+add5d55bf23d314e2519b6930ab0b665f7b12e1b data/minecraft/tags/items/wooden_stairs.json
+3c5ed982b220dbfa4485bfb870af502a4b88156f data/minecraft/tags/items/wooden_trapdoors.json

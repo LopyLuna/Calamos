@@ -6,6 +6,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -29,10 +30,13 @@ public class FurnaceProvider {
     private static void smelting(RecipeOutput consumer) {
         smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.METEORITE.asItem(), ModDecorativeBlocks.COBBLED_METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("meteorite_from_cobbled_meteorite", 0));
         smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.SMOOTH_METEORITE.asItem(), ModDecorativeBlocks.METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("smooth_meteorite_from_meteorite", 0));
+        smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.SMOOTH_DEEPSLATE.asItem(), Items.DEEPSLATE, 0.1f, secondsToTicks(10)).save(consumer, location("smooth_deepslate_from_deepslate", 0));
     }
     
     private static void blasting(RecipeOutput consumer) {
         smeltAndBlast(RecipeCategory.MISC, ModItems.METEORITE_INGOT.get(), ModItems.RAW_METEORITE.get(), 0.65f, secondsToTicks(120), consumer);
+        smeltAndBlast(RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), ModItems.RAW_URANIUM.get(), 0.65f, secondsToTicks(120), consumer);
+        blastingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.SMOOTH_NETHERRACK.asItem(), Items.NETHERRACK, 0.1f, secondsToTicks(10)).save(consumer, location("smooth_netherrack_from_netherrack", 1));
     }
     
     private static void smoking(RecipeOutput consumer) {

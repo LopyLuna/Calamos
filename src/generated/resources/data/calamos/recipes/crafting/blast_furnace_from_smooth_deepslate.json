@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "calamos:smooth_deepslate"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "III",
+    "IFI",
+    "DDD"
+  ],
+  "result": {
+    "item": "minecraft:blast_furnace"
+  }
+}
