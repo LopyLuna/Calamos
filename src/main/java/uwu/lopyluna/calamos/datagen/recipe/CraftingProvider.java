@@ -187,6 +187,24 @@ public class CraftingProvider {
                 .define('D', ModDecorativeBlocks.SMOOTH_DEEPSLATE.asItem())
                 .unlockedBy("has_smooth_deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(ModDecorativeBlocks.SMOOTH_DEEPSLATE.asItem()))
                 .save(consumer, location("blast_furnace_from_smooth_deepslate"));
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SAWMILL.asItem(), 1)
+                .pattern(" I ")
+                .pattern("LPL")
+                .define('I', ModTags.forgeItemTag("ingots/iron"))
+                .define('L', ItemTags.LOGS)
+                .define('P', ItemTags.PLANKS)
+                .unlockedBy("has_planks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_PLANKS))
+                .save(consumer, location("sawmill"));
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.METAL_GRINDER.asItem(), 1)
+                .pattern(" I ")
+                .pattern("SBS")
+                .define('I', ModTags.forgeItemTag("ingots/iron"))
+                .define('S', Items.SMOOTH_STONE)
+                .define('B', Items.STONE_BRICKS)
+                .unlockedBy("has_stone_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE_BRICKS))
+                .save(consumer, location("metal_grinder"));
     }
     public static ShapelessRecipeBuilder decompressedBlock(Item result, ItemLike input, boolean fourByFour) {
         if (fourByFour) {

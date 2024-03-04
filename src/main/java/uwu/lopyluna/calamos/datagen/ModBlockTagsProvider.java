@@ -3,6 +3,7 @@ package uwu.lopyluna.calamos.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -34,6 +35,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.LARGE_OAK_PLANKS.get(),
                 ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.get(),
                 ModDecorativeBlocks.LARGE_WARPED_PLANKS.get()
+        );
+        tag(ModTags.modBlockTag("tree_attachments")).add(
+                Blocks.BEE_NEST,
+                Blocks.COCOA,
+                Blocks.MOSS_CARPET,
+                Blocks.SHROOMLIGHT,
+                Blocks.VINE
         );
     }
     
@@ -115,7 +123,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.CHISELED_RED_NETHER_BRICKS.get(),
                 ModDecorativeBlocks.CHISELED_BONE.get(),
                 
-                ModDecorativeBlocks.LARGE_BRICKS.get()
+                ModDecorativeBlocks.LARGE_BRICKS.get(),
+                
+                ModBlocks.METAL_GRINDER.get()
         );
         
         tag(BlockTags.MINEABLE_WITH_AXE).add(
@@ -213,7 +223,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.LARGE_SPRUCE_SLAB.get(),
                 ModDecorativeBlocks.LARGE_WARPED_PLANKS.get(),
                 ModDecorativeBlocks.LARGE_WARPED_STAIRS.get(),
-                ModDecorativeBlocks.LARGE_WARPED_SLAB.get()
+                ModDecorativeBlocks.LARGE_WARPED_SLAB.get(),
+                
+                ModBlocks.SAWMILL.get()
         );
         
         

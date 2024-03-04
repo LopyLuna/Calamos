@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-03T22:14:45.2964554	Recipes
+// 1.20.4	2024-03-04T19:04:07.7715865	Recipes
 fbfee1ba998aaa68c28c4ffe5c570e19e71d7f21 data/calamos/advancements/recipes/building_blocks/blasting/smooth_netherrack_from_netherrack.json
 804007d635a0f76687cde9f0ca561c7c1b88ad26 data/calamos/advancements/recipes/building_blocks/crafting/blackstone_tiles.json
 90ea1922a7483a9c2cceefad0841a3046e7429fe data/calamos/advancements/recipes/building_blocks/crafting/blast_furnace_from_smooth_deepslate.json
@@ -559,6 +559,7 @@ b9b8f256e19fdf60f616d27260f7a346f5ff0050 data/calamos/advancements/recipes/misc/
 b2d1f51607f8c7ec496e38ccbf918212a8907421 data/calamos/advancements/recipes/misc/crafting/hollow_planks.json
 5810188e15f4072dcf6474c6e2c7b2095c6bc5ab data/calamos/advancements/recipes/misc/crafting/jade.json
 51ca9eccee8200d34db814e8d05b3ea41eb8a432 data/calamos/advancements/recipes/misc/crafting/kunzite.json
+4953c3a696c88727cb95a76918867f636bfe7063 data/calamos/advancements/recipes/misc/crafting/metal_grinder.json
 2f63e862ebf9794aa74e87f4ce4437f17e1acdec data/calamos/advancements/recipes/misc/crafting/moonstone.json
 909a8a8a9f9af6ea80f7857089bf861e6a343964 data/calamos/advancements/recipes/misc/crafting/opal.json
 bb51201dde0eddc93619dd250b031658e5a553b8 data/calamos/advancements/recipes/misc/crafting/otherworld_oak_button.json
@@ -569,6 +570,7 @@ a3f233ae1aedcf64b68fb4fad413c784faf539ce data/calamos/advancements/recipes/misc/
 b2eba4a816b98416215e30a1fa24b39b04ec8fce data/calamos/advancements/recipes/misc/crafting/raw_uranium.json
 5bb98c9beec9b8f0e923b0f2befde58a6b91c160 data/calamos/advancements/recipes/misc/crafting/ruby.json
 2e09acb9ef037add71a365dc1cf594555c8493b2 data/calamos/advancements/recipes/misc/crafting/sapphire.json
+b8035f6b9900f2131b51e0cdeb99537d3453bcb9 data/calamos/advancements/recipes/misc/crafting/sawmill.json
 46dc3ef5391ef105f9a1aba459a91c6dc3a3db10 data/calamos/advancements/recipes/misc/crafting/spinel.json
 3bd7632564180084ddbd7788063812a619f24d35 data/calamos/advancements/recipes/misc/crafting/sunstone.json
 733a397539a3d88a754ccbc3187d868af5468f1c data/calamos/advancements/recipes/misc/crafting/tanzanite.json
@@ -632,6 +634,7 @@ c4f6764d98fd14db9066b47a1811874bf1752b8c data/calamos/recipes/crafting/large_oak
 1b6a209cd25bb381550f6722a00d4ab7d6359373 data/calamos/recipes/crafting/large_spruce_stairs.json
 876428306a8c5b82a2af8c0b7eea4fbff2d88efc data/calamos/recipes/crafting/large_warped_slab.json
 15feeb680217ee33ec86916ee296d38ec920d54c data/calamos/recipes/crafting/large_warped_stairs.json
+d7d797b26a79ac2059e3c4ea75a9fa853403d12b data/calamos/recipes/crafting/metal_grinder.json
 aad88ae62631bb7f48fed73b4fba274bbfd02e3b data/calamos/recipes/crafting/meteorite_bricks.json
 31b60af68d21fde0bf3a534de9d26a83de806ef7 data/calamos/recipes/crafting/meteorite_slab.json
 acac03059d64dbab21cc68d6b5ee39ee143efa71 data/calamos/recipes/crafting/meteorite_stairs.json
@@ -669,6 +672,7 @@ bf7ce902b26eb784050ee00083f4a13505142484 data/calamos/recipes/crafting/raw_urani
 85f2a7ffa80d35ac19fb6a494b52ba636715db0b data/calamos/recipes/crafting/ruby_block.json
 9e52bc23ab9c86da9799b06eea772e5721947a63 data/calamos/recipes/crafting/sapphire.json
 0cd8f2e82d1321015b0d55c9fcb2e6fb5cc57b23 data/calamos/recipes/crafting/sapphire_block.json
+099defc538e7fc674c66040aa35b528a4c4c80a5 data/calamos/recipes/crafting/sawmill.json
 e6f477d660fcfdc8109b6e74841ea55a3174688a data/calamos/recipes/crafting/smooth_meteorite_slab.json
 e2eec2b0545cfe8bb43c0adf00b9b8b012c24f0e data/calamos/recipes/crafting/smooth_meteorite_stairs.json
 b343cd90744fe83c340f79a37e76735e9f395e4e data/calamos/recipes/crafting/smooth_meteorite_wall.json

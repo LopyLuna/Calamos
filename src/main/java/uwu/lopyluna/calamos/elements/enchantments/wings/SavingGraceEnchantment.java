@@ -1,4 +1,4 @@
-package uwu.lopyluna.calamos.elements.enchantments;
+package uwu.lopyluna.calamos.elements.enchantments.wings;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
