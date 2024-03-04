@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 8,
+  "ingredient": {
+    "item": "minecraft:acacia_log"
+  },
+  "result": "minecraft:acacia_hanging_sign"
+}

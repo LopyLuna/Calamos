@@ -17,6 +17,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
+@SuppressWarnings({"all"})
 public class VolcaniteSword extends SwordItem {
     public VolcaniteSword( Properties pProperties) {
         super(CalamosTiers.VOLCANITE, 3, -2.2F, pProperties);

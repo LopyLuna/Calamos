@@ -45,6 +45,9 @@ public class ModItemTags {
     public static final TagKey<Item> INGOTS_ULTIMITA = createForge("ingots/ultimita", ULTIMITA_INGOT, "Ultimita Ingots");
     public static final TagKey<Item> INGOTS_VOLCANITE = createForge("ingots/volcanite", VOLCANITE_INGOT, "Volcanite Ingots");
     public static final TagKey<Item> INGOTS_URANIUM = createForge("ingots/uranium", URANIUM_INGOT, "Uranium Ingots");
+    public static final TagKey<Item> INGOTS_PALLADIUM = createForge("ingots/palladium", PALLADIUM_INGOT, "Palladium Ingots");
+    public static final TagKey<Item> INGOTS_ELEGANT = createForge("ingots/elegant", ELEGANT_BLOOM, "Elegant Ingots");
+    public static final TagKey<Item> INGOTS_STELLAR = createForge("ingots/stellar", STELLAR_INGOT, "Stellar Ingots");
     public static final TagKey<Item> RAW_MATERIALS_URANIUM = createForge("raw_materials/uranium", RAW_URANIUM, "Raw Uranium");
     public static final TagKey<Item> STORAGE_BLOCKS_GARNET = createForgeBlockItem("storage_blocks/garnet", GARNET_BLOCK, "Garnet Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_JADE = createForgeBlockItem("storage_blocks/jade", JADE_BLOCK, "Jade Storage Blocks");

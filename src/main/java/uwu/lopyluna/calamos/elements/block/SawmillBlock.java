@@ -1,18 +1,19 @@
 package uwu.lopyluna.calamos.elements.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.StonecutterMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -28,6 +29,7 @@ import uwu.lopyluna.calamos.elements.menu.SawmillMenu;
 
 import javax.annotation.Nullable;
 
+@SuppressWarnings({"deprecation", "all"})
 public class SawmillBlock extends Block {
     private static final Component CONTAINER_TITLE = Component.translatable("container.sawmill");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -36,6 +38,14 @@ public class SawmillBlock extends Block {
     public SawmillBlock(BlockBehaviour.Properties p_57068_) {
         super(p_57068_);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
+        int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, (LivingEntity) pEntity);
+        if (!(i > 0)) {
+            pEntity.hurt(pLevel.damageSources().generic(), 1.0F);
+        }
     }
 
     @Override

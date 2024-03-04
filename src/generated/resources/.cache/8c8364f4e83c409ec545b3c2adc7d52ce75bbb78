@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-02T19:58:31.9293655	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-03-03T22:14:45.2901911	Tags for minecraft:item mod id vanilla
 5d4030d286703f743fe5842da356905ca2137013 data/calamos/tags/items/large_planks.json
 142a8a18eb83436a386a5635b3606f31307fce2b data/calamos/tags/items/otherworld_oak_logs.json
 1b348ed0f03000ab78d7bf44df5f88aab13e029f data/calamos/tags/items/reapers.json
@@ -19,12 +19,15 @@ a98b06cf78479bcca51d14c479dde14a22f08a17 data/forge/tags/items/ingots.json
 72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/forge/tags/items/ingots/bloodbore.json
 ba08a9f2a5781f9783f511f3d789493e2928ef46 data/forge/tags/items/ingots/calamatium.json
 445a812d45241ecdd5fee4ddd42d362900a48af5 data/forge/tags/items/ingots/ectolight.json
+723586d291e3a513596be95b59505c2ed64584a1 data/forge/tags/items/ingots/elegant.json
 9fa1a168c13cac4861ed4a624593cdc8f3173b13 data/forge/tags/items/ingots/lead.json
 b2c50a7f07a59f4f942cd13a9dfc65f64a39fd66 data/forge/tags/items/ingots/magnetite.json
 0517e425bf78686ce06ef50947929585f7d18000 data/forge/tags/items/ingots/meteorite.json
 a02ed117ba5a5c8e2aed3c465703f08963670867 data/forge/tags/items/ingots/obsteel.json
+3abea516844d964bb1ead01b8d1269de1358988e data/forge/tags/items/ingots/palladium.json
 810c41512bc1047a6f376633838a7899c0284e0c data/forge/tags/items/ingots/platinum.json
 2dc740f20ccef668a6a44ad0f037183cbfaa3460 data/forge/tags/items/ingots/starinium.json
+1c41a157e409351c49f0fa740a69ecb4f08fb28f data/forge/tags/items/ingots/stellar.json
 faa1fad4d6b1805e73007c7ecf2033e32534e763 data/forge/tags/items/ingots/terraulite.json
 f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/forge/tags/items/ingots/ultimita.json
 2990120421e0c5481b305092a913020e1cc34a20 data/forge/tags/items/ingots/uranium.json

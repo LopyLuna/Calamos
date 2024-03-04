@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:metal_grinding/ultimita_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultimita_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:ultimita_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultimita_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:metal_grinding/ultimita_ingot"
+    ]
+  }
+}

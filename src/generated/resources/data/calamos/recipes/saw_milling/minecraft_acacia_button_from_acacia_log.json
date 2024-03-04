@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 32,
+  "ingredient": {
+    "item": "minecraft:acacia_log"
+  },
+  "result": "minecraft:acacia_button"
+}

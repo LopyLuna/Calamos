@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:saw_milling/calamos_twilight_slab_from_twilight_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:twilight_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twilight_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:saw_milling/calamos_twilight_slab_from_twilight_log"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:spruce_log"
+  },
+  "result": "calamos:large_spruce_stairs"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:stripped_otherworld_oak_log"
+  },
+  "result": "minecraft:chest"
+}

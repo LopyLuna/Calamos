@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:stripped_hollow_log"
+  },
+  "result": "minecraft:chest"
+}

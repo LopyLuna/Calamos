@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 32,
+  "ingredient": {
+    "item": "minecraft:stripped_oak_log"
+  },
+  "result": "minecraft:oak_button"
+}

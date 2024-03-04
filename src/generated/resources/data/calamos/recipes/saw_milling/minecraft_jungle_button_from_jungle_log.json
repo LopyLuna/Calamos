@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 32,
+  "ingredient": {
+    "item": "minecraft:jungle_log"
+  },
+  "result": "minecraft:jungle_button"
+}

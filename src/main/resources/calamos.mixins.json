@@ -6,6 +6,7 @@
   "refmap": "calamos.refmap.json",
   "mixins": [
     "CactusBlockMixin",
+    "StonecutterBlockMixin",
     "AccessorRangedAttribute",
     "GuiMixin",
     "LivingEntityMixin",

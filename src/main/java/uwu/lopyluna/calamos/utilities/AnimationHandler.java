@@ -30,6 +30,8 @@ import java.util.List;
  * Handles animations for the player. <br>
  * Author: Zeus
  */
+
+@SuppressWarnings({"all", "unchecked", "unused"})
 public class AnimationHandler {
     public static List<String> MOVEMENT_ANIMATIONS = new ArrayList<>();
     public static String currentAnimation = ""; // Only available on the client side.

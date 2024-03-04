@@ -1,0 +1,8 @@
+{
+  "type": "calamos:metal_grinding",
+  "count": 1,
+  "ingredient": {
+    "tag": "forge:ingots/magnetite"
+  },
+  "result": "calamos:magnetite_ingot"
+}

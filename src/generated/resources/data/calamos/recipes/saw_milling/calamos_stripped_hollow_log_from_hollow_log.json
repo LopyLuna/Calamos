@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:hollow_log"
+  },
+  "result": "calamos:stripped_hollow_log"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "calamos:metal_grinding",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
+  "result": "calamos:polished_amethyst"
+}
