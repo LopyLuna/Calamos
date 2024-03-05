@@ -1,19 +1,10 @@
 package uwu.lopyluna.calamos.elements;
 
-import net.minecraft.client.particle.SpellParticle;
-import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.util.ParticleUtils;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,8 +13,6 @@ import uwu.lopyluna.calamos.elements.block.MetalGrinderBlock;
 import uwu.lopyluna.calamos.elements.block.SawmillBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
-import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
-import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -102,13 +91,13 @@ public final class ModBlocks {
 
     //Menu Type Blocks
     public static final DeferredBlock<HallowWorkbenchBlock> HALLOW_WORKBENCH = register("hallow_workbench",
-            () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)),
+            () -> new HallowWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.WOOD)),
             new Item.Properties().fireResistant());
     public static final DeferredBlock<Block> METAL_GRINDER = register("metal_grinder",
-            () -> new MetalGrinderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER)),
+            () -> new MetalGrinderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER).sound(SoundType.METAL).mapColor(MapColor.COLOR_LIGHT_GRAY)),
             new Item.Properties().fireResistant());
     public static final DeferredBlock<Block> SAWMILL = register("sawmill",
-            () -> new SawmillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER)),
+            () -> new SawmillBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONECUTTER).sound(SoundType.WOOD).mapColor(MapColor.TERRACOTTA_RED)),
             new Item.Properties().fireResistant());
 
 

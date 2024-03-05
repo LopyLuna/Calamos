@@ -1,13 +1,11 @@
 package uwu.lopyluna.calamos.elements;
 
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -22,6 +20,7 @@ import uwu.lopyluna.calamos.utilities.ModWoodTypes;
 import java.util.Collection;
 import java.util.function.Supplier;
 
+@SuppressWarnings({"unused", "deprecation"})
 public class ModDecorativeBlocks {
     public static final DeferredRegister.Blocks BLOCKS = ModUtils.createRegister(DeferredRegister::createBlocks);
     
