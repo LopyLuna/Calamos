@@ -27,11 +27,33 @@ public class CalamosDimensions {
     public static final ResourceKey<Level> CALAMOS_LEVEL = registerLevelKey("calamosdim");
     public static final ResourceKey<DimensionType> CALAMOS_TYPE = registerTypeKey("calamosdim_type");
 
+    public static final ResourceKey<LevelStem> OTHERWORLD = registerKey("otherworld");
+    public static final ResourceKey<Level> OTHERWORLD_LEVEL = registerLevelKey("otherworld");
+    public static final ResourceKey<DimensionType> OTHERWORLD_TYPE = registerTypeKey("otherworld_type");
+
     /**
      * Look at {@link net.minecraft.data.worldgen.DimensionTypes}
      */
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(CALAMOS_TYPE, new DimensionType(
+                OptionalLong.empty(),
+                true,
+                false,
+                false,
+                true,
+                1.0D,
+                true,
+                true,
+                -64,
+                384,
+                384,
+                BlockTags.INFINIBURN_OVERWORLD,
+                BuiltinDimensionTypes.OVERWORLD_EFFECTS,
+                0.0F,
+                new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)
+        ));
+
+        context.register(OTHERWORLD_TYPE, new DimensionType(
                 OptionalLong.empty(),
                 true,
                 false,
@@ -56,10 +78,13 @@ public class CalamosDimensions {
         HolderGetter<NoiseGeneratorSettings> noise = context.lookup(Registries.NOISE_SETTINGS);
 
         NoiseBasedChunkGenerator generator = new NoiseBasedChunkGenerator(new FixedBiomeSource(biome.getOrThrow(CalamosBiomes.TEST_BIOME)), noise.getOrThrow(NoiseGeneratorSettings.OVERWORLD));
+        NoiseBasedChunkGenerator otherworldGenerator = new NoiseBasedChunkGenerator(new FixedBiomeSource(biome.getOrThrow(CalamosBiomes.OTHERWORLD_PLAINS)), noise.getOrThrow(NoiseGeneratorSettings.OVERWORLD));
 
         LevelStem stem = new LevelStem(type.getOrThrow(CALAMOS_TYPE), generator);
+        LevelStem otherworldStem = new LevelStem(type.getOrThrow(OTHERWORLD_TYPE), otherworldGenerator);
 
         context.register(CALAMOS, stem);
+        context.register(OTHERWORLD, otherworldStem);
     }
 
 

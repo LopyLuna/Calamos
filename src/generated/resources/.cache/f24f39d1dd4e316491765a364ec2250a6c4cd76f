@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-02T19:58:12.0304893	Block States: calamos
+// 1.20.4	2024-03-05T20:09:54.8781232	Block States: calamos
 757297d0a907bd4fbc4f794944d8b562d4963303 assets/calamos/blockstates/amethyst_bricks.json
 f26cb51bf21355ebc540d22928518190ddfdb234 assets/calamos/blockstates/basalt_bricks.json
 5552a4442afc1243ece858038136991d6c842cb5 assets/calamos/blockstates/blackstone_tiles.json
@@ -89,6 +89,8 @@ f6ec1bd20e7261dc81c08c32ff1def5458002a23 assets/calamos/blockstates/mud_tiles.js
 3aec3fb9b3b73cbd8818009567bf1ea26a0b5e00 assets/calamos/blockstates/netherrack_bricks.json
 f010b46c41b5e705d934d2f7e05cbbf6fbb746a5 assets/calamos/blockstates/obsidian_bricks.json
 55e31fc2e83f3631afd0a7c3bba467e61b0bd9ce assets/calamos/blockstates/opal_block.json
+c96d77e42c2082dac6c33f99f31f6eae3d4c20ec assets/calamos/blockstates/otherworld_dirt.json
+c855a85ef74e9cf22b2bc1fc3a076253406369d8 assets/calamos/blockstates/otherworld_grass_block.json
 468c1415b9f2a893c575bb2f7a7dd86b2d4ba8c9 assets/calamos/blockstates/otherworld_oak_button.json
 48745d709a0b2b8a25cbe421655c07292cd07798 assets/calamos/blockstates/otherworld_oak_door.json
 8bfce6bcff9e9fa0f1cc2ade82d4a51b13c637f3 assets/calamos/blockstates/otherworld_oak_fence.json
@@ -361,6 +363,8 @@ cbc4f24481096840d526e79faf10337f3bffd791 assets/calamos/models/block/meteorite_w
 4624e520f8cda97a770ad780fc94a148a921de0f assets/calamos/models/block/netherrack_bricks.json
 94b9a579ecf1c1fcd584f464e8f808a1e01d3931 assets/calamos/models/block/obsidian_bricks.json
 c2dfe5e93cd3e9d482ebabb679a4d5f55e818772 assets/calamos/models/block/opal_block.json
+71c4325ee4b1954919947030c7674efcf32fe5d6 assets/calamos/models/block/otherworld_dirt.json
+e656e4d456a83ec960dde44f6af23bdf75de537b assets/calamos/models/block/otherworld_grass_block.json
 21b0e5600b3926a91f0f2a342affe2c54867175b assets/calamos/models/block/otherworld_oak_button.json
 fe1d98733207952dfeef5b23bcfa1e7ad181c78e assets/calamos/models/block/otherworld_oak_button_inventory.json
 49a5571179669b366197edd6cb9700f7e34bd378 assets/calamos/models/block/otherworld_oak_button_pressed.json
@@ -612,6 +616,8 @@ ad8720ef36d1601fb21b362d73c3738b6ec0a261 assets/calamos/models/item/mud_tiles.js
 7953260ade01e6abf4fff46d9efecd4542e2cdcd assets/calamos/models/item/obsidian_bricks.json
 93d7e8b8016041e10a350fcfeb2286f25cb30ee1 assets/calamos/models/item/opal_block.json
 6580313c68db7e7342ca7a0908c52b53737c1805 assets/calamos/models/item/opal_ore.json
+034259b55b306a5f4eabe62e0cd92d3a1ebdd1a3 assets/calamos/models/item/otherworld_dirt.json
+0bfa0b880be8bb240bfd1760cb555d4280c59a42 assets/calamos/models/item/otherworld_grass_block.json
 962b855f2b52a982e2f4717632b7472a16814416 assets/calamos/models/item/otherworld_oak_button.json
 d6b52286f6241330b9c7fd4905cb87babc794bdc assets/calamos/models/item/otherworld_oak_fence.json
 2390d975cedaae91a2c2378d50f7749ffecf6373 assets/calamos/models/item/otherworld_oak_fence_gate.json

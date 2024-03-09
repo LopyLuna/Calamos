@@ -10,6 +10,7 @@ import net.neoforged.fml.DistExecutor;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import org.slf4j.Logger;
+import terrablender.api.SurfaceRuleManager;
 import uwu.lopyluna.calamos.client.ClientProxy;
 import uwu.lopyluna.calamos.compat.emi.CalamosEmiPlugin;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
@@ -17,6 +18,7 @@ import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
+import uwu.lopyluna.calamos.worldgen.biome.CalamosSurfaceRules;
 
 @SuppressWarnings({"removal", "deprecation", "all"})
 @Mod(CalamosMod.MODID)
@@ -59,6 +61,10 @@ public class CalamosMod {
             LOGGER.debug("Modifying maximum value for %s from %f to %f.".formatted(attribute.getDescriptionId(), ranged.getMaxValue(), maxHealthPossible));
             accessor.calamos$setMaxValue(maxHealthPossible);
         }
+        event.enqueueWork(() ->
+        {
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, CalamosSurfaceRules.makeRules());
+        });
     }
     
     public static IEventBus getEventBus() {

@@ -20,10 +20,12 @@ public class CalamosBiomes {
     private static BootstapContext<Biome> context;
 
     public static final ResourceKey<Biome> TEST_BIOME = register("test_biome");
+    public static final ResourceKey<Biome> OTHERWORLD_PLAINS = register("otherworld_plains");
 
     public static void bootstrap(BootstapContext<Biome> biomeContext) {
         context = biomeContext;
         context.register(TEST_BIOME, test());
+        context.register(OTHERWORLD_PLAINS, test());
     }
 
     private static ResourceKey<Biome> register(String name) {
@@ -48,6 +50,12 @@ public class CalamosBiomes {
         globalOverworldGeneration(builder);
 
         BiomeDefaultFeatures.addFerns(builder);
+
+        return biome(false, 0.8F, 0.2F, new MobSpawnSettings.Builder(), builder, null);
+    }
+
+    public static Biome otherworldPlains() {
+        BiomeGenerationSettings.Builder builder = new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
 
         return biome(false, 0.8F, 0.2F, new MobSpawnSettings.Builder(), builder, null);
     }

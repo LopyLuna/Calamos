@@ -461,6 +461,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.URANIUM_BLOCK.get(),
                 ModBlocks.PALLADIUM_BLOCK.get()
         );
+        tag(ModTags.forgeBlockTag("stripped_logs")).add(
+                ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get(),
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_WOOD.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.get(),
+                ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.get()
+        );
         tag(ModTags.forgeBlockTag("ores/copper")).add(ModBlocks.COPPER_ORE.get());
         tag(ModTags.forgeBlockTag("ores/iron")).add(ModBlocks.IRON_ORE.get());
         tag(ModTags.forgeBlockTag("ores/gold")).add(ModBlocks.GOLD_ORE.get());
@@ -491,6 +499,5 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(ModTags.forgeBlockTag("storage_blocks/topaz")).add(ModBlocks.TOPAZ_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/uranium")).add(ModBlocks.URANIUM_BLOCK.get());
         tag(ModTags.forgeBlockTag("storage_blocks/palladium")).add(ModBlocks.PALLADIUM_BLOCK.get());
-
     }
 }

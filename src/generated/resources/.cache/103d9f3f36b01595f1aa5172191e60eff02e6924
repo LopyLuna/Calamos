@@ -1,4 +1,7 @@
-// 1.20.4	2024-03-02T19:55:09.1495784	Registries
+// 1.20.4	2024-03-08T18:20:01.8398236	Registries
 c491d07167fba2d2851a34f9e14a39faa0e68e20 data/calamos/dimension/calamosdim.json
+b3f6aa396282cf264c0b608b80e88cbd7dd97b4e data/calamos/dimension/otherworld.json
 5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/calamosdim_type.json
+5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/otherworld_type.json
+0edcc4dadf1ecd7057b97127ead9efb0305ffec0 data/calamos/worldgen/biome/otherworld_plains.json
 0edcc4dadf1ecd7057b97127ead9efb0305ffec0 data/calamos/worldgen/biome/test_biome.json

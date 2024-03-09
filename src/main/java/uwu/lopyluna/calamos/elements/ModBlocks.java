@@ -154,6 +154,13 @@ public final class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
 
+    public static final DeferredBlock<Block> OTHERWORLD_GRASS_BLOCK = register("otherworld_grass_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> OTHERWORLD_DIRT = register("otherworld_dirt",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)
+            ), new Item.Properties());
+
 
     public static final DeferredBlock<Block> UNSTABLE_ULTIMITA_TNT = register("unstable_ultimita_tnt",
             () -> new UnstableUltimitaTNT(BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)

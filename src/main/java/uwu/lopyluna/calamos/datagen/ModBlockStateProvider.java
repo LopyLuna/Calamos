@@ -247,6 +247,9 @@ class ModBlockStateProvider extends BlockStateProvider {
 
         this.simpleSawBlock(ModBlocks.METAL_GRINDER);
         this.simpleSawBlock(ModBlocks.SAWMILL);
+
+        this.cubeBottomTop(ModBlocks.OTHERWORLD_GRASS_BLOCK, ModUtils.location("block/otherworld_dirt"), ModUtils.location("block/otherworld_grass_top"));
+        this.simpleBlockAndItem(ModBlocks.OTHERWORLD_DIRT);
     }
     
     private void woodSet(Supplier<? extends Block> log,
