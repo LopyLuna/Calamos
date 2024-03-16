@@ -14,6 +14,7 @@ import uwu.lopyluna.calamos.networking.packets.C2S.TestPacket;
 import uwu.lopyluna.calamos.networking.packets.Packet;
 import uwu.lopyluna.calamos.networking.packets.S2C.AnimationHandlerPacket;
 import uwu.lopyluna.calamos.networking.packets.S2C.PestisCameraPacket;
+import uwu.lopyluna.calamos.networking.packets.S2C.UpdateBossBarPacket;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -31,6 +32,7 @@ public class CalamosMessages {
         registerPacket(TestPacket.class, TestPacket.ID);
         registerPacket(PestisCameraPacket.class, PestisCameraPacket.ID);
         registerPacket(AnimationHandlerPacket.class, AnimationHandlerPacket.ID);
+        registerPacket(UpdateBossBarPacket.class, UpdateBossBarPacket.ID);
     }
 
 

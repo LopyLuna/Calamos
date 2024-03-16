@@ -1,0 +1,11 @@
+{
+  "type": "calamos:otherworld_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "calamos:otherworld_plains"
+    },
+    "settings": "minecraft:overworld"
+  }
+}

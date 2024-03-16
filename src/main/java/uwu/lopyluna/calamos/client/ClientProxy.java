@@ -3,14 +3,28 @@ package uwu.lopyluna.calamos.client;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import uwu.lopyluna.calamos.CommonProxy;
 import uwu.lopyluna.calamos.utilities.AnimationHandler;
 
+import net.neoforged.neoforge.common.NeoForge;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class ClientProxy extends CommonProxy {
+    public static final Map<UUID, ResourceLocation> bossBarRegistryNames = new HashMap<>();
+
+    @Override
+    public void clientInit() {
+        super.clientInit();
+
+        NeoForge.EVENT_BUS.register(ClientEventHandler.INSTANCE);
+    }
+
     public static CameraType lastPOV = CameraType.FIRST_PERSON;
     public void setRenderViewEntity(Player player, Entity entity) {
         boolean flag = entity != Minecraft.getInstance().getCameraEntity();

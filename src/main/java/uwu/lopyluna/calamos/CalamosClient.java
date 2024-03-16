@@ -8,14 +8,14 @@ import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterEntitySpectatorShadersEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiOverlaysEvent;
-import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.overlay.VanillaGuiOverlay;
+import uwu.lopyluna.calamos.client.ClientProxy;
+import uwu.lopyluna.calamos.client.gui.CalamosBossBar;
 import uwu.lopyluna.calamos.client.wings.WingsLayer;
 import uwu.lopyluna.calamos.client.wings.WingsModel;
 import uwu.lopyluna.calamos.elements.ModBlockEntities;
@@ -31,7 +31,7 @@ import uwu.lopyluna.calamos.utilities.ModWoodTypes;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = CalamosMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CalamosClient {
     public static final ModelLayerLocation WINGS_LAYER = new ModelLayerLocation(new ResourceLocation(CalamosMod.MODID, "wings"), "main");
-    
+
     @SubscribeEvent
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAbove(VanillaGuiOverlay.AIR_LEVEL.id(), "flight_meter", FlightMeterOverlay.INSTANCE);
