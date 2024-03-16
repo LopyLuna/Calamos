@@ -18,14 +18,8 @@ import java.util.UUID;
 public class ClientProxy extends CommonProxy {
     public static final Map<UUID, ResourceLocation> bossBarRegistryNames = new HashMap<>();
 
-    @Override
-    public void clientInit() {
-        super.clientInit();
-
-        NeoForge.EVENT_BUS.register(ClientEventHandler.INSTANCE);
-    }
-
     public static CameraType lastPOV = CameraType.FIRST_PERSON;
+
     public void setRenderViewEntity(Player player, Entity entity) {
         boolean flag = entity != Minecraft.getInstance().getCameraEntity();
         if (player == Minecraft.getInstance().player && Minecraft.getInstance().getCameraEntity() == Minecraft.getInstance().player) {
@@ -73,4 +67,12 @@ public class ClientProxy extends CommonProxy {
         }
     }
 
+    public static void handleUpdateBossBarPacket(UUID bossID, ResourceLocation registryName) {
+        if (registryName == null) {
+            bossBarRegistryNames.remove(bossID);
+        }
+        else {
+            bossBarRegistryNames.put(bossID, registryName);
+        }
+    }
 }

@@ -43,12 +43,7 @@ public class UpdateBossBarPacket extends Packet {
     @Override
     public void handleClient(PlayPayloadContext context) {
         context.workHandler().execute(() -> {
-            if (this.registryName == null) {
-                ClientProxy.bossBarRegistryNames.remove(this.bossID);
-            }
-            else {
-                ClientProxy.bossBarRegistryNames.put(this.bossID, this.registryName);
-            }
+            ClientProxy.handleUpdateBossBarPacket(this.bossID, this.registryName);
         });
     }
 

@@ -21,9 +21,12 @@ public class CalamosBossBar {
 
     static {
         customBars.put(BuiltInRegistries.ENTITY_TYPE.getKey(ModEntity.WORM_HEAD.get()), new CalamosBossBar(
-                barLocation("worm_bar_base"),
-                barLocation("worm_bar_overlay"),
-                4, 8, 2, -112, -6, 256, 16, 211, ChatFormatting.GOLD
+                /*
+                I stole mowzie mob's bar and overlay as a base + I couldn't be bothered to make my own
+                -Boxx
+                */
+                "worm_bar",
+                4, 8, 2, -12, -6, 256, 16, 21, ChatFormatting.GOLD
         ));
     }
 
@@ -46,6 +49,20 @@ public class CalamosBossBar {
     public CalamosBossBar(ResourceLocation baseTexture, ResourceLocation overlayTexture, int baseHeight, int baseTextureHeight, int baseOffsetY, int overlayOffsetX, int overlayOffsetY, int overlayWidth, int overlayHeight, int verticalIncrement, ChatFormatting textColor) {
         this.baseTexture = baseTexture;
         this.overlayTexture = overlayTexture;
+        this.hasOverlay = overlayTexture != null;
+        this.baseHeight = baseHeight;
+        this.baseTextureHeight = baseTextureHeight;
+        this.baseOffsetY = baseOffsetY;
+        this.overlayOffsetX = overlayOffsetX;
+        this.overlayOffsetY = overlayOffsetY;
+        this.overlayWidth = overlayWidth;
+        this.overlayHeight = overlayHeight;
+        this.verticalIncrement = verticalIncrement;
+        this.textColor = textColor;
+    }
+    public CalamosBossBar(String name, int baseHeight, int baseTextureHeight, int baseOffsetY, int overlayOffsetX, int overlayOffsetY, int overlayWidth, int overlayHeight, int verticalIncrement, ChatFormatting textColor) {
+        this.baseTexture = barLocation(name + "_base");
+        this.overlayTexture = barLocation(name + "_overlay");;
         this.hasOverlay = overlayTexture != null;
         this.baseHeight = baseHeight;
         this.baseTextureHeight = baseTextureHeight;
@@ -125,6 +142,7 @@ public class CalamosBossBar {
         int l = Minecraft.getInstance().font.width(component);
         int i1 = i/2 - l/2;
         int j1 = j;
+        graphics.drawString(Minecraft.getInstance().font, component, i1, j1, 16777215);
 
         if (hasOverlay()) {
             Minecraft.getInstance().getProfiler().push("customBossBarOverlay");

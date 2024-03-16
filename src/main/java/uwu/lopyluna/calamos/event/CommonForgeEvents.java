@@ -2,6 +2,7 @@ package uwu.lopyluna.calamos.event;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.fml.common.Mod;
@@ -26,6 +28,8 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.client.ClientProxy;
+import uwu.lopyluna.calamos.client.gui.CalamosBossBar;
 import uwu.lopyluna.calamos.elements.ModEffects;
 import uwu.lopyluna.calamos.elements.ModEnchantments;
 import uwu.lopyluna.calamos.elements.enchantments.axe.FellingEnchantment;
@@ -134,6 +138,15 @@ public class CommonForgeEvents {
             }
         }
     }
-    
-    
+
+    @SubscribeEvent
+    public static void onRenderBossBar(CustomizeGuiOverlayEvent.BossEventProgress event){
+        ResourceLocation bossRegistryName = ClientProxy.bossBarRegistryNames.getOrDefault(event.getBossEvent().getId(), null);
+        if (bossRegistryName == null) return;
+        CalamosBossBar customBossBar = CalamosBossBar.customBars.getOrDefault(bossRegistryName, null);
+        if (customBossBar == null) return;
+
+        event.setCanceled(true);
+        customBossBar.renderBossBar(event);
+    }
 }
