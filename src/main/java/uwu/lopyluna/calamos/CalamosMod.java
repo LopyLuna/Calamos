@@ -46,6 +46,7 @@ public class CalamosMod {
         ModMenuType.staticInit();
         ModBlockEntities.staticInit();
         ModRecipes.staticInit();
+        ModSoundEvents.staticInit();
 
         this.modEventBus.addListener(ModDataGenerators::gatherDataEvent);
         this.modEventBus.register(this);

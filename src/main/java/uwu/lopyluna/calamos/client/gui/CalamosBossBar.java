@@ -17,9 +17,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CalamosBossBar {
+    /**
+     * customBars.put(BuiltInRegistries.ENTITY_TYPE.getKey(ModEntity.WORM_HEAD.get()), new CalamosBossBar(
+     barLocation("worm_bar_base"),
+     barLocation("worm_bar_overlay"),
+     4, 8, 2, -12, -6, 256, 16, 21, ChatFormatting.GOLD
+     ));
+     */
     public static Map<ResourceLocation, CalamosBossBar> customBars = new HashMap<>();
 
     static {
+        
         customBars.put(BuiltInRegistries.ENTITY_TYPE.getKey(ModEntity.WORM_HEAD.get()), new CalamosBossBar(
                 /*
                 I stole mowzie mob's bar and overlay as a base + I couldn't be bothered to make my own
@@ -28,13 +36,7 @@ public class CalamosBossBar {
                 "worm_bar",
                 4, 8, 2, -12, -6, 256, 16, 21, ChatFormatting.GOLD
         ));
-        /**
-         * customBars.put(BuiltInRegistries.ENTITY_TYPE.getKey(ModEntity.WORM_HEAD.get()), new CalamosBossBar(
-                barLocation("worm_bar_base"),
-                barLocation("worm_bar_overlay"),
-                4, 8, 2, -12, -6, 256, 16, 21, ChatFormatting.GOLD
-        ));
-        */
+        
     }
 
     private final ResourceLocation baseTexture;

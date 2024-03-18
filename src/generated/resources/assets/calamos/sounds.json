@@ -1,0 +1,52 @@
+{
+  "entity.wildfire.death": {
+    "sounds": [
+      "calamos:wildfire/death1",
+      "calamos:wildfire/death2",
+      "calamos:wildfire/death3"
+    ]
+  },
+  "entity.wildfire.debris_impact": {
+    "sounds": [
+      "calamos:wildfire/debris_impact1",
+      "calamos:wildfire/debris_impact2",
+      "calamos:wildfire/debris_impact3",
+      "calamos:wildfire/debris_impact4"
+    ]
+  },
+  "entity.wildfire.hurt": {
+    "sounds": [
+      "calamos:wildfire/hurt1",
+      "calamos:wildfire/hurt2",
+      "calamos:wildfire/hurt3"
+    ]
+  },
+  "entity.wildfire.idle": {
+    "sounds": [
+      "calamos:wildfire/idle1",
+      "calamos:wildfire/idle2",
+      "calamos:wildfire/idle3",
+      "calamos:wildfire/idle4"
+    ]
+  },
+  "entity.wildfire.idle_loop": {
+    "sounds": [
+      "calamos:wildfire/idle_loop"
+    ]
+  },
+  "entity.wildfire.shield_break": {
+    "sounds": [
+      "calamos:wildfire/shield_break1",
+      "calamos:wildfire/shield_break2",
+      "calamos:wildfire/shield_break3"
+    ]
+  },
+  "entity.wildfire.shoot": {
+    "sounds": [
+      "calamos:wildfire/shoot1",
+      "calamos:wildfire/shoot2",
+      "calamos:wildfire/shoot3",
+      "calamos:wildfire/shoot4"
+    ]
+  }
+}
