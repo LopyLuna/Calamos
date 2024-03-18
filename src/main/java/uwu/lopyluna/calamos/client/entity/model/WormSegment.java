@@ -11,7 +11,6 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.entity.Worm;
 import uwu.lopyluna.calamos.elements.entity.WormPart;
 
 public class WormSegment<T extends WormPart> extends EntityModel<T> {

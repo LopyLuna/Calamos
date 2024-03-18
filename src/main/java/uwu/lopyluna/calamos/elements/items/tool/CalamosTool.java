@@ -1,8 +1,6 @@
 package uwu.lopyluna.calamos.elements.items.tool;
 
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 
 public interface CalamosTool {
     boolean isTwoHanded();

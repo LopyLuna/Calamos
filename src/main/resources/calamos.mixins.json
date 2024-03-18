@@ -5,12 +5,12 @@
   "package": "uwu.lopyluna.calamos.mixin",
   "refmap": "calamos.refmap.json",
   "mixins": [
-    "CactusBlockMixin",
-    "StonecutterBlockMixin",
     "AccessorRangedAttribute",
+    "CactusBlockMixin",
     "GuiMixin",
     "LivingEntityMixin",
-    "PlayerAccessor"
+    "PlayerAccessor",
+    "StonecutterBlockMixin"
   ],
   "client": [
     "HumanoidModelMixin",

@@ -2,12 +2,9 @@ package uwu.lopyluna.calamos.client.entity.renderer;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.client.entity.model.WormHead;
 import uwu.lopyluna.calamos.client.entity.model.WormSegment;
-import uwu.lopyluna.calamos.elements.entity.Worm;
 import uwu.lopyluna.calamos.elements.entity.WormPart;
 
 public class WormSegmentRenderer extends LivingEntityRenderer<WormPart, WormSegment<WormPart>> {

@@ -2,13 +2,9 @@ package uwu.lopyluna.calamos.utilities;
 
 import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.EnderpearlItem;
-import org.joml.Vector3f;
 
 import static net.minecraft.client.model.AnimationUtils.bobArms;
 

@@ -19,8 +19,6 @@ import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import org.jetbrains.annotations.NotNull;
-import uwu.lopyluna.calamos.networking.CalamosMessages;
-import uwu.lopyluna.calamos.networking.packets.C2S.TestPacket;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

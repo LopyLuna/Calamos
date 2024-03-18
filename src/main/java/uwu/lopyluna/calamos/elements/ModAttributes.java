@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.elements;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -12,7 +11,6 @@ import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.networking.CalamosMessages;
 
 import java.util.HashMap;
 import java.util.UUID;

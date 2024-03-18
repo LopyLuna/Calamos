@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.elements.menu;
 
-import net.minecraft.client.gui.screens.inventory.CrafterScreen;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;

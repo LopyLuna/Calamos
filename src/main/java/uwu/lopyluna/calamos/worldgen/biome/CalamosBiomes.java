@@ -11,7 +11,6 @@ import net.minecraft.world.level.biome.*;
 import uwu.lopyluna.calamos.CalamosMod;
 
 import javax.annotation.Nullable;
-import java.awt.*;
 
 /**
  * Take a look at {@link net.minecraft.data.worldgen.biome.OverworldBiomes} for an example of how to use this class. -- Zeus

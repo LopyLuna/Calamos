@@ -1,17 +1,12 @@
 package uwu.lopyluna.calamos.datagen;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.storage.loot.LootTable;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
-import uwu.lopyluna.calamos.elements.block.ModHangingSignBlock;
 
 import java.util.HashSet;
 import java.util.Set;

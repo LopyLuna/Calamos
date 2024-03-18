@@ -9,7 +9,6 @@ import uwu.lopyluna.calamos.datagen.recipe.CuttingProvider;
 import uwu.lopyluna.calamos.datagen.recipe.FurnaceProvider;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.function.Consumer;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

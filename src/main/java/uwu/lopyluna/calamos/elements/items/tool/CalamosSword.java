@@ -1,10 +1,7 @@
 package uwu.lopyluna.calamos.elements.items.tool;
 
-import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import uwu.lopyluna.calamos.utilities.RenderingUtils;
 
 public class CalamosSword extends SwordItem implements CalamosTool{
     

@@ -1,6 +1,5 @@
 package uwu.lopyluna.calamos.elements.items.tool;
 
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import uwu.lopyluna.calamos.utilities.AnimationHandler;
 import uwu.lopyluna.calamos.utilities.ModUtils;
-import uwu.lopyluna.calamos.utilities.RenderingUtils;
 
 public class CalamosReaper extends SwordItem implements CalamosTool {
     protected int harvestRadius;
