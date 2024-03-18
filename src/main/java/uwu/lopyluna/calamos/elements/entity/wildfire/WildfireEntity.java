@@ -76,7 +76,7 @@ public class WildfireEntity extends Monster {
     }
     
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.ATTACK_DAMAGE, 8.0).add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.FOLLOW_RANGE, 64.0).add(Attributes.MAX_HEALTH, 80.0);
+        return Monster.createMonsterAttributes().add(Attributes.ATTACK_DAMAGE, 16.0).add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.FOLLOW_RANGE, 64.0).add(Attributes.MAX_HEALTH, 150.0);
     }
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
