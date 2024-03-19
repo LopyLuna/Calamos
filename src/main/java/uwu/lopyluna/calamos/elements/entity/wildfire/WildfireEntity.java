@@ -56,7 +56,7 @@ public class WildfireEntity extends BossBarMonster implements Boss {
     private int nextHeightOffsetChangeTick;
     public int ambientLoopSoundTime;
     public static final int defaultActiveShieldsCount = 4;
-    public static final int defaultTicksUntilShieldRegen = 4 * 20;
+    public static final int defaultTicksUntilShieldRegen = 6 * 20;
     public static final int defaultSummonedBlazesCount = 0;
     public static final int maxSummonedBlazesCount = 2;
     private static final String activeShields_NBT = "ActiveShieldsCount";
@@ -68,7 +68,7 @@ public class WildfireEntity extends BossBarMonster implements Boss {
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID_ATTACKING = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     public WildfireEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel, BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_6);
+        super(pEntityType, pLevel, BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.PROGRESS);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
@@ -284,7 +284,7 @@ public class WildfireEntity extends BossBarMonster implements Boss {
         
         if (this.hasActiveShields()) {
             this.damageAmountCounter += amount;
-            float shieldBreakDamageThreshold = (float) this.getAttributeValue(Attributes.MAX_HEALTH) * 0.25F;
+            float shieldBreakDamageThreshold = (float) this.getAttributeValue(Attributes.MAX_HEALTH) * 0.5F;
             
             if (this.damageAmountCounter >= shieldBreakDamageThreshold) {
                 if (attacker instanceof LivingEntity) {
