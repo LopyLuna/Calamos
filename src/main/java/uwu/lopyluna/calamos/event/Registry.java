@@ -12,6 +12,8 @@ import uwu.lopyluna.calamos.client.entity.renderer.PestisPlayerRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormHeadRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormSegmentRenderer;
 import uwu.lopyluna.calamos.elements.ModEntity;
+import uwu.lopyluna.calamos.elements.entity.boone.BooneModel;
+import uwu.lopyluna.calamos.elements.entity.boone.BooneRenderer;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;
 
@@ -25,6 +27,7 @@ public class Registry {
         event.registerEntityRenderer(ModEntity.WORM_PART.get(), WormSegmentRenderer::new);
         event.registerEntityRenderer(ModEntity.PESTIS_PLAYER.get(), (EntityRendererProvider.Context pContext) -> new PestisPlayerRenderer(pContext, PestisPlayerEntity.shouldUseSlimModel()));
         event.registerEntityRenderer(ModEntity.WILDFIRE.get(), WildfireRenderer::new);
+        event.registerEntityRenderer(ModEntity.BOONE_THE_BOOM.get(), BooneRenderer::new);
     }
 
     @SubscribeEvent

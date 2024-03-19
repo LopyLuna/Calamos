@@ -6,6 +6,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.Worm;
+import uwu.lopyluna.calamos.elements.entity.boone.BooneEntity;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
 
@@ -18,6 +19,6 @@ public class CommonModEvents {
         event.put(ModEntity.WORM_PART.get(), Worm.createAttributes().build());
         event.put(ModEntity.PESTIS_PLAYER.get(), PestisPlayerEntity.createAttributes().build());
         event.put(ModEntity.WILDFIRE.get(), WildfireEntity.createAttributes().build());
+        event.put(ModEntity.BOONE_THE_BOOM.get(), BooneEntity.createAttributes().build());
     }
-
 }

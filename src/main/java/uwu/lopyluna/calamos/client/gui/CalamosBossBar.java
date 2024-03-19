@@ -36,7 +36,6 @@ public class CalamosBossBar {
                 "worm_bar",
                 4, 8, 2, -12, -6, 256, 16, 21, ChatFormatting.GOLD
         ));
-        
     }
 
     private final ResourceLocation baseTexture;

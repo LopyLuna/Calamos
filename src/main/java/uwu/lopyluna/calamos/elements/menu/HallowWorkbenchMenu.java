@@ -44,7 +44,7 @@ public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingContainer>{
 
         for(int i = 0; i < 5; ++i) {
             for(int j = 0; j < 5; ++j) {
-                this.addSlot(new Slot(this.craftSlots, j + i * 3, 12 + j * 18, -1 + i * 18));
+                this.addSlot(new Slot(this.craftSlots, j + i * 5, 12 + j * 18, -1 + i * 18));
             }
         }
 
