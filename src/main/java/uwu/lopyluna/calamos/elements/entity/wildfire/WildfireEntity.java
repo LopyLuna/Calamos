@@ -9,6 +9,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -26,7 +27,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.ModSoundEvents;
-import uwu.lopyluna.calamos.elements.entity.MiniBoss;
+import uwu.lopyluna.calamos.elements.entity.entity_definitions.Boss;
+import uwu.lopyluna.calamos.elements.entity.entity_definitions.BossBarMonster;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -35,7 +37,7 @@ import java.util.EnumSet;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
-public class WildfireEntity extends Monster implements MiniBoss {
+public class WildfireEntity extends BossBarMonster implements Boss {
     //Used
     public final AnimationState idleAnimationState = new AnimationState();
     //Used
@@ -66,13 +68,14 @@ public class WildfireEntity extends Monster implements MiniBoss {
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID_ATTACKING = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     public WildfireEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+        super(pEntityType, pLevel, BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_6);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
         this.xpReward = 30;
     }
+
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
@@ -84,12 +87,13 @@ public class WildfireEntity extends Monster implements MiniBoss {
     @Override
     protected void registerGoals() {
         super.registerGoals();
+        this.goalSelector.addGoal(0, new WildfirePanicGoal(this));
         this.goalSelector.addGoal(3, new WildfireAttackGoal(this));
-        if (hasActiveShields()) { this.goalSelector.addGoal(4, new PanicGoal(this, 1.25)); }
-        this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0));
+        this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 1.0));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0, 0.0F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(9, new WildfirePanicGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
@@ -335,7 +339,44 @@ public class WildfireEntity extends Monster implements MiniBoss {
                 this.playSound(SoundEvents.LAVA_POP, this.getSoundVolume() + 1 - ((float) getActiveShieldsCount() / 5), this.getVoicePitch() - ((float) getActiveShieldsCount() / 5));
                 }
             }
+            if (random(0.25)) {
+                if (hasActiveShields() && isInLava()) {
+                    this.playSound(ModSoundEvents.WILDFIRE_STEP.get(), this.getSoundVolume() + 1, this.getVoicePitch() + 0.5F);
+                }
+                if (!hasActiveShields() && isInLava()) {
+                    this.playSound(ModSoundEvents.WILDFIRE_STEP.get(), this.getSoundVolume() + 1, this.getVoicePitch() + 0.5F);
+                }
+                if (hasActiveShields() && isCharged()) {
+                    this.playSound(ModSoundEvents.WILDFIRE_STEP.get(), this.getSoundVolume() + 1, this.getVoicePitch() + 0.5F);
+                }
+            }
+
             setupAnimationStates();
+        }
+
+        if (!hasActiveShields() && isInLava()) {
+            this.heal(0.25F);
+        }
+
+        if (hasActiveShields() && isInLava()) {
+            this.heal((float) getActiveShieldsCount() / 5 + 0.1F);
+
+            if (this.getHealth() >= this.getMaxHealth() * 0.5) {
+                this.move(MoverType.SELF, new Vec3(0.0, 1.0F, 0.0));
+            } else if (getActiveShieldsCount() <= 2) {
+                this.move(MoverType.SELF, new Vec3(0.0, -0.25F, 0.0));
+            }
+        }
+
+        if (isInWater()) {
+            if (!hasActiveShields()) {
+                this.heal(0.01F);
+            }
+            this.move(MoverType.SELF, new Vec3(0.0, 1.0F, 0.0));
+        }
+
+        if (isInPowderSnow) {
+            this.move(MoverType.SELF, new Vec3(0.0, 1.0F, 0.0));
         }
 
         if (hasActiveShields() && isCharged()) {
@@ -544,5 +585,16 @@ public class WildfireEntity extends Monster implements MiniBoss {
         private double getFollowDistance() {
             return this.wildfire.getAttributeValue(Attributes.FOLLOW_RANGE);
         }
+    }
+
+
+    public boolean random(double pDoubleChance) {
+        return this.random.nextInt() - this.random.nextDouble() <= pDoubleChance;
+    }
+    public boolean random(float pFloatChance) {
+        return this.random.nextInt() - this.random.nextDouble() <= (double) pFloatChance;
+    }
+    public boolean random(int pIntChance) {
+        return this.random.nextInt() - this.random.nextDouble() <= (double) pIntChance / 100;
     }
 }
