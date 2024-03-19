@@ -16,7 +16,9 @@ public class ModSoundEvents {
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_HURT = register("entity","wildfire.hurt");
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_IDLE = register("entity","wildfire.idle");
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_IDLE_LOOP = register("entity","wildfire.idle_loop");
+    public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_STEP = register("entity","wildfire.step");
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_SHIELD_BREAK = register("entity","wildfire.shield_break");
+    public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_SHOCKWAVE = register("entity","wildfire.shockwave");
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_SHOOT = register("entity","wildfire.shoot");
     public static final DeferredHolder<SoundEvent, SoundEvent> WILDFIRE_DEBRIS_IMPACT = register("entity","wildfire.debris_impact");
     

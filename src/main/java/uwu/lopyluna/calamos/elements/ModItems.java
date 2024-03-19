@@ -2,10 +2,7 @@ package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -95,6 +92,24 @@ public final class ModItems {
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);
     public static final DeferredItem<Item> WINGS = register("wings", WingsItem::new);
+
+
+
+    //SPAWN EGGS
+
+    //BOSSES
+    public static final DeferredItem<Item> BOONE_THE_BOOM_SPAWN_EGG = register("boone_the_boom_spawn_egg", () ->
+            new SpawnEggItem(ModEntity.BOONE_THE_BOOM.get(), 11013646, 15658718, new Item.Properties()));
+
+    //MINIBOSSES
+    public static final DeferredItem<Item> WILDFIRE_SPAWN_EGG = register("wildfire_spawn_egg", () ->
+            new SpawnEggItem(ModEntity.WILDFIRE.get(), 16167425, 11013646, new Item.Properties()));
+
+    //MOBS
+
+    //PEACEFULMOBS
+
+
 
     //POTIONS
 

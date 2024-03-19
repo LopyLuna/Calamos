@@ -41,12 +41,27 @@
       "calamos:wildfire/shield_break3"
     ]
   },
+  "entity.wildfire.shockwave": {
+    "sounds": [
+      "calamos:wildfire/shockwave1",
+      "calamos:wildfire/shockwave2",
+      "calamos:wildfire/shockwave3"
+    ]
+  },
   "entity.wildfire.shoot": {
     "sounds": [
       "calamos:wildfire/shoot1",
       "calamos:wildfire/shoot2",
       "calamos:wildfire/shoot3",
       "calamos:wildfire/shoot4"
+    ]
+  },
+  "entity.wildfire.step": {
+    "sounds": [
+      "calamos:wildfire/step1",
+      "calamos:wildfire/step2",
+      "calamos:wildfire/step3",
+      "calamos:wildfire/step4"
     ]
   }
 }

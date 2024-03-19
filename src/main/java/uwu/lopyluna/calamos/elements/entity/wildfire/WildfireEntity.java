@@ -1,13 +1,14 @@
 package uwu.lopyluna.calamos.elements.entity.wildfire;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.Difficulty;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -17,29 +18,43 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Shulker;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ShulkerBullet;
 import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.ModSoundEvents;
+import uwu.lopyluna.calamos.elements.entity.MiniBoss;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.EnumSet;
+
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
-public class WildfireEntity extends Monster {
+public class WildfireEntity extends Monster implements MiniBoss {
+    //Used
+    public final AnimationState idleAnimationState = new AnimationState();
+    //Used
+    public final AnimationState idleShieldAnimationState = new AnimationState();
+    //Unused
+    public final AnimationState enclosedShieldAnimationState = new AnimationState();
+    //Used
+    public final AnimationState attackAnimationState = new AnimationState();
+    //Unused
+    public final AnimationState shockwaveAnimationState = new AnimationState();
+
+    public int ambientAnimationTime;
+    private int idleAnimationTimeout = 0;
     private float damageAmountCounter = 0.0F;
-    private float allowedHeightOffset = 0.5F;
+    private float allowedHeightOffset = 0.75F;
     private int nextHeightOffsetChangeTick;
+    public int ambientLoopSoundTime;
     public static final int defaultActiveShieldsCount = 4;
-    public static final int defaultTicksUntilShieldRegen = 300;
+    public static final int defaultTicksUntilShieldRegen = 4 * 20;
     public static final int defaultSummonedBlazesCount = 0;
     public static final int maxSummonedBlazesCount = 2;
     private static final String activeShields_NBT = "ActiveShieldsCount";
@@ -49,6 +64,7 @@ public class WildfireEntity extends Monster {
     private static final EntityDataAccessor<Integer> TICKS_UNTIL_SHIELD_REGENERATION = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> SUMMONED_BLAZES_COUNT = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> DATA_FLAGS_ID_ATTACKING = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     public WildfireEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
@@ -64,9 +80,12 @@ public class WildfireEntity extends Monster {
         this.setSummonedBlazesCount(defaultSummonedBlazesCount);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
+
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new WildfireAttackGoal(this));
+        super.registerGoals();
+        this.goalSelector.addGoal(3, new WildfireAttackGoal(this));
+        if (hasActiveShields()) { this.goalSelector.addGoal(4, new PanicGoal(this, 1.25)); }
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0, 0.0F));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -74,7 +93,7 @@ public class WildfireEntity extends Monster {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-    
+
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes().add(Attributes.ATTACK_DAMAGE, 16.0).add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.FOLLOW_RANGE, 64.0).add(Attributes.MAX_HEALTH, 150.0);
     }
@@ -96,10 +115,38 @@ public class WildfireEntity extends Monster {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_FLAGS_ID, (byte)0);
+        this.entityData.define(DATA_FLAGS_ID_ATTACKING, (byte)0);
         this.entityData.define(ACTIVE_SHIELDS_COUNT, defaultActiveShieldsCount);
         this.entityData.define(TICKS_UNTIL_SHIELD_REGENERATION, defaultTicksUntilShieldRegen);
         this.entityData.define(SUMMONED_BLAZES_COUNT, defaultSummonedBlazesCount);
     }
+
+    @Override
+    public void baseTick() {
+        super.baseTick();
+
+        if (this.isAlive() && 0 <= this.ambientLoopSoundTime++) {
+            this.resetAmbientLoopSoundTime();
+            this.playAmbientLoopSound();
+        }
+    }
+
+    public void playAmbientLoopSound() {
+        this.playSound(this.getAmbientLoopSound(), this.getSoundVolume(), this.getVoicePitch());
+    }
+
+    private void resetAmbientLoopSoundTime() {
+        this.ambientLoopSoundTime = -getAmbientLoopSoundInterval();
+    }
+
+    public int getAmbientLoopSoundInterval() {
+        return 5 * 20;
+    }
+
+    protected SoundEvent getAmbientLoopSound() {
+        return ModSoundEvents.WILDFIRE_IDLE_LOOP.get();
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
         return ModSoundEvents.WILDFIRE_IDLE.get();
@@ -118,6 +165,10 @@ public class WildfireEntity extends Monster {
         return ModSoundEvents.WILDFIRE_SHOOT.get();
     }
     
+    public static void playShootSound(WildfireEntity entity) {
+        entity.playSound(entity.getShootSound(), entity.getSoundVolume(), entity.getVoicePitch());
+    }
+
     public void playShootSound() {
         this.playSound(this.getShootSound(), this.getSoundVolume(), this.getVoicePitch());
     }
@@ -129,7 +180,7 @@ public class WildfireEntity extends Monster {
         if (this.getActiveShieldsCount() >= defaultActiveShieldsCount) {
             return;
         }
-        
+        this.playShootSound();
         this.setActiveShieldsCount(this.getActiveShieldsCount() + 1);
     }
     
@@ -169,9 +220,9 @@ public class WildfireEntity extends Monster {
     }
     
     public void playShieldBreakSound() {
-        this.playSound(this.getShieldBreakSound(), this.getSoundVolume(), this.getVoicePitch());
+        this.playSound(this.getShieldBreakSound(), this.getSoundVolume() + 10, this.getVoicePitch());
     }
-    
+
     public boolean areBlazesSummoned() {
         return this.getSummonedBlazesCount() > 0;
     }
@@ -179,38 +230,38 @@ public class WildfireEntity extends Monster {
     public float getLightLevelDependentMagicValue() {
         return 1.0F;
     }
-    
-    //protected SoundEvent getStepSound() {
-    //    return SoundEvents.ZOMBIE_STEP;
-    //}
-    //
-    //@Override
-    //protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-    //    this.playSound(this.getStepSound(), 0.15F, 1.0F);
-    //}
+
+    protected SoundEvent getStepSound () {
+        return ModSoundEvents.WILDFIRE_STEP.get();
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pPos, BlockState pState) {
+        super.playStepSound(pPos, pState);
+        SoundEvent soundtype = this.getStepSound();
+        this.playSound(soundtype, this.getSoundVolume() * 0.15F, this.getVoicePitch());
+    }
+
     @Override
     public void aiStep() {
         if (!this.onGround() && this.getDeltaMovement().y < 0.0) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0, 0.6, 1.0));
+            this.setDeltaMovement(this.getDeltaMovement().multiply(1.0, 0.75, 1.0));
         }
         
         if (this.level().isClientSide) {
-            //if (this.random.nextInt(24) == 0 && !this.isSilent()) {
-            //    this.level().playLocalSound(
-            //                    this.getX() + 0.5,
-            //                    this.getY() + 0.5,
-            //                    this.getZ() + 0.5,
-            //                    ModSoundEvents.WILDFIRE_IDLE.get(),
-            //                    this.getSoundSource(),
-            //                    1.0F + this.random.nextFloat(),
-            //                    this.random.nextFloat() * 0.7F + 0.3F,
-            //                    false
-            //            );
-            //}
-            
             for(int i = 0; i < 2; ++i) {
                 this.level().addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(0.5), this.getRandomY(), this.getRandomZ(0.5), 0.0, 0.0, 0.0);
-                
+                this.level().addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(1.0), this.getRandomY(), this.getRandomZ(1.0), 0.0, 0.0, 0.0);
+                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(1.0), this.getRandomY(), this.getRandomZ(1.0), 0.0, 0.0, 0.0);
+                if (isCharged()) {
+                    this.level().addParticle(ParticleTypes.LAVA, this.getRandomX(0.5), this.getRandomY(), this.getRandomZ(0.5), 0.0, 0.0, 0.0);
+                }
+
+                if (isCharged() && hasActiveShields()) {
+                    this.level().addParticle(ParticleTypes.LARGE_SMOKE, this.getRandomX(2.0), this.getRandomY(), this.getRandomZ(2.0), 0.0, 0.0, 0.0);
+                    this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(1.5), this.getRandomY(), this.getRandomZ(1.5), 0.0, 0.0, 0.0);
+                    this.level().addParticle(ParticleTypes.LAVA, this.getRandomX(1.5), this.getRandomY(), this.getRandomZ(1.5), 0.0, 0.0, 0.0);
+                }
             }
         }
         super.aiStep();
@@ -222,7 +273,7 @@ public class WildfireEntity extends Monster {
         }
         
         Entity attacker = source.getEntity();
-        
+
         //if (source == this.damageSources().inFire() || (attacker != null && attacker.getType().is(FriendsAndFoesTags.WILDFIRE_ALLIES))) {
         //    return false;
         //}
@@ -245,15 +296,20 @@ public class WildfireEntity extends Monster {
         }
         
         this.resetTicksUntilShieldRegeneration();
-        
+
         boolean damageResult = super.hurt(source, amount);
-        
+
         //if (damageResult && attacker instanceof LivingEntity) {
         //    WildfireBrain.onAttacked(this, (LivingEntity) attacker);
         //}
         
         return damageResult;
     }
+
+    public int getAmbientAnimationInterval() {
+        return 100;
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -264,7 +320,47 @@ public class WildfireEntity extends Monster {
             this.regenerateShield();
             this.resetTicksUntilShieldRegeneration();
         }
+
+        if (this.level().isClientSide()) {
+            if (this.isAttackCharged()) {
+                this.playShootSound();
+                this.attackAnimationState.start(this.tickCount);
+                this.setAttackCharged(false);
+            }
+            if (this.random.nextInt(1500) < this.ambientAnimationTime++) {
+                this.resetAmbientAnimationTime();
+                this.idleShieldAnimationState.start(this.tickCount);
+
+                if (hasActiveShields() && isCharged()) {
+                this.playSound(SoundEvents.LAVA_POP, this.getSoundVolume() + 1 - ((float) getActiveShieldsCount() / 5), this.getVoicePitch() - ((float) getActiveShieldsCount() / 5));
+                }
+            }
+            setupAnimationStates();
+        }
+
+        if (hasActiveShields() && isCharged()) {
+            this.heal((float) getActiveShieldsCount() / 5);
+        }
     }
+
+    @Override
+    protected void playHurtSound(DamageSource pSource) {
+        super.playHurtSound(pSource);
+        this.resetAmbientAnimationTime();
+    }
+    private void resetAmbientAnimationTime() {
+        this.ambientAnimationTime = -this.getAmbientAnimationInterval();
+    }
+    private void setupAnimationStates() {
+        if (this.idleAnimationTimeout <= 0) {
+            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+            this.idleAnimationState.start(this.tickCount);
+        } else {
+            --this.idleAnimationTimeout;
+        }
+    }
+
+
     @Override
     public boolean isSensitiveToWater() {
         return true;
@@ -299,6 +395,10 @@ public class WildfireEntity extends Monster {
     private boolean isCharged() {
         return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
     }
+
+    private boolean isAttackCharged() {
+        return (this.entityData.get(DATA_FLAGS_ID_ATTACKING) & 1) != 0;
+    }
     
     void setCharged(boolean pCharged) {
         byte b0 = this.entityData.get(DATA_FLAGS_ID);
@@ -310,8 +410,19 @@ public class WildfireEntity extends Monster {
         
         this.entityData.set(DATA_FLAGS_ID, b0);
     }
+
+    void setAttackCharged(boolean pCharged) {
+        byte b0 = this.entityData.get(DATA_FLAGS_ID_ATTACKING);
+        if (pCharged) {
+            b0 = (byte)(b0 | 1);
+        } else {
+            b0 = (byte)(b0 & -2);
+        }
+
+        this.entityData.set(DATA_FLAGS_ID_ATTACKING, b0);
+    }
     
-    class WildfireAttackGoal extends Goal {
+    static class WildfireAttackGoal extends Goal {
         private final WildfireEntity wildfire;
         private int attackStep;
         private int attackTime;
@@ -345,6 +456,7 @@ public class WildfireEntity extends Monster {
         @Override
         public void stop() {
             this.wildfire.setCharged(false);
+            this.wildfire.setAttackCharged(false);
             this.lastSeen = 0;
         }
         
@@ -395,6 +507,7 @@ public class WildfireEntity extends Monster {
                             this.attackTime = 100;
                             this.attackStep = 0;
                             this.wildfire.setCharged(false);
+                            this.wildfire.setAttackCharged(false);
                         }
                         
                         if (this.attackStep > 1) {
@@ -404,6 +517,7 @@ public class WildfireEntity extends Monster {
                             }
                             
                             for(int i = 0; i < 4; ++i) {
+                                this.wildfire.setAttackCharged(true);
                                 SmallFireball smallfireball = new SmallFireball(
                                         this.wildfire.level(),
                                         this.wildfire,
@@ -414,6 +528,7 @@ public class WildfireEntity extends Monster {
                                 smallfireball.setPos(smallfireball.getX(), this.wildfire.getY(0.5) + 0.5, smallfireball.getZ());
                                 this.wildfire.level().addFreshEntity(smallfireball);
                             }
+
                         }
                     }
                     

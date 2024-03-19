@@ -5,13 +5,14 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import uwu.lopyluna.calamos.CalamosMod;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 public class WildfireRenderer extends MobRenderer<WildfireEntity, WildfireModel<WildfireEntity>> {
-    public static final float SCALE = 1.6F;
+    public static final float SCALE = 1.25F;
     
     public WildfireRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new WildfireModel<>(pContext.bakeLayer(WildfireModel.LAYER_LOCATION)), 0.35F);
@@ -30,6 +31,6 @@ public class WildfireRenderer extends MobRenderer<WildfireEntity, WildfireModel<
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(WildfireEntity entity) {
-        return new ResourceLocation("calamos", "textures/entity/wildfire/wildfire.png");
+        return new ResourceLocation(CalamosMod.MODID, "textures/entity/wildfire/wildfire.png");
     }
 }

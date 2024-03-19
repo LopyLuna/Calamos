@@ -12,7 +12,6 @@ import uwu.lopyluna.calamos.client.entity.renderer.PestisPlayerRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormHeadRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormSegmentRenderer;
 import uwu.lopyluna.calamos.elements.ModEntity;
-import uwu.lopyluna.calamos.elements.entity.boone.BooneModel;
 import uwu.lopyluna.calamos.elements.entity.boone.BooneRenderer;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;

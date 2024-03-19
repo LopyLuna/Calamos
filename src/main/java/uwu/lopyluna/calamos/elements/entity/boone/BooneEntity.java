@@ -14,11 +14,12 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import uwu.lopyluna.calamos.elements.entity.Boss;
 import uwu.lopyluna.calamos.utilities.CalamosBossEvent;
 
 import javax.annotation.Nullable;
 
-public class BooneEntity extends Monster {
+public class BooneEntity extends Monster implements Boss {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 

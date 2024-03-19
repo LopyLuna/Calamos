@@ -66,8 +66,13 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.RAW_PALLADIUM);
         this.basicItem(ModItems.PALLADIUM_NUGGET);
 
-        this.basicItem(ModItems.BERSERKER_CRAW);
+        //SPAWN EGGS
+        //this.bossSpawnEgg(ModItems.BOONE_THE_BOOM_SPAWN_EGG);
+        //this.bossSpawnEgg(ModItems.WILDFIRE_SPAWN_EGG);
+        //this.SpawnEgg(ModItems. _SPAWN_EGG);
 
+
+        this.basicItem(ModItems.BERSERKER_CRAW);
         this.basicItem(ModItems.TEST_LOOTBAG);
         this.handheld32(ModItems.METEORITE_REAPER, "gui", "handheld");
         this.handheld32(ModItems.METEORITE_SWORD, "gui", "handheld");
