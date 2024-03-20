@@ -100,14 +100,16 @@ public final class ModItems {
     //BOSSES
     public static final DeferredItem<Item> BOONE_THE_BOOM_SPAWN_EGG = register("boone_the_boom_spawn_egg", () ->
             new SpawnEggItem(ModEntity.BOONE_THE_BOOM.get(), 11013646, 15658718, new Item.Properties()));
-
-    //MINIBOSSES
     public static final DeferredItem<Item> WILDFIRE_SPAWN_EGG = register("wildfire_spawn_egg", () ->
             new SpawnEggItem(ModEntity.WILDFIRE.get(), 16167425, 11013646, new Item.Properties()));
+    public static final DeferredItem<Item> EYE_SPAWN_EGG = register("eye_spawn_egg", () ->
+            new SpawnEggItem(ModEntity.EYE.get(), 11013646, 16167425, new Item.Properties()));
+
+    //MINI BOSSES
 
     //MOBS
 
-    //PEACEFULMOBS
+    //PEACEFUL MOBS
 
 
 
