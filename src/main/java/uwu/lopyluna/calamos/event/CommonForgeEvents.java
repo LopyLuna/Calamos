@@ -140,7 +140,7 @@ public class CommonForgeEvents {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onRenderBossBar(CustomizeGuiOverlayEvent.BossEventProgress event){
         ResourceLocation bossRegistryName = ClientProxy.bossBarRegistryNames.getOrDefault(event.getBossEvent().getId(), null);
         if (bossRegistryName == null) return;

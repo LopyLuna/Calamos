@@ -33,7 +33,7 @@ public class BooneEntity extends BossBarMonster implements Boss {
     private int idleAnimationTimeout = 0;
 
     public BooneEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel, BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
+        super(pEntityType, pLevel);
     }
 
     @Override

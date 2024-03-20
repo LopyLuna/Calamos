@@ -68,7 +68,7 @@ public class WildfireEntity extends BossBarMonster implements Boss {
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID_ATTACKING = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     public WildfireEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel, BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.PROGRESS);
+        super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
