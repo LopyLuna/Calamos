@@ -1,9 +1,11 @@
 package uwu.lopyluna.calamos.elements.entity.entity_definitions;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import uwu.lopyluna.calamos.utilities.CalamosBossEvent;
@@ -14,14 +16,12 @@ public class BossBarMonster extends Monster {
     BossEvent.BossBarColor pColor;
     BossEvent.BossBarOverlay pOverlay;
 
-    protected BossBarMonster(EntityType<? extends Monster> pEntityType, Level pLevel, BossEvent.BossBarColor pColor, BossEvent.BossBarOverlay pOverlay) {
+    protected BossBarMonster(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.pColor = pColor;
-        this.pOverlay = pOverlay;
     }
 
-    private final CalamosBossEvent bossEvent = new CalamosBossEvent(
-            this, this.getDisplayName(), pColor, pOverlay
+    private final ServerBossEvent bossEvent = new CalamosBossEvent(
+            this
     );
 
     @Override
@@ -44,5 +44,12 @@ public class BossBarMonster extends Monster {
         super.customServerAiStep();
 
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+    }
+
+    public BossEvent.BossBarColor bossBarColor() {
+        return BossEvent.BossBarColor.PURPLE;
+    }
+    public BossEvent.BossBarOverlay bossBarOverlay() {
+        return BossEvent.BossBarOverlay.PROGRESS;
     }
 }

@@ -15,6 +15,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.Boss;
+import uwu.lopyluna.calamos.elements.entity.entity_definitions.BossBarMonster;
 import uwu.lopyluna.calamos.utilities.CalamosBossEvent;
 
 import javax.annotation.Nullable;
@@ -22,15 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Worm extends Monster implements Boss {
+public class Worm extends BossBarMonster implements Boss {
     public static final EntityDataAccessor<Integer> MAX_SEGMENT_COUNT = SynchedEntityData.defineId(Worm.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> SEGMENT_COUNT = SynchedEntityData.defineId(Worm.class, EntityDataSerializers.INT);
     public final HashMap<Integer, WormPart> segments = new HashMap<>();
     protected WormPart previous = null;
-
-    private final CalamosBossEvent bossEvent = new CalamosBossEvent(
-            this, this.getDisplayName(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS
-    );
 
     public Worm(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -69,22 +66,6 @@ public class Worm extends Monster implements Boss {
         this.setDeltaMovement(0, 0, 0);
         super.tick();
         this.setDeltaMovement(0, 0, 0);
-    }
-
-    @Override
-    public void setCustomName(@Nullable Component pName) {
-        super.setCustomName(pName);
-        this.bossEvent.setName(this.getDisplayName());
-    }
-    @Override
-    public void startSeenByPlayer(ServerPlayer pPlayer) {
-        super.startSeenByPlayer(pPlayer);
-        this.bossEvent.addPlayer(pPlayer);
-    }
-    @Override
-    public void stopSeenByPlayer(ServerPlayer pPlayer) {
-        super.stopSeenByPlayer(pPlayer);
-        this.bossEvent.removePlayer(pPlayer);
     }
 
     public boolean canSplit() {
@@ -179,13 +160,6 @@ public class Worm extends Monster implements Boss {
                 this.setHealth(this.getMaxHealth());
             }
         }
-    }
-
-    @Override
-    protected void customServerAiStep() {
-        super.customServerAiStep();
-
-        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 
     @Override
