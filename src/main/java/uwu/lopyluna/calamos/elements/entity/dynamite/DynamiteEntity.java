@@ -9,9 +9,12 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import uwu.lopyluna.calamos.elements.ModEntity;
 
 public class DynamiteEntity extends Projectile {
@@ -19,8 +22,9 @@ public class DynamiteEntity extends Projectile {
     public DynamiteEntity(EntityType<DynamiteEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
-    public DynamiteEntity(Level pLevel) {
+    public DynamiteEntity(Level pLevel, double pX, double pY, double pZ) {
         super(ModEntity.DYNAMITE.get(), pLevel);
+        this.setPos(pX, pY + 2, pZ);
     }
 
     @Override
@@ -46,5 +50,18 @@ public class DynamiteEntity extends Projectile {
     @Override
     public boolean isPushable() {
         return false;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.tickCount > 100) {
+            this.kill();
+        }
+    }
+
+    @Override
+    public void shoot(double pX, double pY, double pZ, float pVelocity, float pInaccuracy) {
+        super.shoot(pX, pY, pZ, pVelocity, pInaccuracy);
     }
 }
