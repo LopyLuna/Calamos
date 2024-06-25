@@ -3,29 +3,24 @@ package uwu.lopyluna.calamos.elements.entity.dynamite;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import uwu.lopyluna.calamos.elements.entity.boone.BooneModel;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.awt.*;
-import java.util.HashMap;
 
 public class DynamiteRenderer extends EntityRenderer<DynamiteEntity> {
     private final DynamiteModel model;
 
     public DynamiteRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-        this.model = new DynamiteModel<>(pContext.bakeLayer(BooneModel.LAYER_LOCATION));
+        this.model = new DynamiteModel<>(pContext.bakeLayer(DynamiteModel.LAYER_LOCATION));
     }
 
     @Override

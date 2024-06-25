@@ -1,9 +1,11 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
 import uwu.lopyluna.calamos.elements.blockEntity.ModHangingBlockEntity;
 import uwu.lopyluna.calamos.elements.blockEntity.ModSignBlockEntity;
 import uwu.lopyluna.calamos.utilities.ModUtils;
@@ -24,6 +26,11 @@ public final class ModBlockEntities {
                             ModDecorativeBlocks.OTHERWORLD_OAK_HANGING_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_HANGING_SIGN.get(),
                             ModDecorativeBlocks.TWILIGHT_HANGING_SIGN.get(), ModDecorativeBlocks.TWILIGHT_WALL_HANGING_SIGN.get(),
                             ModDecorativeBlocks.HOLLOW_HANGING_SIGN.get(), ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN.get()
+                    ).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AntennaBlockEntity>> MACHINA_ANTENNA =
+            BE_TYPES.register("machina_antenna", () ->
+                    BlockEntityType.Builder.of(AntennaBlockEntity::new,
+                            ModBlocks.MACHINA_ANTENNA.get()
                     ).build(null));
 
     public static void staticInit() {}

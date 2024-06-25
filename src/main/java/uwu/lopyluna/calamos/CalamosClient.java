@@ -46,6 +46,7 @@ public class CalamosClient {
     @SubscribeEvent
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
         event.register(ModEntity.PESTIS_PLAYER.get(), new ResourceLocation(CalamosMod.MODID, "shaders/post/pestis.json"));
+        event.register(ModEntity.MACHINA_ZOMBIE.get(), new ResourceLocation(CalamosMod.MODID, "shaders/post/pestis.json"));
     }
     @SubscribeEvent
     private static void registerLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {

@@ -176,6 +176,36 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get().asItem(),
                 ModDecorativeBlocks.TWILIGHT_WALL_SIGN.get().asItem()
         );
+        
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
+                ModItems.GARNET.get(),
+                ModItems.JADE.get(),
+                ModItems.KUNZITE.get(),
+                ModItems.MOONSTONE.get(),
+                ModItems.OPAL.get(),
+                ModItems.RUBY.get(),
+                ModItems.SAPPHIRE.get(),
+                ModItems.SPINEL.get(),
+                ModItems.SUNSTONE.get(),
+                ModItems.TANZANITE.get(),
+                ModItems.TOPAZ.get(),
+                ModItems.METEORITE_INGOT.get(),
+                ModItems.BLOODBORE_INGOT.get(),
+                ModItems.CALAMATIUM_INGOT.get(),
+                ModItems.ECTOLIGHT_INGOT.get(),
+                ModItems.LEAD_INGOT.get(),
+                ModItems.MAGNETITE_INGOT.get(),
+                ModItems.OBSTEEL_INGOT.get(),
+                ModItems.PLATINUM_INGOT.get(),
+                ModItems.STARINIUM_INGOT.get(),
+                ModItems.TERRAULITE_INGOT.get(),
+                ModItems.ULTIMITA_INGOT.get(),
+                ModItems.VOLCANITE_INGOT.get(),
+                ModItems.URANIUM_INGOT.get(),
+                ModItems.STELLAR_INGOT.get(),
+                ModItems.ELEGANT_BLOOM.get(),
+                ModItems.PALLADIUM_INGOT.get()
+        );
     }
     private void registerModTags() {
         tag(ModTags.modItemTag("wings")).add(
@@ -268,14 +298,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.VOLCANITE_INGOT.get(),
                 ModItems.URANIUM_INGOT.get(),
                 ModItems.STELLAR_INGOT.get(),
-                ModItems.ELEGANT_BLOOM.get()
+                ModItems.ELEGANT_BLOOM.get(),
+                ModItems.PALLADIUM_INGOT.get()
         );
         tag(Tags.Items.NUGGETS).add(
-                ModItems.URANIUM_NUGGET.get()
+                ModItems.URANIUM_NUGGET.get(),
+                ModItems.PALLADIUM_NUGGET.get()
         );
         tag(Tags.Items.RAW_MATERIALS).add(
                 ModItems.RAW_METEORITE.get(),
-                ModItems.RAW_URANIUM.get()
+                ModItems.RAW_URANIUM.get(),
+                ModItems.RAW_PALLADIUM.get()
         );
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             tag(tag.getA()).add(tag.getB().get());
@@ -283,5 +316,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         for (Triplet<TagKey<Item>, Supplier<? extends Block>, String> tag : ModItemTags.BLOCK_ITEM_TAGS) {
             tag(tag.getA()).add(tag.getB().get().asItem());
         }
+    }
+    
+    protected void tagPathAndUnique(Item item, String name, String path) {
+        tag(ModTags.forgeItemTag(path)).add(item);
+        tag(ModTags.forgeItemTag(path + "/" + name)).add(item);
     }
 }

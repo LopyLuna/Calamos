@@ -3,9 +3,12 @@ package uwu.lopyluna.calamos.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.Nullable;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
@@ -408,45 +411,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
                 ModDecorativeBlocks.COBBLESTONE_BRICK_STAIRS.get()
         );
-    }
-    
-    protected void registerForgeTags() {
-        tag(ModTags.forgeBlockTag("cobbled_sandstone")).add(
-                ModDecorativeBlocks.COBBLED_SANDSTONE.get(),
-                ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE.get()
-        );
-        tag(ModTags.forgeBlockTag("cobbled_sandstone/normal")).add(
-                ModDecorativeBlocks.COBBLED_SANDSTONE.get()
-        );
-        tag(ModTags.forgeBlockTag("cobbled_sandstone/soul")).add(
-                ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE.get()
-        );
-        tag(ModTags.forgeBlockTag("soul_sandstone")).add(
-                ModDecorativeBlocks.SOUL_SANDSTONE.get(),
-                ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE.get(),
-                ModDecorativeBlocks.CUT_SOUL_SANDSTONE.get(),
-                ModDecorativeBlocks.CHISELED_SOUL_SANDSTONE.get()
-        );
-        tag(ModTags.forgeBlockTag("ores")).add(
-                ModBlocks.COPPER_ORE.get(),
-                ModBlocks.IRON_ORE.get(),
-                ModBlocks.GOLD_ORE.get(),
-                ModBlocks.METEORITE_ORE.get(),
-                ModBlocks.GARNET_ORE.get(),
-                ModBlocks.JADE_ORE.get(),
-                ModBlocks.KUNZITE_ORE.get(),
-                ModBlocks.MOONSTONE_ORE.get(),
-                ModBlocks.OPAL_ORE.get(),
-                ModBlocks.RUBY_ORE.get(),
-                ModBlocks.SAPPHIRE_ORE.get(),
-                ModBlocks.SPINEL_ORE.get(),
-                ModBlocks.SUNSTONE_ORE.get(),
-                ModBlocks.TANZANITE_ORE.get(),
-                ModBlocks.TOPAZ_ORE.get(),
-                ModBlocks.URANIUM_ORE.get(),
-                ModBlocks.PALLADIUM_ORE.get()
-        );
-        tag(ModTags.forgeBlockTag("storage_blocks")).add(
+        
+        tag(BlockTags.BEACON_BASE_BLOCKS).add(
                 ModBlocks.GARNET_BLOCK.get(),
                 ModBlocks.JADE_BLOCK.get(),
                 ModBlocks.KUNZITE_BLOCK.get(),
@@ -461,6 +427,15 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModBlocks.URANIUM_BLOCK.get(),
                 ModBlocks.PALLADIUM_BLOCK.get()
         );
+    }
+    
+    protected void registerForgeTags() {
+        tag(ModTags.forgeBlockTag("soul_sandstone")).add(
+                ModDecorativeBlocks.SOUL_SANDSTONE.get(),
+                ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE.get(),
+                ModDecorativeBlocks.CUT_SOUL_SANDSTONE.get(),
+                ModDecorativeBlocks.CHISELED_SOUL_SANDSTONE.get()
+        );
         tag(ModTags.forgeBlockTag("stripped_logs")).add(
                 ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.get(),
                 ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get(),
@@ -469,35 +444,44 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.get(),
                 ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.get()
         );
-        tag(ModTags.forgeBlockTag("ores/copper")).add(ModBlocks.COPPER_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/iron")).add(ModBlocks.IRON_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/gold")).add(ModBlocks.GOLD_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/garnet")).add(ModBlocks.GARNET_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/jade")).add(ModBlocks.JADE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/kunzite")).add(ModBlocks.KUNZITE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/moonstone")).add(ModBlocks.MOONSTONE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/opal")).add(ModBlocks.OPAL_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/ruby")).add(ModBlocks.RUBY_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/sapphire")).add(ModBlocks.SAPPHIRE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/spinel")).add(ModBlocks.SPINEL_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/sunstone")).add(ModBlocks.SUNSTONE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/tanzanite")).add(ModBlocks.TANZANITE_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/topaz")).add(ModBlocks.TOPAZ_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/uranium")).add(ModBlocks.URANIUM_ORE.get());
-        tag(ModTags.forgeBlockTag("ores/palladium")).add(ModBlocks.PALLADIUM_ORE.get());
-
-        tag(ModTags.forgeBlockTag("storage_blocks/garnet")).add(ModBlocks.GARNET_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/jade")).add(ModBlocks.JADE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/kunzite")).add(ModBlocks.KUNZITE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/moonstone")).add(ModBlocks.MOONSTONE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/opal")).add(ModBlocks.OPAL_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/ruby")).add(ModBlocks.RUBY_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/sapphire")).add(ModBlocks.SAPPHIRE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/spinel")).add(ModBlocks.SPINEL_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/sunstone")).add(ModBlocks.SUNSTONE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/tanzanite")).add(ModBlocks.TANZANITE_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/topaz")).add(ModBlocks.TOPAZ_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/uranium")).add(ModBlocks.URANIUM_BLOCK.get());
-        tag(ModTags.forgeBlockTag("storage_blocks/palladium")).add(ModBlocks.PALLADIUM_BLOCK.get());
+        tagPathAndUnique(ModDecorativeBlocks.COBBLED_SANDSTONE.get(), "cobbled_sandstone", "normal");
+        tagPathAndUnique(ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE.get(), "cobbled_sandstone", "soul");
+        
+        tagPathAndUnique(ModBlocks.GARNET_BLOCK.get(), "garnet", "storage_blocks");
+        tagPathAndUnique(ModBlocks.JADE_BLOCK.get(), "jade", "storage_blocks");
+        tagPathAndUnique(ModBlocks.KUNZITE_BLOCK.get(), "kunzite", "storage_blocks");
+        tagPathAndUnique(ModBlocks.MOONSTONE_BLOCK.get(), "moonstone", "storage_blocks");
+        tagPathAndUnique(ModBlocks.OPAL_BLOCK.get(), "opal", "storage_blocks");
+        tagPathAndUnique(ModBlocks.RUBY_BLOCK.get(), "ruby", "storage_blocks");
+        tagPathAndUnique(ModBlocks.SAPPHIRE_BLOCK.get(), "sapphire", "storage_blocks");
+        tagPathAndUnique(ModBlocks.SPINEL_BLOCK.get(), "spinel", "storage_blocks");
+        tagPathAndUnique(ModBlocks.SUNSTONE_BLOCK.get(), "sunstone", "storage_blocks");
+        tagPathAndUnique(ModBlocks.TANZANITE_BLOCK.get(), "tanzanite", "storage_blocks");
+        tagPathAndUnique(ModBlocks.TOPAZ_BLOCK.get(), "topaz", "storage_blocks");
+        tagPathAndUnique(ModBlocks.URANIUM_BLOCK.get(), "uranium", "storage_blocks");
+        tagPathAndUnique(ModBlocks.PALLADIUM_BLOCK.get(), "palladium", "storage_blocks");
+        
+        tagPathAndUnique(ModBlocks.COPPER_ORE.get(), "copper", "ores");
+        tagPathAndUnique(ModBlocks.IRON_ORE.get(), "iron", "ores");
+        tagPathAndUnique(ModBlocks.GOLD_ORE.get(), "gold", "ores");
+        tagPathAndUnique(ModBlocks.GARNET_ORE.get(), "garnet", "ores");
+        tagPathAndUnique(ModBlocks.JADE_ORE.get(), "jade", "ores");
+        tagPathAndUnique(ModBlocks.KUNZITE_ORE.get(), "kunzite", "ores");
+        tagPathAndUnique(ModBlocks.MOONSTONE_ORE.get(), "moonstone", "ores");
+        tagPathAndUnique(ModBlocks.OPAL_ORE.get(), "opal", "ores");
+        tagPathAndUnique(ModBlocks.RUBY_ORE.get(), "ruby", "ores");
+        tagPathAndUnique(ModBlocks.SAPPHIRE_ORE.get(), "sapphire", "ores");
+        tagPathAndUnique(ModBlocks.SPINEL_ORE.get(), "spinel", "ores");
+        tagPathAndUnique(ModBlocks.SUNSTONE_ORE.get(), "sunstone", "ores");
+        tagPathAndUnique(ModBlocks.TANZANITE_ORE.get(), "tanzanite", "ores");
+        tagPathAndUnique(ModBlocks.TOPAZ_ORE.get(), "topaz", "ores");
+        tagPathAndUnique(ModBlocks.URANIUM_ORE.get(), "uranium", "ores");
+        tagPathAndUnique(ModBlocks.PALLADIUM_ORE.get(), "palladium", "ores");
+        
+    }
+    
+    protected void tagPathAndUnique(Block block, String name, String path) {
+        tag(ModTags.forgeBlockTag(path)).add(block);
+        tag(ModTags.forgeBlockTag(path + "/" + name)).add(block);
     }
 }

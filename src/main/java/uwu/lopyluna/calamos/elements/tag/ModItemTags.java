@@ -61,6 +61,7 @@ public class ModItemTags {
     public static final TagKey<Item> STORAGE_BLOCKS_TANZANITE = createForgeBlockItem("storage_blocks/tanzanite", TANZANITE_BLOCK, "Tanzanite Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_TOPAZ = createForgeBlockItem("storage_blocks/topaz", TOPAZ_BLOCK, "Topaz Storage Blocks");
     public static final TagKey<Item> STORAGE_BLOCKS_URANIUM = createForge("storage_blocks/uranium", ModItems.URANIUM_BLOCK, "Uranium Storage Blocks");
+    public static final TagKey<Item> STORAGE_BLOCKS_PALLADIUM = createForgeBlockItem("storage_blocks/palladium", PALLADIUM_BLOCK, "Palladium Storage Blocks");
     private static TagKey<Item> createForge(String name, Supplier<? extends Item> value, String engTranslation) {
         return create(new ResourceLocation("forge", name), value, engTranslation);
     }

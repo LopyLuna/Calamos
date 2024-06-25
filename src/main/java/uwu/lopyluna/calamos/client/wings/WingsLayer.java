@@ -21,21 +21,22 @@ import uwu.lopyluna.calamos.client.ModArmorLayers;
 import uwu.lopyluna.calamos.elements.items.wings.WingsItem;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
     
-    private static final List<String> devNames = List.of("LopyLuna", "_Pouffy_");
-
+    private static final Map<String, String> devTextures = Map.of(
+            "LopyLuna", "luna",
+            "_Pouffy_", "pouffy"
+    );
 
     private static ResourceLocation textureLocation(String name) {
-        if (!devNames.contains(name))
-            return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/default.png");
-        return switch (name) {
-            case "LopyLuna" -> new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/luna.png");
-            case "_Pouffy_" -> new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/pouffy.png");
-            default -> new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/default.png");
-        };
+        for (Map.Entry<String, String> entry : devTextures.entrySet())
+            if (name.contains(entry.getKey()))
+                return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/" + entry.getValue() + ".png");
+        return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/default.png");
+        
     }
     private final WingsModel<T> wingsModel;
     public WingsLayer(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet) {
@@ -58,8 +59,6 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
         if (!(entityModel instanceof HumanoidModel))
             return;
         
-        HumanoidModel<?> model = (HumanoidModel<?>) entityModel;
-
         ItemStack itemstack = pLivingEntity.getItemBySlot(EquipmentSlot.CHEST);
 
 
@@ -85,8 +84,8 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
      */
     public ResourceLocation getTexture(T entity) {
         if (entity instanceof Player player)
-            return textureLocation(player.getScoreboardName());
-        return textureLocation("default");
+            return textureLocation(player.getName().getString());
+        return textureLocation(entity.getName().getString());
     }
     public static void registerOnAll(EntityRenderDispatcher renderManager, EntityModelSet modelSet) {
         for (EntityRenderer<? extends Player> renderer : renderManager.getSkinMap().values())

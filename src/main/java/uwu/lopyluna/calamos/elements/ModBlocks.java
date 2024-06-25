@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
 import uwu.lopyluna.calamos.elements.block.MetalGrinderBlock;
 import uwu.lopyluna.calamos.elements.block.SawmillBlock;
+import uwu.lopyluna.calamos.elements.block.machina.AntennaBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
 import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
 import uwu.lopyluna.calamos.utilities.ModUtils;
@@ -171,7 +172,9 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> ULTIMITA_TNT = register("ultimita_tnt",
             () -> new StableUltimitaTNT(BlockBehaviour.Properties.ofFullCopy(Blocks.TNT)
             ), new Item.Properties());
-
+    public static final DeferredBlock<Block> MACHINA_ANTENNA = register("machina_antenna",
+            () -> new AntennaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)
+            ), new Item.Properties());
 
 
     //Extra Cool shit :3

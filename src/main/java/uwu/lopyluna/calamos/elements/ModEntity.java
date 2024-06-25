@@ -10,6 +10,7 @@ import uwu.lopyluna.calamos.elements.entity.WormPart;
 import uwu.lopyluna.calamos.elements.entity.boone.BooneEntity;
 import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteEntity;
 import uwu.lopyluna.calamos.elements.entity.eye.EyeEntity;
+import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;
@@ -38,6 +39,9 @@ public final class ModEntity {
 
     public static final DeferredHolder<EntityType<?>, EntityType<DynamiteEntity>> DYNAMITE = ENTITY_TYPES.register("dynamite",
             () -> EntityType.Builder.of((EntityType.EntityFactory<DynamiteEntity>)DynamiteEntity::new, MobCategory.MISC).sized(1.0F, 1.0F).build("dynamite"));
+    
+    public static final DeferredHolder<EntityType<?>, EntityType<MachinaZombie>> MACHINA_ZOMBIE = ENTITY_TYPES.register("machina_zombie",
+            () -> EntityType.Builder.of(MachinaZombie::new, MobCategory.MONSTER).sized(0.6F, 1.8F).build("machina_zombie"));
 
     public static void staticInit() {
 

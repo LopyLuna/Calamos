@@ -1,5 +1,6 @@
 package uwu.lopyluna.calamos.event;
 
+import net.minecraft.world.entity.projectile.WindCharge;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -16,4 +17,5 @@ public class ClientModEvents {
         event.registerLayerDefinition(BooneModel.LAYER_LOCATION, BooneModel::createBodyLayer);
         event.registerLayerDefinition(EyeModel.LAYER_LOCATION, EyeModel::createBodyLayer);
     }
+    
 }

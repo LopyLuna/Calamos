@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:blasting/topaz_from_topaz_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_topaz_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:topaz_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_topaz_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:blasting/topaz_from_topaz_ore"
+    ]
+  }
+}

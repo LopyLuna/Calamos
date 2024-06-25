@@ -5,6 +5,8 @@ import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.client.resources.PlayerSkin;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -33,14 +35,18 @@ import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import uwu.lopyluna.calamos.elements.ModEffects;
+import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
+import uwu.lopyluna.calamos.elements.entity.entity_definitions.MachinaHusk;
+import uwu.lopyluna.calamos.elements.entity.machina.goal.*;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collection;
 import java.util.UUID;
 @ParametersAreNonnullByDefault
-public class PestisPlayerEntity extends PathfinderMob {
+public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
     
     @Nullable
     private PlayerInfo playerInfo;
@@ -80,7 +86,12 @@ public class PestisPlayerEntity extends PathfinderMob {
     @Override
     public void tick() {
         super.tick();
-        this.moveCloak();
+        if (isActive()) {
+            checkAntenna();
+            this.moveCloak();
+        } else {
+            spawnSmoke();
+        }
         if (linkedPlayer != null) {
             Player player = level().getPlayerByUUID(linkedPlayer);
             if (player != null && this.getAttribute(Attributes.MAX_HEALTH) != null) {
@@ -101,21 +112,20 @@ public class PestisPlayerEntity extends PathfinderMob {
     }
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(8, new MachinaLookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new MachinaRandomLookAroundGoal(this));
         this.addBehaviourGoals();
     }
     boolean canBreakDoors() {
         return true;
     }
     protected void addBehaviourGoals() {
-        this.goalSelector.addGoal(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers(ZombifiedPiglin.class));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Turtle.class, 10, true, false, Turtle.BABY_ON_LAND_SELECTOR));
+        this.goalSelector.addGoal(6, new MachinaMoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
+        this.goalSelector.addGoal(7, new MachinaWaterAvoidingRandomStrollGoal(this, 1.0));
+        this.targetSelector.addGoal(1, new MachinaHurtByTargetGoal(this).setAlertOthers(ZombifiedPiglin.class));
+        this.targetSelector.addGoal(2, new MachinaNearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new MachinaNearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
+        this.targetSelector.addGoal(3, new MachinaNearestAttackableTargetGoal<>(this, IronGolem.class, true));
     }
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
@@ -217,5 +227,68 @@ public class PestisPlayerEntity extends PathfinderMob {
         this.xCloak += d0 * 0.25;
         this.zCloak += d2 * 0.25;
         this.yCloak += d1 * 0.25;
+    }
+    public void setInRangeOfAntenna(boolean inRangeOfAntenna) {
+        this.getPersistentData().putBoolean("inRangeOfAntenna", inRangeOfAntenna);
+    }
+    public void setInRangeOfMainframe(boolean inRangeOfMainframe) {
+        this.getPersistentData().putBoolean("inRangeOfMainframe", inRangeOfMainframe);
+    }
+    public void clearAntenna() {
+        this.getPersistentData().putBoolean("inRangeOfAntenna", false);
+        this.getPersistentData().putDouble("antennaX", 0);
+        this.getPersistentData().putDouble("antennaY", 0);
+        this.getPersistentData().putDouble("antennaZ", 0);
+    }
+    @Override
+    public boolean inRangeOfAntenna() {
+        return this.getPersistentData().getBoolean("inRangeOfAntenna");
+    }
+    
+    @Override
+    public boolean inRangeOfMainframe() {
+        return this.getPersistentData().getBoolean("inRangeOfMainframe");
+    }
+    
+    @Override
+    public boolean isMainframe() {
+        return false;
+    }
+    
+    @Override
+    public double getAntennaX() {
+        return this.getPersistentData().getDouble("antennaX");
+    }
+    
+    @Override
+    public double getAntennaY() {
+        return this.getPersistentData().getDouble("antennaY");
+    }
+    
+    @Override
+    public double getAntennaZ() {
+        return this.getPersistentData().getDouble("antennaZ");
+    }
+    
+    public BlockPos getAntennaPos() {
+        return new BlockPos.MutableBlockPos(getAntennaX(), getAntennaY(), getAntennaZ());
+    }
+    public AntennaBlockEntity getAntenna() {
+        return (AntennaBlockEntity) this.level.getBlockEntity(getAntennaPos());
+    }
+    
+    public void checkAntenna() {
+        if (this.getAntenna() == null) {
+            setInRangeOfAntenna(false);
+        }
+        AABB antennaRange = getAntenna().getAntennaRange();
+        if (!antennaRange.intersects(this.getBoundingBox())) {
+            clearAntenna();
+        }
+    }
+    public void spawnSmoke() {
+        if (this.level.isClientSide) {
+            this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY() + 1.0D, this.getZ(), 0.0D, 0.0D, 0.0D);
+        }
     }
 }
