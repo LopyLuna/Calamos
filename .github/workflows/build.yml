@@ -47,7 +47,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           BRANCH: ${{ steps.get_branch.outputs.branch }}
-          MOD_GROUP_ID: ${{ steps.read_properties.outputs.mod_group_id }}
+          MOD_GROUP: ${{ steps.read_properties.outputs.mod_group_id }}
           MOD_VERSION: ${{ steps.read_properties.outputs.mod_version }}
           ARCHIVES_BASE_NAME: ${{ steps.read_properties.outputs.archives_base_name }}
         if: github.event_name == 'push' && env.DISCORD_WEBHOOK != ''
