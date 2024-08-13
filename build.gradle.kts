@@ -138,7 +138,7 @@ configure<PublishingExtension> {
             version = "mod_version"()
             pom.packaging = "jar"
 
-            artifact(tasks.build)
+            artifact(tasks.jar)
         }
     }
 
