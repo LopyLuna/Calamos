@@ -23,6 +23,7 @@ public class ModEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> POTION_SICKNESS = EFFECTS.register("potion_sickness",
             () -> new DefaultMobEffect(MobEffectCategory.NEUTRAL,0xbdc225));
+
     public static void staticInit() {
         CalamosMod.LOGGER.info("nauseous metbal");
     }
