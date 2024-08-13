@@ -31,6 +31,7 @@ public class CalamosSurfaceRules {
     {
         return SurfaceRules.state(block.get().defaultBlockState());
     }
+
     private static SurfaceRules.RuleSource makeStateRule(Block block)
     {
         return SurfaceRules.state(block.defaultBlockState());

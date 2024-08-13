@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
 import uwu.lopyluna.calamos.elements.block.MetalGrinderBlock;
+import uwu.lopyluna.calamos.elements.block.OtherworldGrassBlock;
 import uwu.lopyluna.calamos.elements.block.SawmillBlock;
 import uwu.lopyluna.calamos.elements.block.machina.AntennaBlock;
 import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
@@ -158,7 +159,7 @@ public final class ModBlocks {
             ), new Item.Properties());
 
     public static final DeferredBlock<Block> OTHERWORLD_GRASS_BLOCK = register("otherworld_grass_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)
+            () -> new OtherworldGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)
             ), new Item.Properties());
     public static final DeferredBlock<Block> OTHERWORLD_DIRT = register("otherworld_dirt",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)
