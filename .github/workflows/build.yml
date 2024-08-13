@@ -34,7 +34,9 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           message-title: Building mod from branch ${{ steps.get_branch.outputs.branch }}
-      - run: ./gradlew build publish
+      - run: |
+          chmod +x gradlew
+          ./gradlew build publish
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
