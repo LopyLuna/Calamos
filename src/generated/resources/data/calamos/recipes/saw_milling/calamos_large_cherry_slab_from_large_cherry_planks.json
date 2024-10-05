@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 2,
+  "ingredient": {
+    "item": "calamos:large_cherry_planks"
+  },
+  "result": "calamos:large_cherry_slab"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:stripped_crimson_stem"
+  },
+  "result": "minecraft:chest"
+}

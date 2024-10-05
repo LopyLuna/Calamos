@@ -223,7 +223,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModDecorativeBlocks.LARGE_JUNGLE_PLANKS.get().asItem(),
                 ModDecorativeBlocks.LARGE_OAK_PLANKS.get().asItem(),
                 ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.get().asItem(),
-                ModDecorativeBlocks.LARGE_WARPED_PLANKS.get().asItem()
+                ModDecorativeBlocks.LARGE_WARPED_PLANKS.get().asItem(),
+                ModDecorativeBlocks.LARGE_MANGROVE_PLANKS.get().asItem(),
+                ModDecorativeBlocks.LARGE_CHERRY_PLANKS.get().asItem(),
+                ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS.get().asItem(),
+                ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS.get().asItem(),
+                ModDecorativeBlocks.LARGE_HOLLOW_PLANKS.get().asItem()
         );
         tag(ModTags.modItemTag("otherworld_oak_logs")).add(
                 ModDecorativeBlocks.OTHERWORLD_OAK_LOG.get().asItem(),
@@ -236,6 +241,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG.get().asItem(),
                 ModDecorativeBlocks.TWILIGHT_WOOD.get().asItem(),
                 ModDecorativeBlocks.STRIPPED_TWILIGHT_WOOD.get().asItem()
+        );
+        tag(ModTags.modItemTag("hollow_logs")).add(
+                ModDecorativeBlocks.HOLLOW_LOG.get().asItem(),
+                ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.get().asItem(),
+                ModDecorativeBlocks.HOLLOW_WOOD.get().asItem(),
+                ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get().asItem()
         );
     }
 

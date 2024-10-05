@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 3,
+  "ingredient": {
+    "item": "minecraft:cherry_planks"
+  },
+  "result": "minecraft:cherry_fence"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 1,
+  "ingredient": {
+    "item": "calamos:twilight_planks"
+  },
+  "result": "calamos:large_twilight_planks"
+}

@@ -68,7 +68,7 @@ public class CommonForgeEvents {
             return;
         }
 
-        
+
         AttributeInstance healthInst = livingEntity.getAttribute(Attributes.MAX_HEALTH);
         AttributeInstance damageInst = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         CompoundTag tag = livingEntity.getPersistentData();
@@ -84,8 +84,8 @@ public class CommonForgeEvents {
             if (!hasCalamosDamageModifier)
                 damageInst.addPermanentModifier(damageModifier);
         }
-        
-        
+
+
     }
     @SubscribeEvent
     public static void playerJoin(PlayerEvent.PlayerLoggedInEvent event) {
@@ -110,7 +110,8 @@ public class CommonForgeEvents {
                 if (player != null) {
                     player.setGameMode(pestisPlayer.linkedPlayerGameType);
                     player.teleportTo(pestisPlayer.getX(), pestisPlayer.getY(), pestisPlayer.getZ());
-                    player.getLookAngle().vectorTo(pestisPlayer.getLookAngle());
+                    player.setYRot(pestisPlayer.getYRot());
+                    player.setXRot(pestisPlayer.getXRot());
                     CalamosMessages.sendToPlayer(new PestisCameraPacket(player.getId(), pestisPlayer.getId(), true), player);
                 }
             }

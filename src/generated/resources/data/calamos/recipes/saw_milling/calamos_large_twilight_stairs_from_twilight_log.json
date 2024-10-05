@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 4,
+  "ingredient": {
+    "item": "calamos:twilight_log"
+  },
+  "result": "calamos:large_twilight_stairs"
+}

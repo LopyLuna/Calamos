@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 8,
+  "ingredient": {
+    "item": "minecraft:stripped_crimson_stem"
+  },
+  "result": "calamos:large_crimson_slab"
+}

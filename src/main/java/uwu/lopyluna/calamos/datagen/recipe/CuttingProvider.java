@@ -39,25 +39,33 @@ public class CuttingProvider {
     private static void recipesSawmilling(RecipeOutput consumer) {
 
 
-        sawmillLogWoodSet(consumer, Items.ACACIA_LOG, true, false);
-        sawmillLogWoodSet(consumer, Items.BIRCH_LOG, true, false);
-        sawmillLogWoodSet(consumer, Items.DARK_OAK_LOG, true, false);
-        sawmillLogWoodSet(consumer, Items.JUNGLE_LOG, true, false);
-        sawmillLogWoodSet(consumer, Items.OAK_LOG, true, false);
-        sawmillLogWoodSet(consumer, Items.SPRUCE_LOG, true, false);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.OTHERWORLD_OAK_LOG, false, false);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.TWILIGHT_LOG, false, false);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.HOLLOW_LOG, false, false);
+        sawmillLogWoodSet(consumer, Items.ACACIA_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.BIRCH_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.DARK_OAK_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.JUNGLE_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.OAK_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.SPRUCE_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.MANGROVE_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, Items.CRIMSON_STEM, true, false, true);
+        sawmillLogWoodSet(consumer, Items.WARPED_STEM, true, false, true);
+        sawmillLogWoodSet(consumer, Items.CHERRY_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.OTHERWORLD_OAK_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.TWILIGHT_LOG, true, false, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.HOLLOW_LOG, true, false, false);
 
-        sawmillLogWoodSet(consumer, Items.STRIPPED_ACACIA_LOG, true, true);
-        sawmillLogWoodSet(consumer, Items.STRIPPED_BIRCH_LOG, true, true);
-        sawmillLogWoodSet(consumer, Items.STRIPPED_DARK_OAK_LOG, true, true);
-        sawmillLogWoodSet(consumer, Items.STRIPPED_JUNGLE_LOG, true, true);
-        sawmillLogWoodSet(consumer, Items.STRIPPED_OAK_LOG, true, true);
-        sawmillLogWoodSet(consumer, Items.STRIPPED_SPRUCE_LOG, true, true);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG, false, true);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG, false, true);
-        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_HOLLOW_LOG, false, true);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_ACACIA_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_BIRCH_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_DARK_OAK_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_JUNGLE_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_OAK_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_SPRUCE_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_MANGROVE_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_CRIMSON_STEM, true, true, true);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_WARPED_STEM, true, true, true);
+        sawmillLogWoodSet(consumer, Items.STRIPPED_CHERRY_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_TWILIGHT_LOG, true, true, false);
+        sawmillLogWoodSet(consumer, ModDecorativeBlocks.STRIPPED_HOLLOW_LOG, true, true, false);
 
         //sawmillWoodSet(consumer, Items.BAMBOO_LOG, true);
         //sawmillWoodSet(consumer, Items.CRIMSON_LOG, true);
@@ -72,10 +80,15 @@ public class CuttingProvider {
         sawmillWoodSet(consumer, Items.OAK_PLANKS, true);
         sawmillWoodSet(consumer, Items.SPRUCE_PLANKS, true);
         sawmillWoodSet(consumer, Items.WARPED_PLANKS, true);
-        sawmillWoodSet(consumer, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS, false);
-        sawmillWoodSet(consumer, ModDecorativeBlocks.TWILIGHT_PLANKS, false);
-        sawmillWoodSet(consumer, ModDecorativeBlocks.HOLLOW_PLANKS, false);
-        
+        sawmillWoodSet(consumer, Items.MANGROVE_PLANKS, true);
+        sawmillWoodSet(consumer, Items.CHERRY_PLANKS, true);
+        sawmillWoodSet(consumer, ModDecorativeBlocks.OTHERWORLD_OAK_PLANKS, true);
+        sawmillWoodSet(consumer, ModDecorativeBlocks.TWILIGHT_PLANKS, true);
+        sawmillWoodSet(consumer, ModDecorativeBlocks.HOLLOW_PLANKS, true);
+
+        sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS);
+        sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS);
+        sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_HOLLOW_PLANKS);
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_BIRCH_PLANKS);
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_BAMBOO_PLANKS);
@@ -85,6 +98,8 @@ public class CuttingProvider {
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_OAK_PLANKS);
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_SPRUCE_PLANKS);
         sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_WARPED_PLANKS);
+        sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_MANGROVE_PLANKS);
+        sawmillStairsSlab(consumer, ModDecorativeBlocks.LARGE_CHERRY_PLANKS);
     }
     
     private static void recipesMetalGrinding(RecipeOutput consumer) {
@@ -130,7 +145,7 @@ public class CuttingProvider {
         addSawMilling(consumer, slab, 2, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(slabName.replace(':', '_'), name.replace(':', '_')), 1));
     }
 
-    private static void sawmillLogWoodSet(RecipeOutput consumer, ItemLike initialWood, boolean hasLarge, boolean isStripped) {
+    private static void sawmillLogWoodSet(RecipeOutput consumer, ItemLike initialWood, boolean hasLarge, boolean isStripped, boolean isStem) {
         String name = getItemName(initialWood);
         String modName = getItemModName(initialWood);
 
@@ -138,39 +153,39 @@ public class CuttingProvider {
         ItemLike chest = getItem(chest_name);
 
         if (!isStripped) {
-            String planksName = modName + ":" + name.replace("_log", "_planks");
+            String planksName = isStem ? modName + ":" + name.replace("_stem", "_planks") : modName + ":" + name.replace("_log", "_planks");
             ItemLike planks = getItem(planksName);
 
             String strippedLogName = modName + ":stripped_" + name;
             ItemLike strippedLog = getItem(strippedLogName);
 
-            String stairsName = modName + ":" + name.replace("_log", "_stairs");
+            String stairsName = isStem ? modName + ":" + name.replace("_stem", "_stairs") : modName + ":" + name.replace("_log", "_stairs");
             ItemLike stairs = getItem(stairsName);
-            String slabName = modName + ":" + name.replace("_log", "_slab");
+            String slabName = isStem ? modName + ":" + name.replace("_stem", "_slab") : modName + ":" + name.replace("_log", "_slab");
             ItemLike slab = getItem(slabName);
-            String fenceName = modName + ":" + name.replace("_log", "_fence");
+            String fenceName = isStem ? modName + ":" + name.replace("_stem", "_fence") : modName + ":" + name.replace("_log", "_fence");
             ItemLike fence = getItem(fenceName);
-            String fenceGateName = modName + ":" + name.replace("_log", "_fence_gate");
+            String fenceGateName = isStem ? modName + ":" + name.replace("_stem", "_fence_gate") : modName + ":" + name.replace("_log", "_fence_gate");
             ItemLike fenceGate = getItem(fenceGateName);
-            String doorName = modName + ":" + name.replace("_log", "_door");
+            String doorName = isStem ? modName + ":" + name.replace("_stem", "_door") : modName + ":" + name.replace("_log", "_door");
             ItemLike door = getItem(doorName);
-            String trapdoorName = modName + ":" + name.replace("_log", "_trapdoor");
+            String trapdoorName = isStem ? modName + ":" + name.replace("_stem", "_trapdoor") : modName + ":" + name.replace("_log", "_trapdoor");
             ItemLike trapdoor = getItem(trapdoorName);
-            String buttonName = modName + ":" + name.replace("_log", "_button");
+            String buttonName = isStem ? modName + ":" + name.replace("_stem", "_button") : modName + ":" + name.replace("_log", "_button");
             ItemLike button = getItem(buttonName);
-            String pressurePlateName = modName + ":" + name.replace("_log", "_pressure_plate");
+            String pressurePlateName = isStem ? modName + ":" + name.replace("_stem", "_pressure_plate") : modName + ":" + name.replace("_log", "_pressure_plate");
             ItemLike pressurePlate = getItem(pressurePlateName);
-            String signName = modName + ":" + name.replace("_log", "_sign");
+            String signName = isStem ? modName + ":" + name.replace("_stem", "_sign") : modName + ":" + name.replace("_log", "_sign");
             ItemLike sign = getItem(signName);
-            String hangingSignName = modName + ":" + name.replace("_log", "_hanging_sign");
+            String hangingSignName = isStem ? modName + ":" + name.replace("_stem", "_hanging_sign") : modName + ":" + name.replace("_log", "_hanging_sign");
             ItemLike hangingSign = getItem(hangingSignName);
 
             if (hasLarge) {
-                String largePlanksName = "calamos:large_" + name.replace("_log", "_planks");
+                String largePlanksName = isStem ? "calamos:large_" + name.replace("_stem", "_planks") : "calamos:large_" + name.replace("_log", "_planks");
                 ItemLike largePlanks = getItem(largePlanksName);
-                String largeStairsName = "calamos:large_" + name.replace("_log", "_stairs");
+                String largeStairsName = isStem ? "calamos:large_" + name.replace("_stem", "_stairs") : "calamos:large_" + name.replace("_log", "_stairs");
                 ItemLike largeStairs = getItem(largeStairsName);
-                String largeSlabName = "calamos:large_" + name.replace("_log", "_slab");
+                String largeSlabName = isStem ? "calamos:large_" + name.replace("_stem", "_slab") : "calamos:large_" + name.replace("_log", "_slab");
                 ItemLike largeSlab = getItem(largeSlabName);
                 addSawMilling(consumer, largePlanks, 4, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(largePlanksName.replace(':', '_'), name.replace(':', '_')), 1));
                 addSawMilling(consumer, largeStairs, 4, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(largeStairsName.replace(':', '_'), name.replace(':', '_')), 1));
@@ -192,36 +207,36 @@ public class CuttingProvider {
 
             addSawMilling(consumer, chest, 1, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(chest_name.replace(':', '_'), name.replace(':', '_')), 1));
         } else {
-            String s_planksName = modName + ":" + name.replace("_log", "_planks").replace("stripped_", "");
+            String s_planksName = isStem ? modName + ":" + name.replace("_stem", "_planks").replace("stripped_", "") : modName + ":" + name.replace("_log", "_planks").replace("stripped_", "");
             ItemLike s_planks = getItem(s_planksName);
 
-            String s_stairsName = modName + ":" + name.replace("_log", "_stairs").replace("stripped_", "");
+            String s_stairsName = isStem ? modName + ":" + name.replace("_stem", "_stairs").replace("stripped_", "") : modName + ":" + name.replace("_log", "_stairs").replace("stripped_", "");
             ItemLike s_stairs = getItem(s_stairsName);
-            String s_slabName = modName + ":" + name.replace("_log", "_slab").replace("stripped_", "");
+            String s_slabName = isStem ? modName + ":" + name.replace("_stem", "_slab").replace("stripped_", "") : modName + ":" + name.replace("_log", "_slab").replace("stripped_", "");
             ItemLike s_slab = getItem(s_slabName);
-            String s_fenceName = modName + ":" + name.replace("_log", "_fence").replace("stripped_", "");
+            String s_fenceName = isStem ? modName + ":" + name.replace("_stem", "_fence").replace("stripped_", "") : modName + ":" + name.replace("_log", "_fence").replace("stripped_", "");
             ItemLike s_fence = getItem(s_fenceName);
-            String s_fenceGateName = modName + ":" + name.replace("_log", "_fence_gate").replace("stripped_", "");
+            String s_fenceGateName = isStem ? modName + ":" + name.replace("_stem", "_fence_gate").replace("stripped_", "") : modName + ":" + name.replace("_log", "_fence_gate").replace("stripped_", "");
             ItemLike s_fenceGate = getItem(s_fenceGateName);
-            String s_doorName = modName + ":" + name.replace("_log", "_door").replace("stripped_", "");
+            String s_doorName = isStem ? modName + ":" + name.replace("_stem", "_door").replace("stripped_", "") : modName + ":" + name.replace("_log", "_door").replace("stripped_", "");
             ItemLike s_door = getItem(s_doorName);
-            String s_trapdoorName = modName + ":" + name.replace("_log", "_trapdoor").replace("stripped_", "");
+            String s_trapdoorName = isStem ? modName + ":" + name.replace("_stem", "_trapdoor").replace("stripped_", "") : modName + ":" + name.replace("_log", "_trapdoor").replace("stripped_", "");
             ItemLike s_trapdoor = getItem(s_trapdoorName);
-            String s_buttonName = modName + ":" + name.replace("_log", "_button").replace("stripped_", "");
+            String s_buttonName = isStem ? modName + ":" + name.replace("_stem", "_button").replace("stripped_", "") : modName + ":" + name.replace("_log", "_button").replace("stripped_", "");
             ItemLike s_button = getItem(s_buttonName);
-            String s_pressurePlateName = modName + ":" + name.replace("_log", "_pressure_plate").replace("stripped_", "");
+            String s_pressurePlateName = isStem ? modName + ":" + name.replace("_stem", "_pressure_plate").replace("stripped_", "") : modName + ":" + name.replace("_log", "_pressure_plate").replace("stripped_", "");
             ItemLike s_pressurePlate = getItem(s_pressurePlateName);
-            String s_signName = modName + ":" + name.replace("_log", "_sign").replace("stripped_", "");
+            String s_signName = isStem ? modName + ":" + name.replace("_stem", "_sign").replace("stripped_", "") : modName + ":" + name.replace("_log", "_sign").replace("stripped_", "");
             ItemLike s_sign = getItem(s_signName);
-            String s_hangingSignName = modName + ":" + name.replace("_log", "_hanging_sign").replace("stripped_", "");
+            String s_hangingSignName = isStem ? modName + ":" + name.replace("_stem", "_hanging_sign").replace("stripped_", "") : modName + ":" + name.replace("_log", "_hanging_sign").replace("stripped_", "");
             ItemLike s_hangingSign = getItem(s_hangingSignName);
 
             if (hasLarge) {
-                String largePlanksName = "calamos:large_" + name.replace("_log", "_planks").replace("stripped_", "");
+                String largePlanksName = isStem ? "calamos:large_" + name.replace("_stem", "_planks").replace("stripped_", "") : "calamos:large_" + name.replace("_log", "_planks").replace("stripped_", "");
                 ItemLike largePlanks = getItem(largePlanksName);
-                String largeStairsName = "calamos:large_" + name.replace("_log", "_stairs").replace("stripped_", "");
+                String largeStairsName = isStem ? "calamos:large_" + name.replace("_stem", "_stairs").replace("stripped_", "") : "calamos:large_" + name.replace("_log", "_stairs").replace("stripped_", "");
                 ItemLike largeStairs = getItem(largeStairsName);
-                String largeSlabName = "calamos:large_" + name.replace("_log", "_slab").replace("stripped_", "");
+                String largeSlabName = isStem ? "calamos:large_" + name.replace("_stem", "_slab").replace("stripped_", "") : "calamos:large_" + name.replace("_log", "_slab").replace("stripped_", "");
                 ItemLike largeSlab = getItem(largeSlabName);
                 addSawMilling(consumer, largePlanks, 4, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(largePlanksName.replace(':', '_'), name.replace(':', '_')), 1));
                 addSawMilling(consumer, largeStairs, 4, initialWood, RecipeCategory.BUILDING_BLOCKS).unlockedBy(getHasName(initialWood), InventoryChangeTrigger.TriggerInstance.hasItems(initialWood)).save(consumer, location(from(largeStairsName.replace(':', '_'), name.replace(':', '_')), 1));

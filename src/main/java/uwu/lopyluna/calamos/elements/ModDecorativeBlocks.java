@@ -187,6 +187,15 @@ public class ModDecorativeBlocks {
             () -> new ModCeilingHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> OTHERWORLD_OAK_WALL_HANGING_SIGN = BLOCKS.register("otherworld_oak_wall_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.OTHERWORLD_OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final DeferredBlock<Block> LARGE_OTHERWORLD_OAK_PLANKS = register("large_otherworld_oak_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(OTHERWORLD_OAK_PLANKS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_OTHERWORLD_OAK_STAIRS = register("large_otherworld_oak_stairs",
+            () -> new StairBlock(LARGE_OTHERWORLD_OAK_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(OTHERWORLD_OAK_STAIRS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_OTHERWORLD_OAK_SLAB = register("large_otherworld_oak_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(OTHERWORLD_OAK_SLAB.get())
+            ), new Item.Properties());
     //Twilight
     public static final DeferredBlock<Block> TWILIGHT_LOG = register("twilight_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
@@ -235,6 +244,15 @@ public class ModDecorativeBlocks {
             () -> new ModCeilingHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> TWILIGHT_WALL_HANGING_SIGN = BLOCKS.register("twilight_wall_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.TWILIGHT, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final DeferredBlock<Block> LARGE_TWILIGHT_PLANKS = register("large_twilight_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(TWILIGHT_PLANKS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_TWILIGHT_STAIRS = register("large_twilight_stairs",
+            () -> new StairBlock(LARGE_TWILIGHT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TWILIGHT_STAIRS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_TWILIGHT_SLAB = register("large_twilight_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(TWILIGHT_SLAB.get())
+            ), new Item.Properties());
     //Hollow
     public static final DeferredBlock<Block> HOLLOW_LOG = register("hollow_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
@@ -283,6 +301,15 @@ public class ModDecorativeBlocks {
             () -> new ModCeilingHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
     public static final DeferredBlock<Block> HOLLOW_WALL_HANGING_SIGN = BLOCKS.register("hollow_wall_hanging_sign",
             () -> new ModHangingSignBlock(ModWoodTypes.HOLLOW, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final DeferredBlock<Block> LARGE_HOLLOW_PLANKS = register("large_hollow_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(HOLLOW_PLANKS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_HOLLOW_STAIRS = register("large_hollow_stairs",
+            () -> new StairBlock(LARGE_HOLLOW_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(HOLLOW_STAIRS.get())
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_HOLLOW_SLAB = register("large_hollow_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(HOLLOW_SLAB.get())
+            ), new Item.Properties());
     //Amethyst
     public static final DeferredBlock<Block> AMETHYST_BRICKS = register("amethyst_bricks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)
@@ -461,6 +488,16 @@ public class ModDecorativeBlocks {
             ), new Item.Properties());
     public static final DeferredBlock<Block> LARGE_WARPED_SLAB = register("large_warped_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)
+            ), new Item.Properties());
+        //Cherry
+    public static final DeferredBlock<Block> LARGE_CHERRY_PLANKS = register("large_cherry_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_CHERRY_STAIRS = register("large_cherry_stairs",
+            () -> new StairBlock(LARGE_CHERRY_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_STAIRS)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> LARGE_CHERRY_SLAB = register("large_cherry_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_SLAB)
             ), new Item.Properties());
     //Tiles
     public static final DeferredBlock<Block> ENDSTONE_TILES = register("endstone_tiles",

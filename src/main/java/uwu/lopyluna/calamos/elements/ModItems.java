@@ -13,6 +13,7 @@ import uwu.lopyluna.calamos.elements.items.ParticleSpewingItem;
 import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
+import uwu.lopyluna.calamos.elements.items.potions.RecallPotionItem;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
@@ -72,6 +73,7 @@ public final class ModItems {
     public static final DeferredItem<Item> METEORITE_REAPER = register("meteorite_reaper", () -> new CalamosReaper(CalamosTiers.METEORITE, 3, -2.4F, 5, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> METEORITE_SWORD = register("meteorite_sword", () -> new CalamosSword(CalamosTiers.METEORITE, 3, -2.4F, true, new Item.Properties().fireResistant()));
     public static final DeferredItem<Item> VOLCANITE_SWORD = register("volcanite_sword", () -> new VolcaniteSword(new Item.Properties().fireResistant()));
+
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
     //SIGNS
     public static final DeferredItem<Item> OTHERWORLD_OAK_SIGN = register("otherworld_oak_sign",
@@ -150,6 +152,9 @@ public final class ModItems {
             new HealingPotionItem(sublimeHealingFactor, healingPotionCooldown, 0, new Item.Properties()));
     public static final DeferredItem<Item> SUBLIME_RECOVERING_POTION = register("sublime_recovering_potion", () ->
             new HealingPotionItem((int) ((float) sublimeHealingFactor * recoveringDivisionFactor), recoveringPotionCooldown, 0, new Item.Properties()));
+
+    public static final DeferredItem<Item> RECALL_POTION = register("recall_potion", () ->
+            new RecallPotionItem(healingPotionCooldown, 0, new Item.Properties()));
     
     public static final DeferredItem<Item> URANIUM_BLOCK = register("uranium_block", () -> new ParticleSpewingBlockItem(ModBlocks.URANIUM_BLOCK.get(), new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));
     public static final DeferredItem<Item> RAW_URANIUM_BLOCK = register("raw_uranium_block", () -> new ParticleSpewingBlockItem(ModBlocks.RAW_URANIUM_BLOCK.get(), new Item.Properties(), ParticleTypes.GLOW, ParticleTypes.HAPPY_VILLAGER));

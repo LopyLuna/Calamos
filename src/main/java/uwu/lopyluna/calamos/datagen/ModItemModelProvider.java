@@ -90,6 +90,8 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.SUBLIME_HEALING_POTION);
         this.basicItem(ModItems.SUBLIME_RECOVERING_POTION);
 
+        this.basicItem(ModItems.RECALL_POTION);
+
         this.doorItem(ModDecorativeBlocks.OTHERWORLD_OAK_DOOR);
         this.basicItem(ModItems.OTHERWORLD_OAK_SIGN);
         this.basicItem(ModItems.OTHERWORLD_OAK_HANGING_SIGN);

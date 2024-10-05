@@ -124,6 +124,9 @@ public class CraftingProvider {
         simpleShapeless(ModDecorativeBlocks.TWILIGHT_PLANKS.asItem(), ModDecorativeBlocks.TWILIGHT_LOG.asItem(), 4).save(consumer, location("twilight_planks"));
         simpleShapeless(ModDecorativeBlocks.HOLLOW_PLANKS.asItem(), ModDecorativeBlocks.HOLLOW_LOG.asItem(), 4).save(consumer, location("hollow_planks"));
 
+        simpleStairs(ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_STAIRS.asItem(), ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("large_otherworld_oak_stairs"));
+        simpleStairs(ModDecorativeBlocks.LARGE_TWILIGHT_STAIRS.asItem(), ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS.asItem()).save(consumer, location("large_twilight_stairs"));
+        simpleStairs(ModDecorativeBlocks.LARGE_HOLLOW_STAIRS.asItem(), ModDecorativeBlocks.LARGE_HOLLOW_PLANKS.asItem()).save(consumer, location("large_hollow_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_ACACIA_STAIRS.asItem(), ModDecorativeBlocks.LARGE_ACACIA_PLANKS.asItem()).save(consumer, location("large_acacia_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_BIRCH_STAIRS.asItem(), ModDecorativeBlocks.LARGE_BIRCH_PLANKS.asItem()).save(consumer, location("large_birch_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_CRIMSON_STAIRS.asItem(), ModDecorativeBlocks.LARGE_CRIMSON_PLANKS.asItem()).save(consumer, location("large_crimson_stairs"));
@@ -132,7 +135,12 @@ public class CraftingProvider {
         simpleStairs(ModDecorativeBlocks.LARGE_OAK_STAIRS.asItem(), ModDecorativeBlocks.LARGE_OAK_PLANKS.asItem()).save(consumer, location("large_oak_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_SPRUCE_STAIRS.asItem(), ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.asItem()).save(consumer, location("large_spruce_stairs"));
         simpleStairs(ModDecorativeBlocks.LARGE_WARPED_STAIRS.asItem(), ModDecorativeBlocks.LARGE_WARPED_PLANKS.asItem()).save(consumer, location("large_warped_stairs"));
-        
+        simpleStairs(ModDecorativeBlocks.LARGE_MANGROVE_STAIRS.asItem(), ModDecorativeBlocks.LARGE_MANGROVE_PLANKS.asItem()).save(consumer, location("large_mangrove_stairs"));
+        simpleStairs(ModDecorativeBlocks.LARGE_CHERRY_STAIRS.asItem(), ModDecorativeBlocks.LARGE_CHERRY_PLANKS.asItem()).save(consumer, location("large_cherry_stairs"));
+
+        simpleSlab(ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_SLAB.asItem(), ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS.asItem()).save(consumer, location("large_otherworld_oak_slab"));
+        simpleSlab(ModDecorativeBlocks.LARGE_TWILIGHT_SLAB.asItem(), ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS.asItem()).save(consumer, location("large_twilight_slab"));
+        simpleSlab(ModDecorativeBlocks.LARGE_HOLLOW_SLAB.asItem(), ModDecorativeBlocks.LARGE_HOLLOW_PLANKS.asItem()).save(consumer, location("large_hollow_slab"));
         simpleSlab(ModDecorativeBlocks.LARGE_ACACIA_SLAB.asItem(), ModDecorativeBlocks.LARGE_ACACIA_PLANKS.asItem()).save(consumer, location("large_acacia_slab"));
         simpleSlab(ModDecorativeBlocks.LARGE_BIRCH_SLAB.asItem(), ModDecorativeBlocks.LARGE_BIRCH_PLANKS.asItem()).save(consumer, location("large_birch_slab"));
         simpleSlab(ModDecorativeBlocks.LARGE_CRIMSON_SLAB.asItem(), ModDecorativeBlocks.LARGE_CRIMSON_PLANKS.asItem()).save(consumer, location("large_crimson_slab"));
@@ -141,6 +149,8 @@ public class CraftingProvider {
         simpleSlab(ModDecorativeBlocks.LARGE_OAK_SLAB.asItem(), ModDecorativeBlocks.LARGE_OAK_PLANKS.asItem()).save(consumer, location("large_oak_slab"));
         simpleSlab(ModDecorativeBlocks.LARGE_SPRUCE_SLAB.asItem(), ModDecorativeBlocks.LARGE_SPRUCE_PLANKS.asItem()).save(consumer, location("large_spruce_slab"));
         simpleSlab(ModDecorativeBlocks.LARGE_WARPED_SLAB.asItem(), ModDecorativeBlocks.LARGE_WARPED_PLANKS.asItem()).save(consumer, location("large_warped_slab"));
+        simpleSlab(ModDecorativeBlocks.LARGE_MANGROVE_SLAB.asItem(), ModDecorativeBlocks.LARGE_MANGROVE_PLANKS.asItem()).save(consumer, location("large_mangrove_slab"));
+        simpleSlab(ModDecorativeBlocks.LARGE_CHERRY_SLAB.asItem(), ModDecorativeBlocks.LARGE_CHERRY_PLANKS.asItem()).save(consumer, location("large_cherry_slab"));
         
         //STONE STUFFS
         compressedBlock(ModDecorativeBlocks.STONE_TILES.asItem(), Items.STONE_BRICKS, true, 4).save(consumer, location("stone_tiles"));

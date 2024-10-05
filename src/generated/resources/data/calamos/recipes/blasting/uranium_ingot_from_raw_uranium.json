@@ -1,8 +1,8 @@
 {
   "type": "minecraft:blasting",
   "category": "misc",
-  "cookingtime": 1200,
-  "experience": 0.65,
+  "cookingtime": 100,
+  "experience": 0.7,
   "ingredient": {
     "item": "calamos:raw_uranium"
   },

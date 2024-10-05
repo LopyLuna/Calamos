@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
@@ -69,5 +70,9 @@ public class CalamosMod {
     
     public static IEventBus getEventBus() {
         return INSTANCE.modEventBus;
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return new ResourceLocation(MODID, path);
     }
 }

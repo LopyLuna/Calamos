@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 32,
+  "ingredient": {
+    "item": "minecraft:cherry_log"
+  },
+  "result": "minecraft:cherry_button"
+}

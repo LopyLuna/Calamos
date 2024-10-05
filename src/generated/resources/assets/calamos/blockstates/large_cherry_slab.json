@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "calamos:block/large_cherry_slab"
+    },
+    "type=double": {
+      "model": "calamos:block/large_cherry_planks"
+    },
+    "type=top": {
+      "model": "calamos:block/large_cherry_slab_top"
+    }
+  }
+}

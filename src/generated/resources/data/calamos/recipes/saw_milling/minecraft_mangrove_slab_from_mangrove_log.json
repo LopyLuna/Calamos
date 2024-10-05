@@ -1,0 +1,8 @@
+{
+  "type": "calamos:sawmilling",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:mangrove_log"
+  },
+  "result": "minecraft:mangrove_slab"
+}

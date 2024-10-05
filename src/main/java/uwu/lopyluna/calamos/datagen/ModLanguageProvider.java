@@ -153,6 +153,14 @@ class ModLanguageProvider extends LanguageProvider {
             super.add("tag.item.%s.%s".formatted(tagNamespace, tagId.getPath().replace('/', '.')), tag.getC());
         }
         this.add("tag.item.calamos.large_planks", "Large Planks");
+        this.add("tag.item.calamos.otherworld_oak_logs", "Otherworld Oak Logs");
+        this.add("tag.item.calamos.twilight_logs", "Twilight Logs");
+        this.add("tag.item.calamos.hollow_logs", "Hollow Logs");
+        this.add("tag.item.calamos.reapers", "Reapers");
+        this.add("tag.item.calamos.wings", "Wings");
+        this.add("tag.item.curios.wings", "Wings");
+        this.add("tag.item.curios.accessory", "Accessory");
+
         this.add("emi.category.calamos.sawmilling", "Sawmilling");
         this.add("emi.category.calamos.metal_grinding", "Metal Grinding");
     }

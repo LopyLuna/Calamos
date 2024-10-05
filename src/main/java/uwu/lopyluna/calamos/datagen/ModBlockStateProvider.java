@@ -186,6 +186,18 @@ class ModBlockStateProvider extends BlockStateProvider {
         //Brick
         this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_BRICKS);
         //--Large Planks--//
+        //Otherworld Oak
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_STAIRS, ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_SLAB, ModDecorativeBlocks.LARGE_OTHERWORLD_OAK_PLANKS);
+        //Twilight
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_TWILIGHT_STAIRS, ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_TWILIGHT_SLAB, ModDecorativeBlocks.LARGE_TWILIGHT_PLANKS);
+        //Hollow
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_HOLLOW_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_HOLLOW_STAIRS, ModDecorativeBlocks.LARGE_HOLLOW_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_HOLLOW_SLAB, ModDecorativeBlocks.LARGE_HOLLOW_PLANKS);
         //Acacia
         this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
         this.simpleStairs(ModDecorativeBlocks.LARGE_ACACIA_STAIRS, ModDecorativeBlocks.LARGE_ACACIA_PLANKS);
@@ -226,6 +238,10 @@ class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_WARPED_PLANKS);
         this.simpleStairs(ModDecorativeBlocks.LARGE_WARPED_STAIRS, ModDecorativeBlocks.LARGE_WARPED_PLANKS);
         this.simpleSlab(ModDecorativeBlocks.LARGE_WARPED_SLAB, ModDecorativeBlocks.LARGE_WARPED_PLANKS);
+        //Cherry
+        this.simpleBlockAndItem(ModDecorativeBlocks.LARGE_CHERRY_PLANKS);
+        this.simpleStairs(ModDecorativeBlocks.LARGE_CHERRY_STAIRS, ModDecorativeBlocks.LARGE_CHERRY_PLANKS);
+        this.simpleSlab(ModDecorativeBlocks.LARGE_CHERRY_SLAB, ModDecorativeBlocks.LARGE_CHERRY_PLANKS);
         //----//
         //Tiles
         this.simpleBlockAndItem(ModDecorativeBlocks.ENDSTONE_TILES);

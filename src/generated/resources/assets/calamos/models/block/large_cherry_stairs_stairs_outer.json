@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "calamos:block/large_cherry_planks",
+    "side": "calamos:block/large_cherry_planks",
+    "top": "calamos:block/large_cherry_planks"
+  }
+}
