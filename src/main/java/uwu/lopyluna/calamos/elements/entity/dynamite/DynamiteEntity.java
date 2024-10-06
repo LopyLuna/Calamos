@@ -29,6 +29,7 @@ public class DynamiteEntity extends ThrowableProjectile {
     private static final EntityDataAccessor<Boolean> DATA_HAS_FUSE;
     private static final EntityDataAccessor<Float> DATA_EXPLOSION_POWER;
     private static final EntityDataAccessor<Boolean> DATA_NO_PHYSICS;
+    private static final EntityDataAccessor<Boolean> DATA_FROM_BOONE;
     @Nullable
     private BlockState lastState;
     protected boolean inGround;
@@ -39,6 +40,7 @@ public class DynamiteEntity extends ThrowableProjectile {
     public DynamiteEntity(EntityType<DynamiteEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
+
     public DynamiteEntity(Level pLevel, double pX, double pY, double pZ) {
         super(ModEntity.DYNAMITE.get(), pLevel);
         this.setPos(pX, pY + 2, pZ);
@@ -50,6 +52,7 @@ public class DynamiteEntity extends ThrowableProjectile {
         this.entityData.define(DATA_HAS_FUSE, false);
         this.entityData.define(DATA_EXPLOSION_POWER, 4.0F);
         this.entityData.define(DATA_NO_PHYSICS, false);
+        this.entityData.define(DATA_FROM_BOONE, false);
     }
 
     @Override
@@ -94,6 +97,14 @@ public class DynamiteEntity extends ThrowableProjectile {
         return this.entityData.get(DATA_FUSE_ID);
     }
 
+    public void setFromBoone(boolean pFromBoone) {
+        this.entityData.set(DATA_FROM_BOONE, pFromBoone);
+    }
+
+    public boolean isFromBoone() {
+        return this.entityData.get(DATA_FROM_BOONE);
+    }
+
     @Override
     public boolean isPickable() {
         return false;
@@ -106,13 +117,14 @@ public class DynamiteEntity extends ThrowableProjectile {
 
     @Override
     public void kill() {
-        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), this.getExplosionPower(), Level.ExplosionInteraction.TNT);
+        Level.ExplosionInteraction level$explosioninteraction = isFromBoone() ? Level.ExplosionInteraction.NONE : Level.ExplosionInteraction.TNT;
+        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), this.getExplosionPower(), level$explosioninteraction);
         super.kill();
     }
 
     public void triggerOtherDynamite() {
         this.level().getEntitiesOfClass(DynamiteEntity.class, this.getBoundingBox().inflate(getExplosionPower())).forEach((dynamite) -> {
-            if (dynamite != this && !dynamite.hasFuse()) {
+            if (dynamite != this) {
                 dynamite.setHasFuse(true);
                 int randomFuseAddition = Mth.clamp(this.random.nextInt(10) - 5, 0, 10);
                 dynamite.setFuse(FUSE_TIME_externallyTriggered + randomFuseAddition);
@@ -219,5 +231,6 @@ public class DynamiteEntity extends ThrowableProjectile {
         DATA_HAS_FUSE = SynchedEntityData.defineId(DynamiteEntity.class, EntityDataSerializers.BOOLEAN);
         DATA_EXPLOSION_POWER = SynchedEntityData.defineId(DynamiteEntity.class, EntityDataSerializers.FLOAT);
         DATA_NO_PHYSICS = SynchedEntityData.defineId(DynamiteEntity.class, EntityDataSerializers.BOOLEAN);
+        DATA_FROM_BOONE = SynchedEntityData.defineId(DynamiteEntity.class, EntityDataSerializers.BOOLEAN);
     }
 }

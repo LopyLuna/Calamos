@@ -168,6 +168,7 @@ public class BooneModel<T extends BooneEntity> extends HierarchicalModel<T> {
 
         this.animateWalk(BooneAnimation.BOONE_WALK, limbSwing, limbSwingAmount, 2.0F, 2.0F);
         this.animate(entity.idleAnimationState, BooneAnimation.BOONE_IDLE, ageInTicks, 1.0F);
+        this.animate(entity.groundSmashAnimationState, BooneAnimation.BOONE_GROUND_SMASH, ageInTicks, 1.0F);
     }
 
     @Override
