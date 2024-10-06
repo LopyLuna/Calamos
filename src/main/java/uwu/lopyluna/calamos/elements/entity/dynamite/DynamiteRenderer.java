@@ -40,7 +40,7 @@ public class DynamiteRenderer extends EntityRenderer<DynamiteEntity> {
         pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 
         pPoseStack.translate(0.0F, 0.0F, -0.5F);
-        pPoseStack.scale((float) (0.1F * (Math.sin(pEntity.tickCount / 100.0F) + 1.0F)), (float) (0.1F * (Math.sin(pEntity.tickCount / 500.0F) + 1.0F)), (float) (0.1F * (Math.sin(pEntity.tickCount / 100.0F) + 1.0F)));
+        //pPoseStack.scale((float) (0.1F * (Math.sin(pEntity.tickCount / 100.0F) + 1.0F)), (float) (0.1F * (Math.sin(pEntity.tickCount / 500.0F) + 1.0F)), (float) (0.1F * (Math.sin(pEntity.tickCount / 100.0F) + 1.0F)));
 
         VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.entityCutout(this.getTextureLocation(pEntity)));
         PoseStack.Pose pose = pPoseStack.last();

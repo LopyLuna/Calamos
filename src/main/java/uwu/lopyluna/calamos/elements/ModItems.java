@@ -15,6 +15,7 @@ import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.elements.items.potions.RecallPotionItem;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
+import uwu.lopyluna.calamos.elements.items.properties.DynamiteItem;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
 import uwu.lopyluna.calamos.elements.items.tool.CalamosTiers;
@@ -90,6 +91,9 @@ public final class ModItems {
             () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.HOLLOW_SIGN.get(), ModDecorativeBlocks.HOLLOW_WALL_SIGN.get()));
     public static final DeferredItem<Item> HOLLOW_HANGING_SIGN = register("hollow_hanging_sign",
             () -> new HangingSignItem(ModDecorativeBlocks.HOLLOW_HANGING_SIGN.get(), ModDecorativeBlocks.HOLLOW_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+
+    //PROJECTILES
+    public static final DeferredItem<Item> DYNAMITE = register("dynamite", () -> new DynamiteItem(new Item.Properties().stacksTo(16)));
 
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);

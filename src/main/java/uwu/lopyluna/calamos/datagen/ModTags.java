@@ -15,6 +15,12 @@ public class ModTags {
     public static TagKey<Block> forgeBlockTag(String path) {
         return BlockTags.create(new ResourceLocation("forge", path));
     }
+    public static TagKey<Item> mcItemTag(String path) {
+        return ItemTags.create(new ResourceLocation("minecraft", path));
+    }
+    public static TagKey<Block> mcBlockTag(String path) {
+        return BlockTags.create(new ResourceLocation("minecraft", path));
+    }
     public static TagKey<Item> modItemTag(String path) {
         return ItemTags.create(new ResourceLocation(CalamosMod.MODID, path));
     }

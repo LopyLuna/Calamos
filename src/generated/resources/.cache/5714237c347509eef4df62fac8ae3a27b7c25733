@@ -1,4 +1,4 @@
-// 1.20.4	2024-10-05T18:22:33.471979	Item Models: calamos
+// 1.20.4	2024-10-06T14:18:09.1714348	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -6,6 +6,7 @@ e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.js
 45bdac0c7490ce619d0470400a0b24f714ab1518 assets/calamos/models/item/debug_health.json
 a887c4ab5c9c2b11e58eb40a24d08ba90c4514d8 assets/calamos/models/item/duplex_healing_potion.json
 8ada64eaf3756f88b0c25a8cbd5b19cd345ab458 assets/calamos/models/item/duplex_recovering_potion.json
+ad37c15913e96eb07868106d5fc2186f17d25694 assets/calamos/models/item/dynamite.json
 cff81c047314534d8aa343af856a546ba8e32677 assets/calamos/models/item/ectolight_ingot.json
 0bd835adabbeb6f9fc5dcbaad188fcb630eefb53 assets/calamos/models/item/ectoplasma.json
 6c04c0765a4c0f154b37a68ebbf12039ac7d8708 assets/calamos/models/item/elegant_bloom.json
