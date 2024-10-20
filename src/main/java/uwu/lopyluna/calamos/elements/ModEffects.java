@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.effects.DefaultMobEffect;
+import uwu.lopyluna.calamos.elements.effects.IrradiatedEffect;
 import uwu.lopyluna.calamos.elements.effects.MachinaPestisEffect;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
@@ -23,6 +24,8 @@ public class ModEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> POTION_SICKNESS = EFFECTS.register("potion_sickness",
             () -> new DefaultMobEffect(MobEffectCategory.NEUTRAL,0xbdc225));
+
+    public static final DeferredHolder<MobEffect, MobEffect> IRRADIATED = EFFECTS.register("irradiated", IrradiatedEffect::new);
 
     public static void staticInit() {
         CalamosMod.LOGGER.info("nauseous metbal");

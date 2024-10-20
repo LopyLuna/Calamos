@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import uwu.lopyluna.calamos.elements.ModEnchantments;
-import uwu.lopyluna.calamos.elements.items.tool.CalamosTool;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTool;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {

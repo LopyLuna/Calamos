@@ -32,6 +32,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     
     
     private void registerMinecraftTags() {
+        tag(ItemTags.ARROWS).add(
+                ModItems.IRRADIATED_ARROW.get()
+        );
         tag(ItemTags.WALLS).add(
                 ModDecorativeBlocks.COBBLED_SOUL_SANDSTONE_WALL.get().asItem(),
                 ModDecorativeBlocks.SOUL_SANDSTONE_WALL.get().asItem(),
@@ -206,6 +209,43 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.ELEGANT_BLOOM.get(),
                 ModItems.PALLADIUM_INGOT.get()
         );
+        tag(ItemTags.TOOLS).add(
+                ModItems.COPPER_SWORD.get(),
+                ModItems.COPPER_PICKAXE.get(),
+                ModItems.COPPER_AXE.get(),
+                ModItems.COPPER_SHOVEL.get(),
+                ModItems.COPPER_HOE.get(),
+                ModItems.PLATINUM_SWORD.get(),
+                ModItems.PLATINUM_PICKAXE.get(),
+                ModItems.PLATINUM_AXE.get(),
+                ModItems.PLATINUM_SHOVEL.get(),
+                ModItems.PLATINUM_HOE.get(),
+                ModItems.METEORITE_SWORD.get(),
+                ModItems.METEORITE_REAPER.get(),
+                ModItems.VOLCANITE_SWORD.get()
+        );
+        tag(ItemTags.SHOVELS).add(
+                ModItems.COPPER_SHOVEL.get(),
+                ModItems.PLATINUM_SHOVEL.get()
+        );
+        tag(ItemTags.PICKAXES).add(
+                ModItems.COPPER_PICKAXE.get(),
+                ModItems.PLATINUM_PICKAXE.get()
+        );
+        tag(ItemTags.AXES).add(
+                ModItems.COPPER_AXE.get(),
+                ModItems.PLATINUM_AXE.get()
+        );
+        tag(ItemTags.HOES).add(
+                ModItems.COPPER_HOE.get(),
+                ModItems.PLATINUM_HOE.get()
+        );
+        tag(ItemTags.SWORDS).add(
+                ModItems.COPPER_SWORD.get(),
+                ModItems.PLATINUM_SWORD.get(),
+                ModItems.METEORITE_SWORD.get(),
+                ModItems.VOLCANITE_SWORD.get()
+        );
     }
     private void registerModTags() {
         tag(ModTags.modItemTag("wings")).add(
@@ -320,6 +360,43 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.RAW_METEORITE.get(),
                 ModItems.RAW_URANIUM.get(),
                 ModItems.RAW_PALLADIUM.get()
+        );
+        tag(Tags.Items.TOOLS).add(
+                ModItems.COPPER_SWORD.get(),
+                ModItems.COPPER_PICKAXE.get(),
+                ModItems.COPPER_AXE.get(),
+                ModItems.COPPER_SHOVEL.get(),
+                ModItems.COPPER_HOE.get(),
+                ModItems.PLATINUM_SWORD.get(),
+                ModItems.PLATINUM_PICKAXE.get(),
+                ModItems.PLATINUM_AXE.get(),
+                ModItems.PLATINUM_SHOVEL.get(),
+                ModItems.PLATINUM_HOE.get(),
+                ModItems.METEORITE_SWORD.get(),
+                ModItems.METEORITE_REAPER.get(),
+                ModItems.VOLCANITE_SWORD.get()
+        );
+        tag(ModTags.forgeItemTag("tools/shovels")).add(
+                ModItems.COPPER_SHOVEL.get(),
+                ModItems.PLATINUM_SHOVEL.get()
+        );
+        tag(ModTags.forgeItemTag("tools/pickaxes")).add(
+                ModItems.COPPER_PICKAXE.get(),
+                ModItems.PLATINUM_PICKAXE.get()
+        );
+        tag(ModTags.forgeItemTag("tools/axes")).add(
+                ModItems.COPPER_AXE.get(),
+                ModItems.PLATINUM_AXE.get()
+        );
+        tag(ModTags.forgeItemTag("tools/hoes")).add(
+                ModItems.COPPER_HOE.get(),
+                ModItems.PLATINUM_HOE.get()
+        );
+        tag(ModTags.forgeItemTag("tools/swords")).add(
+                ModItems.COPPER_SWORD.get(),
+                ModItems.PLATINUM_SWORD.get(),
+                ModItems.METEORITE_SWORD.get(),
+                ModItems.VOLCANITE_SWORD.get()
         );
         for (Triplet<TagKey<Item>, Supplier<? extends Item>, String> tag : ModItemTags.ALL_TAGS) {
             tag(tag.getA()).add(tag.getB().get());

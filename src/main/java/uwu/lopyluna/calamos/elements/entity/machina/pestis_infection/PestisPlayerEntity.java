@@ -35,11 +35,14 @@ import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.ModEffects;
 import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.MachinaHusk;
 import uwu.lopyluna.calamos.elements.entity.machina.goal.*;
+import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -47,7 +50,10 @@ import java.util.Collection;
 import java.util.UUID;
 @ParametersAreNonnullByDefault
 public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
-    
+    private static final EntityDataAccessor<BlockPos> ANTENNA_POS = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.BLOCK_POS);
+    private static final EntityDataAccessor<Boolean> IN_RANGE_OF_ANTENNA = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IN_RANGE_OF_MAINFRAME = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<String> LINKED_PLAYER = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.STRING);
     @Nullable
     private PlayerInfo playerInfo;
     public static UUID linkedPlayer;
@@ -60,9 +66,7 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
     public double xCloak;
     public double yCloak;
     public double zCloak;
-    public void handleEntityEvent(byte b) {
-    
-    }
+    protected Vec3 deltaMovementOnPreviousTick = Vec3.ZERO;
     protected static final EntityDataAccessor<Byte> DATA_PLAYER_MODE_CUSTOMISATION = SynchedEntityData.defineId(PestisPlayerEntity.class, EntityDataSerializers.BYTE);
     public PestisPlayerEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -82,18 +86,23 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_PLAYER_MODE_CUSTOMISATION, (byte)0);
+        this.entityData.define(ANTENNA_POS, BlockPos.ZERO);
+        this.entityData.define(IN_RANGE_OF_ANTENNA, false);
+        this.entityData.define(IN_RANGE_OF_MAINFRAME, false);
+        this.entityData.define(LINKED_PLAYER, "");
     }
     @Override
     public void tick() {
         super.tick();
+        this.deltaMovementOnPreviousTick = this.getDeltaMovement();
         if (isActive()) {
             checkAntenna();
             this.moveCloak();
         } else {
             spawnSmoke();
         }
-        if (linkedPlayer != null) {
-            Player player = level().getPlayerByUUID(linkedPlayer);
+        if (getLinkedPlayer() != null) {
+            Player player = level().getPlayerByUUID(getLinkedPlayer());
             if (player != null && this.getAttribute(Attributes.MAX_HEALTH) != null) {
                 AttributeModifier healthModifier = new AttributeModifier(UUID.fromString("0a68c468-2e5c-45f4-89cb-84835cb05444"), "Pestis Player Health Multiplier", player.getMaxHealth() - 100, AttributeModifier.Operation.ADDITION);
                 if (this.getAttribute(Attributes.MAX_HEALTH).hasModifier(healthModifier)) {
@@ -153,8 +162,12 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         PlayerInfo playerinfo = this.getPlayerInfo();
         return playerinfo == null ? DefaultPlayerSkin.get(this.getUUID()) : playerinfo.getSkin();
     }
+
     public boolean isModelPartShown(PlayerModelPart pPart) {
         return (this.getEntityData().get(DATA_PLAYER_MODE_CUSTOMISATION) & pPart.getMask()) == pPart.getMask();
+    }
+    public Vec3 getDeltaMovementLerped(float pPatialTick) {
+        return this.deltaMovementOnPreviousTick.lerp(this.getDeltaMovement(), (double)pPatialTick);
     }
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
@@ -167,6 +180,7 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         pCompound.putUUID("LinkedPlayer", linkedPlayer);
         pCompound.putString("LinkedPlayerGameType", this.linkedPlayerGameType.getName());
     }
+
     @Override
     protected void dropAllDeathLoot(DamageSource pDamageSource) {
         Entity entity = pDamageSource.getEntity();
@@ -229,10 +243,10 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         this.yCloak += d1 * 0.25;
     }
     public void setInRangeOfAntenna(boolean inRangeOfAntenna) {
-        this.getPersistentData().putBoolean("inRangeOfAntenna", inRangeOfAntenna);
+        this.entityData.set(IN_RANGE_OF_ANTENNA, inRangeOfAntenna);
     }
     public void setInRangeOfMainframe(boolean inRangeOfMainframe) {
-        this.getPersistentData().putBoolean("inRangeOfMainframe", inRangeOfMainframe);
+        this.entityData.set(IN_RANGE_OF_MAINFRAME, inRangeOfMainframe);
     }
     public void clearAntenna() {
         this.getPersistentData().putBoolean("inRangeOfAntenna", false);
@@ -242,12 +256,12 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
     }
     @Override
     public boolean inRangeOfAntenna() {
-        return this.getPersistentData().getBoolean("inRangeOfAntenna");
+        return this.entityData.get(IN_RANGE_OF_ANTENNA);
     }
     
     @Override
     public boolean inRangeOfMainframe() {
-        return this.getPersistentData().getBoolean("inRangeOfMainframe");
+        return this.entityData.get(IN_RANGE_OF_MAINFRAME);
     }
     
     @Override
@@ -255,36 +269,31 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         return false;
     }
     
-    @Override
-    public double getAntennaX() {
-        return this.getPersistentData().getDouble("antennaX");
-    }
-    
-    @Override
-    public double getAntennaY() {
-        return this.getPersistentData().getDouble("antennaY");
-    }
-    
-    @Override
-    public double getAntennaZ() {
-        return this.getPersistentData().getDouble("antennaZ");
-    }
-    
     public BlockPos getAntennaPos() {
-        return new BlockPos.MutableBlockPos(getAntennaX(), getAntennaY(), getAntennaZ());
+        return this.entityData.get(ANTENNA_POS);
     }
+
+    @Nullable
+    public UUID getLinkedPlayer() {
+        if (this.entityData.get(LINKED_PLAYER).isEmpty()) {
+            return null;
+        }
+        return UUID.fromString(this.entityData.get(LINKED_PLAYER));
+    }
+
+    @Nullable
     public AntennaBlockEntity getAntenna() {
-        return (AntennaBlockEntity) this.level.getBlockEntity(getAntennaPos());
+        BlockEntity blockEntity = this.level.getBlockEntity(getAntennaPos());
+        return blockEntity instanceof AntennaBlockEntity ? (AntennaBlockEntity) blockEntity : null;
     }
     
     public void checkAntenna() {
+        this.getAntenna();
         if (this.getAntenna() == null) {
             setInRangeOfAntenna(false);
         }
         AABB antennaRange = getAntenna().getAntennaRange();
-        if (!antennaRange.intersects(this.getBoundingBox())) {
-            clearAntenna();
-        }
+        setInRangeOfAntenna(antennaRange.intersects(this.getBoundingBox()));
     }
     public void spawnSmoke() {
         if (this.level.isClientSide) {

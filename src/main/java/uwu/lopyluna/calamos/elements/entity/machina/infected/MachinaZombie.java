@@ -3,22 +3,28 @@ package uwu.lopyluna.calamos.elements.entity.machina.infected;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.ai.goal.MoveThroughVillageGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.MachinaHusk;
 import uwu.lopyluna.calamos.elements.entity.machina.goal.*;
 
 public class MachinaZombie extends Zombie implements MachinaHusk {
-    private static boolean inRangeOfAntenna;
-    private static boolean inRangeOfMainframe;
-    private static BlockPos antennaPos;
+    private static final EntityDataAccessor<BlockPos> ANTENNA_POS = SynchedEntityData.defineId(MachinaZombie.class, EntityDataSerializers.BLOCK_POS);
+    private static final EntityDataAccessor<Boolean> IN_RANGE_OF_ANTENNA = SynchedEntityData.defineId(MachinaZombie.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IN_RANGE_OF_MAINFRAME = SynchedEntityData.defineId(MachinaZombie.class, EntityDataSerializers.BOOLEAN);
     public MachinaZombie(EntityType<? extends Zombie> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -30,57 +36,58 @@ public class MachinaZombie extends Zombie implements MachinaHusk {
             spawnSmoke();
         }
     }
+
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(ANTENNA_POS, BlockPos.ZERO);
+        this.entityData.define(IN_RANGE_OF_ANTENNA, false);
+        this.entityData.define(IN_RANGE_OF_MAINFRAME, false);
+    }
+
     protected void registerGoals() {
         this.goalSelector.addGoal(8, new MachinaLookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(8, new MachinaRandomLookAroundGoal(this));
         this.addBehaviourGoals();
     }
+
     protected void addBehaviourGoals() {
         this.goalSelector.addGoal(2, new MachinaZombieAttackGoal(this, 1.0, false));
-        this.goalSelector.addGoal(6, new MachinaMoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
-        this.goalSelector.addGoal(7, new MachinaWaterAvoidingRandomStrollGoal(this, 1.0));
-        this.targetSelector.addGoal(1, (new MachinaHurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglin.class));
+        this.goalSelector.addGoal(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.targetSelector.addGoal(1, (new MachinaHurtByTargetGoal(this)).setAlertOthers(MachinaZombie.class));
         this.targetSelector.addGoal(2, new MachinaNearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new MachinaNearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new MachinaNearestAttackableTargetGoal<>(this, IronGolem.class, true));
     }
+
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
-        this.setInRangeOfAntenna(pCompound.getBoolean("inRangeOfAntenna"));
-        this.setInRangeOfMainframe(pCompound.getBoolean("inRangeOfMainframe"));
-        antennaPos = new BlockPos.MutableBlockPos(pCompound.getDouble("antennaX"), pCompound.getDouble("antennaY"), pCompound.getDouble("antennaZ"));
     }
+
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.putBoolean("inRangeOfAntenna", inRangeOfAntenna());
-        pCompound.putBoolean("inRangeOfMainframe", inRangeOfMainframe());
-        pCompound.putDouble("antennaX", antennaPos.getX());
-        pCompound.putDouble("antennaY", antennaPos.getY());
-        pCompound.putDouble("antennaZ", antennaPos.getZ());
     }
+
     protected boolean convertsInWater() {
         return false;
     }
+
     public void setInRangeOfAntenna(boolean inRangeOfAntenna) {
-        this.getPersistentData().putBoolean("inRangeOfAntenna", inRangeOfAntenna);
+        this.entityData.set(IN_RANGE_OF_ANTENNA, inRangeOfAntenna);
     }
+
     public void setInRangeOfMainframe(boolean inRangeOfMainframe) {
-        this.getPersistentData().putBoolean("inRangeOfMainframe", inRangeOfMainframe);
+        this.entityData.set(IN_RANGE_OF_MAINFRAME, inRangeOfMainframe);
     }
-    public void clearAntenna() {
-        this.getPersistentData().putBoolean("inRangeOfAntenna", false);
-        this.getPersistentData().putDouble("antennaX", 0);
-        this.getPersistentData().putDouble("antennaY", 0);
-        this.getPersistentData().putDouble("antennaZ", 0);
-    }
+
     @Override
     public boolean inRangeOfAntenna() {
-        return inRangeOfAntenna;
+        return this.entityData.get(IN_RANGE_OF_ANTENNA);
     }
     
     @Override
     public boolean inRangeOfMainframe() {
-        return inRangeOfMainframe;
+        return this.entityData.get(IN_RANGE_OF_MAINFRAME);
     }
     
     @Override
@@ -88,24 +95,10 @@ public class MachinaZombie extends Zombie implements MachinaHusk {
         return false;
     }
     
-    @Override
-    public double getAntennaX() {
-        return this.getPersistentData().getDouble("antennaX");
-    }
-    
-    @Override
-    public double getAntennaY() {
-        return this.getPersistentData().getDouble("antennaY");
-    }
-    
-    @Override
-    public double getAntennaZ() {
-        return this.getPersistentData().getDouble("antennaZ");
-    }
-    
     public BlockPos getAntennaPos() {
-        return new BlockPos.MutableBlockPos(getAntennaX(), getAntennaY(), getAntennaZ());
+        return this.entityData.get(ANTENNA_POS);
     }
+
     public AntennaBlockEntity getAntenna() {
         return (AntennaBlockEntity) this.level.getBlockEntity(getAntennaPos());
     }
@@ -115,14 +108,21 @@ public class MachinaZombie extends Zombie implements MachinaHusk {
             setInRangeOfAntenna(false);
         }
         AABB antennaRange = getAntenna().getAntennaRange();
-        if (!antennaRange.intersects(this.getBoundingBox())) {
-            clearAntenna();
-        }
+        setInRangeOfAntenna(antennaRange.intersects(this.getBoundingBox()));
     }
+
     public void spawnSmoke() {
         if (this.level.isClientSide) {
             this.level.addParticle(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY() + 1.0D, this.getZ(), 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    @Override
+    public void move(MoverType pType, Vec3 pPos) {
+        if (!this.inRangeOfAntenna()) {
+            return;
+        }
+        super.move(pType, pPos);
     }
     
 }

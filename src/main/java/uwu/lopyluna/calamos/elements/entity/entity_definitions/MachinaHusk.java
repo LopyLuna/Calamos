@@ -1,5 +1,7 @@
 package uwu.lopyluna.calamos.elements.entity.entity_definitions;
 
+import net.minecraft.world.entity.Entity;
+
 public interface MachinaHusk {
     boolean inRangeOfAntenna();
     boolean inRangeOfMainframe();
@@ -7,7 +9,4 @@ public interface MachinaHusk {
     default boolean isActive() {
         return inRangeOfAntenna() || inRangeOfMainframe();
     };
-    double getAntennaX();
-    double getAntennaY();
-    double getAntennaZ();
 }

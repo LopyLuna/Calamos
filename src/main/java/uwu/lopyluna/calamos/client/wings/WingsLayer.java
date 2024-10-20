@@ -18,9 +18,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.ModArmorLayers;
-import uwu.lopyluna.calamos.elements.items.wings.WingsItem;
+import uwu.lopyluna.calamos.elements.items.equipment.wings.WingsItem;
 
-import java.util.List;
 import java.util.Map;
 
 

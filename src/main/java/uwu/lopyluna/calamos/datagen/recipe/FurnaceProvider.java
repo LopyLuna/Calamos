@@ -14,6 +14,8 @@ import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
 
+import java.util.List;
+
 import static uwu.lopyluna.calamos.utilities.ModUtils.secondsToTicks;
 
 public class FurnaceProvider {
@@ -53,6 +55,7 @@ public class FurnaceProvider {
         smeltAndBlast(RecipeCategory.MISC, ModItems.TOPAZ.get(), ModBlocks.TOPAZ_ORE.asItem(), 1.0f, secondsToTicks(10), consumer);
         smeltAndBlast(RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), ModBlocks.URANIUM_ORE.asItem(), 0.7f, secondsToTicks(10), consumer);
         smeltAndBlast(RecipeCategory.MISC, ModItems.PALLADIUM_INGOT.get(), ModBlocks.PALLADIUM_ORE.asItem(), 0.7f, secondsToTicks(10), consumer);
+
     }
     
     private static void smoking(RecipeOutput consumer) {
@@ -68,13 +71,29 @@ public class FurnaceProvider {
         smeltingRecipe(category, result, input, xp, time).save(consumer, location(resultName + "_from_" + inputName, 0));
         blastingRecipe(category, result, input, xp, blastTime).save(consumer, location(resultName + "_from_" + inputName, 1));
     }
-    
+
     public static void smeltAndSmoke(RecipeCategory category, Item result, ItemLike input, float xp, int time, RecipeOutput consumer) {
         int smokeTime = time / 2;
         String inputName = input.asItem().toString().split(":")[1];
         String resultName = result.toString().split(":")[1];
         smeltingRecipe(category, result, input, xp, time).save(consumer, location(resultName + "_from_" + inputName, 0));
         smokingRecipe(category, result, input, xp, smokeTime).save(consumer, location(resultName + "_from_" + inputName, 2));
+    }
+
+    public static void smeltAndBlast(RecipeCategory category, Item result, float xp, int time, RecipeOutput consumer, ItemLike... ingredients) {
+        int blastTime = time / 2;
+        Ingredient ingredient = Ingredient.of(ingredients);
+        String resultName = result.toString().split(":")[1];
+        smeltingRecipe(category, result, xp, time, ingredients).save(consumer, location(resultName + "_from_ingredients", 0));
+        blastingRecipe(category, result, xp, blastTime, ingredients).save(consumer, location(resultName + "_from_ingredients", 1));
+    }
+
+    public static void smeltAndSmoke(RecipeCategory category, Item result, float xp, int time, RecipeOutput consumer, ItemLike... ingredients) {
+        int smokeTime = time / 2;
+        Ingredient ingredient = Ingredient.of(ingredients);
+        String resultName = result.toString().split(":")[1];
+        smeltingRecipe(category, result, xp, time, ingredients).save(consumer, location(resultName + "_from_ingredients", 0));
+        smokingRecipe(category, result, xp, smokeTime, ingredients).save(consumer, location(resultName + "_from_ingredients", 2));
     }
     
     public static SimpleCookingRecipeBuilder smeltingRecipe(RecipeCategory category, Item result, ItemLike input, float xp, int time) {
@@ -90,5 +109,20 @@ public class FurnaceProvider {
     public static SimpleCookingRecipeBuilder smokingRecipe(RecipeCategory category, Item result, ItemLike input, float xp, int time) {
         String inputName = input.asItem().toString().split(":")[1];
         return SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), category, result, xp, time).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
+
+    public static SimpleCookingRecipeBuilder smeltingRecipe(RecipeCategory category, Item result, float xp, int time, ItemLike... ingredients) {
+        Ingredient ingredient = Ingredient.of(ingredients);
+        return SimpleCookingRecipeBuilder.smelting(ingredient, category, result, xp, time).unlockedBy("has_ingredients", InventoryChangeTrigger.TriggerInstance.hasItems(ingredients));
+    }
+
+    public static SimpleCookingRecipeBuilder blastingRecipe(RecipeCategory category, Item result, float xp, int time, ItemLike... ingredients) {
+        Ingredient ingredient = Ingredient.of(ingredients);
+        return SimpleCookingRecipeBuilder.blasting(ingredient, category, result, xp, time).unlockedBy("has_ingredients", InventoryChangeTrigger.TriggerInstance.hasItems(ingredients));
+    }
+
+    public static SimpleCookingRecipeBuilder smokingRecipe(RecipeCategory category, Item result, float xp, int time, ItemLike... ingredients) {
+        Ingredient ingredient = Ingredient.of(ingredients);
+        return SimpleCookingRecipeBuilder.smoking(ingredient, category, result, xp, time).unlockedBy("has_ingredients", InventoryChangeTrigger.TriggerInstance.hasItems(ingredients));
     }
 }

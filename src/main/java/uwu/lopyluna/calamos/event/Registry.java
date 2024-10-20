@@ -1,5 +1,14 @@
 package uwu.lopyluna.calamos.event;
 
+import com.google.common.collect.ImmutableMap;
+import com.mojang.authlib.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.AbstractClientPlayer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -16,22 +25,27 @@ import uwu.lopyluna.calamos.elements.entity.boone.BooneRenderer;
 import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteModel;
 import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteRenderer;
 import uwu.lopyluna.calamos.elements.entity.eye.EyeRenderer;
+import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrowRenderer;
+
+import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Registry {
-
+    private static final Map<PlayerSkin.Model, EntityRendererProvider<PestisPlayerEntity>> PLAYER_PROVIDERS;
 
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntity.WORM_HEAD.get(), WormHeadRenderer::new);
         event.registerEntityRenderer(ModEntity.WORM_PART.get(), WormSegmentRenderer::new);
-        event.registerEntityRenderer(ModEntity.PESTIS_PLAYER.get(), PestisPlayerRenderer::new);
         event.registerEntityRenderer(ModEntity.WILDFIRE.get(), WildfireRenderer::new);
         event.registerEntityRenderer(ModEntity.BOONE_THE_BOOM.get(), BooneRenderer::new);
         event.registerEntityRenderer(ModEntity.EYE.get(), EyeRenderer::new);
         event.registerEntityRenderer(ModEntity.DYNAMITE.get(), DynamiteRenderer::new);
+        event.registerEntityRenderer(ModEntity.IRRADIATED_ARROW.get(), IrradiatedArrowRenderer::new);
         event.registerEntityRenderer(ModEntity.MACHINA_ZOMBIE.get(), MachinaZombieRenderer::new);
+        PLAYER_PROVIDERS.forEach((model, provider) -> event.registerEntityRenderer(ModEntity.PESTIS_PLAYER.get(), provider));
     }
 
     @SubscribeEvent
@@ -41,5 +55,7 @@ public class Registry {
         event.registerLayerDefinition(DynamiteModel.LAYER_LOCATION, DynamiteModel::createBodyLayer);
     }
 
-
+    static {
+        PLAYER_PROVIDERS = Map.of(PlayerSkin.Model.WIDE, (context) -> new PestisPlayerRenderer(context, false), PlayerSkin.Model.SLIM, (context) -> new PestisPlayerRenderer(context, true));
+    }
 }

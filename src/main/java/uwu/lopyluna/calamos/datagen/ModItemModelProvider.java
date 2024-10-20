@@ -104,6 +104,21 @@ class ModItemModelProvider extends ItemModelProvider {
         this.doorItem(ModDecorativeBlocks.HOLLOW_DOOR);
         this.basicItem(ModItems.HOLLOW_SIGN);
         this.basicItem(ModItems.HOLLOW_HANGING_SIGN);
+
+        this.basicItem(ModItems.IRRADIATED_ARROW);
+
+        //Equipment
+        this.equipmentItem(ModItems.COPPER_SWORD, ModUtils.EquipmentType.SWORD, "copper");
+        this.equipmentItem(ModItems.COPPER_SHOVEL, ModUtils.EquipmentType.SHOVEL, "copper");
+        this.equipmentItem(ModItems.COPPER_PICKAXE, ModUtils.EquipmentType.PICKAXE, "copper");
+        this.equipmentItem(ModItems.COPPER_AXE, ModUtils.EquipmentType.AXE, "copper");
+        this.equipmentItem(ModItems.COPPER_HOE, ModUtils.EquipmentType.HOE, "copper");
+
+        this.equipmentItem(ModItems.PLATINUM_SWORD, ModUtils.EquipmentType.SWORD, "platinum");
+        this.equipmentItem(ModItems.PLATINUM_SHOVEL, ModUtils.EquipmentType.SHOVEL, "platinum");
+        this.equipmentItem(ModItems.PLATINUM_PICKAXE, ModUtils.EquipmentType.PICKAXE, "platinum");
+        this.equipmentItem(ModItems.PLATINUM_AXE, ModUtils.EquipmentType.AXE, "platinum");
+        this.equipmentItem(ModItems.PLATINUM_HOE, ModUtils.EquipmentType.HOE, "platinum");
     }
 
     private void separateTransform(DeferredHolder<Item, ? extends Item> item) {
@@ -174,5 +189,12 @@ class ModItemModelProvider extends ItemModelProvider {
         return getBuilder(name)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", ModUtils.location("item/" + name + "_item"));
+    }
+
+    private ItemModelBuilder equipmentItem(DeferredHolder<Item, ? extends Item> item, ModUtils.EquipmentType type, String material) {
+        ModelFile.UncheckedModelFile parent = type.isHandheld() ? new ModelFile.UncheckedModelFile("item/handheld") : new ModelFile.UncheckedModelFile("item/generated");
+        return getBuilder(item.getKey().location().getPath())
+                .parent(parent)
+                .texture("layer0", ModUtils.toolTextureLoc(type, material));
     }
 }

@@ -11,16 +11,18 @@ import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
 import uwu.lopyluna.calamos.elements.items.ParticleSpewingItem;
 import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrowItem;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.base.*;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.elements.items.potions.RecallPotionItem;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.elements.items.properties.DynamiteItem;
-import uwu.lopyluna.calamos.elements.items.tool.CalamosReaper;
-import uwu.lopyluna.calamos.elements.items.tool.CalamosSword;
-import uwu.lopyluna.calamos.elements.items.tool.CalamosTiers;
-import uwu.lopyluna.calamos.elements.items.tool.VolcaniteSword;
-import uwu.lopyluna.calamos.elements.items.wings.WingsItem;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosReaper;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosSword;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTiers;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.VolcaniteSword;
+import uwu.lopyluna.calamos.elements.items.equipment.wings.WingsItem;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -50,6 +52,7 @@ public final class ModItems {
     public static final DeferredItem<Item> RAW_METEORITE = registerSimple("raw_meteorite", new Item.Properties().fireResistant());
     public static final DeferredItem<Item> BLOOD_ORB = registerSimple("blood_orb");
     public static final DeferredItem<Item> ECTOPLASMA = registerSimple("ectoplasma");
+
     //Ingot
     public static final DeferredItem<Item> BLOODBORE_INGOT = registerSimple("bloodbore_ingot");
     public static final DeferredItem<Item> CALAMATIUM_INGOT = registerSimple("calamatium_ingot");
@@ -76,6 +79,7 @@ public final class ModItems {
     public static final DeferredItem<Item> VOLCANITE_SWORD = register("volcanite_sword", () -> new VolcaniteSword(new Item.Properties().fireResistant()));
 
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
+
     //SIGNS
     public static final DeferredItem<Item> OTHERWORLD_OAK_SIGN = register("otherworld_oak_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get()));
@@ -94,11 +98,25 @@ public final class ModItems {
 
     //PROJECTILES
     public static final DeferredItem<Item> DYNAMITE = register("dynamite", () -> new DynamiteItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> IRRADIATED_ARROW = register("irradiated_arrow", () -> new IrradiatedArrowItem(new Item.Properties().stacksTo(64)));
 
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);
     public static final DeferredItem<Item> WINGS = register("wings", WingsItem::new);
 
+
+    //TOOLS
+    public static final DeferredItem<Item> COPPER_SWORD = register("copper_sword", () -> new CalamosSwordItem(CalamosTiers.COPPER, 2, -2.4F, new Item.Properties()));
+    public static final DeferredItem<Item> COPPER_AXE = register("copper_axe", () -> new CalamosAxeItem(CalamosTiers.COPPER, 4.0F, -3.0F, new Item.Properties()));
+    public static final DeferredItem<Item> COPPER_SHOVEL = register("copper_shovel", () -> new CalamosShovelItem(CalamosTiers.COPPER, 1.0F, -3.0F, new Item.Properties()));
+    public static final DeferredItem<Item> COPPER_HOE = register("copper_hoe", () -> new CalamosHoeItem(CalamosTiers.COPPER, -1, 0.0F, new Item.Properties()));
+    public static final DeferredItem<Item> COPPER_PICKAXE = register("copper_pickaxe", () -> new CalamosPickaxeItem(CalamosTiers.COPPER, 1, -2.8F, new Item.Properties()));
+
+    public static final DeferredItem<Item> PLATINUM_SWORD = register("platinum_sword", () -> new CalamosSwordItem(CalamosTiers.PLATINUM, 4, -2.4F, new Item.Properties()));
+    public static final DeferredItem<Item> PLATINUM_AXE = register("platinum_axe", () -> new CalamosAxeItem(CalamosTiers.PLATINUM, 5.5F, -3.0F, new Item.Properties()));
+    public static final DeferredItem<Item> PLATINUM_SHOVEL = register("platinum_shovel", () -> new CalamosShovelItem(CalamosTiers.PLATINUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final DeferredItem<Item> PLATINUM_HOE = register("platinum_hoe", () -> new CalamosHoeItem(CalamosTiers.PLATINUM, -1, 0.0F, new Item.Properties()));
+    public static final DeferredItem<Item> PLATINUM_PICKAXE = register("platinum_pickaxe", () -> new CalamosPickaxeItem(CalamosTiers.PLATINUM, 1, -2.8F, new Item.Properties()));
 
 
     //SPAWN EGGS

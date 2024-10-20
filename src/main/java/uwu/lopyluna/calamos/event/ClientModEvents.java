@@ -17,5 +17,4 @@ public class ClientModEvents {
         event.registerLayerDefinition(BooneModel.LAYER_LOCATION, BooneModel::createBodyLayer);
         event.registerLayerDefinition(EyeModel.LAYER_LOCATION, EyeModel::createBodyLayer);
     }
-    
 }

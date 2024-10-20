@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import org.jetbrains.annotations.NotNull;
-import uwu.lopyluna.calamos.elements.items.wings.WingsItem;
+import uwu.lopyluna.calamos.elements.items.equipment.wings.WingsItem;
 
 public class SavingGraceEnchantment extends Enchantment {
     public SavingGraceEnchantment(Rarity pRarity, EquipmentSlot... pApplicableSlots) {

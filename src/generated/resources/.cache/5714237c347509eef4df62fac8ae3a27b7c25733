@@ -1,8 +1,13 @@
-// 1.20.4	2024-10-06T14:18:09.1714348	Item Models: calamos
+// 1.20.4	2024-10-20T14:44:06.9091381	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
 5e0f4afd2425ca01b38e7d752470766eff1b1cff assets/calamos/models/item/calamatium_ingot.json
+c1e6d9326d50ab2a84922257e2c52ae7150b4612 assets/calamos/models/item/copper_axe.json
+fe87350384bf9b933ad07a6128cf88b8aede7800 assets/calamos/models/item/copper_hoe.json
+814571380b81b8e32b9b135e4965172e15222166 assets/calamos/models/item/copper_pickaxe.json
+ba6eb46cfcf6d31843513ddb1ea557a800cdee83 assets/calamos/models/item/copper_shovel.json
+6d8f37ba2a944e25a19b9589ecdba7faf1632f40 assets/calamos/models/item/copper_sword.json
 45bdac0c7490ce619d0470400a0b24f714ab1518 assets/calamos/models/item/debug_health.json
 a887c4ab5c9c2b11e58eb40a24d08ba90c4514d8 assets/calamos/models/item/duplex_healing_potion.json
 8ada64eaf3756f88b0c25a8cbd5b19cd345ab458 assets/calamos/models/item/duplex_recovering_potion.json
@@ -17,6 +22,7 @@ d2cfd306039224612cf935a05a25e485a7077145 assets/calamos/models/item/enhanced_rec
 b71392d0b0cd6f54eb94b8f79191747c284ac197 assets/calamos/models/item/hollow_door.json
 a99d58a77e7251107a253390894b3bffc2fa18f4 assets/calamos/models/item/hollow_hanging_sign.json
 40314174b1f78fb6e3fe10e121516064432d2aa5 assets/calamos/models/item/hollow_sign.json
+00d0e509040f1b23c7dc780ee9df56444f167ef1 assets/calamos/models/item/irradiated_arrow.json
 25aae928f6f9d503d76f0ba995a6a01ed12e8c91 assets/calamos/models/item/jade.json
 cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
 fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
@@ -36,7 +42,12 @@ f04a2943c31dfb8406f3ee408d2560dd10af0c47 assets/calamos/models/item/opal.json
 327ceb4f2b1b8588c94a3f39947ff4189415ba03 assets/calamos/models/item/otherworld_oak_sign.json
 4204ef16a013acc53390c2541e19a09cc6412f60 assets/calamos/models/item/palladium_ingot.json
 d8b3fa07b0ee6df5d754f025460a2e36e0abcd80 assets/calamos/models/item/palladium_nugget.json
+7117224bd7ba13285ba276969eff4cf847f8e326 assets/calamos/models/item/platinum_axe.json
+0155eb588effdf7d548c1bbee87d8fa13015c57d assets/calamos/models/item/platinum_hoe.json
 b51945cd282cf790339e118622fe9f33a5af4e92 assets/calamos/models/item/platinum_ingot.json
+7098c3fe7c8088b4d0c0e81b38c78d5fc0151342 assets/calamos/models/item/platinum_pickaxe.json
+696d1de7f5d79a782f1c12319da146ab2fd5797b assets/calamos/models/item/platinum_shovel.json
+5dc65ac5d443620544723b3889d9f610731f00a1 assets/calamos/models/item/platinum_sword.json
 3600654822eb3cbbf89c17e04971fee76899c9d0 assets/calamos/models/item/raw_meteorite.json
 cc7fa349495dcb74c213d09e872a892f8bb3d123 assets/calamos/models/item/raw_palladium.json
 cd2bb56e5a38b7f4ccd209a4f314a3e2d7ac5ec6 assets/calamos/models/item/raw_uranium.json

@@ -14,6 +14,7 @@ import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrow;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public final class ModEntity {
@@ -42,6 +43,10 @@ public final class ModEntity {
     
     public static final DeferredHolder<EntityType<?>, EntityType<MachinaZombie>> MACHINA_ZOMBIE = ENTITY_TYPES.register("machina_zombie",
             () -> EntityType.Builder.of(MachinaZombie::new, MobCategory.MONSTER).sized(0.6F, 1.8F).build("machina_zombie"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<IrradiatedArrow>> IRRADIATED_ARROW = ENTITY_TYPES.register("irradiated_arrow",
+            () -> EntityType.Builder.of((EntityType.EntityFactory<IrradiatedArrow>)IrradiatedArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).build("irradiated_arrow"));
+
 
     public static void staticInit() {
 

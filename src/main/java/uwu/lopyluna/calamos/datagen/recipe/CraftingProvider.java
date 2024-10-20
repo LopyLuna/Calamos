@@ -22,6 +22,7 @@ public class CraftingProvider {
         recipesBlocks(consumer);
         recipesItems(consumer);
         recipesSpecial(consumer);
+        recipesEquipment(consumer);
     }
     private static ResourceLocation location(String path) {
         return new ResourceLocation(CalamosMod.MODID, "crafting/" + path);
@@ -215,6 +216,30 @@ public class CraftingProvider {
                 .define('B', Items.STONE_BRICKS)
                 .unlockedBy("has_stone_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE_BRICKS))
                 .save(consumer, location("metal_grinder"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.IRRADIATED_ARROW.asItem(), 4)
+                .pattern(" U ")
+                .pattern("UAU")
+                .pattern(" U ")
+                .define('U', ModItems.URANIUM_NUGGET)
+                .define('A', Items.ARROW)
+                .unlockedBy("has_nugget", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM_NUGGET))
+                .save(consumer, location("irradiated_arrow"));
+    }
+    private static void recipesEquipment(RecipeOutput consumer) {
+        simpleSword(ModItems.COPPER_SWORD.get(), Items.COPPER_INGOT).save(consumer, location("copper_sword"));
+        simpleSword(ModItems.PLATINUM_SWORD.get(), ModItems.PLATINUM_INGOT.get()).save(consumer, location("platinum_sword"));
+
+        simpleAxe(ModItems.COPPER_AXE.get(), Items.COPPER_INGOT).save(consumer, location("copper_axe"));
+        simpleAxe(ModItems.PLATINUM_AXE.get(), ModItems.PLATINUM_INGOT.get()).save(consumer, location("platinum_axe"));
+
+        simplePickaxe(ModItems.COPPER_PICKAXE.get(), Items.COPPER_INGOT).save(consumer, location("copper_pickaxe"));
+        simplePickaxe(ModItems.PLATINUM_PICKAXE.get(), ModItems.PLATINUM_INGOT.get()).save(consumer, location("platinum_pickaxe"));
+
+        simpleShovel(ModItems.COPPER_SHOVEL.get(), Items.COPPER_INGOT).save(consumer, location("copper_shovel"));
+        simpleShovel(ModItems.PLATINUM_SHOVEL.get(), ModItems.PLATINUM_INGOT.get()).save(consumer, location("platinum_shovel"));
+
+        simpleHoe(ModItems.COPPER_HOE.get(), Items.COPPER_INGOT).save(consumer, location("copper_hoe"));
+        simpleHoe(ModItems.PLATINUM_HOE.get(), ModItems.PLATINUM_INGOT.get()).save(consumer, location("platinum_hoe"));
     }
     public static ShapelessRecipeBuilder decompressedBlock(Item result, ItemLike input, boolean fourByFour) {
         if (fourByFour) {
@@ -293,5 +318,24 @@ public class CraftingProvider {
         String inputName = input.asItem().toString().split(":")[1];
         return ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, 6).pattern("C C").pattern("###").pattern("###").define('#', input).define('C', Items.CHAIN).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
     }
-    
+    public static ShapedRecipeBuilder simpleSword(Item result, ItemLike input) {
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result, 1).pattern(" # ").pattern(" # ").pattern(" S ").define('#', input).define('S', Items.STICK).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
+    public static ShapedRecipeBuilder simpleAxe(Item result, ItemLike input) {
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result, 1).pattern("## ").pattern("#S ").pattern(" S ").define('#', input).define('S', Items.STICK).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
+    public static ShapedRecipeBuilder simplePickaxe(Item result, ItemLike input) {
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result, 1).pattern("###").pattern(" S ").pattern(" S ").define('#', input).define('S', Items.STICK).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
+    public static ShapedRecipeBuilder simpleShovel(Item result, ItemLike input) {
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result, 1).pattern(" # ").pattern(" S ").pattern(" S ").define('#', input).define('S', Items.STICK).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
+    public static ShapedRecipeBuilder simpleHoe(Item result, ItemLike input) {
+        String inputName = input.asItem().toString().split(":")[1];
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, result, 1).pattern("## ").pattern(" S ").pattern(" S ").define('#', input).define('S', Items.STICK).unlockedBy("has_" + inputName, InventoryChangeTrigger.TriggerInstance.hasItems(input));
+    }
 }

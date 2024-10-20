@@ -49,7 +49,7 @@ public class ParticleSpewingItem extends Item {
     }
     protected float getIdleParticleChance(ItemEntity entity) {
         return Mth.clamp(entity.getItem()
-                .getCount() - 10, 5, 100) / 64f;
+                .getCount() - 10, 5, 100) / 128f;
     }
     
     public static Vec3 offsetRandomly(Vec3 vec, RandomSource r, float radius) {
