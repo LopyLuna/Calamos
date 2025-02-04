@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_calamatium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:calamatium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:metal_grinding/calamatium/tag_conversion/ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_calamatium_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:metal_grinding/calamatium/tag_conversion/ingot"
+    ]
+  }
+}

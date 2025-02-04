@@ -27,4 +27,7 @@ public class ModTags {
     public static TagKey<Block> modBlockTag(String path) {
         return BlockTags.create(new ResourceLocation(CalamosMod.MODID, path));
     }
+    public static TagKey<Item> curiosItemTag(String path) {
+        return ItemTags.create(new ResourceLocation("curios", path));
+    }
 }

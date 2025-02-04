@@ -28,8 +28,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.registerModTags();
         this.registerForgeTags();
         this.registerMinecraftTags();
+        this.registerCuriosTags();
     }
-    
+
+    private void registerCuriosTags() {
+        tag(ModTags.curiosItemTag("wings")).add(
+                ModItems.WINGS.get()
+        ).replace(false);
+        tag(ModTags.curiosItemTag("accessory")).add(
+                ModItems.WINGS.get(),
+                ModItems.BERSERKER_CRAW.get(),
+                ModItems.JARRED_CLOUD.get()
+        ).replace(false);
+    }
     
     private void registerMinecraftTags() {
         tag(ItemTags.ARROWS).add(

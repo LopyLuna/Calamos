@@ -1,4 +1,4 @@
-// 1.20.4	2024-10-20T14:44:06.9101396	Tags for minecraft:item mod id vanilla
+// 1.20.4	2024-11-29T18:31:27.2572846	Tags for minecraft:item mod id vanilla
 72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/calamos/tags/items/bloodbore_tool_materials.json
 ba08a9f2a5781f9783f511f3d789493e2928ef46 data/calamos/tags/items/calamatium_tool_materials.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/calamos/tags/items/copper_tool_materials.json
@@ -22,6 +22,8 @@ f5459ad9d51d3f09c0b40d627ad7b741518460c2 data/calamos/tags/items/ultimita_tool_m
 2990120421e0c5481b305092a913020e1cc34a20 data/calamos/tags/items/uranium_tool_materials.json
 66776610b9ca08e1498f9d9d8ac131260bd20ce3 data/calamos/tags/items/volcanite_tool_materials.json
 afddf984617f0d518279779172dfac30220f7de4 data/calamos/tags/items/wings.json
+bdda407bf40b7a4553cd1ea8c5cb64a780715f62 data/curios/tags/items/accessory.json
+afddf984617f0d518279779172dfac30220f7de4 data/curios/tags/items/wings.json
 af925891db5c86f6d76f1d9c8626238528ead0f9 data/forge/tags/items/gems.json
 55007667d8dc4027a4cd207180350554a71e150f data/forge/tags/items/gems/garnet.json
 a7507ee99b9fe3e813020784fb89404673466092 data/forge/tags/items/gems/kunzite.json

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:crafting/decoration/carpentry/twilight/trapdoor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:twilight_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twilight_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:crafting/decoration/carpentry/twilight/trapdoor"
+    ]
+  }
+}

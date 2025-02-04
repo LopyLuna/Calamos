@@ -1,4 +1,4 @@
-// 1.20.4	2024-10-20T14:44:06.9091381	Item Models: calamos
+// 1.20.4	2024-11-29T18:19:18.0121109	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -24,6 +24,7 @@ a99d58a77e7251107a253390894b3bffc2fa18f4 assets/calamos/models/item/hollow_hangi
 40314174b1f78fb6e3fe10e121516064432d2aa5 assets/calamos/models/item/hollow_sign.json
 00d0e509040f1b23c7dc780ee9df56444f167ef1 assets/calamos/models/item/irradiated_arrow.json
 25aae928f6f9d503d76f0ba995a6a01ed12e8c91 assets/calamos/models/item/jade.json
+a4f331612f94b54874f9bb686bc2f78f5284391e assets/calamos/models/item/jarred_cloud.json
 cbcc1f8cf4f56938d09919c6bda66ba73be9b46a assets/calamos/models/item/kunzite.json
 fe8db761b0e6ec19d114a7b0ab719edf32e09cba assets/calamos/models/item/lead_ingot.json
 997dbbea039578a61034d5384f87bd24e8dab2eb assets/calamos/models/item/magnetite_ingot.json

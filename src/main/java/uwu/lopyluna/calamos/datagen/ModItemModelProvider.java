@@ -73,6 +73,7 @@ class ModItemModelProvider extends ItemModelProvider {
 
 
         this.basicItem(ModItems.BERSERKER_CRAW);
+        this.basicItem(ModItems.JARRED_CLOUD);
         this.basicItem(ModItems.TEST_LOOTBAG);
         this.handheld32(ModItems.METEORITE_REAPER, "gui", "handheld");
         this.handheld32(ModItems.METEORITE_SWORD, "gui", "handheld");

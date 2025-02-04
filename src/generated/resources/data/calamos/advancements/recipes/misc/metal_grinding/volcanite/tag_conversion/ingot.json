@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:metal_grinding/volcanite/tag_conversion/ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_volcanite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:volcanite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_volcanite_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:metal_grinding/volcanite/tag_conversion/ingot"
+    ]
+  }
+}

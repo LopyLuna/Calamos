@@ -11,6 +11,7 @@ import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
 import uwu.lopyluna.calamos.elements.items.ParticleSpewingItem;
 import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
+import uwu.lopyluna.calamos.elements.items.accessories.JarredCloudItem;
 import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrowItem;
 import uwu.lopyluna.calamos.elements.items.equipment.tool.base.*;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
@@ -103,6 +104,7 @@ public final class ModItems {
     //CURIOS ITEMS
     public static final DeferredItem<Item> BERSERKER_CRAW = register("berserker_craw", BerserkerCrawItem::new);
     public static final DeferredItem<Item> WINGS = register("wings", WingsItem::new);
+    public static final DeferredItem<Item> JARRED_CLOUD = register("jarred_cloud", JarredCloudItem::new);
 
 
     //TOOLS

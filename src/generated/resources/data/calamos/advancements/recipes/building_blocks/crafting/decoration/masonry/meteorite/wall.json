@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_meteorite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "calamos:meteorite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:crafting/decoration/masonry/meteorite/wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_meteorite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:crafting/decoration/masonry/meteorite/wall"
+    ]
+  }
+}

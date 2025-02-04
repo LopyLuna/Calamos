@@ -1,0 +1,10 @@
+{
+  "entities": [
+    "minecraft:armor_stand",
+    "minecraft:player"
+  ],
+  "slots": [
+    "wings",
+    "accessory"
+  ]
+}

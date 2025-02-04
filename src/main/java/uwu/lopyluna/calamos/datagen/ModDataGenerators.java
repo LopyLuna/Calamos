@@ -34,5 +34,6 @@ public class ModDataGenerators {
         dataGenerator.addProvider(event.includeServer(), new ModTrimMaterialProvider(packOutput));
         dataGenerator.addProvider(event.includeServer(), new ModDatapackProvider(packOutput, lookupProvider));
         dataGenerator.addProvider(event.includeClient(), new ModSoundsProvider(packOutput, fileHelper));
+        dataGenerator.addProvider(event.includeServer(), new ModCuriosProvider(modId, packOutput, fileHelper, lookupProvider));
     }
 }
