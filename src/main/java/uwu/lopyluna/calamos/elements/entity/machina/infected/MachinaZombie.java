@@ -15,9 +15,7 @@ import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.MachinaHusk;
 import uwu.lopyluna.calamos.elements.entity.machina.goal.*;
 
@@ -38,10 +36,11 @@ public class MachinaZombie extends Zombie implements MachinaHusk {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(ANTENNA_POS, BlockPos.ZERO);
-        this.entityData.define(IN_RANGE_OF_ANTENNA, false);
-        this.entityData.define(IN_RANGE_OF_MAINFRAME, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(ANTENNA_POS, BlockPos.ZERO);
+        builder.define(IN_RANGE_OF_ANTENNA, false);
+        builder.define(IN_RANGE_OF_MAINFRAME, false);
     }
 
     protected void registerGoals() {
@@ -98,17 +97,9 @@ public class MachinaZombie extends Zombie implements MachinaHusk {
     public BlockPos getAntennaPos() {
         return this.entityData.get(ANTENNA_POS);
     }
-
-    public AntennaBlockEntity getAntenna() {
-        return (AntennaBlockEntity) this.level.getBlockEntity(getAntennaPos());
-    }
     
     public void checkAntenna() {
-        if (this.getAntenna() == null) {
-            setInRangeOfAntenna(false);
-        }
-        AABB antennaRange = getAntenna().getAntennaRange();
-        setInRangeOfAntenna(antennaRange.intersects(this.getBoundingBox()));
+        setInRangeOfAntenna(true);
     }
 
     public void spawnSmoke() {

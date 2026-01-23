@@ -25,7 +25,7 @@ public class CraftingProvider {
         recipesEquipment(consumer);
     }
     private static ResourceLocation location(String path) {
-        return new ResourceLocation(CalamosMod.MODID, "crafting/" + path);
+        return CalamosMod.asResource("crafting/" + path);
     }
     private static void recipesBlocks(RecipeOutput consumer) {
         compressedBlock(ModBlocks.GARNET_BLOCK.asItem(), ModItems.GARNET, false).save(consumer, location("materials/garnet/block"));
@@ -165,6 +165,8 @@ public class CraftingProvider {
         simpleSlab(ModDecorativeBlocks.COBBLESTONE_BRICK_SLAB.asItem(), ModDecorativeBlocks.COBBLESTONE_BRICKS.asItem()).save(consumer, location("decoration/masonry/cobblestone/brick/slab"));
         
         simpleWall(ModDecorativeBlocks.COBBLESTONE_BRICK_WALL.asItem(), ModDecorativeBlocks.COBBLESTONE_BRICKS.asItem()).save(consumer, location("decoration/masonry/cobblestone/brick/wall"));
+
+        compressedBlock(ModDecorativeBlocks.SULFURIC_SANDSTONE.asItem(), ModDecorativeBlocks.SULFURIC_SAND.asItem(), true, 1).save(consumer, location("decoration/masonry/sulfuric_sand/stone"));
     }
     private static void recipesItems(RecipeOutput consumer) {
         decompressedBlock(ModItems.GARNET.get(), ModBlocks.GARNET_BLOCK.asItem(), false).save(consumer, location("materials/garnet/from_block"));

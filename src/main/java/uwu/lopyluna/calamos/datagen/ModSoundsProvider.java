@@ -1,7 +1,6 @@
 package uwu.lopyluna.calamos.datagen;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
@@ -26,6 +25,6 @@ public class ModSoundsProvider extends SoundDefinitionsProvider {
     }
     
     private SoundDefinition.Sound simpleSound(String name) {
-        return SoundDefinition.Sound.sound(new ResourceLocation(CalamosMod.MODID, name), SoundDefinition.SoundType.SOUND);
+        return SoundDefinition.Sound.sound(CalamosMod.asResource(name), SoundDefinition.SoundType.SOUND);
     }
 }

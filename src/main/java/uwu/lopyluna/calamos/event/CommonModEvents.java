@@ -1,19 +1,18 @@
 package uwu.lopyluna.calamos.event;
 
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.Worm;
 import uwu.lopyluna.calamos.elements.entity.boone.BooneEntity;
-import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteEntity;
 import uwu.lopyluna.calamos.elements.entity.eye.EyeEntity;
 import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
 
-@Mod.EventBusSubscriber(modid = CalamosMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CalamosMod.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonModEvents {
 
     @SubscribeEvent

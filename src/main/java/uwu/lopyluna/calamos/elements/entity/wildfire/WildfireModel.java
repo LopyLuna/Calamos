@@ -8,10 +8,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-
-import static uwu.lopyluna.calamos.CalamosMod.MODID;
+import uwu.lopyluna.calamos.CalamosMod;
 
 /**
  * Made with Blockbench 4.9.4
@@ -22,7 +20,7 @@ import static uwu.lopyluna.calamos.CalamosMod.MODID;
 @SuppressWarnings({"unused","all"})
 public class WildfireModel<T extends WildfireEntity> extends HierarchicalModel<T> {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(MODID, "wildfire"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("wildfire"), "main");
 	private final ModelPart root;
 
 	private final ModelPart head;
@@ -104,10 +102,10 @@ public class WildfireModel<T extends WildfireEntity> extends HierarchicalModel<T
 
 
 	@Override
-	public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		shields.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(@NotNull PoseStack poseStack, @NotNull VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		shields.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 
 	@Override

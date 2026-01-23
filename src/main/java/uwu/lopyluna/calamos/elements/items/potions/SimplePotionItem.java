@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.elements.items.potions;
 
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -17,7 +18,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.annotation.ParametersAreNullableByDefault;
 import java.util.List;
@@ -26,12 +26,12 @@ import java.util.List;
 @ParametersAreNullableByDefault
 public class SimplePotionItem extends Item {
     public final int drinkingDuration;
-    public final MobEffect potionEffect;
+    public final Holder<MobEffect> potionEffect;
     public final int potionDuration;
     public final int potionPower;
     public final String displayName;
 
-    public SimplePotionItem(MobEffect potionEffect, int potionPower, int potionDuration, int drinkingDuration, String displayName, Properties pProperties) {
+    public SimplePotionItem(Holder<MobEffect> potionEffect, int potionPower, int potionDuration, int drinkingDuration, String displayName, Properties pProperties) {
         super(pProperties.stacksTo(16));
         this.drinkingDuration = drinkingDuration;
         this.potionEffect = potionEffect;
@@ -65,20 +65,21 @@ public class SimplePotionItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
         String transTimer = Component.translatable("calamos.potion.tooltip.timer").getString();
         String transLevel = Component.translatable("calamos.potion.tooltip.level").getString();
         String transDrinkTime = Component.translatable("calamos.potion.tooltip.drink_time").getString();
         String transInstant = Component.translatable("calamos.potion.tooltip.instant").getString();
         String transSeconds = Component.translatable("calamos.potion.tooltip.seconds").getString();
-        pTooltip.add(Component.nullToEmpty("§6" + displayName + (potionDuration + potionPower == 0 && drinkingDuration != 0 ? "" : "§9 - ")
+        tooltipComponents.add(Component.nullToEmpty("§6" + displayName + (potionDuration + potionPower == 0 && drinkingDuration != 0 ? "" : "§9 - ")
                 + (potionDuration == 0 ? "" : transTimer + potionDuration / 20 + transSeconds) + (potionDuration + potionPower == 0 && drinkingDuration != 0 ? "" : " | ")
                 + (potionPower == 0 ? "" : transLevel + (potionPower + 1)) + (potionPower == 0 && drinkingDuration != 0 ? "" : " | ")
                 + (drinkingDuration == 0 ? transInstant : transDrinkTime + (float)drinkingDuration / 20 + transSeconds)));
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return drinkingDuration;
     }
 

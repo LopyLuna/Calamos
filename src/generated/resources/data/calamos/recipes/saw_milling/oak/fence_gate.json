@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:oak_log"
-  },
-  "result": "minecraft:oak_fence_gate"
-}

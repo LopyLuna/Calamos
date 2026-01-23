@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "tag": "c:ingots/calamatium"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:calamatium_ingot"
+  }
+}

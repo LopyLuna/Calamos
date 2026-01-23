@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "calamos:stripped_twilight_log"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "C C",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "calamos:twilight_hanging_sign"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:crimson_stem"
-  },
-  "result": "minecraft:crimson_trapdoor"
-}

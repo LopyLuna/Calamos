@@ -14,6 +14,6 @@ public class WormHeadRenderer extends MobRenderer<Worm, WormHead<Worm>> {
 
     @Override
     public ResourceLocation getTextureLocation(Worm pEntity) {
-        return new ResourceLocation(CalamosMod.MODID, "textures/entity/worm_head.png");
+        return CalamosMod.asResource("textures/entity/worm_head.png");
     }
 }

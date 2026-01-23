@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 12,
-  "ingredient": {
-    "item": "minecraft:stripped_cherry_log"
-  },
-  "result": "minecraft:cherry_fence"
-}

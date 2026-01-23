@@ -80,7 +80,7 @@ public class DynamiteRenderer extends EntityRenderer<DynamiteEntity> {
         this.vertex(matrix4f, matrix3f, vertexconsumer, -2, -8, 2, 0.25F, 0.125F, 0, 0, -1, pPackedLight, color);
          */
 
-        model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY);
 
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTick, pPoseStack, pBuffer, pPackedLight);
@@ -136,12 +136,11 @@ public class DynamiteRenderer extends EntityRenderer<DynamiteEntity> {
             int pBlue,
             int pAlpha
     ) {
-        pConsumer.vertex(pMatrix, (float)pX, (float)pY, (float)pZ)
-                .color(pRed, pGreen, pBlue, pAlpha)
-                .uv(pU, pV)
-                .overlayCoords(OverlayTexture.NO_OVERLAY)
-                .uv2(pPackedLight)
-                .normal(pNormal, (float)pNormalX, (float)pNormalY, (float)pNormalZ)
-                .endVertex();
+        pConsumer.addVertex(pMatrix, (float)pX, (float)pY, (float)pZ)
+                .setColor(pRed, pGreen, pBlue, pAlpha)
+                .setUv(pU, pV)
+                .setOverlay(OverlayTexture.NO_OVERLAY)
+                .setLight(pPackedLight)
+                .setNormal((float)pNormalX, (float)pNormalY, (float)pNormalZ);
     }
 }

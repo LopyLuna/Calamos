@@ -11,21 +11,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MoveThroughVillageGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
@@ -35,14 +28,11 @@ import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEffects;
-import uwu.lopyluna.calamos.elements.blockEntity.AntennaBlockEntity;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.MachinaHusk;
 import uwu.lopyluna.calamos.elements.entity.machina.goal.*;
-import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -83,13 +73,13 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         return playerinfo != null && playerinfo.getSkin().model() == PlayerSkin.Model.SLIM;
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_PLAYER_MODE_CUSTOMISATION, (byte)0);
-        this.entityData.define(ANTENNA_POS, BlockPos.ZERO);
-        this.entityData.define(IN_RANGE_OF_ANTENNA, false);
-        this.entityData.define(IN_RANGE_OF_MAINFRAME, false);
-        this.entityData.define(LINKED_PLAYER, "");
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_PLAYER_MODE_CUSTOMISATION, (byte)0);
+        builder.define(ANTENNA_POS, BlockPos.ZERO);
+        builder.define(IN_RANGE_OF_ANTENNA, false);
+        builder.define(IN_RANGE_OF_MAINFRAME, false);
+        builder.define(LINKED_PLAYER, "");
     }
     @Override
     public void tick() {
@@ -104,14 +94,14 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         if (getLinkedPlayer() != null) {
             Player player = level().getPlayerByUUID(getLinkedPlayer());
             if (player != null && this.getAttribute(Attributes.MAX_HEALTH) != null) {
-                AttributeModifier healthModifier = new AttributeModifier(UUID.fromString("0a68c468-2e5c-45f4-89cb-84835cb05444"), "Pestis Player Health Multiplier", player.getMaxHealth() - 100, AttributeModifier.Operation.ADDITION);
-                if (this.getAttribute(Attributes.MAX_HEALTH).hasModifier(healthModifier)) {
+                AttributeModifier healthModifier = new AttributeModifier(CalamosMod.asResource("health.machina_pestis_player"), player.getMaxHealth() - 100, AttributeModifier.Operation.ADD_VALUE);
+                if (this.getAttribute(Attributes.MAX_HEALTH).hasModifier(CalamosMod.asResource("health.machina_pestis_player"))) {
                     return;
                 }
                 this.getAttribute(Attributes.MAX_HEALTH).addTransientModifier(healthModifier);
             }
             if (player != null) {
-                if (!player.hasEffect(ModEffects.PESTIS.get())) {
+                if (!player.hasEffect(ModEffects.PESTIS)) {
                     this.kill();
                 }
             }
@@ -182,21 +172,18 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
     }
 
     @Override
-    protected void dropAllDeathLoot(DamageSource pDamageSource) {
-        Entity entity = pDamageSource.getEntity();
-        
-        int i = net.neoforged.neoforge.common.CommonHooks.getLootingLevel(this, entity, pDamageSource);
+    protected void dropAllDeathLoot(ServerLevel level, DamageSource pDamageSource) {
         this.captureDrops(new java.util.ArrayList<>());
-        
+
         boolean flag = this.lastHurtByPlayerTime > 0;
         if (this.shouldDropLoot() && this.level().getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
             this.dropFromLootTable(pDamageSource, flag);
         }
         
-        this.dropExperience();
+        this.dropExperience(pDamageSource.getEntity());
         
         Collection<ItemEntity> drops = captureDrops(null);
-        if (!net.neoforged.neoforge.common.CommonHooks.onLivingDrops(this, pDamageSource, drops, i, lastHurtByPlayerTime > 0))
+        if (!net.neoforged.neoforge.common.CommonHooks.onLivingDrops(this, pDamageSource, drops, lastHurtByPlayerTime > 0))
             drops.forEach(e -> level().addFreshEntity(e));
     }
     
@@ -280,20 +267,9 @@ public class PestisPlayerEntity extends PathfinderMob implements MachinaHusk {
         }
         return UUID.fromString(this.entityData.get(LINKED_PLAYER));
     }
-
-    @Nullable
-    public AntennaBlockEntity getAntenna() {
-        BlockEntity blockEntity = this.level.getBlockEntity(getAntennaPos());
-        return blockEntity instanceof AntennaBlockEntity ? (AntennaBlockEntity) blockEntity : null;
-    }
     
     public void checkAntenna() {
-        this.getAntenna();
-        if (this.getAntenna() == null) {
-            setInRangeOfAntenna(false);
-        }
-        AABB antennaRange = getAntenna().getAntennaRange();
-        setInRangeOfAntenna(antennaRange.intersects(this.getBoundingBox()));
+        setInRangeOfAntenna(true);
     }
     public void spawnSmoke() {
         if (this.level.isClientSide) {

@@ -118,7 +118,7 @@ public class DebugHealthItem extends Item {
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 5;
     }
 

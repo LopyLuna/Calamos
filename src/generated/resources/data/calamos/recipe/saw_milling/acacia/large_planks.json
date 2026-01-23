@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:acacia_log"
+  },
+  "result": {
+    "count": 4,
+    "id": "calamos:large_acacia_planks"
+  }
+}

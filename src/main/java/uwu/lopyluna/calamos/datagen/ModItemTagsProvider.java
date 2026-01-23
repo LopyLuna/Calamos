@@ -12,6 +12,7 @@ import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
+import uwu.lopyluna.calamos.elements.items.equipment.hook.AbstractHookItem;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -40,6 +41,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.BERSERKER_CRAW.get(),
                 ModItems.JARRED_CLOUD.get()
         ).replace(false);
+        var hook = tag(ModTags.curiosItemTag("hook"));
+        ModItems.getItems().forEach(item -> {
+            if (item.get() instanceof AbstractHookItem) hook.add(item.get());
+        });
+        hook.replace(false);
     }
     
     private void registerMinecraftTags() {
@@ -220,7 +226,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.ELEGANT_BLOOM.get(),
                 ModItems.PALLADIUM_INGOT.get()
         );
-        tag(ItemTags.TOOLS).add(
+        tag(Tags.Items.TOOLS).add(
                 ModItems.COPPER_SWORD.get(),
                 ModItems.COPPER_PICKAXE.get(),
                 ModItems.COPPER_AXE.get(),

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:arrow"
+    },
+    "U": {
+      "item": "calamos:uranium_nugget"
+    }
+  },
+  "pattern": [
+    " U ",
+    "UAU",
+    " U "
+  ],
+  "result": {
+    "count": 4,
+    "id": "calamos:irradiated_arrow"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 2,
-  "ingredient": {
-    "item": "calamos:hollow_planks"
-  },
-  "result": "calamos:hollow_slab"
-}

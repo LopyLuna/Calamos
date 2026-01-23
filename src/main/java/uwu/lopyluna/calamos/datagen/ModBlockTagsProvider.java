@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.Nullable;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
@@ -128,7 +126,15 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 
                 ModDecorativeBlocks.LARGE_BRICKS.get(),
                 
-                ModBlocks.METAL_GRINDER.get()
+                ModBlocks.METAL_GRINDER.get(),
+
+                ModDecorativeBlocks.SULFURIC_SANDSTONE.get(),
+                ModDecorativeBlocks.SULFURIC_STONE.get(),
+                ModDecorativeBlocks.SHALLOWSLATE.get()
+        );
+
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                ModDecorativeBlocks.SULFURIC_SAND.get()
         );
         
         tag(BlockTags.MINEABLE_WITH_AXE).add(

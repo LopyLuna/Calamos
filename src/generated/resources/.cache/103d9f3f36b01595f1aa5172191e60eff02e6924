@@ -1,7 +1,21 @@
-// 1.20.4	2024-03-08T18:20:01.8398236	Registries
+// 1.21.1	2026-01-22T19:27:36.2351557	Registries
 c491d07167fba2d2851a34f9e14a39faa0e68e20 data/calamos/dimension/calamosdim.json
 b3f6aa396282cf264c0b608b80e88cbd7dd97b4e data/calamos/dimension/otherworld.json
 5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/calamosdim_type.json
 5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/otherworld_type.json
+8dcb7253f3d0400ccf5b56a827db27067f16a775 data/calamos/enchantment/fast_flight.json
+7ff67f0cf5ec567afcbe75f0fc915d9d4000928a data/calamos/enchantment/felling.json
+09cee50af2361a8a1b3c321d6d8477d85d37c922 data/calamos/enchantment/flight_charge.json
+8d3351fb56a0f387bf6c1f5a3136d29897df2b73 data/calamos/enchantment/saving_grace.json
+fe3fb91627c6a30b86430bec518f90b2512f065c data/calamos/trim_material/garnet.json
+0e9ad9c467da9dbf6bbf57d1afa2fb3c6542123f data/calamos/trim_material/jade.json
+756868175dfe268d53761d1580e58038cc0d4d73 data/calamos/trim_material/kunzite.json
+90ce7551fbf83b3f2be9ef88df7a9c5f24f718a8 data/calamos/trim_material/moonstone.json
+4a85b2dfbee0d994008ef3e7d80b3b18ee9d2b83 data/calamos/trim_material/ruby.json
+9f319ba9106262a1eec0fd822bebfea50d8e7f86 data/calamos/trim_material/sapphire.json
+f1e38015e77db6742b0e0c4f0df5a7f1d59a5361 data/calamos/trim_material/spinel.json
+ed0fad3627e3b48886bcaae85af1eaf7f65629c0 data/calamos/trim_material/sunstone.json
+7b2d3698e5289b7dcc975358fb2f4b8e9ccbe9b5 data/calamos/trim_material/tanzanite.json
+8440dcd6af599f954426ab890313db2dc074cdd4 data/calamos/trim_material/topaz.json
 0edcc4dadf1ecd7057b97127ead9efb0305ffec0 data/calamos/worldgen/biome/otherworld_plains.json
 0edcc4dadf1ecd7057b97127ead9efb0305ffec0 data/calamos/worldgen/biome/test_biome.json

@@ -2,7 +2,6 @@ package uwu.lopyluna.calamos.elements.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
@@ -22,7 +21,7 @@ public class HallowWorkbenchBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult p_316850_) {
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
@@ -34,7 +33,7 @@ public class HallowWorkbenchBlock extends Block {
     @Override
     public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
         return new SimpleMenuProvider(
-                (p_52229_, p_52230_, p_52231_) -> new HallowWorkbenchMenu(p_52229_, p_52230_, ContainerLevelAccess.create(pLevel, pPos)), CONTAINER_TITLE
+                (id, inventory, player) -> new HallowWorkbenchMenu(id, inventory, ContainerLevelAccess.create(pLevel, pPos)), CONTAINER_TITLE
         );
     }
 }

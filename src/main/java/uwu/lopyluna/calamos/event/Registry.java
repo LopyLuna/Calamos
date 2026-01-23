@@ -1,17 +1,10 @@
 package uwu.lopyluna.calamos.event;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.authlib.minecraft.client.MinecraftClient;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.AbstractClientPlayer;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.resources.PlayerSkin;
-import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.entity.model.WormHead;
@@ -20,6 +13,7 @@ import uwu.lopyluna.calamos.client.entity.renderer.PestisPlayerRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormHeadRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormSegmentRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.machina.MachinaZombieRenderer;
+import uwu.lopyluna.calamos.client.render.hook.HookRenderer;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.boone.BooneRenderer;
 import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteModel;
@@ -31,7 +25,7 @@ import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.Irrad
 
 import java.util.Map;
 
-@Mod.EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class Registry {
     private static final Map<PlayerSkin.Model, EntityRendererProvider<PestisPlayerEntity>> PLAYER_PROVIDERS;
 
@@ -45,6 +39,7 @@ public class Registry {
         event.registerEntityRenderer(ModEntity.DYNAMITE.get(), DynamiteRenderer::new);
         event.registerEntityRenderer(ModEntity.IRRADIATED_ARROW.get(), IrradiatedArrowRenderer::new);
         event.registerEntityRenderer(ModEntity.MACHINA_ZOMBIE.get(), MachinaZombieRenderer::new);
+        event.registerEntityRenderer(ModEntity.HOOK.get(), HookRenderer::new);
         PLAYER_PROVIDERS.forEach((model, provider) -> event.registerEntityRenderer(ModEntity.PESTIS_PLAYER.get(), provider));
     }
 

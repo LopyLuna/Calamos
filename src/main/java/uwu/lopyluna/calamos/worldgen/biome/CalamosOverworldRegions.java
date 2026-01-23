@@ -18,7 +18,7 @@ public class CalamosOverworldRegions extends Region {
     }
     
     public static void register() {
-        Regions.register(new CalamosOverworldRegions(new ResourceLocation(CalamosMod.MODID, "overworld"), 1));
+        Regions.register(new CalamosOverworldRegions(CalamosMod.asResource("overworld"), 1));
     }
 
     /**

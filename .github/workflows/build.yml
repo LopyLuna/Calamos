@@ -30,7 +30,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         if: github.event_name == 'push' && env.DISCORD_WEBHOOK != ''
-        uses: fateyan/action-discord-notifier@v1
+        uses: realRobotix/action-discord-notifier@master
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           message-title: Building mod from branch ${{ steps.get_branch.outputs.branch }}

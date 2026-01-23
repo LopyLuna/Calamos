@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -29,7 +30,7 @@ public class ModDecorativeBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<StairBlock> METEORITE_STAIRS = register("meteorite_stairs",
-            () -> new StairBlock(() -> ModDecorativeBlocks.METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            () -> new StairBlock(ModDecorativeBlocks.METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
             ), new Item.Properties());
     public static final DeferredBlock<SlabBlock> METEORITE_SLAB = register("meteorite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
@@ -59,7 +60,7 @@ public class ModDecorativeBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<StairBlock> POLISHED_METEORITE_STAIRS = register("polished_meteorite_stairs",
-            () -> new StairBlock(() -> ModDecorativeBlocks.POLISHED_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            () -> new StairBlock(ModDecorativeBlocks.POLISHED_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
             ), new Item.Properties());
     public static final DeferredBlock<SlabBlock> POLISHED_METEORITE_SLAB = register("polished_meteorite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
@@ -71,7 +72,7 @@ public class ModDecorativeBlocks {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     public static final DeferredBlock<StairBlock> SMOOTH_METEORITE_STAIRS = register("smooth_meteorite_stairs",
-            () -> new StairBlock(() -> ModDecorativeBlocks.SMOOTH_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
+            () -> new StairBlock(ModDecorativeBlocks.SMOOTH_METEORITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_STAIRS)
             ), new Item.Properties());
     public static final DeferredBlock<SlabBlock> SMOOTH_METEORITE_SLAB = register("smooth_meteorite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB)
@@ -505,6 +506,21 @@ public class ModDecorativeBlocks {
             ), new Item.Properties());
     public static final DeferredBlock<Block> MUD_TILES = register("mud_tiles",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)
+            ), new Item.Properties());
+
+    //Sulfuric
+    public static final DeferredBlock<ColoredFallingBlock> SULFURIC_SAND = register("sulfuric_sand",
+            () -> new ColoredFallingBlock(new ColorRGBA(0x896b4f), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SULFURIC_SANDSTONE = register("sulfuric_sandstone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)
+            ), new Item.Properties());
+    public static final DeferredBlock<Block> SULFURIC_STONE = register("sulfuric_stone",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+            ), new Item.Properties());
+
+    public static final DeferredBlock<Block> SHALLOWSLATE = register("shallowslate",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
             ), new Item.Properties());
     
     

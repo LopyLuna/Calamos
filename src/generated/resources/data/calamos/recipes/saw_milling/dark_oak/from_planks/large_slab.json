@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:dark_oak_planks"
-  },
-  "result": "calamos:large_dark_oak_slab"
-}

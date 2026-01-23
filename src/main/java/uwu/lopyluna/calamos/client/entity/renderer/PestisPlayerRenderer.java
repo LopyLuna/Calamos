@@ -6,17 +6,12 @@ import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.layers.ElytraLayer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.network.chat.CommonComponents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.numbers.StyledFormat;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -26,10 +21,6 @@ import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.scores.DisplaySlot;
-import net.minecraft.world.scores.Objective;
-import net.minecraft.world.scores.ReadOnlyScoreInfo;
-import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import uwu.lopyluna.calamos.client.entity.layer.PestisCapeLayer;
@@ -144,11 +135,11 @@ public class PestisPlayerRenderer extends LivingEntityRenderer<PestisPlayerEntit
         pPoseStack.scale(0.9375F, 0.9375F, 0.9375F);
     }
 
-    protected void setupRotations(PestisPlayerEntity pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
+    protected void setupRotations(PestisPlayerEntity pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, float p_320072_) {
         float f = pEntityLiving.getSwimAmount(pPartialTicks);
         float f1 = pEntityLiving.getViewXRot(pPartialTicks);
         if (pEntityLiving.isFallFlying()) {
-            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
+            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks, p_320072_);
             float f2 = (float)pEntityLiving.getFallFlyingTicks() + pPartialTicks;
             float f3 = Mth.clamp(f2 * f2 / 100.0F, 0.0F, 1.0F);
             if (!pEntityLiving.isAutoSpinAttack()) {
@@ -165,7 +156,7 @@ public class PestisPlayerRenderer extends LivingEntityRenderer<PestisPlayerEntit
                 pPoseStack.mulPose(Axis.YP.rotation((float)(Math.signum(d3) * Math.acos(d2))));
             }
         } else if (f > 0.0F) {
-            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
+            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks, p_320072_);
             float f4 = pEntityLiving.isInWater() || pEntityLiving.isInFluidType((fluidType, height) -> pEntityLiving.canSwimInFluidType(fluidType)) ? -90.0F - pEntityLiving.getXRot() : -90.0F;
             float f5 = Mth.lerp(f, 0.0F, f4);
             pPoseStack.mulPose(Axis.XP.rotationDegrees(f5));
@@ -173,7 +164,7 @@ public class PestisPlayerRenderer extends LivingEntityRenderer<PestisPlayerEntit
                 pPoseStack.translate(0.0F, -1.0F, 0.3F);
             }
         } else {
-            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
+            super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks, p_320072_);
         }
     }
 }

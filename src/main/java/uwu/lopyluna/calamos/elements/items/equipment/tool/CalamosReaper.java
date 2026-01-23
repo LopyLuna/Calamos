@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.elements.items.equipment.tool;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,7 +23,7 @@ public class CalamosReaper extends SwordItem implements CalamosTool {
     protected int harvestRadius;
     private final boolean twoHanded;
     public CalamosReaper(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, int harvestRadius, boolean twoHanded, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+        super(pTier, pProperties.attributes(SwordItem.createAttributes(pTier, pAttackDamageModifier, pAttackSpeedModifier)));
         this.harvestRadius = harvestRadius;
         this.twoHanded = twoHanded;
     }
@@ -59,8 +60,8 @@ public class CalamosReaper extends SwordItem implements CalamosTool {
         BlockPos pos = player.getOnPos();
         BlockPos blockPos = new BlockPos(ModUtils.roundThat((float) pos.getX()), ModUtils.roundThat((float) pos.getZ()), ModUtils.roundThat((float) pos.getZ()));
         ItemStack item = player.getItemBySlot(EquipmentSlot.MAINHAND);
-        
-        int lvl = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, player);
+        var sharpness = world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SHARPNESS);
+        int lvl = EnchantmentHelper.getEnchantmentLevel(sharpness, player);
         int radius = (int) (Math.floor(lvl / 2.0) + harvestRadius);
         boolean harvestInCircle = (harvestRadius + lvl) % 2 == 0;
         
@@ -79,7 +80,7 @@ public class CalamosReaper extends SwordItem implements CalamosTool {
                     if (block instanceof CropBlock cropBlock && cropBlock.isMaxAge(blockState)) {
                         Block.dropResources(blockState, world, newBlockPos);
                         if(!player.isCreative())
-                            item.hurtAndBreak(1, player, (stack) -> stack.broadcastBreakEvent(hand));
+                            item.hurtAndBreak(1, player, hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                         world.setBlockAndUpdate(newBlockPos, cropBlock.getStateForAge(0));
                     }
                 }

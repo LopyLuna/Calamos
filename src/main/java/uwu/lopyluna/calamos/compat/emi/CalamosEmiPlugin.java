@@ -5,7 +5,6 @@ import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiStack;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import uwu.lopyluna.calamos.CalamosMod;
@@ -21,9 +20,9 @@ public class CalamosEmiPlugin implements EmiPlugin {
     public static final EmiStack SAWMILL = EmiStack.of(ModBlocks.SAWMILL);
     public static final EmiStack METAL_GRINDER = EmiStack.of(ModBlocks.METAL_GRINDER);
     public static final EmiRecipeCategory SAW_MILLING
-            = new EmiRecipeCategory(new ResourceLocation(CalamosMod.MODID, "sawmilling"), SAWMILL);
+            = new EmiRecipeCategory(CalamosMod.asResource("sawmilling"), SAWMILL);
     public static final EmiRecipeCategory METAL_GRINDING
-            = new EmiRecipeCategory(new ResourceLocation(CalamosMod.MODID, "metal_grinding"), METAL_GRINDER);
+            = new EmiRecipeCategory(CalamosMod.asResource("metal_grinding"), METAL_GRINDER);
     
     public CalamosEmiPlugin() {
     }

@@ -44,6 +44,8 @@ class ModItemModelProvider extends ItemModelProvider {
         this.basicItem(ModItems.BLOOD_ORB);
         this.basicItem(ModItems.ECTOPLASMA);
         this.basicItem(ModItems.WINGS);
+        this.basicItem(ModItems.WULFRUM_SCRAP);
+        this.basicItem(ModItems.ENERGY_CORE);
 
         //Ingots
         this.basicItem(ModItems.BLOODBORE_INGOT);

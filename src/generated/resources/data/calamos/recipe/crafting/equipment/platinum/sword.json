@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "calamos:platinum_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "calamos:platinum_sword"
+  }
+}

@@ -23,6 +23,6 @@ public class EyeRenderer extends MobRenderer<EyeEntity, EyeModel<EyeEntity>> {
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(EyeEntity entity) {
-        return new ResourceLocation(CalamosMod.MODID, "textures/entity/eye/eye.png");
+        return CalamosMod.asResource("textures/entity/eye/eye.png");
     }
 }

@@ -9,14 +9,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import org.jetbrains.annotations.Nullable;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
-
-import java.util.List;
-import java.util.Optional;
 
 import static uwu.lopyluna.calamos.utilities.ModUtils.secondsToTicks;
 
@@ -28,7 +24,7 @@ public class FurnaceProvider {
     }
     private static ResourceLocation location(String path, int type) {
         String typeStr = switch (type) {case 1 -> "blasting";case 2 -> "smoking";default -> "smelting";};
-        return new ResourceLocation(CalamosMod.MODID, typeStr + "/" + path);
+        return CalamosMod.asResource(typeStr + "/" + path);
     }
     private static void smelting(RecipeOutput consumer) {
         smeltingRecipe(RecipeCategory.BUILDING_BLOCKS, ModDecorativeBlocks.METEORITE.asItem(), ModDecorativeBlocks.COBBLED_METEORITE.asItem(), 0.1f, secondsToTicks(10)).save(consumer, location("decoration/meteorite/block", 0));

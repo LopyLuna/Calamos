@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:stripped_warped_stem"
-  },
-  "result": "minecraft:warped_trapdoor"
-}

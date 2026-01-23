@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:otherworld_oak_log"
+  },
+  "result": {
+    "count": 6,
+    "id": "calamos:otherworld_oak_planks"
+  }
+}

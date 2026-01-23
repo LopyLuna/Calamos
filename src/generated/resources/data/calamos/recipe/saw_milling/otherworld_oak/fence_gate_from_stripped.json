@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:stripped_otherworld_oak_log"
+  },
+  "result": {
+    "count": 4,
+    "id": "calamos:otherworld_oak_fence_gate"
+  }
+}

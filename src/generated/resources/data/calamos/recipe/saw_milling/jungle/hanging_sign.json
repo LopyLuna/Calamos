@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:jungle_log"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:jungle_hanging_sign"
+  }
+}

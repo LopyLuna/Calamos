@@ -1,25 +1,26 @@
 package uwu.lopyluna.calamos.elements.recipe;
 
+import com.mojang.datafixers.Products;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.Container;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 
-public abstract class ModSingleItemRecipe implements Recipe<Container> {
+import java.util.Objects;
+
+public abstract class ModSingleItemRecipe implements Recipe<SingleRecipeInput> {
     protected final Ingredient ingredient;
     protected final ItemStack result;
     private final RecipeType<?> type;
     private final RecipeSerializer<?> serializer;
     protected final String group;
-    
+
     public ModSingleItemRecipe(RecipeType<?> pType, RecipeSerializer<?> pSerializer, String pGroup, Ingredient pIngredient, ItemStack pResult) {
         this.type = pType;
         this.serializer = pSerializer;
@@ -47,7 +48,7 @@ public abstract class ModSingleItemRecipe implements Recipe<Container> {
     }
     
     @Override
-    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+    public ItemStack getResultItem(HolderLookup.Provider lookup) {
         return this.result;
     }
     
@@ -67,46 +68,44 @@ public abstract class ModSingleItemRecipe implements Recipe<Container> {
     }
     
     @Override
-    public ItemStack assemble(Container pContainer, RegistryAccess pRegistryAccess) {
+    public ItemStack assemble(SingleRecipeInput p_345857_, HolderLookup.Provider p_335463_) {
         return this.result.copy();
     }
-    
+
     public interface Factory<T extends ModSingleItemRecipe> {
-        T create(String pGroup, Ingredient pIngredient, ItemStack pResult);
+        T create(String var1, Ingredient var2, ItemStack var3);
     }
-    
+
     public static class Serializer<T extends ModSingleItemRecipe> implements RecipeSerializer<T> {
-        final ModSingleItemRecipe.Factory<T> factory;
-        private final Codec<T> codec;
+        final Factory<T> factory;
+        private final MapCodec<T> codec;
+        private final StreamCodec<RegistryFriendlyByteBuf, T> streamCodec;
         
-        public Serializer(ModSingleItemRecipe.Factory<T> pFactory) {
-            this.factory = pFactory;
-            this.codec = RecordCodecBuilder.create(
-                    p_311738_ -> p_311738_.group(
-                                    ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(p_300947_ -> p_300947_.group),
-                                    Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(p_301068_ -> p_301068_.ingredient),
-                                    ItemStack.RESULT_CODEC.forGetter(p_302316_ -> p_302316_.result)
-                            )
-                            .apply(p_311738_, pFactory::create)
-            );
+        public Serializer(Factory<T> factory) {
+            this.factory = factory;
+            this.codec = RecordCodecBuilder.mapCodec((instance) -> {
+                Products.P3<RecordCodecBuilder.Mu<T>, String, Ingredient, ItemStack> codec = instance.group(
+                        Codec.STRING.optionalFieldOf("group", "").forGetter((ser) -> ser.group),
+                        Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter((ser) -> ser.ingredient),
+                        ItemStack.STRICT_CODEC.fieldOf("result").forGetter((ser) -> ser.result)
+                );
+                Objects.requireNonNull(factory);
+                return codec.apply(instance, factory::create);
+            });
+            Objects.requireNonNull(factory);
+            this.streamCodec = StreamCodec.composite(
+                    ByteBufCodecs.STRING_UTF8, (recipe) -> recipe.group,
+                    Ingredient.CONTENTS_STREAM_CODEC, (recipe) -> recipe.ingredient,
+                    ItemStack.STREAM_CODEC, (recipe) -> recipe.result,
+                    factory::create);
         }
-        
-        @Override
-        public Codec<T> codec() {
+
+        public MapCodec<T> codec() {
             return this.codec;
         }
-        
-        public T fromNetwork(FriendlyByteBuf pBuffer) {
-            String s = pBuffer.readUtf();
-            Ingredient ingredient = Ingredient.fromNetwork(pBuffer);
-            ItemStack itemstack = pBuffer.readItem();
-            return this.factory.create(s, ingredient, itemstack);
-        }
-        
-        public void toNetwork(FriendlyByteBuf pBuffer, T pRecipe) {
-            pBuffer.writeUtf(pRecipe.group);
-            pRecipe.ingredient.toNetwork(pBuffer);
-            pBuffer.writeItem(pRecipe.result);
+
+        public StreamCodec<RegistryFriendlyByteBuf, T> streamCodec() {
+            return this.streamCodec;
         }
     }
 }

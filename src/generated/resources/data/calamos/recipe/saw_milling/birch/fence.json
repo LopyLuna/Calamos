@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:birch_log"
+  },
+  "result": {
+    "count": 12,
+    "id": "minecraft:birch_fence"
+  }
+}

@@ -9,9 +9,9 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.GameType;
+import net.neoforged.neoforge.network.PacketDistributor;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
-import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.networking.packets.S2C.PestisCameraPacket;
 
 import java.util.UUID;
@@ -46,7 +46,7 @@ public class MachinaPestisEffect extends MobEffect {
         CompoundTag tag = pPlayer.getPersistentData();
         tag.putUUID("LinkedPestisClone", pestisUUID);
         pPlayer.setGameMode(GameType.SPECTATOR);
-        CalamosMessages.sendToPlayer(new PestisCameraPacket(pPlayer.getId(), pestisPlayer.getId(), false), pPlayer);
+        PacketDistributor.sendToPlayer(pPlayer, new PestisCameraPacket(pPlayer.getId(), pestisPlayer.getId(), false));
     }
     
     //public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {

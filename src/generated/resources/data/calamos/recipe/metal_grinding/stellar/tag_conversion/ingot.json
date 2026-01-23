@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "tag": "c:ingots/stellar"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:stellar_ingot"
+  }
+}

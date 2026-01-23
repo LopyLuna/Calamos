@@ -15,7 +15,7 @@ public class HealingPotionItem extends SimplePotionItemWithCooldown {
     public final int healingAmount;
 
     public HealingPotionItem(int healingAmount, int cooldownDuration, int drinkingDuration, Properties pProperties) {
-        super(MobEffects.HEAL, 0, 0, ModEffects.HEALING_SICKNESS.get(), cooldownDuration, drinkingDuration, "Healing", pProperties);
+        super(MobEffects.HEAL, 0, 0, ModEffects.HEALING_SICKNESS, cooldownDuration, drinkingDuration, "Healing", pProperties);
         this.healingAmount = healingAmount;
     }
 

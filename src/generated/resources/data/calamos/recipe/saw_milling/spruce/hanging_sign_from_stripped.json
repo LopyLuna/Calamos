@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:stripped_spruce_log"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:spruce_hanging_sign"
+  }
+}

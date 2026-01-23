@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 16,
-  "ingredient": {
-    "item": "calamos:hollow_log"
-  },
-  "result": "calamos:hollow_pressure_plate"
-}

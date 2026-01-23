@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:stripped_birch_log"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:birch_hanging_sign"
+  }
+}

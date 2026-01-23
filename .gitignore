@@ -25,3 +25,4 @@ run-data
 
 repo
 /CalamosSpritesheet.aseprite
+/src/generated/resources/.cache/

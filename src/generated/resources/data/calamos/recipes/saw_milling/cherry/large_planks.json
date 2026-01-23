@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:cherry_log"
-  },
-  "result": "calamos:large_cherry_planks"
-}

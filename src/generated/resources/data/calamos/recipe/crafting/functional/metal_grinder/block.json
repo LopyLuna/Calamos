@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    " I ",
+    "SBS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "calamos:metal_grinder"
+  }
+}

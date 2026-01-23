@@ -1,4 +1,6 @@
-// 1.20.4	2024-11-29T18:19:18.0101092	Curios for calamos
-b47ceaf706be45985fdaf8d5d5ccf62a384cc5b3 data/calamos/curios/entities/calamos_entities.json
+// 1.21.1	2026-01-22T19:27:36.2099285	Curios for calamos
+3d528a5035fd16afc86630794a389c6f935e57d2 data/calamos/curios/entities/calamos_entities.json
 e1aa29e28c6174a83d0aa5b9d888b649cf246d03 data/calamos/curios/slots/accessory.json
+240e1f476f220fc486f85d0132786a1374faaa46 data/calamos/curios/slots/hook.json
+36057570d2d75915c82e0000e6e40d38ae8da954 data/calamos/curios/slots/vanity.json
 da4213434a496fa18cdca7866f4b5c6d999c0032 data/calamos/curios/slots/wings.json

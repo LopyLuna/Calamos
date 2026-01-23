@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "tag": "c:ingots/volcanite"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:volcanite_ingot"
+  }
+}

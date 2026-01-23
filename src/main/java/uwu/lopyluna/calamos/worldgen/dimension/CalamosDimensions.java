@@ -2,9 +2,8 @@ package uwu.lopyluna.calamos.worldgen.dimension;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.Level;
@@ -34,7 +33,7 @@ public class CalamosDimensions {
     /**
      * Look at {@link net.minecraft.data.worldgen.DimensionTypes}
      */
-    public static void bootstrapType(BootstapContext<DimensionType> context) {
+    public static void bootstrapType(BootstrapContext<DimensionType> context) {
         context.register(CALAMOS_TYPE, new DimensionType(
                 OptionalLong.empty(),
                 true,
@@ -72,7 +71,7 @@ public class CalamosDimensions {
         ));
     }
 
-    public static void bootstrapStem(BootstapContext<LevelStem> context) {
+    public static void bootstrapStem(BootstrapContext<LevelStem> context) {
         HolderGetter<Biome> biome = context.lookup(Registries.BIOME);
         HolderGetter<DimensionType> type = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noise = context.lookup(Registries.NOISE_SETTINGS);
@@ -89,15 +88,15 @@ public class CalamosDimensions {
 
 
     private static ResourceKey<LevelStem> registerKey(String name) {
-        return ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CalamosMod.MODID, name));
+        return ResourceKey.create(Registries.LEVEL_STEM, CalamosMod.asResource(name));
     }
 
     private static ResourceKey<Level> registerLevelKey(String name) {
-        return ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CalamosMod.MODID, name));
+        return ResourceKey.create(Registries.DIMENSION, CalamosMod.asResource(name));
     }
 
     private static ResourceKey<DimensionType> registerTypeKey(String name) {
-        return ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CalamosMod.MODID, name));
+        return ResourceKey.create(Registries.DIMENSION_TYPE, CalamosMod.asResource(name));
     }
 
 }

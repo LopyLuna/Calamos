@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 1,
-  "ingredient": {
-    "item": "calamos:large_hollow_planks"
-  },
-  "result": "calamos:large_hollow_stairs"
-}

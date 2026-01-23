@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "calamos:palladium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "calamos:palladium_ingot"
+  }
+}

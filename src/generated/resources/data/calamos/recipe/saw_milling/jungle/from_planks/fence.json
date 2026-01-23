@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": {
+    "count": 3,
+    "id": "minecraft:jungle_fence"
+  }
+}

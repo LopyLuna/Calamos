@@ -1,7 +1,6 @@
 package uwu.lopyluna.calamos.client;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.wings.WingsModel;
@@ -14,6 +13,6 @@ public class ModArmorLayers {
     }
     
     private static ModelLayerLocation createLocation(String model, String layer) {
-        return new ModelLayerLocation(new ResourceLocation(CalamosMod.MODID, model), layer);
+        return new ModelLayerLocation(CalamosMod.asResource(model), layer);
     }
 }

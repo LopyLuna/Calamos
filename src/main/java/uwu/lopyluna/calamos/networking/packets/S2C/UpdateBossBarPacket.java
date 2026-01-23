@@ -2,60 +2,48 @@ package uwu.lopyluna.calamos.networking.packets.S2C;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.ClientProxy;
-import uwu.lopyluna.calamos.networking.packets.Packet;
+import uwu.lopyluna.calamos.utilities.ModUtils;
 
+import java.util.Optional;
 import java.util.UUID;
 
-public class UpdateBossBarPacket extends Packet {
-    public static final ResourceLocation ID = new ResourceLocation(CalamosMod.MODID, "update_boss_bar");
+public record UpdateBossBarPacket(UUID bossID, boolean remove, ResourceLocation registryName) implements CustomPacketPayload {
+    public static final Type<UpdateBossBarPacket> TYPE = new Type<>(CalamosMod.asResource("update_boss_bar"));
 
-    private UUID bossID;
-    private boolean remove;
-    private ResourceLocation registryName;
+    public static final StreamCodec<FriendlyByteBuf, UpdateBossBarPacket> STREAM_CODEC = StreamCodec.composite(
+            ModUtils.UUID_STREAM_CODEC, UpdateBossBarPacket::bossID,
+            ByteBufCodecs.BOOL, UpdateBossBarPacket::remove,
+            ByteBufCodecs.optional(ResourceLocation.STREAM_CODEC).map(or -> or.orElse(null), Optional::ofNullable), UpdateBossBarPacket::registryName,
+            UpdateBossBarPacket::new
+    );
 
-    public UpdateBossBarPacket(UUID bossID, LivingEntity entity) {
-        this.bossID = bossID;
+    public static UpdateBossBarPacket create(UUID bossID, LivingEntity entity) {
+        ResourceLocation resourceLocation;
+        boolean doRemove;
         if (entity != null) {
-            this.registryName = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
-            this.remove = false;
+            resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
+            doRemove = false;
+        } else {
+            resourceLocation = null;
+            doRemove = true;
         }
-        else {
-            this.registryName = null;
-            this.remove = true;
-        }
+        return new UpdateBossBarPacket(bossID, doRemove, resourceLocation);
     }
-    public UpdateBossBarPacket(FriendlyByteBuf buf) {
-        this.bossID = buf.readUUID();
-        this.remove = buf.readBoolean();
-        this.registryName = buf.readResourceLocation();
+
+    public void handle(IPayloadContext context) {
+        context.enqueueWork(() -> ClientProxy.handleUpdateBossBarPacket(this.bossID, this.registryName));
     }
 
     @Override
-    public void handleServer(PlayPayloadContext context) {
-
-    }
-
-    @Override
-    public void handleClient(PlayPayloadContext context) {
-        context.workHandler().execute(() -> {
-            ClientProxy.handleUpdateBossBarPacket(this.bossID, this.registryName);
-        });
-    }
-
-    @Override
-    public void write(FriendlyByteBuf buf) {
-        buf.writeUUID(this.bossID);
-        buf.writeBoolean(this.remove);
-        if (!this.remove && this.registryName != null) buf.writeResourceLocation(this.registryName);
-    }
-
-    @Override
-    public ResourceLocation id() {
-        return ID;
+    public Type<? extends CustomPacketPayload> type() {
+        return TYPE;
     }
 }

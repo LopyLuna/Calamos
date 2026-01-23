@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sulfuric_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "calamos:sulfuric_sand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:crafting/decoration/masonry/sulfuric_sand/stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sulfuric_sand"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:crafting/decoration/masonry/sulfuric_sand/stone"
+    ]
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 16,
-  "ingredient": {
-    "item": "minecraft:mangrove_log"
-  },
-  "result": "minecraft:mangrove_pressure_plate"
-}

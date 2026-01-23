@@ -10,13 +10,12 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.entity.Worm;
 
 public class WormHead<T extends Worm> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(CalamosMod.MODID, "worm_head"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("worm_head"), "main");
 	private final ModelPart bb_main;
 
 	public WormHead(ModelPart root) {
@@ -38,7 +37,7 @@ public class WormHead<T extends Worm> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 }

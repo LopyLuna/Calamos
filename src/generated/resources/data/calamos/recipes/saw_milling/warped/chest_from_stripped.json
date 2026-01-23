@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:stripped_warped_stem"
-  },
-  "result": "minecraft:chest"
-}

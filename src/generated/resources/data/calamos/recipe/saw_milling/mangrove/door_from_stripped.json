@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:stripped_mangrove_log"
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:mangrove_door"
+  }
+}

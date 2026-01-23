@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:stripped_jungle_log"
+  },
+  "result": {
+    "count": 4,
+    "id": "calamos:large_jungle_stairs"
+  }
+}

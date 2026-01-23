@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.mixin;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -16,9 +17,12 @@ public class StonecutterBlockMixin {
 //Why not make this :3
 
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, (LivingEntity) pEntity);
-        if (!(i > 0)) {
-            pEntity.hurt(pLevel.damageSources().generic(), 1.5F);
+        if (pEntity instanceof LivingEntity livingEntity) {
+            var prot = pLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.PROTECTION);
+            int i = EnchantmentHelper.getEnchantmentLevel(prot, livingEntity);
+            if (!(i > 0)) {
+                pEntity.hurt(pLevel.damageSources().generic(), 1.5F);
+            }
         }
     }
 }

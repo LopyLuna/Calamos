@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:twilight_log"
+  },
+  "result": {
+    "count": 32,
+    "id": "calamos:twilight_button"
+  }
+}

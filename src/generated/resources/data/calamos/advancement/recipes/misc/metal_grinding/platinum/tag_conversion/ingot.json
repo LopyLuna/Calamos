@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_platinum_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "calamos:platinum_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:metal_grinding/platinum/tag_conversion/ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_platinum_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:metal_grinding/platinum/tag_conversion/ingot"
+    ]
+  }
+}

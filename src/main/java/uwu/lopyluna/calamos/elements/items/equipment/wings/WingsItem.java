@@ -1,8 +1,22 @@
 package uwu.lopyluna.calamos.elements.items.equipment.wings;
 
+import com.google.common.collect.Lists;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -10,7 +24,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Equipable;
@@ -18,26 +31,31 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.phys.Vec3;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.SlotContext;
-import top.theillusivec4.curios.api.type.capability.ICurioItem;
-import uwu.lopyluna.calamos.elements.CalamosKeys;
-import uwu.lopyluna.calamos.elements.ModEnchantments;
+import top.theillusivec4.curios.api.client.ICurioRenderer;
+import uwu.lopyluna.calamos.client.model.item.CurioModel;
+import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class WingsItem extends Item implements Equipable, ICurioItem {
+public class WingsItem extends Item implements Equipable, IRenderableCurio {
     public static final EquipmentSlot SLOT = EquipmentSlot.CHEST;
+    public final FlightMeter flightMeter = new FlightMeter();
     public static SlotContext SLOTC;
     public WingsItem() {
         super(new Item.Properties().stacksTo(1));
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
     }
     @Override
-    public SoundEvent getEquipSound() {
+    public Holder<SoundEvent> getEquipSound() {
         return SoundEvents.ARMOR_EQUIP_ELYTRA;
     }
     @Override
@@ -46,12 +64,6 @@ public class WingsItem extends Item implements Equipable, ICurioItem {
     }
     private boolean isWearingWings(Player player) {
         return player.getInventory().armor.get(2).getItem() == this;
-    }
-    private boolean isOnGround(Player player) {
-        return player.onGround();
-    }
-    private boolean canBoostUp(Player player) {
-        return getFlightMeter(player) > 0.0f;
     }
 
     @Override
@@ -74,7 +86,7 @@ public class WingsItem extends Item implements Equipable, ICurioItem {
         Entity entity = slotContext.entity();
         Level level = entity.level();
         if (entity instanceof Player player) {
-            wingFunction(player, stack, level);
+            flightMeter.wingFunction(player, stack, level);
         }
         SLOTC = slotContext;
     }
@@ -83,106 +95,76 @@ public class WingsItem extends Item implements Equipable, ICurioItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         super.inventoryTick(stack, level, entity, itemSlot, isSelected);
         if (entity instanceof Player player && isWearingWings(player)) {
-            wingFunction(player, stack, level);
+            flightMeter.wingFunction(player, stack, level);
         }
     }
 
-    public void wingFunction(Player player, ItemStack stack, Level level) {
-        boolean hasSavingGrace = stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()) > 0;
-        BlockPos pos = player.blockPosition();
-        boolean hasMaxFlightMeter = getFlightMeter(player) >= getMaxFlightMeter(player);
-        if (!isOnGround(player)) {
-            player.resetFallDistance();
+    private static final Map<UUID, String> devTextures = Map.of(
+            UUID.fromString("ab49cc7b-53e9-424e-8fa1-778186ffae33"), "luna",
+            UUID.fromString("37b8527a-8e9b-4b23-9d3b-6196c9d70551"), "pouffy"
+    );
+
+    public ResourceLocation getTexture(Entity entity, ItemStack stack) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        String type = "default";
+        if (entity instanceof Player player && devTextures.containsKey(player.getUUID())) {
+            type = devTextures.get(player.getUUID());
         }
-        if (!isOnGround(player) && CalamosKeys.boost.isPressed() && canBoostUp(player)) {
-            decreaseFlightMeter(player,0.1f);
-            boostUpMovement(player, stack);
+        return ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "textures/models/items/"+id.getPath()+"/" + type + ".png");
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource renderTypeBuffer, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+        CurioModel model = getModel(stack);
+
+        matrixStack.pushPose();
+
+        LivingEntity entity = slotContext.entity();
+
+        model.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
+        model.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+
+        ICurioRenderer.translateIfSneaking(matrixStack, entity);
+
+        matrixStack.translate(0.0D, -0.9D, 0.0D);
+
+        if (entity.isCrouching()) {
+            matrixStack.mulPose(Axis.XP.rotation(0.5f));
+            matrixStack.translate(0.0D, 0.0D, -0.45D);
         }
-        if (isOnGround(player) && !hasMaxFlightMeter) {
-            replenishFlightMeter(player, getReplenishRate(stack));
-        }
-        if (!isOnGround(player) && !level.getBlockState(pos.below(2)).isAir() && hasSavingGrace && player.fallDistance > 3.0f) {
-            decreaseFlightMeter(player, 4.0f - stack.getEnchantmentLevel(ModEnchantments.SAVING_GRACE.get()));
-        }
-        if (!canBoostUp(player) && !isOnGround(player) && CalamosKeys.boost.isPressed()) {
-            glidingMovement(player, stack);
-        } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && !player.isCrouching()) {
-            decreaseFlightMeter(player,0.025f);
-            glidingMovement(player, stack);
-        } else if (canBoostUp(player) && !isOnGround(player) && !CalamosKeys.boost.isPressed() && player.isCrouching()) {
-            boostHoriztonalMovement(player, stack);
-        }
 
+        ICurioRenderer.followBodyRotations(entity, model);
+
+        VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(renderTypeBuffer, RenderType.armorCutoutNoCull(getTexture(entity, stack)), stack.hasFoil());
+
+        model.renderToBuffer(matrixStack, vertexconsumer, light, OverlayTexture.NO_OVERLAY);
+
+        matrixStack.scale(2F, 2F, 2F);
+
+        matrixStack.popPose();
     }
 
-    public float getReplenishRate(ItemStack stack) {
-        float defaultReplenishRate = 0.2f;
-        boolean hasFlightCharge = stack.getEnchantmentLevel(ModEnchantments.FLIGHT_CHARGE.get()) > 0;
-        if (hasFlightCharge)
-            return switch (stack.getEnchantmentLevel(ModEnchantments.FLIGHT_CHARGE.get())) {
-                case 1 -> defaultReplenishRate * ((float) 25 / 100);
-                case 2 -> defaultReplenishRate * ((float) 50 / 100);
-                case 3 -> defaultReplenishRate * ((float) 75 / 100);
-                default -> defaultReplenishRate;
-            };
-        return defaultReplenishRate;
-    }
-    public void boostUpMovement(Player player, ItemStack stack) {
-        Vec3 vec3 = player.getDeltaMovement();
-        player.setDeltaMovement(vec3.add(0, 1.5 * (vec3.y <= 0.3F ? vec3.y <= -0.1F ? vec3.y <= -0.2F ? vec3.y <= -0.3F ? vec3.y <= -0.5F ? 0.5 : 0.25 : 0.2 : 0.15 : 0.1 : 0), 0));
-        boostHoriztonalMovement(player, stack);
+    @Override
+    public LayerDefinition constructLayerDefinition() {
+        MeshDefinition mesh = HumanoidModel.createMesh(new CubeDeformation(0.4F), 0.0F);
+        PartDefinition root = mesh.getRoot();
+
+        PartDefinition body = root.getChild("body");
+
+        PartDefinition left = body.addOrReplaceChild("left", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, -1.1345F, 0.0F));
+
+        PartDefinition right = body.addOrReplaceChild("right", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+
+        PartDefinition rightWing_r1 = right.addOrReplaceChild("rightWing_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-22.0F, 0.0F, 0.0F, 22.0F, 39.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.7854F, 0.0F, 1.5708F));
+
+        PartDefinition rightWing_r2 = right.addOrReplaceChild("rightWing_r2", CubeListBuilder.create().texOffs(0, 0).addBox(-22.0F, 0.0F, 0.0F, 22.0F, 39.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 2.3562F, 0.0F, 1.5708F));
+
+        return LayerDefinition.create(mesh, 64, 64);
     }
 
-    public void glidingMovement(Player player, ItemStack stack) {
-        Vec3 vec3 = player.getDeltaMovement();
-        player.setDeltaMovement(divide(vec3,1, vec3.y <= -0.25F ? 1.5F : 1, 1));
-        boostHoriztonalMovement(player, stack);
+    @Override
+    public List<String> bodyParts() {
+        return Lists.newArrayList("body");
     }
-
-    public void boostHoriztonalMovement(Player player, ItemStack stack) {
-        Vec3 vec3 = player.getDeltaMovement();
-        player.move(MoverType.SELF, vec3.multiply(defaultMovementRate(stack), 0, defaultMovementRate(stack)));
-    }
-
-    public float defaultMovementRate(ItemStack stack) {
-        float defaultMovementRate = 1.1F;
-        boolean hasFastFlight = stack.getEnchantmentLevel(ModEnchantments.FAST_FLIGHT.get()) > 0;
-        if (hasFastFlight)
-            return switch (stack.getEnchantmentLevel(ModEnchantments.FAST_FLIGHT.get())) {
-                case 1 -> defaultMovementRate * 1.1F;
-                case 2 -> defaultMovementRate * 1.2F;
-                case 3 -> defaultMovementRate * 1.3F;
-                default -> defaultMovementRate;
-            };
-        return defaultMovementRate;
-    }
-
-    public void decreaseFlightMeter(Player player, float amount) {
-        if (getFlightMeter(player) > 0.0f)
-            setFlightMeter(player, getFlightMeter(player) - amount);
-    }
-    public void replenishFlightMeter(Player player, float amount) {
-        if (getFlightMeter(player) < 30.0f)
-            setFlightMeter(player, getFlightMeter(player) + amount);
-    }
-    public void setFlightMeter(Player player, float amount) {
-        CompoundTag tag = player.getPersistentData();
-        if (!tag.contains("flight_meter"))
-            tag.putFloat("flight_meter", getMaxFlightMeter(player));
-        if (tag.getFloat("flight_meter") > getMaxFlightMeter(player))
-            tag.putFloat("flight_meter", getMaxFlightMeter(player));
-        tag.putFloat("flight_meter", amount);
-    }
-    public static float getFlightMeter(Player player) {
-        CompoundTag tag = player.getPersistentData();
-        if (!tag.contains("flight_meter"))
-            tag.putFloat("flight_meter", getMaxFlightMeter(player));
-        return tag.getFloat("flight_meter");
-    }
-    public static float getMaxFlightMeter(Player player) {
-        CompoundTag tag = player.getPersistentData();
-        return tag.getFloat("max_flight_meter");
-    }
-
-    public Vec3 divide(Vec3 vec3, double pFactorX, double pFactorY, double pFactorZ) {return new Vec3(vec3.x / pFactorX, vec3.y / pFactorY, vec3.z / pFactorZ);}
 }

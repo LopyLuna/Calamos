@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:jungle_planks"
-  },
-  "result": "calamos:large_jungle_slab"
-}

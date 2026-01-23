@@ -8,9 +8,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
-
-import static uwu.lopyluna.calamos.CalamosMod.MODID;
+import uwu.lopyluna.calamos.CalamosMod;
 
 /**
  * Made with Blockbench 4.9.4
@@ -20,7 +18,7 @@ import static uwu.lopyluna.calamos.CalamosMod.MODID;
  */
 public class EyeModel<T extends EyeEntity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(MODID, "eye"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("eye"), "main");
 	private final ModelPart root;
 	private final ModelPart eye;
 
@@ -85,8 +83,8 @@ public class EyeModel<T extends EyeEntity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		root.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		root.render(poseStack, vertexConsumer, packedLight, packedOverlay);
 	}
 
 	@Override

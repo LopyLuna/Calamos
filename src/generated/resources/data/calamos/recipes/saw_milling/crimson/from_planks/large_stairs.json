@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:crimson_planks"
-  },
-  "result": "calamos:large_crimson_stairs"
-}

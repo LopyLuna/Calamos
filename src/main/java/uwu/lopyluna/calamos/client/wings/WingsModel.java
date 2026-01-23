@@ -7,7 +7,6 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -15,7 +14,7 @@ import uwu.lopyluna.calamos.CalamosMod;
 
 @OnlyIn(Dist.CLIENT)
 public class WingsModel<T extends LivingEntity> extends EntityModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(CalamosMod.MODID, "wings"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("wings"), "main");
     private final ModelPart left;
     private final ModelPart right;
     
@@ -39,9 +38,9 @@ public class WingsModel<T extends LivingEntity> extends EntityModel<T> {
     }
     
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        left.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        right.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+        left.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        right.render(poseStack, vertexConsumer, packedLight, packedOverlay);
     }
     
     @Override

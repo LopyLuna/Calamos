@@ -12,14 +12,13 @@ import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationAccess;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationFactory;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationRegistry;
 import net.minecraft.client.player.AbstractClientPlayer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.networking.packets.S2C.AnimationHandlerPacket;
 
 import javax.annotation.Nullable;
@@ -46,7 +45,7 @@ public class AnimationHandler {
     public static void playAnimationServer(Player player, String animation, boolean renderFirstPerson) {
         if (player instanceof ServerPlayer serverPlayer) {
             for (ServerPlayer player1 : serverPlayer.serverLevel().getPlayers((val) -> true)) {
-                CalamosMessages.sendToPlayer(new AnimationHandlerPacket(animation, player.getUUID(), renderFirstPerson), player1);
+                PacketDistributor.sendToPlayer(player1, new AnimationHandlerPacket(animation, player.getUUID(), renderFirstPerson));
             }
         } else {
             CalamosMod.LOGGER.warn("AnimationHandler.playAnimationServer() called from a client player!");
@@ -61,7 +60,7 @@ public class AnimationHandler {
      */
     public static void playAnimationClient(@Nullable Player player, @Nullable KeyframeAnimation animationKey, boolean renderFirstPerson) {
         if (player == null) return;
-        ModifierLayer<IAnimation> animation = (ModifierLayer<IAnimation>) PlayerAnimationAccess.getPlayerAssociatedData((AbstractClientPlayer) player).get(new ResourceLocation(CalamosMod.MODID, "animation"));
+        ModifierLayer<IAnimation> animation = (ModifierLayer<IAnimation>) PlayerAnimationAccess.getPlayerAssociatedData((AbstractClientPlayer) player).get(CalamosMod.asResource("animation"));
         if (animation != null) {
             if (animationKey == null) {
                 animation.setAnimation(null);
@@ -117,7 +116,8 @@ public class AnimationHandler {
     // Helper methods.
 
     public static KeyframeAnimation getKeyframeAnimation(String animationKey) {
-        return PlayerAnimationRegistry.getAnimation(new ResourceLocation(CalamosMod.MODID, animationKey));
+        var animation = PlayerAnimationRegistry.getAnimation(CalamosMod.asResource(animationKey));
+        return animation instanceof KeyframeAnimation ? (KeyframeAnimation) animation : null;
     }
 
     public static int getAnimationTime(KeyframeAnimation animation) {
@@ -129,7 +129,7 @@ public class AnimationHandler {
     }
 
     public static boolean animationPlaying(Player player) {
-        ModifierLayer<IAnimation> animation = (ModifierLayer<IAnimation>) PlayerAnimationAccess.getPlayerAssociatedData((AbstractClientPlayer) player).get(new ResourceLocation(CalamosMod.MODID, "animation"));
+        ModifierLayer<IAnimation> animation = (ModifierLayer<IAnimation>) PlayerAnimationAccess.getPlayerAssociatedData((AbstractClientPlayer) player).get(CalamosMod.asResource("animation"));
         if (animation != null) {
             return animation.isActive();
         }
@@ -146,13 +146,13 @@ public class AnimationHandler {
     }
 
 
-    @Mod.EventBusSubscriber(modid = CalamosMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = CalamosMod.MODID, bus = EventBusSubscriber.Bus.MOD)
     public static class RegisterAnimations {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             PlayerAnimationFactory.ANIMATION_DATA_FACTORY.registerFactory(
-                    new ResourceLocation(CalamosMod.MODID, "animation"),
+                    CalamosMod.asResource("animation"),
                     42,
                     RegisterAnimations::registerPlayerAnimation);
         }

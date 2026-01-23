@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 16,
-  "ingredient": {
-    "item": "minecraft:stripped_oak_log"
-  },
-  "result": "minecraft:oak_pressure_plate"
-}

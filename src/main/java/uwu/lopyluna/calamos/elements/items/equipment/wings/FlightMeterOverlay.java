@@ -1,29 +1,31 @@
 package uwu.lopyluna.calamos.elements.items.equipment.wings;
 
+import com.mojang.blaze3d.platform.Window;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
-import net.neoforged.neoforge.client.gui.overlay.ExtendedGui;
-import net.neoforged.neoforge.client.gui.overlay.IGuiOverlay;
 import uwu.lopyluna.calamos.CalamosMod;
 
 
-public class FlightMeterOverlay implements IGuiOverlay {
+public class FlightMeterOverlay implements LayeredDraw.Layer {
     public static final FlightMeterOverlay INSTANCE = new FlightMeterOverlay();
-    public final static ResourceLocation flightMeter = new ResourceLocation(CalamosMod.MODID, "textures/gui/sprites/flight_meter.png");
-    public final static ResourceLocation flightMeterFull = new ResourceLocation(CalamosMod.MODID, "textures/gui/sprites/flight_meter_full.png");
+    public final static ResourceLocation flightMeter = CalamosMod.asResource("textures/gui/sprites/flight_meter.png");
+    public final static ResourceLocation flightMeterFull = CalamosMod.asResource("textures/gui/sprites/flight_meter_full.png");
     static final int IMAGE_WIDTH = 16;
     static final int IMAGE_HEIGHT = 32;
 
     @Override
-    public void render(ExtendedGui gui, GuiGraphics guiGraphics, float partialTick, int screenWidth, int screenHeight) {
+    public void render(GuiGraphics guiGraphics, DeltaTracker deltaTracker) {
+        Window window = Minecraft.getInstance().getWindow();
         Minecraft mc = Minecraft.getInstance();
         int barX, barY;
-        barX = screenWidth / 2 + 120;
-        barY = screenHeight - 53;
+        barX = window.getGuiScaledWidth() / 2 + 120;
+        barY = window.getGuiScaledHeight() - 53;
 
         if (mc.options.hideGui || mc.gameMode.getPlayerMode() == GameType.SPECTATOR)
             return;
@@ -39,6 +41,6 @@ public class FlightMeterOverlay implements IGuiOverlay {
     }
 
     public float getFlightMeterPercent(Player player) {
-        return WingsItem.getFlightMeter(player) / WingsItem.getMaxFlightMeter(player);
+        return FlightMeter.getFlightMeter(player) / FlightMeter.getMaxFlightMeter(player);
     }
 }

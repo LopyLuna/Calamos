@@ -1,6 +1,7 @@
 package uwu.lopyluna.calamos.utilities;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
@@ -19,8 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.material.FluidState;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.level.BlockEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -142,15 +141,7 @@ public class BlockHelper {
         BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
         
         if (player != null) {
-            BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(world, pos, state, player);
-            NeoForge.EVENT_BUS.post(event);
-            if (event.isCanceled())
-                return;
-            
-            if (event.getExpToDrop() > 0 && world instanceof ServerLevel)
-                state.getBlock()
-                        .popExperience((ServerLevel) world, pos, event.getExpToDrop());
-            
+            state.getBlock().playerDestroy(world, player, pos, state, blockEntity, usedTool);
             usedTool.mineBlock(world, state, pos, player);
             player.awardStat(Stats.BLOCK_MINED.get(state.getBlock()));
         }
@@ -163,7 +154,8 @@ public class BlockHelper {
             
             // Simulating IceBlock#playerDestroy. Not calling method directly as it would drop item
             // entities as a side-effect
-            if (state.getBlock() instanceof IceBlock && usedTool.getEnchantmentLevel(Enchantments.SILK_TOUCH) == 0) {
+            var silkTouch = world.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH);
+            if (state.getBlock() instanceof IceBlock && usedTool.getEnchantmentLevel(silkTouch) == 0) {
                 if (world.dimensionType()
                         .ultraWarm())
                     return;

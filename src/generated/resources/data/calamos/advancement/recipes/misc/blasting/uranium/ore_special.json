@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:blasting/uranium/ore_special"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uranium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "calamos:uranium_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_uranium_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:blasting/uranium/ore_special"
+    ]
+  }
+}

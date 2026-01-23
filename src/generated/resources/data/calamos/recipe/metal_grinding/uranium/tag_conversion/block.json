@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "tag": "c:storage_blocks/uranium"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:uranium_block"
+  }
+}

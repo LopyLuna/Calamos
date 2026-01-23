@@ -2,9 +2,8 @@ package uwu.lopyluna.calamos.worldgen.biome;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
@@ -16,19 +15,19 @@ import javax.annotation.Nullable;
  * Take a look at {@link net.minecraft.data.worldgen.biome.OverworldBiomes} for an example of how to use this class. -- Zeus
  */
 public class CalamosBiomes {
-    private static BootstapContext<Biome> context;
+    private static BootstrapContext<Biome> context;
 
     public static final ResourceKey<Biome> TEST_BIOME = register("test_biome");
     public static final ResourceKey<Biome> OTHERWORLD_PLAINS = register("otherworld_plains");
 
-    public static void bootstrap(BootstapContext<Biome> biomeContext) {
+    public static void bootstrap(BootstrapContext<Biome> biomeContext) {
         context = biomeContext;
         context.register(TEST_BIOME, test());
         context.register(OTHERWORLD_PLAINS, test());
     }
 
     private static ResourceKey<Biome> register(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(CalamosMod.MODID, name));
+        return ResourceKey.create(Registries.BIOME, CalamosMod.asResource(name));
     }
 
     /**

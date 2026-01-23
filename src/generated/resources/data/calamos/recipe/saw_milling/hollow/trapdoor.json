@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:hollow_log"
+  },
+  "result": {
+    "count": 4,
+    "id": "calamos:hollow_trapdoor"
+  }
+}

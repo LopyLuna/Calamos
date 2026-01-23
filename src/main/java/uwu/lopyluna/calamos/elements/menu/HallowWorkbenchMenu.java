@@ -9,17 +9,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CraftingRecipe;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModMenuType;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 
-public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingContainer>{
+public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingInput, CraftingRecipe>{
     public static final int RESULT_SLOT = 0;
     private static final int CRAFT_SLOT_START = 1;
     private static final int CRAFT_SLOT_END = 10;
@@ -59,18 +57,16 @@ public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingContainer>{
         }
     }
 
-    protected static void slotChangedCraftingGrid(
-            AbstractContainerMenu pMenu, Level pLevel, Player pPlayer, CraftingContainer pContainer, ResultContainer pResult
-    ) {
+    protected static void slotChangedCraftingGrid(AbstractContainerMenu pMenu, Level pLevel, Player pPlayer, CraftingContainer pContainer, ResultContainer pResult, @Nullable RecipeHolder<CraftingRecipe> recipeHolder) {
         if (!pLevel.isClientSide) {
             ServerPlayer serverplayer = (ServerPlayer)pPlayer;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<RecipeHolder<CraftingRecipe>> optional = pLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, pContainer, pLevel);
+            Optional<RecipeHolder<CraftingRecipe>> optional = pLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, pContainer.asCraftInput(), pLevel, recipeHolder);
             if (optional.isPresent()) {
                 RecipeHolder<CraftingRecipe> recipeholder = optional.get();
                 CraftingRecipe craftingrecipe = recipeholder.value();
                 if (pResult.setRecipeUsed(pLevel, serverplayer, recipeholder)) {
-                    ItemStack itemstack1 = craftingrecipe.assemble(pContainer, pLevel.registryAccess());
+                    ItemStack itemstack1 = craftingrecipe.assemble(pContainer.asCraftInput(), pLevel.registryAccess());
                     if (itemstack1.isItemEnabled(pLevel.enabledFeatures())) {
                         itemstack = itemstack1;
                     }
@@ -88,7 +84,7 @@ public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingContainer>{
      */
     @Override
     public void slotsChanged(Container pInventory) {
-        this.access.execute((p_39386_, p_39387_) -> slotChangedCraftingGrid(this, p_39386_, this.player, this.craftSlots, this.resultSlots));
+        this.access.execute((p_39386_, p_39387_) -> slotChangedCraftingGrid(this, p_39386_, this.player, this.craftSlots, this.resultSlots, null));
     }
 
     @Override
@@ -103,8 +99,8 @@ public class HallowWorkbenchMenu extends RecipeBookMenu<CraftingContainer>{
     }
 
     @Override
-    public boolean recipeMatches(RecipeHolder<? extends Recipe<CraftingContainer>> pRecipe) {
-        return pRecipe.value().matches(this.craftSlots, this.player.level());
+    public boolean recipeMatches(RecipeHolder recipeHolder) {
+        return recipeHolder.value().matches(this.craftSlots.asCraftInput(), this.player.level());
     }
 
     /**

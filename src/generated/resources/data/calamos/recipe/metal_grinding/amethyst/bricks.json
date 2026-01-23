@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:amethyst_bricks"
+  }
+}

@@ -71,10 +71,10 @@ public class WormPart extends LivingEntity {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(PARENT_UUID, Optional.empty());
-        this.entityData.define(WORM_UUID, Optional.empty());
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(PARENT_UUID, Optional.empty());
+        builder.define(WORM_UUID, Optional.empty());
     }
 
     public void setParentUUID(UUID parentUUID) {
@@ -138,7 +138,7 @@ public class WormPart extends LivingEntity {
                 return;
             }
             Vec3 parentPos = parent.position();
-            Vec3 lookVec = parent.getLookAngle().scale(-parent.getDimensions(parent.getPose()).width);
+            Vec3 lookVec = parent.getLookAngle().scale(-parent.getDimensions(parent.getPose()).width());
             Vec3 pos = parentPos.add(lookVec);
             this.teleportTo(pos.x, pos.y, pos.z);
         }

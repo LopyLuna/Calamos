@@ -10,6 +10,7 @@ import uwu.lopyluna.calamos.elements.entity.WormPart;
 import uwu.lopyluna.calamos.elements.entity.boone.BooneEntity;
 import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteEntity;
 import uwu.lopyluna.calamos.elements.entity.eye.EyeEntity;
+import uwu.lopyluna.calamos.elements.entity.hook.HookEntity;
 import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
 import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
 import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
@@ -46,6 +47,9 @@ public final class ModEntity {
 
     public static final DeferredHolder<EntityType<?>, EntityType<IrradiatedArrow>> IRRADIATED_ARROW = ENTITY_TYPES.register("irradiated_arrow",
             () -> EntityType.Builder.of((EntityType.EntityFactory<IrradiatedArrow>)IrradiatedArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).build("irradiated_arrow"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HookEntity>> HOOK = ENTITY_TYPES.register("hook",
+            () -> EntityType.Builder.of((EntityType.EntityFactory<HookEntity>)HookEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("hook"));
 
 
     public static void staticInit() {

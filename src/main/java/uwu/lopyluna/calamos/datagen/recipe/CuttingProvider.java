@@ -1,7 +1,6 @@
 package uwu.lopyluna.calamos.datagen.recipe;
 
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -25,7 +24,7 @@ import java.util.List;
 public class CuttingProvider {
     private static ResourceLocation location(String path, int type) {
         String typeStr = switch (type) {case 1 -> "saw_milling";case 2 -> "metal_grinding";default -> "stonecutting";};
-        return new ResourceLocation(CalamosMod.MODID, typeStr + "/" + path);
+        return CalamosMod.asResource(typeStr + "/" + path);
     }
     public static void register(RecipeOutput consumer) {
         recipesStonecutting(consumer);
@@ -332,7 +331,7 @@ public class CuttingProvider {
         return BuiltInRegistries.ITEM.getKey(pItemLike.asItem()).getNamespace();
     }
     protected static ItemLike getItem(String pName) {
-        return BuiltInRegistries.ITEM.get(new ResourceLocation(pName));
+        return BuiltInRegistries.ITEM.get(ResourceLocation.parse(pName));
     }
 
     private static void addSimpleRecipe(RecipeOutput consumer, ItemLike output, int count, ItemLike input, String type) {
@@ -363,9 +362,9 @@ public class CuttingProvider {
         List<String> allowedNamespaces = List.of("minecraft", "calamos");
         boolean compat = !allowedNamespaces.contains(namespace);
         if (compat) {
-            return new ResourceLocation("calamos", "saw_milling/compat/%s/%s/%s".formatted(namespace, woodSet, recipeId));
+            return CalamosMod.asResource("saw_milling/compat/%s/%s/%s".formatted(namespace, woodSet, recipeId));
         } else {
-            return new ResourceLocation("calamos", "saw_milling/%s/%s".formatted(woodSet, recipeId));
+            return CalamosMod.asResource("saw_milling/%s/%s".formatted(woodSet, recipeId));
         }
     }
 
@@ -373,9 +372,9 @@ public class CuttingProvider {
         List<String> allowedNamespaces = List.of("minecraft", "calamos");
         boolean compat = !allowedNamespaces.contains(namespace);
         if (compat) {
-            return new ResourceLocation("calamos", "metal_grinding/compat/%s/%s/%s".formatted(namespace, material, type));
+            return CalamosMod.asResource("metal_grinding/compat/%s/%s/%s".formatted(namespace, material, type));
         } else {
-            return new ResourceLocation("calamos", "metal_grinding/%s/%s".formatted(material, type));
+            return CalamosMod.asResource("metal_grinding/%s/%s".formatted(material, type));
         }
     }
 
@@ -383,9 +382,9 @@ public class CuttingProvider {
         List<String> allowedNamespaces = List.of("minecraft", "calamos");
         boolean compat = !allowedNamespaces.contains(namespace);
         if (compat) {
-            return new ResourceLocation("calamos", "stonecutting/compat/%s/%s/%s".formatted(namespace, material, type));
+            return CalamosMod.asResource("stonecutting/compat/%s/%s/%s".formatted(namespace, material, type));
         } else {
-            return new ResourceLocation("calamos", "stonecutting/%s/%s".formatted(material, type));
+            return CalamosMod.asResource("stonecutting/%s/%s".formatted(material, type));
         }
     }
 }

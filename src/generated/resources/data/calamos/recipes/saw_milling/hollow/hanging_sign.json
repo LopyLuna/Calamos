@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 8,
-  "ingredient": {
-    "item": "calamos:hollow_log"
-  },
-  "result": "calamos:hollow_hanging_sign"
-}

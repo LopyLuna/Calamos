@@ -12,18 +12,20 @@ import uwu.lopyluna.calamos.elements.items.ParticleSpewingBlockItem;
 import uwu.lopyluna.calamos.elements.items.ParticleSpewingItem;
 import uwu.lopyluna.calamos.elements.items.accessories.BerserkerCrawItem;
 import uwu.lopyluna.calamos.elements.items.accessories.JarredCloudItem;
+import uwu.lopyluna.calamos.elements.items.equipment.armor.SpectreArmorItem;
+import uwu.lopyluna.calamos.elements.items.equipment.hook.HookItem;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosReaper;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosSword;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTiers;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.VolcaniteSword;
 import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrowItem;
 import uwu.lopyluna.calamos.elements.items.equipment.tool.base.*;
+import uwu.lopyluna.calamos.elements.items.equipment.wings.WingsItem;
 import uwu.lopyluna.calamos.elements.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.elements.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.elements.items.potions.RecallPotionItem;
 import uwu.lopyluna.calamos.elements.items.properties.DebugHealthItem;
 import uwu.lopyluna.calamos.elements.items.properties.DynamiteItem;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosReaper;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosSword;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTiers;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.VolcaniteSword;
-import uwu.lopyluna.calamos.elements.items.equipment.wings.WingsItem;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -53,6 +55,8 @@ public final class ModItems {
     public static final DeferredItem<Item> RAW_METEORITE = registerSimple("raw_meteorite", new Item.Properties().fireResistant());
     public static final DeferredItem<Item> BLOOD_ORB = registerSimple("blood_orb");
     public static final DeferredItem<Item> ECTOPLASMA = registerSimple("ectoplasma");
+    public static final DeferredItem<Item> WULFRUM_SCRAP = registerSimple("wulfrum_scrap");
+    public static final DeferredItem<Item> ENERGY_CORE = registerSimple("energy_core");
 
     //Ingot
     public static final DeferredItem<Item> BLOODBORE_INGOT = registerSimple("bloodbore_ingot");
@@ -81,6 +85,16 @@ public final class ModItems {
 
     public static final DeferredItem<Item> TEST_LOOTBAG = register("test_lootbag", () -> new TestLootbag(new Item.Properties().fireResistant()));
 
+    //HOOKS
+    public static final DeferredItem<HookItem>
+            GRAPPLING_HOOK = registerHook("grappling_hook", 1, 18.75f, 0),
+            AMETHYST_HOOK = registerHook("amethyst_hook", 1, 18.75f, 1),
+            TOPAZ_HOOK = registerHook("topaz_hook", 1, 20.625f, 2),
+            SAPPHIRE_HOOK = registerHook("sapphire_hook", 1, 22.5f, 3),
+            EMERALD_HOOK = registerHook("emerald_hook", 1, 24.375f, 4),
+            RUBY_HOOK = registerHook("ruby_hook", 1, 26.25f, 5),
+            DIAMOND_HOOK = registerHook("diamond_hook", 1, 29.125f, 6);
+
     //SIGNS
     public static final DeferredItem<Item> OTHERWORLD_OAK_SIGN = register("otherworld_oak_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModDecorativeBlocks.OTHERWORLD_OAK_SIGN.get(), ModDecorativeBlocks.OTHERWORLD_OAK_WALL_SIGN.get()));
@@ -106,7 +120,11 @@ public final class ModItems {
     public static final DeferredItem<Item> WINGS = register("wings", WingsItem::new);
     public static final DeferredItem<Item> JARRED_CLOUD = register("jarred_cloud", JarredCloudItem::new);
 
-
+    //ARMOR
+    public static final DeferredItem<SpectreArmorItem> SPECTRE_ROBE = register("spectre_robe", () -> SpectreArmorItem.armor(ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<SpectreArmorItem> SPECTRE_PANTS = register("spectre_pants", () -> SpectreArmorItem.armor(ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<SpectreArmorItem> SPECTRE_MASK = register("spectre_mask", () -> SpectreArmorItem.helmet(new Item.Properties(), false));
+    public static final DeferredItem<SpectreArmorItem> SPECTRE_HOOD = register("spectre_hood", () -> SpectreArmorItem.helmet(new Item.Properties(), true));
     //TOOLS
     public static final DeferredItem<Item> COPPER_SWORD = register("copper_sword", () -> new CalamosSwordItem(CalamosTiers.COPPER, 2, -2.4F, new Item.Properties()));
     public static final DeferredItem<Item> COPPER_AXE = register("copper_axe", () -> new CalamosAxeItem(CalamosTiers.COPPER, 4.0F, -3.0F, new Item.Properties()));
@@ -189,6 +207,10 @@ public final class ModItems {
 
     private static DeferredItem<Item> registerSimple(String name) {
         return register(name, SIMPLE_SUPPLIER);
+    }
+
+    private static DeferredItem<HookItem> registerHook(String name, int amount, float range, int variant) {
+        return register(name, () -> new HookItem(amount, range, variant));
     }
 
     private static <T extends Item> DeferredItem<T> register(String id, Supplier<T> pIProp) {

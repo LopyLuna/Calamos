@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_soul_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "calamos:soul_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:crafting/decoration/masonry/soul_sandstone/wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_soul_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:crafting/decoration/masonry/soul_sandstone/wall"
+    ]
+  }
+}

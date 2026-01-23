@@ -26,12 +26,13 @@ public class ModDataGenerators {
         dataGenerator.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, lookupProvider, blockTags.contentsGetter()));
         dataGenerator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(), List.of(
                 new LootTableProvider.SubProviderEntry(ModBlockLootProvider::new, LootContextParamSets.BLOCK)
-        )));
+        ), lookupProvider));
+        dataGenerator.addProvider(event.includeServer(), new ModDamageTypeTagsProvider(packOutput, lookupProvider, fileHelper));
         dataGenerator.addProvider(event.includeClient() && event.includeServer(), new ModLanguageProvider(packOutput, modId, "en_us"));
         dataGenerator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, modId, fileHelper));
         dataGenerator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, modId, fileHelper));
-        dataGenerator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
-        dataGenerator.addProvider(event.includeServer(), new ModTrimMaterialProvider(packOutput));
+        dataGenerator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
+        //dataGenerator.addProvider(event.includeServer(), new ModTrimMaterialProvider(packOutput, lookupProvider.));
         dataGenerator.addProvider(event.includeServer(), new ModDatapackProvider(packOutput, lookupProvider));
         dataGenerator.addProvider(event.includeClient(), new ModSoundsProvider(packOutput, fileHelper));
         dataGenerator.addProvider(event.includeServer(), new ModCuriosProvider(modId, packOutput, fileHelper, lookupProvider));

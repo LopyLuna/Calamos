@@ -4,8 +4,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import uwu.lopyluna.calamos.CalamosMod;
@@ -30,8 +29,8 @@ public final class ModArmorTrimMaterials {
         return registryKey(name, ingredient, color, modelIndex, Map.of());
     }
 
-    private static ResourceKey<TrimMaterial> registryKey(String name, Holder<Item> ingredient, int color, float modelIndex, Map<ArmorMaterials, String> overrideArmorMaterials) {
-        ResourceKey<TrimMaterial> key = ResourceKey.create(Registries.TRIM_MATERIAL, new ResourceLocation(CalamosMod.MODID, name));
+    private static ResourceKey<TrimMaterial> registryKey(String name, Holder<Item> ingredient, int color, float modelIndex, Map<Holder<ArmorMaterial>, String> overrideArmorMaterials) {
+        ResourceKey<TrimMaterial> key = ResourceKey.create(Registries.TRIM_MATERIAL, CalamosMod.asResource(name));
         MATERIALS.put(key, new TrimMaterial(name, ingredient, modelIndex, overrideArmorMaterials, Component.translatable(key.location().toLanguageKey("trim_material")).withColor(color)));
         return key;
     }

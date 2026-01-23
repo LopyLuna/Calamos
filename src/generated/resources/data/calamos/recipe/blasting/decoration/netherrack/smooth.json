@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:smooth_netherrack"
+  }
+}

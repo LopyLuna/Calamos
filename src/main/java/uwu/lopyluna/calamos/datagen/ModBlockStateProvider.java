@@ -255,6 +255,12 @@ class ModBlockStateProvider extends BlockStateProvider {
 
         this.cubeBottomTop(ModBlocks.OTHERWORLD_GRASS_BLOCK, ModUtils.location("block/otherworld_dirt"), ModUtils.location("block/otherworld_grass_top"));
         this.simpleBlockAndItem(ModBlocks.OTHERWORLD_DIRT);
+
+        //Sulfuric
+        this.simpleBlockAndItem(ModDecorativeBlocks.SULFURIC_SAND);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SULFURIC_SANDSTONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SULFURIC_STONE);
+        this.simpleBlockAndItem(ModDecorativeBlocks.SHALLOWSLATE);
     }
     
     private void woodSet(Supplier<? extends Block> log,
@@ -415,7 +421,7 @@ class ModBlockStateProvider extends BlockStateProvider {
     }
 
 
-    private ResourceLocation extend(ResourceLocation rl, String suffix) {return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);}
+    private ResourceLocation extend(ResourceLocation rl, String suffix) {return ResourceLocation.fromNamespaceAndPath(rl.getNamespace(), rl.getPath() + suffix);}
 
     private String name(Block block) {
         return BuiltInRegistries.BLOCK.getKey(block).getPath();

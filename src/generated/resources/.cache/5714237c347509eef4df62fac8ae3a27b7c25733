@@ -1,4 +1,4 @@
-// 1.20.4	2024-11-29T18:19:18.0121109	Item Models: calamos
+// 1.21.1	2026-01-22T19:27:36.2179581	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -15,6 +15,7 @@ ad37c15913e96eb07868106d5fc2186f17d25694 assets/calamos/models/item/dynamite.jso
 cff81c047314534d8aa343af856a546ba8e32677 assets/calamos/models/item/ectolight_ingot.json
 0bd835adabbeb6f9fc5dcbaad188fcb630eefb53 assets/calamos/models/item/ectoplasma.json
 6c04c0765a4c0f154b37a68ebbf12039ac7d8708 assets/calamos/models/item/elegant_bloom.json
+4774bcd8dc2b5b6109119c540755d91b7be1b977 assets/calamos/models/item/energy_core.json
 fd0a14dfdd351618049ac711dad982b4da2fae0f assets/calamos/models/item/enhanced_healing_potion.json
 d2cfd306039224612cf935a05a25e485a7077145 assets/calamos/models/item/enhanced_recovering_potion.json
 2bacb0acd54dcf23fd569e5a9429b3192d07b848 assets/calamos/models/item/garnet.json
@@ -79,3 +80,4 @@ af3c8bac4d36b24d6af238c68e011fa92f044421 assets/calamos/models/item/volcanite_sw
 42f8be55549e4545b2b01363c593723578b9ac43 assets/calamos/models/item/weak_healing_potion.json
 645f91ac169678fa10e91b2e111a72fac70989ff assets/calamos/models/item/weak_recovering_potion.json
 0a36d5e67a0ae7c899b95c26363343f080a89c92 assets/calamos/models/item/wings.json
+7813a86060b33bf0a03f66c723850663ad9a6b24 assets/calamos/models/item/wulfrum_scrap.json

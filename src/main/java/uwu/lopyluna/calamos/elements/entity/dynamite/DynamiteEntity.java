@@ -47,12 +47,12 @@ public class DynamiteEntity extends ThrowableProjectile {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(DATA_FUSE_ID, DEFAULT_FUSE_TIME);
-        this.entityData.define(DATA_HAS_FUSE, false);
-        this.entityData.define(DATA_EXPLOSION_POWER, 4.0F);
-        this.entityData.define(DATA_NO_PHYSICS, false);
-        this.entityData.define(DATA_FROM_BOONE, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(DATA_FUSE_ID, DEFAULT_FUSE_TIME);
+        builder.define(DATA_HAS_FUSE, false);
+        builder.define(DATA_EXPLOSION_POWER, 4.0F);
+        builder.define(DATA_NO_PHYSICS, false);
+        builder.define(DATA_FROM_BOONE, false);
     }
 
     @Override

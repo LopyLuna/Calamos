@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 2,
-  "ingredient": {
-    "item": "calamos:large_crimson_planks"
-  },
-  "result": "calamos:large_crimson_slab"
-}

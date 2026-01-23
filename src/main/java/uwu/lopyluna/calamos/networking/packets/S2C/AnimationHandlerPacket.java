@@ -1,53 +1,34 @@
 package uwu.lopyluna.calamos.networking.packets.S2C;
 
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.ClientProxy;
-import uwu.lopyluna.calamos.networking.packets.Packet;
+import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.UUID;
 
-public class AnimationHandlerPacket extends Packet {
-    public static final ResourceLocation ID = new ResourceLocation(CalamosMod.MODID, "animation_handler");
+public record AnimationHandlerPacket(String animation, UUID playerUUID, boolean renderFirstPerson) implements CustomPacketPayload {
+    public static final Type<AnimationHandlerPacket> TYPE = new Type<>(CalamosMod.asResource("animation_handler"));
 
-    private final String animation;
-    private final UUID playerUUID;
-    private final boolean renderFirstPerson;
+    public static final StreamCodec<FriendlyByteBuf, AnimationHandlerPacket> STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.STRING_UTF8, AnimationHandlerPacket::animation,
+            ModUtils.UUID_STREAM_CODEC, AnimationHandlerPacket::playerUUID,
+            ByteBufCodecs.BOOL, AnimationHandlerPacket::renderFirstPerson,
+            AnimationHandlerPacket::new
+    );
 
-    public AnimationHandlerPacket(String animation, UUID playerUUID, boolean renderFirstPerson) {
-        this.animation = animation;
-        this.playerUUID = playerUUID;
-        this.renderFirstPerson = renderFirstPerson;
-    }
-
-    public AnimationHandlerPacket(FriendlyByteBuf buf) {
-        this.animation = buf.readUtf(32767);
-        this.playerUUID = buf.readUUID();
-        this.renderFirstPerson = buf.readBoolean();
-    }
-
-    @Override
-    public void handleServer(PlayPayloadContext context) {
-    }
-
-    @Override
-    public void handleClient(PlayPayloadContext context) {
-        context.workHandler().execute(() -> {
+    public void handle(IPayloadContext context) {
+        context.enqueueWork(() -> {
             ClientProxy.handleAnimationPacket(this.animation, this.playerUUID, this.renderFirstPerson);
         });
     }
 
     @Override
-    public void write(FriendlyByteBuf buf) {
-        buf.writeUtf(this.animation);
-        buf.writeUUID(this.playerUUID);
-        buf.writeBoolean(this.renderFirstPerson);
-    }
-
-    @Override
-    public ResourceLocation id() {
-        return ID;
+    public Type<AnimationHandlerPacket> type() {
+        return TYPE;
     }
 }

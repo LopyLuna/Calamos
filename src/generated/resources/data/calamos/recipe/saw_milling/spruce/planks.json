@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:spruce_log"
+  },
+  "result": {
+    "count": 6,
+    "id": "minecraft:spruce_planks"
+  }
+}

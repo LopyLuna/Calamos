@@ -1,0 +1,6 @@
+{
+  "parent": "calamos:entity/hook/hook_template",
+  "textures": {
+    "all": "calamos:entity/hook/grappling"
+  }
+}

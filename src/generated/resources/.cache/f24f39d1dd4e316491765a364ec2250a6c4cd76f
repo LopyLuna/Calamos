@@ -1,4 +1,4 @@
-// 1.20.4	2024-10-05T20:12:15.8664866	Block States: calamos
+// 1.21.1	2026-01-22T19:27:36.2109273	Block States: calamos
 757297d0a907bd4fbc4f794944d8b562d4963303 assets/calamos/blockstates/amethyst_bricks.json
 f26cb51bf21355ebc540d22928518190ddfdb234 assets/calamos/blockstates/basalt_bricks.json
 5552a4442afc1243ece858038136991d6c842cb5 assets/calamos/blockstates/blackstone_tiles.json
@@ -132,6 +132,7 @@ bdbfe992a6ecf9fca48729725930f1dcfb5d64ed assets/calamos/blockstates/polished_net
 931d0429489f1d214eda57e7a6866e37b496eb0f assets/calamos/blockstates/ruby_block.json
 a0bdaaf7c7fa742b909e2341ed2f5e82b372481a assets/calamos/blockstates/sapphire_block.json
 0d9293e00eeb0edd808a4e83d0b0b4564c930d10 assets/calamos/blockstates/sawmill.json
+a7392f0ed38371183aa103273850ca77fedeabce assets/calamos/blockstates/shallowslate.json
 faae845631223845162b9673d5187da4a694eb94 assets/calamos/blockstates/smooth_cobblestone.json
 1ce82f96e749b8c647a0f684ddd134b5bb553e4c assets/calamos/blockstates/smooth_deepslate.json
 82124c8347d2ae1d9e44613001c9bca3d39a868c assets/calamos/blockstates/smooth_meteorite.json
@@ -155,6 +156,9 @@ ad274b6cc8130c459080ffd19c3776485a354c0f assets/calamos/blockstates/stripped_hol
 b27b3a5f5d45f83f55065c68ba06ae9351ac29e4 assets/calamos/blockstates/stripped_otherworld_oak_wood.json
 9493d14628384a966f919cf97be91b5f9d916a50 assets/calamos/blockstates/stripped_twilight_log.json
 b02d51770598fb012cc01ed23a4072f5b497104e assets/calamos/blockstates/stripped_twilight_wood.json
+f73fabda448e05a70ccfd76d3853e6945ff10dcf assets/calamos/blockstates/sulfuric_sand.json
+2f8fd6704163a59240561fa005827e1f3d6c4e3f assets/calamos/blockstates/sulfuric_sandstone.json
+e62376f8d817e17e9ee9a56148b0bea10bf5c898 assets/calamos/blockstates/sulfuric_stone.json
 d0f26964939c71ac59e0b346980705a4bfb84e00 assets/calamos/blockstates/sunstone_block.json
 1edf874c46ab3c031c49cb0001df6cea1dcf958f assets/calamos/blockstates/tanzanite_block.json
 d4c8d789b0ad649601de3fbf4e53d3ce2bde6657 assets/calamos/blockstates/topaz_block.json
@@ -470,6 +474,7 @@ a52f13f173a66152705d51a7f16210f2ace6143e assets/calamos/models/block/raw_uranium
 0bd218cd1c2fe3b977dc6a165103e3737235c4e3 assets/calamos/models/block/ruby_block.json
 416f387542b16f8fafb783b78c8a6160a59ef509 assets/calamos/models/block/sapphire_block.json
 f4adfa8b09507c19ddde3aca4a8bd59dda9ac2a2 assets/calamos/models/block/sawmill.json
+611c914a954309988e9456dc6e271e0f40f347da assets/calamos/models/block/shallowslate.json
 053bf962f7b83ea923b31ca4d49dcca94206a7b0 assets/calamos/models/block/smooth_cobblestone.json
 ac18d93e0b775b821171c1dbc401b86749136522 assets/calamos/models/block/smooth_deepslate.json
 ec42730c6fbf4561dfce93deb6553cc851683def assets/calamos/models/block/smooth_meteorite.json
@@ -520,6 +525,9 @@ e07cee9d022d1fc471c2c266f5240da3480c63a8 assets/calamos/models/block/stripped_ot
 a97cc599ca2efe419264076ffae5432d1033da8f assets/calamos/models/block/stripped_twilight_log_horizontal.json
 25353695fa2d58f8373a71b4af7598fa4941209a assets/calamos/models/block/stripped_twilight_wood.json
 68c57274a4b776a2961b789bf7c7d88e2c8e79fc assets/calamos/models/block/stripped_twilight_wood_horizontal.json
+abcca849d71c9af565eff4b1bf27ebb0c2f7f077 assets/calamos/models/block/sulfuric_sand.json
+823610bd537b66b8845bce3e21da85844e2b018b assets/calamos/models/block/sulfuric_sandstone.json
+4803d423aca5527b264d48d28c62d47373d6ce15 assets/calamos/models/block/sulfuric_stone.json
 5943fce2cc59b9371ed76900a8c452d249ec5849 assets/calamos/models/block/sunstone_block.json
 7f65cd34108e219a2beefe6950568d30fb69900e assets/calamos/models/block/tanzanite_block.json
 64a7acb4ecbfee07475572d2bccd63bdfbe21d4a assets/calamos/models/block/topaz_block.json
@@ -701,6 +709,7 @@ de47601b38b484ca443d56a98d17316080873a35 assets/calamos/models/item/ruby_ore.jso
 20d5e179c57ce5fe55d925ca8c16699277b1a6b6 assets/calamos/models/item/sapphire_block.json
 bc4f8dcf44773e9409b7c8fa610fd54028ee4dbb assets/calamos/models/item/sapphire_ore.json
 a6127e5055381fea15039f7f3a180d9de7dc2678 assets/calamos/models/item/sawmill.json
+fe78de0a928d567c320891846aba4b844b58a40b assets/calamos/models/item/shallowslate.json
 838a52ec00d68ce5a17416fa58ce7bab571e8cde assets/calamos/models/item/smooth_cobblestone.json
 58e47d66e6524b7b6c0a9f7ad09e8e6f66078945 assets/calamos/models/item/smooth_deepslate.json
 10924c9be08d7622d368f75264c46f67a89a59af assets/calamos/models/item/smooth_meteorite.json
@@ -725,6 +734,9 @@ be6c600736194aae3516eebdc810d0fbcf2b67d9 assets/calamos/models/item/stripped_hol
 c38fb697e0ac4634af210ee43f5355d95e914e0a assets/calamos/models/item/stripped_otherworld_oak_wood.json
 778fff773d42dbc22e550ca4eaa3f31404415de5 assets/calamos/models/item/stripped_twilight_log.json
 2a45f56a760fa86fe77a77101e5d5816289520ed assets/calamos/models/item/stripped_twilight_wood.json
+0cfafd7535d6d70b65aeb67398e464e202a061cc assets/calamos/models/item/sulfuric_sand.json
+5b995ff5a6fae8d08c402b9f5dcea3b5cfb47954 assets/calamos/models/item/sulfuric_sandstone.json
+c9fbf956569d72f62704f268f3bd81f6bb229e17 assets/calamos/models/item/sulfuric_stone.json
 4c707606e8c6e065de45f4132f0bacae0f3a7019 assets/calamos/models/item/sunstone_block.json
 153c89d0183bcb863c538f2558c14e4049f76031 assets/calamos/models/item/sunstone_ore.json
 7b3234752da3a266990ec239e1785b6b72a9fcd2 assets/calamos/models/item/tanzanite_block.json

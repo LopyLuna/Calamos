@@ -2,8 +2,8 @@ package uwu.lopyluna.calamos.elements.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
@@ -42,9 +42,12 @@ public class SawmillBlock extends Block {
 
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, (LivingEntity) pEntity);
-        if (!(i > 0)) {
-            pEntity.hurt(pLevel.damageSources().generic(), 1.0F);
+        if (pEntity instanceof LivingEntity livingEntity) {
+            var prot = pLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.PROTECTION);
+            int i = EnchantmentHelper.getEnchantmentLevel(prot, livingEntity);
+            if (!(i > 0)) {
+                pEntity.hurt(pLevel.damageSources().generic(), 1.5F);
+            }
         }
     }
 
@@ -54,7 +57,7 @@ public class SawmillBlock extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult p_316850_) {
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
@@ -114,7 +117,7 @@ public class SawmillBlock extends Block {
     }
 
     @Override
-    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+    public boolean isPathfindable(BlockState state, PathComputationType pathComputationType) {
         return false;
     }
 }

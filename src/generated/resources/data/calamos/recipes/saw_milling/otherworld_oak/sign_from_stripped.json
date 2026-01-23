@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 16,
-  "ingredient": {
-    "item": "calamos:stripped_otherworld_oak_log"
-  },
-  "result": "calamos:otherworld_oak_sign"
-}

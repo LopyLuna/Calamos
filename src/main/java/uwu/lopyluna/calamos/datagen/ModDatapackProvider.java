@@ -15,6 +15,8 @@ import java.util.concurrent.CompletableFuture;
 public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
 
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.ENCHANTMENT, ModEnchantmentProvider::bootstrap)
+            .add(Registries.TRIM_MATERIAL, ModTrimMaterialProvider::bootstrap)
             .add(Registries.DIMENSION_TYPE, CalamosDimensions::bootstrapType)
             .add(Registries.LEVEL_STEM, CalamosDimensions::bootstrapStem)
             .add(Registries.BIOME, CalamosBiomes::bootstrap);

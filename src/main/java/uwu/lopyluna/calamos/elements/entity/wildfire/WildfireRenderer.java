@@ -31,6 +31,6 @@ public class WildfireRenderer extends MobRenderer<WildfireEntity, WildfireModel<
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(WildfireEntity entity) {
-        return new ResourceLocation(CalamosMod.MODID, "textures/entity/wildfire/wildfire.png");
+        return CalamosMod.asResource("textures/entity/wildfire/wildfire.png");
     }
 }

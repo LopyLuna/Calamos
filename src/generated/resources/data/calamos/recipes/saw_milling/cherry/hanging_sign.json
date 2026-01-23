@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 8,
-  "ingredient": {
-    "item": "minecraft:cherry_log"
-  },
-  "result": "minecraft:cherry_hanging_sign"
-}

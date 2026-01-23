@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:spruce_planks"
-  },
-  "result": "minecraft:spruce_sign"
-}

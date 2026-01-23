@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:hollow_planks"
+  },
+  "result": {
+    "count": 8,
+    "id": "calamos:hollow_button"
+  }
+}

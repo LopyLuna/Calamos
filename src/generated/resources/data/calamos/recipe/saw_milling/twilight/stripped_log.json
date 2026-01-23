@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "calamos:twilight_log"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:stripped_twilight_log"
+  }
+}

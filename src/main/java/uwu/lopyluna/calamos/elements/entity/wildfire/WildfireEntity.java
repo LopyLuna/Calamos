@@ -9,7 +9,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -24,7 +23,7 @@ import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import uwu.lopyluna.calamos.elements.ModSoundEvents;
 import uwu.lopyluna.calamos.elements.entity.entity_definitions.Boss;
@@ -69,19 +68,19 @@ public class WildfireEntity extends BossBarMonster implements Boss {
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID_ATTACKING = SynchedEntityData.defineId(WildfireEntity.class, EntityDataSerializers.BYTE);
     public WildfireEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
-        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
-        this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, -1.0F);
+        this.setPathfindingMalus(PathType.LAVA, 8.0F);
+        this.setPathfindingMalus(PathType.DANGER_FIRE, 0.0F);
+        this.setPathfindingMalus(PathType.DAMAGE_FIRE, 0.0F);
         this.xpReward = 30;
     }
 
     @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
         this.setActiveShieldsCount(defaultActiveShieldsCount);
         this.setSummonedBlazesCount(defaultSummonedBlazesCount);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 
     @Override
@@ -116,13 +115,13 @@ public class WildfireEntity extends BossBarMonster implements Boss {
         tag.putInt(summonedBlazesCount_NBT, this.getSummonedBlazesCount());
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
-        this.entityData.define(DATA_FLAGS_ID_ATTACKING, (byte)0);
-        this.entityData.define(ACTIVE_SHIELDS_COUNT, defaultActiveShieldsCount);
-        this.entityData.define(TICKS_UNTIL_SHIELD_REGENERATION, defaultTicksUntilShieldRegen);
-        this.entityData.define(SUMMONED_BLAZES_COUNT, defaultSummonedBlazesCount);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_FLAGS_ID, (byte)0);
+        builder.define(DATA_FLAGS_ID_ATTACKING, (byte)0);
+        builder.define(ACTIVE_SHIELDS_COUNT, defaultActiveShieldsCount);
+        builder.define(TICKS_UNTIL_SHIELD_REGENERATION, defaultTicksUntilShieldRegen);
+        builder.define(SUMMONED_BLAZES_COUNT, defaultSummonedBlazesCount);
     }
 
     @Override
@@ -559,12 +558,11 @@ public class WildfireEntity extends BossBarMonster implements Boss {
                             
                             for(int i = 0; i < 4; ++i) {
                                 this.wildfire.setAttackCharged(true);
+                                Vec3 movement = new Vec3(this.wildfire.getRandom().triangle(d1, 2.297 * d4), d2, this.wildfire.getRandom().triangle(d3, 2.297 * d4));
                                 SmallFireball smallfireball = new SmallFireball(
                                         this.wildfire.level(),
                                         this.wildfire,
-                                        this.wildfire.getRandom().triangle(d1, 2.297 * d4),
-                                        d2,
-                                        this.wildfire.getRandom().triangle(d3, 2.297 * d4)
+                                        movement
                                 );
                                 smallfireball.setPos(smallfireball.getX(), this.wildfire.getY(0.5) + 0.5, smallfireball.getZ());
                                 this.wildfire.level().addFreshEntity(smallfireball);

@@ -5,6 +5,6 @@ import net.minecraft.world.item.Tier;
 
 public class CalamosAxeItem extends AxeItem {
     public CalamosAxeItem(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+        super(pTier, pProperties.attributes(AxeItem.createAttributes(pTier, pAttackDamageModifier, pAttackSpeedModifier)));
     }
 }

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:dark_oak_log"
-  },
-  "result": "minecraft:chest"
-}

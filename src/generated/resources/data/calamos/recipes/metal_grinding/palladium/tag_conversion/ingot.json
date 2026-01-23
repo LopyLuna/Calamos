@@ -1,8 +1,0 @@
-{
-  "type": "calamos:metal_grinding",
-  "count": 1,
-  "ingredient": {
-    "tag": "forge:ingots/palladium"
-  },
-  "result": "calamos:palladium_ingot"
-}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_smooth_deepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "calamos:smooth_deepslate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "calamos:crafting/functional/blast_furnace/deepslate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_smooth_deepslate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "calamos:crafting/functional/blast_furnace/deepslate"
+    ]
+  }
+}

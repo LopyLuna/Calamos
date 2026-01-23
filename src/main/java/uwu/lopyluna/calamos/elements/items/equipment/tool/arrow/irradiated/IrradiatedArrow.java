@@ -5,7 +5,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -18,20 +17,21 @@ import uwu.lopyluna.calamos.elements.ModEffects;
 import uwu.lopyluna.calamos.elements.ModEntity;
 import uwu.lopyluna.calamos.elements.ModItems;
 
+import javax.annotation.Nullable;
+
 public class IrradiatedArrow extends AbstractArrow {
-    private static final ItemStack DEFAULT_ARROW_STACK = new ItemStack(ModItems.IRRADIATED_ARROW.get());
     private int duration = 200;
 
     public IrradiatedArrow(EntityType<? extends IrradiatedArrow> entityType, Level level) {
-        super(entityType, level, DEFAULT_ARROW_STACK);
+        super(entityType, level);
     }
 
-    public IrradiatedArrow(Level pLevel, LivingEntity pOwner, ItemStack pPickupItemStack) {
-        super(ModEntity.IRRADIATED_ARROW.get(), pOwner, pLevel, pPickupItemStack);
+    public IrradiatedArrow(Level pLevel, LivingEntity pOwner, ItemStack pPickupItemStack, @Nullable ItemStack firedFromWeapon) {
+        super(ModEntity.IRRADIATED_ARROW.get(), pOwner, pLevel, pPickupItemStack, firedFromWeapon);
     }
 
-    public IrradiatedArrow(Level pLevel, double pX, double pY, double pZ, ItemStack pPickupItemStack) {
-        super(ModEntity.IRRADIATED_ARROW.get(), pX, pY, pZ, pLevel, pPickupItemStack);
+    public IrradiatedArrow(Level pLevel, double pX, double pY, double pZ, ItemStack pPickupItemStack, @Nullable ItemStack firedFromWeapon) {
+        super(ModEntity.IRRADIATED_ARROW.get(), pX, pY, pZ, pLevel, pPickupItemStack, firedFromWeapon);
     }
 
     @Override
@@ -65,18 +65,6 @@ public class IrradiatedArrow extends AbstractArrow {
     }
 
     @Override
-    public void deflect() {
-        super.deflect();
-        Vec3 basemotion = new Vec3(0, 1, 0);
-        this.level().addParticle(ParticleTypes.FLASH, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
-        for (int i = 0; i < 20; i++) {
-            Vec3 motion = offsetRandomly(basemotion, this.level().random, 1.5f);
-            this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getX(), this.getY(), this.getZ(), motion.x, motion.y, motion.z);
-            this.level().addParticle(ParticleTypes.GLOW, this.getX(), this.getY(), this.getZ(), motion.x, motion.y, motion.z);
-        }
-    }
-
-    @Override
     protected void onHitBlock(BlockHitResult pResult) {
         super.onHitBlock(pResult);
         Vec3 basemotion = new Vec3(0, 1, 0);
@@ -91,7 +79,7 @@ public class IrradiatedArrow extends AbstractArrow {
     @Override
     protected void doPostHurtEffects(LivingEntity pLiving) {
         super.doPostHurtEffects(pLiving);
-        MobEffectInstance mobeffectinstance = new MobEffectInstance(ModEffects.IRRADIATED.get(), this.duration, 0);
+        MobEffectInstance mobeffectinstance = new MobEffectInstance(ModEffects.IRRADIATED, this.duration, 0);
         pLiving.addEffect(mobeffectinstance, this.getEffectSource());
     }
 
@@ -101,6 +89,11 @@ public class IrradiatedArrow extends AbstractArrow {
         if (pCompound.contains("Duration")) {
             this.duration = pCompound.getInt("Duration");
         }
+    }
+
+    @Override
+    protected ItemStack getDefaultPickupItem() {
+        return ModItems.IRRADIATED_ARROW.toStack();
     }
 
     @Override

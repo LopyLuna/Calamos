@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 32,
-  "ingredient": {
-    "item": "minecraft:spruce_log"
-  },
-  "result": "minecraft:spruce_button"
-}

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 8,
-  "ingredient": {
-    "item": "minecraft:oak_planks"
-  },
-  "result": "minecraft:oak_button"
-}

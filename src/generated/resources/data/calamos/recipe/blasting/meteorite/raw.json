@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1200,
+  "experience": 0.65,
+  "ingredient": {
+    "item": "calamos:raw_meteorite"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:meteorite_ingot"
+  }
+}

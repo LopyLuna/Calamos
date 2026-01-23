@@ -1,0 +1,10 @@
+{
+  "type": "calamos:metal_grinding",
+  "ingredient": {
+    "tag": "c:storage_blocks/palladium"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:palladium_block"
+  }
+}

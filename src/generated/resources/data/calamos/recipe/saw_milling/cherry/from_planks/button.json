@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:cherry_planks"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:cherry_button"
+  }
+}

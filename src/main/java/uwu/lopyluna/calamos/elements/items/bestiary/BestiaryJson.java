@@ -6,6 +6,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -36,7 +37,7 @@ public class BestiaryJson extends SimpleJsonResourceReloadListener {
     
     private EntityType<?> getEntryEntity(JsonElement bestiaryJson) {
         JsonObject json = bestiaryJson.getAsJsonObject();
-        ResourceLocation entityReg = new ResourceLocation(json.get("entity").getAsString());
+        ResourceLocation entityReg = ResourceLocation.parse(json.get("entity").getAsString());
         return BuiltInRegistries.ENTITY_TYPE.get(entityReg);
     }
     private MutableComponent getLoreDesc(JsonElement bestiaryJson) {
@@ -55,7 +56,7 @@ public class BestiaryJson extends SimpleJsonResourceReloadListener {
         return spawnBiomes;
     }
     private LootTable getEntityLoot(EntityType<?> entity, ServerLevel level) {
-        ResourceLocation loot = entity.getDefaultLootTable();
-        return level.getServer().getLootData().getLootTable(loot);
+        ResourceKey<LootTable> loot = entity.getDefaultLootTable();
+        return level.getServer().reloadableRegistries().getLootTable(loot);
     }
 }

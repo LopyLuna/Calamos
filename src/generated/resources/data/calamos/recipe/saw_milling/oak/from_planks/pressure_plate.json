@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:oak_pressure_plate"
+  }
+}

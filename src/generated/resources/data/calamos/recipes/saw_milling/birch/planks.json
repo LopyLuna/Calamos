@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 6,
-  "ingredient": {
-    "item": "minecraft:birch_log"
-  },
-  "result": "minecraft:birch_planks"
-}

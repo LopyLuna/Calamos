@@ -1,0 +1,6 @@
+{
+  "parent": "calamos:entity/hook/chain_template",
+  "textures": {
+    "all": "block/chain"
+  }
+}

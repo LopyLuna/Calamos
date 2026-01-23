@@ -1,5 +1,6 @@
 package uwu.lopyluna.calamos.datagen;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -14,8 +15,8 @@ import java.util.Set;
 public class ModBlockLootProvider extends BlockLootSubProvider {
     private final Set<Block> generatedLootTables = new HashSet<>();
     
-    public ModBlockLootProvider() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    public ModBlockLootProvider(HolderLookup.Provider registries) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
     @Override
     protected void generate() {
@@ -201,6 +202,12 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
                 ModDecorativeBlocks.POLISHED_AMETHYST.get(),
                 ModDecorativeBlocks.AMETHYST_BRICKS.get(),
                 ModDecorativeBlocks.CUT_AMETHYST.get()
+                );
+
+        dropSelf(ModDecorativeBlocks.SULFURIC_SAND.get(),
+                ModDecorativeBlocks.SULFURIC_SANDSTONE.get(),
+                ModDecorativeBlocks.SULFURIC_STONE.get(),
+                ModDecorativeBlocks.SHALLOWSLATE.get()
                 );
     }
     

@@ -5,6 +5,6 @@ import net.minecraft.world.item.Tier;
 
 public class CalamosPickaxeItem extends PickaxeItem {
     public CalamosPickaxeItem(Tier pTier, int pAttackDamage, float pAttackSpeed, Properties pProperties) {
-        super(pTier, pAttackDamage, pAttackSpeed, pProperties);
+        super(pTier, pProperties.attributes(PickaxeItem.createAttributes(pTier, pAttackDamage, pAttackSpeed)));
     }
 }

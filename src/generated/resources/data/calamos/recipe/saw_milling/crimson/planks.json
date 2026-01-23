@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:crimson_stem"
+  },
+  "result": {
+    "count": 6,
+    "id": "minecraft:crimson_planks"
+  }
+}

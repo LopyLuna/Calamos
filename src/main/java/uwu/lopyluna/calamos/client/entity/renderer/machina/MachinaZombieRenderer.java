@@ -14,6 +14,6 @@ public class MachinaZombieRenderer extends HumanoidMobRenderer<MachinaZombie, Ma
     }
     @Override
     public ResourceLocation getTextureLocation(MachinaZombie pEntity) {
-        return new ResourceLocation("textures/entity/zombie/zombie.png");
+        return ResourceLocation.withDefaultNamespace("textures/entity/zombie/zombie.png");
     }
 }

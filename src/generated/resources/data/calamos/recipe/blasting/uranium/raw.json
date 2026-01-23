@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "calamos:raw_uranium"
+  },
+  "result": {
+    "count": 1,
+    "id": "calamos:uranium_ingot"
+  }
+}

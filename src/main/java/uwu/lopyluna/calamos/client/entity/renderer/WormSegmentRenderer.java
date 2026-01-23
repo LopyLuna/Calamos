@@ -14,7 +14,7 @@ public class WormSegmentRenderer extends LivingEntityRenderer<WormPart, WormSegm
 
     @Override
     public ResourceLocation getTextureLocation(WormPart pEntity) {
-        return new ResourceLocation(CalamosMod.MODID, "textures/entity/worm_segment.png");
+        return CalamosMod.asResource("textures/entity/worm_segment.png");
     }
 
 }

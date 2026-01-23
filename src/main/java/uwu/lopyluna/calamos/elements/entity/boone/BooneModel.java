@@ -8,12 +8,10 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
-
-import static uwu.lopyluna.calamos.CalamosMod.MODID;
+import uwu.lopyluna.calamos.CalamosMod;
 
 public class BooneModel<T extends BooneEntity> extends HierarchicalModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(MODID, "boone"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("boone"), "main");
     private static final String MODEL_PART_RIGHT_LEG = "Right_Leg";
     private static final String MODEL_PART_LEFT_LEG = "Left_Leg";
     private static final String MODEL_PART_RIGHT_FEET = "Right_Feet";
@@ -172,11 +170,11 @@ public class BooneModel<T extends BooneEntity> extends HierarchicalModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        root.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        hips.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+        root.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        hips.render(poseStack, vertexConsumer, packedLight, packedOverlay);
     }
 
     @Override

@@ -33,8 +33,8 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
     private static ResourceLocation textureLocation(String name) {
         for (Map.Entry<String, String> entry : devTextures.entrySet())
             if (name.contains(entry.getKey()))
-                return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/" + entry.getValue() + ".png");
-        return new ResourceLocation(CalamosMod.MODID, "textures/entity/wings/default.png");
+                return CalamosMod.asResource("textures/entity/wings/" + entry.getValue() + ".png");
+        return CalamosMod.asResource("textures/entity/wings/default.png");
         
     }
     private final WingsModel<T> wingsModel;
@@ -67,9 +67,9 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
         pPoseStack.translate(0.0F, -0.325F, 0.125F);
         this.wingsModel.setupAnim(pLivingEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
         VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(
-                pBuffer, RenderType.entityDecal(resourcelocation), false, itemstack.hasFoil()
+                pBuffer, RenderType.entityDecal(resourcelocation), itemstack.hasFoil()
         );
-        this.wingsModel.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.wingsModel.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY);
         pPoseStack.popPose();
         
     }
@@ -89,8 +89,8 @@ public class WingsLayer<T extends LivingEntity, M extends EntityModel<T>> extend
     public static void registerOnAll(EntityRenderDispatcher renderManager, EntityModelSet modelSet) {
         for (EntityRenderer<? extends Player> renderer : renderManager.getSkinMap().values())
             registerOn(renderer, modelSet);
-        for (EntityRenderer<?> renderer : renderManager.renderers.values())
-            registerOn(renderer, modelSet);
+        //for (EntityRenderer<?> renderer : renderManager.renderers.values())
+        //    registerOn(renderer, modelSet);
     }
     
     @SuppressWarnings({ "rawtypes", "unchecked" })

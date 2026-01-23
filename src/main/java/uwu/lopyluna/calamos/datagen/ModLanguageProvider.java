@@ -1,11 +1,13 @@
 package uwu.lopyluna.calamos.datagen;
 
+import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -39,6 +41,9 @@ class ModLanguageProvider extends LanguageProvider {
         }
         for (DeferredHolder<Block, ? extends Block> registry : ModDecorativeBlocks.getBlocks()) {
             this.block(registry);
+        }
+        for (DeferredHolder<Attribute, ? extends Attribute> registry : ModAttributes.ATTRIBUTES.getEntries()) {
+            this.add(registry.get().getDescriptionId(), transform(registry.getId().getPath().replace("calamos.", "")));
         }
         /*
         this.item(ModItems.DEBUG_HEALTH);
@@ -121,9 +126,10 @@ class ModLanguageProvider extends LanguageProvider {
         this.trimMaterial("topaz");
 
         //Enchantments
-        this.enchantment(ModEnchantments.SAVING_GRACE);
-        this.enchantment(ModEnchantments.FLIGHT_CHARGE);
-        this.enchantment(ModEnchantments.FAST_FLIGHT);
+        this.enchantment(ModEnchantmentProvider.SAVING_GRACE);
+        this.enchantment(ModEnchantmentProvider.FLIGHT_CHARGE);
+        this.enchantment(ModEnchantmentProvider.FAST_FLIGHT);
+        this.enchantment(ModEnchantmentProvider.FELLING);
         
         //Effects
         this.effect(ModEffects.PESTIS);
@@ -137,6 +143,16 @@ class ModLanguageProvider extends LanguageProvider {
         this.string("calamos.potion.tooltip.cooldown", "§9Cooldown: §6");
         this.string("curios.identifier.wings", "Wings");
         this.string("curios.identifier.accessory", "Accessory");
+
+        // Curio Conditions
+        this.string("calamos.tooltip.condition.above_health_percent", "When Above %s%% Health:");
+        this.string("calamos.tooltip.condition.below_health_percent", "When Below %s%% Health:");
+        this.string("calamos.tooltip.condition.above_health", "When Above %s Health:");
+        this.string("calamos.tooltip.condition.below_health", "When Below %s Health:");
+        this.string("calamos.tooltip.condition.above_attribute_percent", "When Above %s%% %s:");
+        this.string("calamos.tooltip.condition.below_attribute_percent", "When Below %s%% %s:");
+        this.string("calamos.tooltip.condition.above_attribute", "When Above %s %s:");
+        this.string("calamos.tooltip.condition.below_attribute", "When Below %s %s:");
 
         this.container("hallow_workbench");
         this.container("sawmill");
@@ -163,6 +179,7 @@ class ModLanguageProvider extends LanguageProvider {
 
         this.add("emi.category.calamos.sawmilling", "Sawmilling");
         this.add("emi.category.calamos.metal_grinding", "Metal Grinding");
+
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {
@@ -184,11 +201,14 @@ class ModLanguageProvider extends LanguageProvider {
         String translated = transform(material) + " Material";
         super.add("trim_material.%s.%s".formatted(MODID, material), translated);
     }
-    private void enchantment(Holder<Enchantment> holder) {
-        this.add(holder, "enchantment");
+    private void enchantment(ResourceKey<Enchantment> key) {
+        this.string(Util.makeDescriptionId("enchantment", key.location()), transform(key.location()));
     }
     private void effect(Holder<MobEffect> holder) {
         this.add(holder, "effect");
+    }
+    private void attribute(Holder<Attribute> holder) {
+        this.add(holder, "attribute.name");
     }
     private void container(String containerName){
         String translated = transform(containerName);

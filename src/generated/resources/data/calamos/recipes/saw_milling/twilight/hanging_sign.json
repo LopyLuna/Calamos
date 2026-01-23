@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 8,
-  "ingredient": {
-    "item": "calamos:twilight_log"
-  },
-  "result": "calamos:twilight_hanging_sign"
-}

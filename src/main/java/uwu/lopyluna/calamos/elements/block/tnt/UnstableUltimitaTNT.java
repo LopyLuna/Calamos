@@ -7,10 +7,9 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
@@ -35,15 +34,12 @@ public class UnstableUltimitaTNT extends Block {
 
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        Item hand1 = pPlayer.getMainHandItem().getItem();
-        Item hand2 = pPlayer.getOffhandItem().getItem();
-        Item useItem = Items.FLINT_AND_STEEL;
-        if (hand1 == useItem || hand2 == useItem) {
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (stack.is(Items.FLINT_AND_STEEL)) {
             explode(pLevel, pPos);
-            return InteractionResult.CONSUME;
+            return ItemInteractionResult.CONSUME;
         }
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        return super.useItemOn(stack, pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @Override
@@ -72,10 +68,10 @@ public class UnstableUltimitaTNT extends Block {
         boolean haveFire = true;
         List<StableUltimitaTNT.Sphere> spheres = generateSphere(0, 0, 0, 1, 3, true);
         if (pLevel.isClientSide) {
-            pLevel.playLocalSound(pPos, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, false);
-            pLevel.playLocalSound(pPos, SoundEvents.WIND_BURST, SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, false);
-            pLevel.playLocalSound(pPos, SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, true);
-            pLevel.playLocalSound(pPos, SoundEvents.WIND_BURST, SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, true);
+            pLevel.playLocalSound(pPos, SoundEvents.GENERIC_EXPLODE.value(), SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, false);
+            pLevel.playLocalSound(pPos, SoundEvents.WIND_CHARGE_BURST.value(), SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, false);
+            pLevel.playLocalSound(pPos, SoundEvents.GENERIC_EXPLODE.value(), SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, true);
+            pLevel.playLocalSound(pPos, SoundEvents.WIND_CHARGE_BURST.value(), SoundSource.BLOCKS, (blastRadius + blastRadius * 0.25F) * 0.75F, (0.7F + (pLevel.random.nextFloat() - pLevel.random.nextFloat()) * 0.2F) * 0.7F, true);
         }
 
         if (!pLevel.isClientSide) {
@@ -106,8 +102,8 @@ public class UnstableUltimitaTNT extends Block {
                             haveFire,
                             Level.ExplosionInteraction.BLOCK,
                             ParticleTypes.GUST,
-                            ParticleTypes.GUST_EMITTER,
-                            SoundEvents.WIND_BURST
+                            ParticleTypes.GUST_EMITTER_LARGE,
+                            SoundEvents.WIND_CHARGE_BURST
                     );
                     pLevel.addParticle(ParticleTypes.EXPLOSION_EMITTER, x, y, z, 1.0, 0.0, 0.0);
                 }

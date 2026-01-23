@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 4,
-  "ingredient": {
-    "item": "minecraft:bamboo_planks"
-  },
-  "result": "minecraft:bamboo_sign"
-}

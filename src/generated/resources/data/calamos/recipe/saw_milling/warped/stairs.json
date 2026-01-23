@@ -1,0 +1,10 @@
+{
+  "type": "calamos:sawmilling",
+  "ingredient": {
+    "item": "minecraft:warped_stem"
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:warped_stairs"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "calamos:sawmilling",
-  "count": 8,
-  "ingredient": {
-    "item": "minecraft:oak_log"
-  },
-  "result": "minecraft:oak_hanging_sign"
-}

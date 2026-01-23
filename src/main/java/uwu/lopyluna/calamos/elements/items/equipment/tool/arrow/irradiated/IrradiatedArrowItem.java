@@ -13,14 +13,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.Nullable;
+
 public class IrradiatedArrowItem extends ArrowItem {
     public IrradiatedArrowItem(Item.Properties pProperties) {
         super(pProperties);
     }
 
     @Override
-    public AbstractArrow createArrow(Level pLevel, ItemStack pStack, LivingEntity pShooter) {
-        return new IrradiatedArrow(pLevel, pShooter, pStack.copyWithCount(1));
+    public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
+        return new IrradiatedArrow(level, shooter, ammo.copyWithCount(1), weapon);
     }
 
     @Override

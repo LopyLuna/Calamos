@@ -13,13 +13,13 @@ import net.minecraft.world.entity.monster.MagmaCube;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import uwu.lopyluna.calamos.elements.items.equipment.tool.base.CalamosSwordItem;
 
 @SuppressWarnings({"all"})
-public class VolcaniteSword extends SwordItem {
-    public VolcaniteSword( Properties pProperties) {
+public class VolcaniteSword extends CalamosSwordItem {
+    public VolcaniteSword(Properties pProperties) {
         super(CalamosTiers.VOLCANITE, 3, -2.2F, pProperties);
     }
 
@@ -40,7 +40,7 @@ public class VolcaniteSword extends SwordItem {
             CompoundTag serializeNBT = slime.saveWithoutId(new CompoundTag());
             serializeNBT.remove("UUID");
 
-            magmaCube.deserializeNBT(serializeNBT);
+            magmaCube.deserializeNBT(pAttacker.registryAccess(), serializeNBT);
             magmaCube.setPos(slime.getPosition(0));
             pLevel.addFreshEntity(magmaCube);
             slime.discard();
@@ -48,11 +48,11 @@ public class VolcaniteSword extends SwordItem {
         } else if (!pTarget.fireImmune() && !pAttacker.getCooldowns().isOnCooldown(pStack.getItem()) && (!pTarget.onGround() || !pAttacker.onGround()) && pTarget.isAlive()) {
             playExplosionParticles(pLevel, pTarget.position());
             playExplosionSound(pAttacker, pLevel);
-            pTarget.setSecondsOnFire(10);
+            pTarget.setRemainingFireTicks(200);
             pTarget.hurt(pTarget.damageSources().explosion(pAttacker, pTarget), (float) (6 + pAttacker.getAttributeValue(Attributes.ATTACK_DAMAGE) * 0.1));
             pAttacker.getCooldowns().addCooldown(this, 30);
         } else if (!pTarget.fireImmune()) {
-            pTarget.setSecondsOnFire(10);
+            pTarget.setRemainingFireTicks(200);
             pTarget.hurt(pTarget.damageSources().onFire(), 1);
         }
         return super.onLeftClickEntity(pStack, pAttacker, pTarget);

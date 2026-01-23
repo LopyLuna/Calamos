@@ -12,9 +12,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
-import uwu.lopyluna.calamos.elements.ModBlocks;
+import net.minecraft.world.level.block.Blocks;
 import uwu.lopyluna.calamos.elements.ModMenuType;
 import uwu.lopyluna.calamos.elements.ModRecipes;
 import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
@@ -29,56 +29,44 @@ public class MetalGrinderMenu extends AbstractContainerMenu {
     private static final int USE_ROW_SLOT_START = 29;
     private static final int USE_ROW_SLOT_END = 38;
     private final ContainerLevelAccess access;
-    /**
-     * The index of the selected recipe in the GUI.
-     */
-    private final DataSlot selectedRecipeIndex = DataSlot.standalone();
+    private final DataSlot selectedRecipeIndex;
     private final Level level;
-    private List<RecipeHolder<MetalGrindingRecipe>> recipes = Lists.newArrayList();
-    /**
-     * The {@linkplain net.minecraft.world.item.ItemStack} set in the input slot by the player.
-     */
-    private ItemStack input = ItemStack.EMPTY;
-    /**
-     * Stores the game time of the last time the player took items from the the crafting result slot. This is used to prevent the sound from being played multiple times on the same tick.
-     */
+    private List<RecipeHolder<MetalGrindingRecipe>> recipes;
+    private ItemStack input;
     long lastSoundTime;
     final Slot inputSlot;
-    /**
-     * The inventory slot that stores the output of the crafting recipe.
-     */
     final Slot resultSlot;
-    Runnable slotUpdateListener = () -> {
-    };
-    public final Container container = new SimpleContainer(1) {
-        @Override
-        public void setChanged() {
-            super.setChanged();
-            MetalGrinderMenu.this.slotsChanged(this);
-            MetalGrinderMenu.this.slotUpdateListener.run();
-        }
-    };
-    /**
-     * The inventory that stores the output of the crafting recipe.
-     */
-    final ResultContainer resultContainer = new ResultContainer();
+    Runnable slotUpdateListener;
+    public final Container container;
+    final ResultContainer resultContainer;
     
-    public MetalGrinderMenu(int pContainerId, Inventory pPlayerInventory) {
+    public MetalGrinderMenu(int pContainerId, Inventory pPlayerInventory, FriendlyByteBuf friendlyByteBuf) {
         this(pContainerId, pPlayerInventory, ContainerLevelAccess.NULL);
     }
     
-    public MetalGrinderMenu(int pContainerId, Inventory pPlayerInventory, final ContainerLevelAccess pAccess) {
+    public MetalGrinderMenu(int pContainerId, Inventory playerInventory, final ContainerLevelAccess access) {
         super(ModMenuType.METAL_GRINDER_MENU.get(), pContainerId);
-        this.access = pAccess;
-        this.level = pPlayerInventory.player.level();
+        this.selectedRecipeIndex = DataSlot.standalone();
+        this.recipes = Lists.newArrayList();
+        this.input = ItemStack.EMPTY;
+        this.slotUpdateListener = () -> {
+        };
+        this.container = new SimpleContainer(1) {
+            public void setChanged() {
+                super.setChanged();
+                MetalGrinderMenu.this.slotsChanged(this);
+                MetalGrinderMenu.this.slotUpdateListener.run();
+            }
+        };
+        this.resultContainer = new ResultContainer();
+        this.access = access;
+        this.level = playerInventory.player.level();
         this.inputSlot = this.addSlot(new Slot(this.container, 0, 20, 33));
         this.resultSlot = this.addSlot(new Slot(this.resultContainer, 1, 143, 33) {
-            @Override
             public boolean mayPlace(ItemStack p_40362_) {
                 return false;
             }
-            
-            @Override
+
             public void onTake(Player p_150672_, ItemStack p_150673_) {
                 p_150673_.onCraftedBy(p_150672_.level(), p_150672_, p_150673_.getCount());
                 MetalGrinderMenu.this.resultContainer.awardUsedRecipes(p_150672_, this.getRelevantItems());
@@ -86,108 +74,94 @@ public class MetalGrinderMenu extends AbstractContainerMenu {
                 if (!itemstack.isEmpty()) {
                     MetalGrinderMenu.this.setupResultSlot();
                 }
-                
-                pAccess.execute((p_40364_, p_40365_) -> {
+
+                access.execute((p_40364_, p_40365_) -> {
                     long l = p_40364_.getGameTime();
                     if (MetalGrinderMenu.this.lastSoundTime != l) {
-                        p_40364_.playSound(null, p_40365_, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        p_40364_.playSound((Player)null, p_40365_, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1.0F, 1.0F);
                         MetalGrinderMenu.this.lastSoundTime = l;
                     }
+
                 });
                 super.onTake(p_150672_, p_150673_);
             }
-            
+
             private List<ItemStack> getRelevantItems() {
                 return List.of(MetalGrinderMenu.this.inputSlot.getItem());
             }
         });
-        
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(pPlayerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-        
+
         for(int k = 0; k < 9; ++k) {
-            this.addSlot(new Slot(pPlayerInventory, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
         }
-        
+
         this.addDataSlot(this.selectedRecipeIndex);
     }
-    
-    public MetalGrinderMenu(int i, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
-        this(i, inventory);
-    }
-    
-    /**
-     * Returns the index of the selected recipe.
-     */
+
     public int getSelectedRecipeIndex() {
         return this.selectedRecipeIndex.get();
     }
-    
+
     public List<RecipeHolder<MetalGrindingRecipe>> getRecipes() {
         return this.recipes;
     }
-    
+
     public int getNumRecipes() {
         return this.recipes.size();
     }
-    
+
     public boolean hasInputItem() {
         return this.inputSlot.hasItem() && !this.recipes.isEmpty();
     }
-    
-    /**
-     * Determines whether supplied player can use this container
-     */
-    @Override
-    public boolean stillValid(Player pPlayer) {
-        return stillValid(this.access, pPlayer, ModBlocks.METAL_GRINDER.get());
+
+    public boolean stillValid(Player player) {
+        return stillValid(this.access, player, Blocks.STONECUTTER);
     }
-    
-    /**
-     * Handles the given Button-click on the server, currently only used by enchanting. Name is for legacy.
-     */
-    @Override
-    public boolean clickMenuButton(Player pPlayer, int pId) {
-        if (this.isValidRecipeIndex(pId)) {
-            this.selectedRecipeIndex.set(pId);
+
+    public boolean clickMenuButton(Player player, int id) {
+        if (this.isValidRecipeIndex(id)) {
+            this.selectedRecipeIndex.set(id);
             this.setupResultSlot();
         }
-        
+
         return true;
     }
-    
-    private boolean isValidRecipeIndex(int pRecipeIndex) {
-        return pRecipeIndex >= 0 && pRecipeIndex < this.recipes.size();
+
+    private boolean isValidRecipeIndex(int recipeIndex) {
+        return recipeIndex >= 0 && recipeIndex < this.recipes.size();
     }
-    
-    /**
-     * Callback for when the crafting matrix is changed.
-     */
-    @Override
-    public void slotsChanged(Container pInventory) {
+
+    public void slotsChanged(Container inventory) {
         ItemStack itemstack = this.inputSlot.getItem();
         if (!itemstack.is(this.input.getItem())) {
             this.input = itemstack.copy();
-            this.setupRecipeList(pInventory, itemstack);
+            this.setupRecipeList(inventory, itemstack);
         }
+
     }
-    
-    private void setupRecipeList(Container pContainer, ItemStack pStack) {
+
+    private static SingleRecipeInput createRecipeInput(Container p_346312_) {
+        return new SingleRecipeInput(p_346312_.getItem(0));
+    }
+
+    private void setupRecipeList(Container p_40304_, ItemStack p_40305_) {
         this.recipes.clear();
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
-        if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipes.METAL_GRINDING.get(), pContainer, this.level);
+        if (!p_40305_.isEmpty()) {
+            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipes.METAL_GRINDING.get(), createRecipeInput(p_40304_), this.level);
         }
     }
-    
+
     void setupResultSlot() {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             RecipeHolder<MetalGrindingRecipe> recipeholder = this.recipes.get(this.selectedRecipeIndex.get());
-            ItemStack itemstack = recipeholder.value().assemble(this.container, this.level.registryAccess());
+            ItemStack itemstack = recipeholder.value().assemble(createRecipeInput(this.container), this.level.registryAccess());
             if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
                 this.resultContainer.setRecipeUsed(recipeholder);
                 this.resultSlot.set(itemstack);
@@ -197,7 +171,7 @@ public class MetalGrinderMenu extends AbstractContainerMenu {
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
         }
-        
+
         this.broadcastChanges();
     }
     
@@ -205,76 +179,64 @@ public class MetalGrinderMenu extends AbstractContainerMenu {
     public MenuType<?> getType() {
         return ModMenuType.METAL_GRINDER_MENU.get();
     }
-    
-    public void registerUpdateListener(Runnable pListener) {
-        this.slotUpdateListener = pListener;
+
+    public void registerUpdateListener(Runnable listener) {
+        this.slotUpdateListener = listener;
     }
-    
-    /**
-     * Called to determine if the current slot is valid for the stack merging (double-click) code. The stack passed in is null for the initial slot that was double-clicked.
-     */
-    @Override
-    public boolean canTakeItemForPickAll(ItemStack pStack, Slot pSlot) {
-        return pSlot.container != this.resultContainer && super.canTakeItemForPickAll(pStack, pSlot);
+
+    public boolean canTakeItemForPickAll(ItemStack stack, Slot slot) {
+        return slot.container != this.resultContainer && super.canTakeItemForPickAll(stack, slot);
     }
-    
-    /**
-     * Handle when the stack in slot {@code index} is shift-clicked. Normally this moves the stack between the player inventory and the other inventory(s).
-     */
-    @Override
-    public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
+
+    public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(pIndex);
+        Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             Item item = itemstack1.getItem();
             itemstack = itemstack1.copy();
-            if (pIndex == 1) {
-                item.onCraftedBy(itemstack1, pPlayer.level(), pPlayer);
+            if (index == 1) {
+                item.onCraftedBy(itemstack1, player.level(), player);
                 if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-                
+
                 slot.onQuickCraft(itemstack1, itemstack);
-            } else if (pIndex == 0) {
+            } else if (index == 0) {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(RecipeType.STONECUTTING, new SimpleContainer(itemstack1), this.level).isPresent()) {
+            } else if (this.level.getRecipeManager().getRecipeFor(ModRecipes.METAL_GRINDING.get(), new SingleRecipeInput(itemstack1), this.level).isPresent()) {
                 if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (pIndex >= 2 && pIndex < 29) {
+            } else if (index >= 2 && index < 29) {
                 if (!this.moveItemStackTo(itemstack1, 29, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (pIndex >= 29 && pIndex < 38 && !this.moveItemStackTo(itemstack1, 2, 29, false)) {
+            } else if (index >= 29 && index < 38 && !this.moveItemStackTo(itemstack1, 2, 29, false)) {
                 return ItemStack.EMPTY;
             }
-            
+
             if (itemstack1.isEmpty()) {
                 slot.setByPlayer(ItemStack.EMPTY);
             }
-            
+
             slot.setChanged();
             if (itemstack1.getCount() == itemstack.getCount()) {
                 return ItemStack.EMPTY;
             }
-            
-            slot.onTake(pPlayer, itemstack1);
+
+            slot.onTake(player, itemstack1);
             this.broadcastChanges();
         }
-        
+
         return itemstack;
     }
-    
-    /**
-     * Called when the container is closed.
-     */
-    @Override
-    public void removed(Player pPlayer) {
-        super.removed(pPlayer);
+
+    public void removed(Player player) {
+        super.removed(player);
         this.resultContainer.removeItemNoUpdate(1);
-        this.access.execute((p_40313_, p_40314_) -> this.clearContainer(pPlayer, this.container));
+        this.access.execute((p_40313_, p_40314_) -> this.clearContainer(player, this.container));
     }
 }

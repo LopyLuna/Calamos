@@ -9,6 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.phys.Vec3;
+import uwu.lopyluna.calamos.CalamosMod;
 
 public class IrradiatedEffect extends MobEffect {
 
@@ -19,7 +20,7 @@ public class IrradiatedEffect extends MobEffect {
 
     public void onEffectStarted(LivingEntity pLivingEntity, int pAmplifier) {
         double healthModifier = (0.5f * (((pAmplifier + 1) * 0.5f) / 2)) * -1;
-        this.addAttributeModifier(Attributes.MAX_HEALTH, "7107DE5E-7CE8-4030-940E-514C1F160890", healthModifier, AttributeModifier.Operation.MULTIPLY_TOTAL);
+        this.addAttributeModifier(Attributes.MAX_HEALTH, CalamosMod.asResource("max_health.irradiated"), healthModifier, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         if (pLivingEntity.getCommandSenderWorld().isClientSide()) {
         Vec3 basemotion = new Vec3(0, 1, 0);
         pLivingEntity.level().addParticle(ParticleTypes.FLASH, pLivingEntity.getX(), pLivingEntity.getY(), pLivingEntity.getZ(), 0, 0, 0);
@@ -32,7 +33,7 @@ public class IrradiatedEffect extends MobEffect {
         super.onEffectStarted(pLivingEntity, pAmplifier);
     }
 
-    public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+    public boolean applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
         super.applyEffectTick(pLivingEntity, pAmplifier);
         pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 1.0F);
         if (pLivingEntity.getCommandSenderWorld().isClientSide()) {
@@ -43,6 +44,7 @@ public class IrradiatedEffect extends MobEffect {
                 pLivingEntity.level().addParticle(ParticleTypes.GLOW, pLivingEntity.getX(), pLivingEntity.getY() + 0.5, pLivingEntity.getZ(), motion.x, motion.y, motion.z);
             }
         }
+        return true;
     }
 
     @Override
