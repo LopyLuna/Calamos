@@ -43,7 +43,9 @@ public class CalamosMod {
         ModArmorMaterials.staticInit();
         ModCreativeTab.staticInit();
         ModDataComponents.staticInit();
+        ModParticleTypes.init(modEventBus);
         ModEntity.staticInit();
+        ModModifiers.init(modEventBus);
         CalamosMessages.init();
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
@@ -67,8 +69,7 @@ public class CalamosMod {
             LOGGER.debug("Modifying maximum value for %s from %f to %f.".formatted(attribute.getRegisteredName(), ranged.getMaxValue(), maxHealthPossible));
             accessor.calamos$setMaxValue(maxHealthPossible);
         }
-        event.enqueueWork(() ->
-        {
+        event.enqueueWork(() -> {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, CalamosSurfaceRules.makeRules());
         });
     }

@@ -3,25 +3,57 @@ package uwu.lopyluna.calamos.event;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipProvider;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.GatherSkippedAttributeTooltipsEvent;
 import net.neoforged.neoforge.client.event.RenderPlayerEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.handler.HookHandler;
 import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
+import uwu.lopyluna.calamos.elements.ModDataComponents;
+import uwu.lopyluna.calamos.elements.ModModifiers;
 import uwu.lopyluna.calamos.elements.items.equipment.armor.CalamosArmorItem;
+import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
 import uwu.lopyluna.calamos.utilities.CuriosUtil;
 
 import java.util.List;
 
 @EventBusSubscriber(value = Dist.CLIENT, modid = CalamosMod.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class ClientForgeEvents {
+
+    @SubscribeEvent
+    public static void skipModifierAttributeTooltips(GatherSkippedAttributeTooltipsEvent event) {
+        for (var modifier : ModModifiers.MODIFIERS.getEntries()) {
+            for (Modifier.Entry entry : modifier.get().attributeModifiers()) {
+                event.skipId(entry.modifier().id());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onItemTooltip(ItemTooltipEvent event) {
+        ItemStack stack = event.getItemStack();
+        Item.TooltipContext context = event.getContext();
+        List<Component> tooltip = event.getToolTip();
+        TooltipFlag flag = event.getFlags();
+        for (var type : ModDataComponents.COMPONENTS.getEntries()) {
+            var comp = stack.get(type);
+            if (comp instanceof TooltipProvider tooltipProvider) {
+                tooltipProvider.addToTooltip(context, tooltip::add, flag);
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void onRenderPlayerPre(RenderPlayerEvent.Pre event) {

@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -114,6 +115,18 @@ public class ModUtils {
         @Override
         public void encode(FriendlyByteBuf buf, UUID uuid) {
             buf.writeUUID(uuid);
+        }
+    };
+
+    public static StreamCodec<FriendlyByteBuf, Vec3> VEC3_STREAM_CODEC = new StreamCodec<>() {
+        @Override
+        public Vec3 decode(FriendlyByteBuf buf) {
+            return buf.readVec3();
+        }
+
+        @Override
+        public void encode(FriendlyByteBuf buf, Vec3 vec3) {
+            buf.writeVec3(vec3);
         }
     };
 

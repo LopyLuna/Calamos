@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-22T19:27:36.2189582	Tags for minecraft:item mod id vanilla
+// 1.21.1	2026-01-25T02:16:36.9840623	Tags for minecraft:item mod id vanilla
 72bd5a0bfb4c26d390acb2b596a2e90b27f017e9 data/calamos/tags/item/bloodbore_tool_materials.json
 ba08a9f2a5781f9783f511f3d789493e2928ef46 data/calamos/tags/item/calamatium_tool_materials.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/calamos/tags/item/copper_tool_materials.json
@@ -9,6 +9,10 @@ ba08a9f2a5781f9783f511f3d789493e2928ef46 data/calamos/tags/item/calamatium_tool_
 9fa1a168c13cac4861ed4a624593cdc8f3173b13 data/calamos/tags/item/lead_tool_materials.json
 b2c50a7f07a59f4f942cd13a9dfc65f64a39fd66 data/calamos/tags/item/magnetite_tool_materials.json
 0517e425bf78686ce06ef50947929585f7d18000 data/calamos/tags/item/meteorite_tool_materials.json
+bdda407bf40b7a4553cd1ea8c5cb64a780715f62 data/calamos/tags/item/modifiable/accessory/universal.json
+7c7d628823aeb153c19b28c52827f0b6a399e5d7 data/calamos/tags/item/modifiable/weapon/common.json
+df923947f3d2c023c3ffca43a4825ada36cf0506 data/calamos/tags/item/modifiable/weapon/melee.json
+f16c10841a5efd8175b45c1a3a717e36dd7b098f data/calamos/tags/item/modifiable/weapon/universal.json
 a02ed117ba5a5c8e2aed3c465703f08963670867 data/calamos/tags/item/obsteel_tool_materials.json
 142a8a18eb83436a386a5635b3606f31307fce2b data/calamos/tags/item/otherworld_oak_logs.json
 3abea516844d964bb1ead01b8d1269de1358988e data/calamos/tags/item/palladium_tool_materials.json

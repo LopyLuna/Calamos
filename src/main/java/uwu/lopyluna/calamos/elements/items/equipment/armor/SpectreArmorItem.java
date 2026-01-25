@@ -24,6 +24,7 @@ import uwu.lopyluna.calamos.client.model.item.CalamosArmorModel;
 import uwu.lopyluna.calamos.datagen.ModTags;
 import uwu.lopyluna.calamos.elements.ModArmorMaterials;
 import uwu.lopyluna.calamos.elements.ModAttributes;
+import uwu.lopyluna.calamos.elements.entity.orb.LifestealOrb;
 
 import java.util.List;
 import java.util.Map;
@@ -49,14 +50,14 @@ public class SpectreArmorItem extends CalamosArmorItem {
         ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
         if (this.type == Type.HELMET) {
             if (!hood) {
-                builder.add(ModAttributes.CRIT_CHANCE, new AttributeModifier(CalamosMod.asResource("crit_chance.helmet"), 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.HEAD);
+                builder.add(ModAttributes.MAGIC_CRIT_CHANCE, new AttributeModifier(CalamosMod.asResource("crit_chance.magic.helmet"), 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.HEAD);
                 builder.add(ModAttributes.MAGIC_DAMAGE, new AttributeModifier(CalamosMod.asResource("magic_damage.helmet"), 0.1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.HEAD);
                 builder.add(ModAttributes.MANA_COST_REDUCTION, new AttributeModifier(CalamosMod.asResource("mana_cost_reduction.helmet"), 0.13, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.HEAD);
                 builder.add(ModAttributes.MAX_MANA, new AttributeModifier(CalamosMod.asResource("max_mana.helmet"), 60, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.HEAD);
             }
         }
         if (this.type == Type.CHESTPLATE) {
-            builder.add(ModAttributes.CRIT_CHANCE, new AttributeModifier(CalamosMod.asResource("crit_chance.chestplate"), 0.07, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.CHEST);
+            builder.add(ModAttributes.MAGIC_CRIT_CHANCE, new AttributeModifier(CalamosMod.asResource("crit_chance.magic.chestplate"), 0.07, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.CHEST);
             builder.add(ModAttributes.MAGIC_DAMAGE, new AttributeModifier(CalamosMod.asResource("magic_damage.chestplate"), 0.07, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.CHEST);
         }
         if (this.type == Type.LEGGINGS) {
@@ -89,7 +90,12 @@ public class SpectreArmorItem extends CalamosArmorItem {
         if (this.type == Type.HELMET && source.is(ModTags.modDamageTag("magic"))) {
             if (this.hood) {
                 float toHeal = amount * 0.2f;
-                entity.heal(toHeal);
+                LifestealOrb orb = new LifestealOrb(entity.level);
+                orb.setOwner(entity);
+                orb.setPos(victim.getEyePosition());
+                orb.setHealingAmount(toHeal);
+
+                entity.level.addFreshEntity(orb);
             }
         }
     }

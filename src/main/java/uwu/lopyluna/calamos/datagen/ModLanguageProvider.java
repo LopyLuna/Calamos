@@ -17,8 +17,11 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.*;
+import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
 import uwu.lopyluna.calamos.elements.tag.ModItemTags;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 
@@ -43,7 +46,15 @@ class ModLanguageProvider extends LanguageProvider {
             this.block(registry);
         }
         for (DeferredHolder<Attribute, ? extends Attribute> registry : ModAttributes.ATTRIBUTES.getEntries()) {
-            this.add(registry.get().getDescriptionId(), transform(registry.getId().getPath().replace("calamos.", "")));
+            this.add(registry.get().getDescriptionId(), transform(registry.get().getDescriptionId().replace("attribute.name.calamos.", "")));
+        }
+        List<String> translatedModifiers = new ArrayList<>();
+        for (DeferredHolder<Modifier, ? extends Modifier> registry : ModModifiers.MODIFIERS.getEntries()) {
+            String langKey = registry.getId().withPath(registry.get().assetName()).toLanguageKey("modifier");
+            if (!translatedModifiers.contains(langKey)) {
+                this.add(langKey, transform(registry.getId().withPath(registry.get().assetName())) + " %s");
+                translatedModifiers.add(langKey);
+            }
         }
         /*
         this.item(ModItems.DEBUG_HEALTH);
@@ -154,6 +165,8 @@ class ModLanguageProvider extends LanguageProvider {
         this.string("calamos.tooltip.condition.above_attribute", "When Above %s %s:");
         this.string("calamos.tooltip.condition.below_attribute", "When Below %s %s:");
 
+        this.string("calamos.tooltip.modifier_stats", "Modifier Stats:");
+
         this.container("hallow_workbench");
         this.container("sawmill");
         this.container("metal_grinder");
@@ -180,6 +193,15 @@ class ModLanguageProvider extends LanguageProvider {
         this.add("emi.category.calamos.sawmilling", "Sawmilling");
         this.add("emi.category.calamos.metal_grinding", "Metal Grinding");
 
+        //Commands
+        this.string("calamos.commands.reforge.failed.entity", "%s is not a valid entity for this command");
+        this.string("calamos.commands.reforge.failed.itemless", "%s is not holding any item");
+        this.string("calamos.commands.reforge.failed.incompatible", "%s cannot support that modifier");
+        this.string("calamos.commands.reforge.failed", "Nothing changed. Targets either have no item in their hands or the modifier could not be applied");
+        this.string("calamos.commands.reforge.success.single", "Applied modifier %s to %s's item");
+        this.string("calamos.commands.reforge.success.multiple", "Applied modifier %s to %s entities");
+        this.string("calamos.commands.reforge.success.single_random", "Applied random modifier to %s's item");
+        this.string("calamos.commands.reforge.success.multiple_random", "Applied random modifier to %s entities");
     }
 
     private void tab(Holder<CreativeModeTab> tabHolder) {

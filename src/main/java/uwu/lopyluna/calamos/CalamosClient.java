@@ -23,12 +23,10 @@ import uwu.lopyluna.calamos.client.CalamosReloadableModels;
 import uwu.lopyluna.calamos.client.model.hook.HookModel;
 import uwu.lopyluna.calamos.client.model.item.CurioModel;
 import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
+import uwu.lopyluna.calamos.client.particle.GlowParticle;
 import uwu.lopyluna.calamos.client.render.CurioRenderer;
 import uwu.lopyluna.calamos.client.wings.WingsModel;
-import uwu.lopyluna.calamos.elements.ModBlockEntities;
-import uwu.lopyluna.calamos.elements.ModEntity;
-import uwu.lopyluna.calamos.elements.ModItems;
-import uwu.lopyluna.calamos.elements.ModMenuType;
+import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.elements.items.equipment.armor.CalamosArmorItem;
 import uwu.lopyluna.calamos.elements.items.equipment.wings.FlightMeterOverlay;
 import uwu.lopyluna.calamos.elements.screens.HallowWorkbenchScreen;
@@ -81,6 +79,13 @@ public class CalamosClient {
         Sheets.addWoodType(ModWoodTypes.OTHERWORLD_OAK);
         Sheets.addWoodType(ModWoodTypes.TWILIGHT);
     }
+
+    @SubscribeEvent
+    public static void addParticleProvider(RegisterParticleProvidersEvent event) {
+        event.registerSprite(ModParticleTypes.GLOW.get(), new GlowParticle.Provider());
+    }
+
+
 
     @SubscribeEvent
     public static void registerClientExtensions(RegisterClientExtensionsEvent event) {

@@ -6,6 +6,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import oshi.util.tuples.Triplet;
@@ -46,6 +47,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             if (item.get() instanceof AbstractHookItem) hook.add(item.get());
         });
         hook.replace(false);
+
     }
     
     private void registerMinecraftTags() {
@@ -305,6 +307,26 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModDecorativeBlocks.HOLLOW_WOOD.get().asItem(),
                 ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get().asItem()
         );
+        tag(ModTags.modItemTag("modifiable/accessory/universal")).add(
+                ModItems.WINGS.get(),
+                ModItems.BERSERKER_CRAW.get(),
+                ModItems.JARRED_CLOUD.get()
+        );
+        tag(ModTags.modItemTag("modifiable/weapon/universal"))
+                .addTag(ModTags.modItemTag("modifiable/weapon/common"))
+                .addTag(ModTags.modItemTag("modifiable/weapon/melee"));
+        tag(ModTags.modItemTag("modifiable/weapon/common"))
+                .addTag(ItemTags.SWORDS)
+                .addTag(ItemTags.AXES)
+                .addTag(ItemTags.PICKAXES)
+                .addTag(ItemTags.SHOVELS)
+                .addTag(ItemTags.HOES)
+                .add(Items.TRIDENT)
+                .add(Items.MACE);
+        tag(ModTags.modItemTag("modifiable/weapon/melee"))
+                .addTag(ItemTags.SWORDS)
+                .addTag(ItemTags.AXES)
+                .addTag(ItemTags.PICKAXES);
     }
 
     protected void registerForgeTags() {

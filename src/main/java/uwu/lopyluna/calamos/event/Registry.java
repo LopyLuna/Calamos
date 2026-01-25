@@ -9,6 +9,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.entity.model.WormHead;
 import uwu.lopyluna.calamos.client.entity.model.WormSegment;
+import uwu.lopyluna.calamos.client.entity.renderer.LifestealOrbRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.PestisPlayerRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormHeadRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.WormSegmentRenderer;
@@ -40,6 +41,7 @@ public class Registry {
         event.registerEntityRenderer(ModEntity.IRRADIATED_ARROW.get(), IrradiatedArrowRenderer::new);
         event.registerEntityRenderer(ModEntity.MACHINA_ZOMBIE.get(), MachinaZombieRenderer::new);
         event.registerEntityRenderer(ModEntity.HOOK.get(), HookRenderer::new);
+        event.registerEntityRenderer(ModEntity.LIFESTEAL_ORB.get(), LifestealOrbRenderer::new);
         PLAYER_PROVIDERS.forEach((model, provider) -> event.registerEntityRenderer(ModEntity.PESTIS_PLAYER.get(), provider));
     }
 

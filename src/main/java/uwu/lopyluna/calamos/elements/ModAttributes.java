@@ -24,14 +24,24 @@ public class ModAttributes {
     /**
      * Handles the flight meter.
      */
-    public static final DeferredHolder<Attribute, Attribute> FLIGHT_METER = registerAttribute("calamos.flight_meter", (id) -> new RangedAttribute("attribute.name.calamos.flight_meter", 30.0F, 0.0, 1024.0).setSyncable(true), "ad9dbfff-51c3-46fb-bd12-f1bdee3a9302");
-    public static final DeferredHolder<Attribute, Attribute> SUMMON_DAMAGE = registerAttribute("calamos.summon_damage", (id) -> new RangedAttribute("attribute.name.calamos.summon_damage", 0.0F, 0.0, 1024.0).setSyncable(true), "7dd4121e-6589-4bc0-8d42-0c6338deda54");
-    public static final DeferredHolder<Attribute, Attribute> CRIT_CHANCE = registerAttribute("calamos.critical_strike_chance", (id) -> new RangedAttribute("attribute.name.calamos.critical_strike_chance", 0.0F, 0.0, 1024.0).setSyncable(true), "9ec6dddd-804a-4db6-becd-757961b8b2d7");
-    public static final DeferredHolder<Attribute, Attribute> MANA_COST_REDUCTION = registerAttribute("calamos.mana_cost_reduction", (id) -> new RangedAttribute("attribute.name.calamos.mana_cost_reduction", 0.0F, 0.0, 1024.0).setSyncable(true), "3801c592-6997-4542-b028-592ee276bb1e");
-    public static final DeferredHolder<Attribute, Attribute> MAX_MANA = registerAttribute("calamos.max_mana", (id) -> new RangedAttribute("attribute.name.calamos.max_mana", 100.0F, 0.0, 1024.0).setSyncable(true), "c2942744-59f0-4ded-8fab-ad78d4907ed3");
+    public static final DeferredHolder<Attribute, Attribute> FLIGHT_METER = registerAttribute("flight_meter", (id) -> new RangedAttribute("attribute.name.calamos.flight_meter", 30.0F, 0.0, 1024.0).setSyncable(true), "ad9dbfff-51c3-46fb-bd12-f1bdee3a9302");
 
-    //Mostly Cosmetic
-    public static final DeferredHolder<Attribute, Attribute> MAGIC_DAMAGE = registerAttribute("calamos.magic_damage", (id) -> new RangedAttribute("attribute.name.calamos.magic_damage", 0.0F, 0.0, 1024.0).setSyncable(true), "ee07f84f-ea40-4fd0-9ecb-a767713d0128");
+    //Mana
+    public static final DeferredHolder<Attribute, Attribute> MANA_COST_REDUCTION = registerAttribute("mana.cost_reduction", (id) -> new RangedAttribute("attribute.name.calamos.mana_cost_reduction", 0.0F, 0.0, 1024.0).setSyncable(true), "3801c592-6997-4542-b028-592ee276bb1e");
+    public static final DeferredHolder<Attribute, Attribute> MAX_MANA = registerAttribute("mana.max", (id) -> new RangedAttribute("attribute.name.calamos.max_mana", 100.0F, 0.0, 1024.0).setSyncable(true), "c2942744-59f0-4ded-8fab-ad78d4907ed3");
+
+    //Critical Strike
+    public static final DeferredHolder<Attribute, Attribute> MELEE_CRIT_CHANCE = registerAttribute("critical_strike_chance.melee", (id) -> new RangedAttribute("attribute.name.calamos.melee_critical_strike_chance", 0.04F, 0.0, 1024.0).setSyncable(true), "9ec6dddd-804a-4db6-becd-757961b8b2d7");
+    public static final DeferredHolder<Attribute, Attribute> RANGED_CRIT_CHANCE = registerAttribute("critical_strike_chance.ranged", (id) -> new RangedAttribute("attribute.name.calamos.ranged_critical_strike_chance", 0.04F, 0.0, 1024.0).setSyncable(true), "fa7bc11c-8325-43ae-8831-ddbd4b9dcc7c");
+    public static final DeferredHolder<Attribute, Attribute> MAGIC_CRIT_CHANCE = registerAttribute("critical_strike_chance.magic", (id) -> new RangedAttribute("attribute.name.calamos.magic_critical_strike_chance", 0.04F, 0.0, 1024.0).setSyncable(true), "86967424-e13b-44ca-b8c6-5b31131f7855");
+    public static final DeferredHolder<Attribute, Attribute> GLOBAL_CRIT_CHANCE = registerAttribute("critical_strike_chance", (id) -> new RangedAttribute("attribute.name.calamos.critical_strike_chance", 0.04F, 0.0, 1024.0).setSyncable(true), "0f0a61b7-046e-4cb6-ad69-d5daa5f9d4db");
+
+    //Damage
+    public static final DeferredHolder<Attribute, Attribute> MELEE_DAMAGE = registerAttribute("damage.melee", (id) -> new RangedAttribute("attribute.name.calamos.melee_damage", 1.0F, 0.0, 1024.0).setSyncable(true), "ee7dcc87-87db-4ef5-b0b1-25ae43ca7f35");
+    public static final DeferredHolder<Attribute, Attribute> RANGED_DAMAGE = registerAttribute("damage.ranged", (id) -> new RangedAttribute("attribute.name.calamos.ranged_damage", 1.0F, 0.0, 1024.0).setSyncable(true), "0890bcd4-d79e-455b-b8ba-05014a213a76");
+    public static final DeferredHolder<Attribute, Attribute> MAGIC_DAMAGE = registerAttribute("damage.magic", (id) -> new RangedAttribute("attribute.name.calamos.magic_damage", 1.0F, 0.0, 1024.0).setSyncable(true), "ee07f84f-ea40-4fd0-9ecb-a767713d0128");
+    public static final DeferredHolder<Attribute, Attribute> SUMMON_DAMAGE = registerAttribute("damage.summon", (id) -> new RangedAttribute("attribute.name.calamos.summon_damage", 1.0F, 0.0, 1024.0).setSyncable(true), "7dd4121e-6589-4bc0-8d42-0c6338deda54");
+
 
     public static DeferredHolder<Attribute, Attribute> registerAttribute(String name, Function<String, Attribute> attribute, String uuid) {
         return registerAttribute(name, attribute, UUID.fromString(uuid));

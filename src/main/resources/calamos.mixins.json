@@ -8,6 +8,8 @@
     "AccessorRangedAttribute",
     "CactusBlockMixin",
     "GuiMixin",
+    "ICurioItemMixin",
+    "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerAccessor",
     "PlayerMixin",
