@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.modifier.ItemModifier;
 
 @Mixin(ICurioItem.class)
 public interface ICurioItemMixin {

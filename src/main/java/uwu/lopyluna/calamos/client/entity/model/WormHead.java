@@ -11,7 +11,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.entity.Worm;
+import uwu.lopyluna.calamos.core.entity.Worm;
 
 public class WormHead<T extends Worm> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor

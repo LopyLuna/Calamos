@@ -3,6 +3,20 @@
   "description": {
     "translate": "enchantment.calamos.fast_flight"
   },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.1,
+          "per_level_above_first": 0.1
+        },
+        "attribute": "calamos:flight.speed",
+        "id": "minecraft:enchantment.flight_speed",
+        "operation": "add_multiplied_base"
+      }
+    ]
+  },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0

@@ -436,13 +436,13 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
     
     protected void registerForgeTags() {
-        tag(ModTags.forgeBlockTag("soul_sandstone")).add(
+        tag(ModTags.commonBlockTag("soul_sandstone")).add(
                 ModDecorativeBlocks.SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.SMOOTH_SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.CUT_SOUL_SANDSTONE.get(),
                 ModDecorativeBlocks.CHISELED_SOUL_SANDSTONE.get()
         );
-        tag(ModTags.forgeBlockTag("stripped_logs")).add(
+        tag(ModTags.commonBlockTag("stripped_logs")).add(
                 ModDecorativeBlocks.STRIPPED_HOLLOW_LOG.get(),
                 ModDecorativeBlocks.STRIPPED_HOLLOW_WOOD.get(),
                 ModDecorativeBlocks.STRIPPED_OTHERWORLD_OAK_LOG.get(),
@@ -487,7 +487,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
     
     protected void tagPathAndUnique(Block block, String name, String path) {
-        tag(ModTags.forgeBlockTag(path)).add(block);
-        tag(ModTags.forgeBlockTag(path + "/" + name)).add(block);
+        tag(ModTags.commonBlockTag(path)).add(block);
+        tag(ModTags.commonBlockTag(path + "/" + name)).add(block);
     }
 }

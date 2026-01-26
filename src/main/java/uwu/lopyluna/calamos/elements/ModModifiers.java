@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.CalamosRegistries;
 import uwu.lopyluna.calamos.datagen.ModTags;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
+import uwu.lopyluna.calamos.core.modifier.Modifier;
 
 import java.util.function.Function;
 
@@ -133,6 +133,58 @@ public class ModModifiers {
                     .apply(meleeWeapon(0, 0.15, 0, 0, -0.1))),
             WEAPON_LEGENDARY = create(Modifier.builder("legendary")
                     .apply(meleeWeapon(0.15, 0.1, 0.05, 0.1, 0.15)));
+    //Ranged
+    public static final DeferredHolder<Modifier, Modifier>
+            RANGED_SIGHTED = create(Modifier.builder("sighted")
+                    .apply(rangedWeapon(0.1, 0, 0.03, 0, 0))),
+            RANGED_RAPID = create(Modifier.builder("rapid")
+                    .apply(rangedWeapon(0, 0.15, 0, 0.1, 0))),
+            RANGED_HASTY = create(Modifier.builder("hasty")
+                    .apply(rangedWeapon(0, 0.1, 0, 0.15, 0))),
+            RANGED_INTIMIDATING = create(Modifier.builder("intimidating")
+                    .apply(rangedWeapon(0, 0, 0, 0.05, 0.15))),
+            RANGED_DEADLY = create(Modifier.builder("deadly")
+                    .apply(rangedWeapon(0.1, 0.05, 0.02, 0.05, 0.05))),
+            RANGED_STAUNCH = create(Modifier.builder("staunch")
+                    .apply(rangedWeapon(0.1, 0, 0, 0, 0.15))),
+            RANGED_AWFUL = create(Modifier.builder("awful")
+                    .apply(rangedWeapon(-0.15, 0, 0, -0.1, -0.1))),
+            RANGED_LETHARGIC = create(Modifier.builder("lethargic")
+                    .apply(rangedWeapon(0, -0.15, 0, -0.1, 0))),
+            RANGED_AWKWARD = create(Modifier.builder("awkward")
+                    .apply(rangedWeapon(0, -0.1, 0, 0, -0.2))),
+            RANGED_POWERFUL = create(Modifier.builder("powerful")
+                    .apply(rangedWeapon(0.15, -0.1, 0.01, 0, 0))),
+            RANGED_FRENZYING = create(Modifier.builder("frenzying")
+                    .apply(rangedWeapon(-0.15, 0.15, 0, 0, 0))),
+            RANGED_UNREAL = create(Modifier.builder("unreal")
+                    .apply(rangedWeapon(0.15, 0.1, 0.05, 0.1, 0.15)));
+    //Magic
+    public static final DeferredHolder<Modifier, Modifier>
+            MAGIC_MYSTIC = create(Modifier.builder("mystic")
+                    .apply(magicWeapon(0.1, 0, 0, 0.15, 0))),
+            MAGIC_ADEPT = create(Modifier.builder("adept")
+                    .apply(magicWeapon(0, 0, 0, 0.15, 0))),
+            MAGIC_MASTERFUL = create(Modifier.builder("masterful")
+                    .apply(magicWeapon(0.15, 0, 0, 0.15, 0))),
+            MAGIC_INEPT = create(Modifier.builder("inept")
+                    .apply(magicWeapon(0, 0, 0, -0.1, 0))),
+            MAGIC_IGNORANT = create(Modifier.builder("ignorant")
+                    .apply(magicWeapon(-0.1, 0, 0, -0.2, 0))),
+            MAGIC_DERANGED = create(Modifier.builder("deranged")
+                    .apply(magicWeapon(-0.1, 0, 0, 0, -0.1))),
+            MAGIC_INTENSE = create(Modifier.builder("intense")
+                    .apply(magicWeapon(0.1, 0, 0, 0.15, 0))),
+            MAGIC_TABOO = create(Modifier.builder("taboo")
+                    .apply(magicWeapon(0, 0.1, 0, -0.1, 0.1))),
+            MAGIC_CELESTIAL = create(Modifier.builder("celestial")
+                    .apply(magicWeapon(0.1, -0.1, 0, 0.1, 0.1))),
+            MAGIC_FURIOUS = create(Modifier.builder("furious")
+                    .apply(magicWeapon(0.15, 0, 0, -0.2, 0.15))),
+            MAGIC_MANIC = create(Modifier.builder("manic")
+                    .apply(magicWeapon(-0.1, 0.1, 0, 0.1, 0))),
+            MAGIC_MYTHICAL = create(Modifier.builder("mythical")
+                    .apply(magicWeapon(0.15, 0.1, 0.05, 0.1, 0.15)));
 
     public static DeferredHolder<Modifier, Modifier> create(Modifier.Builder builder) {
         return builder.register(MODIFIERS::register);
@@ -147,6 +199,12 @@ public class ModModifiers {
     private static Function<Modifier.Builder, Modifier.Builder> weapon(String group) {
         return builder -> builder
                 .prefix("weapon/")
+                .supportTag(ModTags.modItemTag("modifiable/weapon/" + group));
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> typedWeapon(String group) {
+        return builder -> builder
+                .prefix(group + "/")
                 .supportTag(ModTags.modItemTag("modifiable/weapon/" + group));
     }
 
@@ -176,7 +234,7 @@ public class ModModifiers {
                         multiTotal(Attributes.ATTACK_DAMAGE, damage),
                         multiTotal(Attributes.BLOCK_BREAK_SPEED, speed),
                         multiTotal(Attributes.ATTACK_SPEED, speed),
-                        multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, crit),
+                        add(ModAttributes.GLOBAL_CRIT_CHANCE, crit),
                         multiTotal(Attributes.ATTACK_KNOCKBACK, knockback)
                 );
     }
@@ -187,9 +245,29 @@ public class ModModifiers {
                         multiTotal(Attributes.ATTACK_DAMAGE, damage),
                         multiTotal(Attributes.BLOCK_BREAK_SPEED, speed),
                         multiTotal(Attributes.ATTACK_SPEED, speed),
-                        multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, crit),
+                        add(ModAttributes.MELEE_CRIT_CHANCE, crit),
                         multiTotal(Attributes.ENTITY_INTERACTION_RANGE, range),
                         multiTotal(Attributes.BLOCK_INTERACTION_RANGE, range),
+                        multiTotal(Attributes.ATTACK_KNOCKBACK, knockback)
+                );
+    }
+    private static Function<Modifier.Builder, Modifier.Builder> rangedWeapon(double damage, double speed, double crit, double velocity, double knockback) {
+        return builder ->
+                builder.apply(typedWeapon("ranged"),
+                        multiTotal(ModAttributes.RANGED_DAMAGE, damage),
+                        add(ModAttributes.DRAW_SPEED, speed),
+                        add(ModAttributes.RANGED_CRIT_CHANCE, crit),
+                        multiTotal(ModAttributes.PROJECTILE_VELOCITY, velocity),
+                        multiTotal(ModAttributes.PROJECTILE_KNOCKBACK, knockback)
+                );
+    }
+    private static Function<Modifier.Builder, Modifier.Builder> magicWeapon(double damage, double speed, double crit, double manaCost, double knockback) {
+        return builder ->
+                builder.apply(typedWeapon("magic"),
+                        multiTotal(ModAttributes.MAGIC_DAMAGE, damage),
+                        add(ModAttributes.DRAW_SPEED, speed),
+                        add(ModAttributes.MAGIC_CRIT_CHANCE, crit),
+                        multiTotal(ModAttributes.MANA_COST_REDUCTION, manaCost),
                         multiTotal(Attributes.ATTACK_KNOCKBACK, knockback)
                 );
     }

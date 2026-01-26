@@ -1,11 +1,11 @@
-// 1.21.1	2026-01-22T19:27:36.2351557	Registries
+// 1.21.1	2026-01-26T00:48:53.4581011	Registries
 c491d07167fba2d2851a34f9e14a39faa0e68e20 data/calamos/dimension/calamosdim.json
 b3f6aa396282cf264c0b608b80e88cbd7dd97b4e data/calamos/dimension/otherworld.json
 5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/calamosdim_type.json
 5c429399b187153a1b65ecd28924c3b0328087b7 data/calamos/dimension_type/otherworld_type.json
-8dcb7253f3d0400ccf5b56a827db27067f16a775 data/calamos/enchantment/fast_flight.json
+9d8c42852ca7d8e7216a20cafc079236e3fed5ed data/calamos/enchantment/fast_flight.json
 7ff67f0cf5ec567afcbe75f0fc915d9d4000928a data/calamos/enchantment/felling.json
-09cee50af2361a8a1b3c321d6d8477d85d37c922 data/calamos/enchantment/flight_charge.json
+15e47182cb205e4512cfcb62994bc9c7ddd69292 data/calamos/enchantment/flight_charge.json
 8d3351fb56a0f387bf6c1f5a3136d29897df2b73 data/calamos/enchantment/saving_grace.json
 fe3fb91627c6a30b86430bec518f90b2512f065c data/calamos/trim_material/garnet.json
 0e9ad9c467da9dbf6bbf57d1afa2fb3c6542123f data/calamos/trim_material/jade.json

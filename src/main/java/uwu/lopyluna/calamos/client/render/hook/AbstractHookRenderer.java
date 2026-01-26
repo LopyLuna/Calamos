@@ -16,7 +16,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import uwu.lopyluna.calamos.client.model.hook.HookModel;
-import uwu.lopyluna.calamos.elements.entity.hook.AbstractHookEntity;
+import uwu.lopyluna.calamos.core.entity.hook.AbstractHookEntity;
 
 public abstract class AbstractHookRenderer<T extends AbstractHookEntity> extends EntityRenderer<T> {
     protected final EntityModel<? extends AbstractHookEntity> model;

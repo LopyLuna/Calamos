@@ -3,7 +3,7 @@ package uwu.lopyluna.calamos.utilities;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
-import uwu.lopyluna.calamos.elements.entity.entity_definitions.BossBarMonster;
+import uwu.lopyluna.calamos.core.entity.entity_definitions.BossBarMonster;
 import uwu.lopyluna.calamos.networking.packets.S2C.UpdateBossBarPacket;
 
 public class CalamosBossEvent extends ServerBossEvent {

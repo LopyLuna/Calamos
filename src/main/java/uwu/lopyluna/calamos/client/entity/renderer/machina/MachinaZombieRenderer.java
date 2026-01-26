@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.client.entity.model.machina.MachinaZombieModel;
-import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
+import uwu.lopyluna.calamos.core.entity.machina.infected.MachinaZombie;
 
 public class MachinaZombieRenderer extends HumanoidMobRenderer<MachinaZombie, MachinaZombieModel<MachinaZombie>> {
     

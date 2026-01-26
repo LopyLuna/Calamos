@@ -26,7 +26,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import uwu.lopyluna.calamos.client.entity.layer.PestisCapeLayer;
 import uwu.lopyluna.calamos.client.entity.layer.PestisPlayerItemInHandLayer;
 import uwu.lopyluna.calamos.client.entity.model.PestisPlayer;
-import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.core.entity.machina.pestis_infection.PestisPlayerEntity;
 @OnlyIn(Dist.CLIENT)
 public class PestisPlayerRenderer extends LivingEntityRenderer<PestisPlayerEntity, PestisPlayer<PestisPlayerEntity>> {
     public PestisPlayerRenderer(EntityRendererProvider.Context pContext, boolean pUseSlimModel) {

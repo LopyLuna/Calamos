@@ -5,14 +5,14 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModEntity;
-import uwu.lopyluna.calamos.elements.entity.Worm;
-import uwu.lopyluna.calamos.elements.entity.boone.BooneEntity;
-import uwu.lopyluna.calamos.elements.entity.eye.EyeEntity;
-import uwu.lopyluna.calamos.elements.entity.machina.infected.MachinaZombie;
-import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
-import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireEntity;
+import uwu.lopyluna.calamos.core.entity.Worm;
+import uwu.lopyluna.calamos.core.entity.boone.BooneEntity;
+import uwu.lopyluna.calamos.core.entity.eye.EyeEntity;
+import uwu.lopyluna.calamos.core.entity.machina.infected.MachinaZombie;
+import uwu.lopyluna.calamos.core.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.core.entity.wildfire.WildfireEntity;
 
-@EventBusSubscriber(modid = CalamosMod.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CalamosMod.MODID)
 public class CommonModEvents {
 
     @SubscribeEvent

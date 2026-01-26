@@ -13,8 +13,8 @@ import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModDecorativeBlocks;
 import uwu.lopyluna.calamos.elements.ModItems;
-import uwu.lopyluna.calamos.elements.items.equipment.hook.AbstractHookItem;
-import uwu.lopyluna.calamos.elements.tag.ModItemTags;
+import uwu.lopyluna.calamos.core.items.equipment.hook.AbstractHookItem;
+import uwu.lopyluna.calamos.core.tag.ModItemTags;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -327,13 +327,15 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .addTag(ItemTags.SWORDS)
                 .addTag(ItemTags.AXES)
                 .addTag(ItemTags.PICKAXES);
+        tag(ModTags.modItemTag("modifiable/weapon/ranged"))
+                .addOptionalTag(Tags.Items.RANGED_WEAPON_TOOLS.location());
     }
 
     protected void registerForgeTags() {
         tag(ItemTags.SWORDS).add(
                 ModItems.METEORITE_SWORD.get()
         );
-        tag(ModTags.forgeItemTag("gems")).add(
+        tag(ModTags.commonItemTag("gems")).add(
                 ModItems.GARNET.get(),
                 ModItems.JADE.get(),
                 ModItems.KUNZITE.get(),
@@ -346,7 +348,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.TANZANITE.get(),
                 ModItems.TOPAZ.get()
         );
-        tag(ModTags.forgeItemTag("storage_blocks")).add(
+        tag(ModTags.commonItemTag("storage_blocks")).add(
                 ModBlocks.GARNET_BLOCK.get().asItem(),
                 ModBlocks.JADE_BLOCK.get().asItem(),
                 ModBlocks.KUNZITE_BLOCK.get().asItem(),
@@ -415,23 +417,23 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.METEORITE_REAPER.get(),
                 ModItems.VOLCANITE_SWORD.get()
         );
-        tag(ModTags.forgeItemTag("tools/shovels")).add(
+        tag(ModTags.commonItemTag("tools/shovels")).add(
                 ModItems.COPPER_SHOVEL.get(),
                 ModItems.PLATINUM_SHOVEL.get()
         );
-        tag(ModTags.forgeItemTag("tools/pickaxes")).add(
+        tag(ModTags.commonItemTag("tools/pickaxes")).add(
                 ModItems.COPPER_PICKAXE.get(),
                 ModItems.PLATINUM_PICKAXE.get()
         );
-        tag(ModTags.forgeItemTag("tools/axes")).add(
+        tag(ModTags.commonItemTag("tools/axes")).add(
                 ModItems.COPPER_AXE.get(),
                 ModItems.PLATINUM_AXE.get()
         );
-        tag(ModTags.forgeItemTag("tools/hoes")).add(
+        tag(ModTags.commonItemTag("tools/hoes")).add(
                 ModItems.COPPER_HOE.get(),
                 ModItems.PLATINUM_HOE.get()
         );
-        tag(ModTags.forgeItemTag("tools/swords")).add(
+        tag(ModTags.commonItemTag("tools/swords")).add(
                 ModItems.COPPER_SWORD.get(),
                 ModItems.PLATINUM_SWORD.get(),
                 ModItems.METEORITE_SWORD.get(),
@@ -446,7 +448,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
     
     protected void tagPathAndUnique(Item item, String name, String path) {
-        tag(ModTags.forgeItemTag(path)).add(item);
-        tag(ModTags.forgeItemTag(path + "/" + name)).add(item);
+        tag(ModTags.commonItemTag(path)).add(item);
+        tag(ModTags.commonItemTag(path + "/" + name)).add(item);
     }
 }

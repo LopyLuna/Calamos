@@ -11,8 +11,8 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.elements.entity.hook.AbstractHookEntity;
-import uwu.lopyluna.calamos.elements.items.equipment.hook.AbstractHookItem;
+import uwu.lopyluna.calamos.core.entity.hook.AbstractHookEntity;
+import uwu.lopyluna.calamos.core.items.equipment.hook.AbstractHookItem;
 import uwu.lopyluna.calamos.utilities.CuriosUtil;
 
 public record HookThrowingPacket(boolean aBool, float x, float y) implements CustomPacketPayload {

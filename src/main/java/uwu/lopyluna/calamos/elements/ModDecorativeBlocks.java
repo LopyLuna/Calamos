@@ -11,10 +11,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.block.ModCeilingHangingSignBlock;
-import uwu.lopyluna.calamos.elements.block.ModHangingSignBlock;
-import uwu.lopyluna.calamos.elements.block.ModStandingSignBlock;
-import uwu.lopyluna.calamos.elements.block.ModWallSignBlock;
+import uwu.lopyluna.calamos.core.block.ModCeilingHangingSignBlock;
+import uwu.lopyluna.calamos.core.block.ModHangingSignBlock;
+import uwu.lopyluna.calamos.core.block.ModStandingSignBlock;
+import uwu.lopyluna.calamos.core.block.ModWallSignBlock;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 import uwu.lopyluna.calamos.utilities.ModWoodTypes;
 

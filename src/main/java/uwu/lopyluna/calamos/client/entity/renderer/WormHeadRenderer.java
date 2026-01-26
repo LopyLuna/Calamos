@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.entity.model.WormHead;
-import uwu.lopyluna.calamos.elements.entity.Worm;
+import uwu.lopyluna.calamos.core.entity.Worm;
 
 public class WormHeadRenderer extends MobRenderer<Worm, WormHead<Worm>> {
     public WormHeadRenderer(EntityRendererProvider.Context pContext) {

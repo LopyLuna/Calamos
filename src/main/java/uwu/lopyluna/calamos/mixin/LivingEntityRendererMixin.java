@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTool;
+import uwu.lopyluna.calamos.core.items.equipment.tool.CalamosTool;
 
 @Mixin(LivingEntityRenderer.class)
 public class LivingEntityRendererMixin {

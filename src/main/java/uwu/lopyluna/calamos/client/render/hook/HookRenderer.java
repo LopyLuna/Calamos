@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.CalamosReloadableModels;
-import uwu.lopyluna.calamos.elements.entity.hook.HookEntity;
+import uwu.lopyluna.calamos.core.entity.hook.HookEntity;
 
 public class HookRenderer extends AbstractHookRenderer<HookEntity> {
 

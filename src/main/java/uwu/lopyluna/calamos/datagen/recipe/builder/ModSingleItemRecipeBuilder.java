@@ -13,9 +13,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
-import uwu.lopyluna.calamos.elements.recipe.ModSingleItemRecipe;
-import uwu.lopyluna.calamos.elements.recipe.SawmillRecipe;
+import uwu.lopyluna.calamos.core.recipe.MetalGrindingRecipe;
+import uwu.lopyluna.calamos.core.recipe.ModSingleItemRecipe;
+import uwu.lopyluna.calamos.core.recipe.SawmillRecipe;
 
 import javax.annotation.Nullable;
 import java.util.LinkedHashMap;

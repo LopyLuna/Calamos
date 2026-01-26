@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import uwu.lopyluna.calamos.datagen.ModTags;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.modifier.ItemModifier;
 
 import java.util.function.BiConsumer;
 
@@ -53,6 +53,8 @@ public class ItemStackMixin {
     public void modifiedAttributes(EquipmentSlotGroup slotGroup, BiConsumer<Holder<Attribute>, AttributeModifier> action, CallbackInfo ci) {
         calamos$handleForEach(slotGroup, action);
     }
+
+
 
     @Unique
     private void calamos$handleForEach(EquipmentSlotGroup equipmentSlot, BiConsumer<Holder<Attribute>, AttributeModifier> action) {

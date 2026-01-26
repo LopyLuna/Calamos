@@ -5,10 +5,12 @@
   "package": "uwu.lopyluna.calamos.mixin",
   "refmap": "calamos.refmap.json",
   "mixins": [
+    "AbstractArrowMixin",
     "AccessorRangedAttribute",
     "CactusBlockMixin",
     "GuiMixin",
     "ICurioItemMixin",
+    "ItemMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerAccessor",

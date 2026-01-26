@@ -9,7 +9,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.entity.hook.HookEntity;
+import uwu.lopyluna.calamos.core.entity.hook.HookEntity;
 
 public class HookModel extends EntityModel<HookEntity> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(CalamosMod.asResource("hook"), "main");

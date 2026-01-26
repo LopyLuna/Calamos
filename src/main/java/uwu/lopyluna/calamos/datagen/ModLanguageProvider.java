@@ -17,8 +17,8 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.*;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
-import uwu.lopyluna.calamos.elements.tag.ModItemTags;
+import uwu.lopyluna.calamos.core.modifier.Modifier;
+import uwu.lopyluna.calamos.core.tag.ModItemTags;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -164,6 +164,7 @@ class ModLanguageProvider extends LanguageProvider {
         this.string("calamos.tooltip.condition.below_attribute_percent", "When Below %s%% %s:");
         this.string("calamos.tooltip.condition.above_attribute", "When Above %s %s:");
         this.string("calamos.tooltip.condition.below_attribute", "When Below %s %s:");
+        this.string("calamos.tooltip.condition.equipped", "When Equipped:");
 
         this.string("calamos.tooltip.modifier_stats", "Modifier Stats:");
 

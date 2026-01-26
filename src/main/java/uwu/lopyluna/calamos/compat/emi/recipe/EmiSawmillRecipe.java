@@ -9,7 +9,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.compat.emi.CalamosEmiPlugin;
-import uwu.lopyluna.calamos.elements.recipe.SawmillRecipe;
+import uwu.lopyluna.calamos.core.recipe.SawmillRecipe;
 
 import java.util.List;
 

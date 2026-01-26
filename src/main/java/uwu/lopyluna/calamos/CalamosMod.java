@@ -17,7 +17,7 @@ import terrablender.api.SurfaceRuleManager;
 import uwu.lopyluna.calamos.client.ClientProxy;
 import uwu.lopyluna.calamos.datagen.ModDataGenerators;
 import uwu.lopyluna.calamos.elements.*;
-import uwu.lopyluna.calamos.elements.enchantments.FellingHandler;
+import uwu.lopyluna.calamos.core.enchantments.FellingHandler;
 import uwu.lopyluna.calamos.mixin.AccessorRangedAttribute;
 import uwu.lopyluna.calamos.networking.CalamosMessages;
 import uwu.lopyluna.calamos.worldgen.biome.CalamosOverworldRegions;
@@ -49,6 +49,7 @@ public class CalamosMod {
         CalamosMessages.init();
         CalamosOverworldRegions.register();
         ModAttributes.init(modEventBus);
+        ModAttachmentTypes.staticInit();
         ModEffects.staticInit();
         ModMenuType.staticInit();
         ModBlockEntities.staticInit();

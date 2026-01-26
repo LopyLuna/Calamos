@@ -23,13 +23,13 @@ import uwu.lopyluna.calamos.client.handler.HookHandler;
 import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
 import uwu.lopyluna.calamos.elements.ModModifiers;
-import uwu.lopyluna.calamos.elements.items.equipment.armor.CalamosArmorItem;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
+import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
+import uwu.lopyluna.calamos.core.modifier.Modifier;
 import uwu.lopyluna.calamos.utilities.CuriosUtil;
 
 import java.util.List;
 
-@EventBusSubscriber(value = Dist.CLIENT, modid = CalamosMod.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(value = Dist.CLIENT, modid = CalamosMod.MODID)
 public class ClientForgeEvents {
 
     @SubscribeEvent
@@ -39,6 +39,8 @@ public class ClientForgeEvents {
                 event.skipId(entry.modifier().id());
             }
         }
+        event.skipId(CalamosMod.asResource("wings.max_flight.curio"));
+        event.skipId(CalamosMod.asResource("wings.max_flight.chestplate"));
     }
 
     @SubscribeEvent

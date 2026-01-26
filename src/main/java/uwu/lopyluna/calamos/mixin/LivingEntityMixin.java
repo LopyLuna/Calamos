@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uwu.lopyluna.calamos.elements.items.equipment.armor.CalamosArmorItem;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.CalamosTool;
+import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
+import uwu.lopyluna.calamos.core.items.equipment.tool.CalamosTool;
 
 import java.util.List;
 import java.util.function.Consumer;

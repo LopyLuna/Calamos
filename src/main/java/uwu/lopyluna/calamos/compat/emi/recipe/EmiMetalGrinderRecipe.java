@@ -9,7 +9,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.resources.ResourceLocation;
 import uwu.lopyluna.calamos.compat.emi.CalamosEmiPlugin;
-import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
+import uwu.lopyluna.calamos.core.recipe.MetalGrindingRecipe;
 
 import java.util.List;
 

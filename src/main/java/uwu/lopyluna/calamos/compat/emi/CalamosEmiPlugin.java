@@ -12,8 +12,8 @@ import uwu.lopyluna.calamos.compat.emi.recipe.EmiMetalGrinderRecipe;
 import uwu.lopyluna.calamos.compat.emi.recipe.EmiSawmillRecipe;
 import uwu.lopyluna.calamos.elements.ModBlocks;
 import uwu.lopyluna.calamos.elements.ModRecipes;
-import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
-import uwu.lopyluna.calamos.elements.recipe.SawmillRecipe;
+import uwu.lopyluna.calamos.core.recipe.MetalGrindingRecipe;
+import uwu.lopyluna.calamos.core.recipe.SawmillRecipe;
 
 @EmiEntrypoint
 public class CalamosEmiPlugin implements EmiPlugin {

@@ -11,7 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.tag.ModItemTags;
+import uwu.lopyluna.calamos.core.tag.ModItemTags;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.EnumMap;

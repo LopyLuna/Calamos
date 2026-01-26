@@ -10,12 +10,12 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.block.HallowWorkbenchBlock;
-import uwu.lopyluna.calamos.elements.block.MetalGrinderBlock;
-import uwu.lopyluna.calamos.elements.block.OtherworldGrassBlock;
-import uwu.lopyluna.calamos.elements.block.SawmillBlock;
-import uwu.lopyluna.calamos.elements.block.tnt.StableUltimitaTNT;
-import uwu.lopyluna.calamos.elements.block.tnt.UnstableUltimitaTNT;
+import uwu.lopyluna.calamos.core.block.HallowWorkbenchBlock;
+import uwu.lopyluna.calamos.core.block.MetalGrinderBlock;
+import uwu.lopyluna.calamos.core.block.OtherworldGrassBlock;
+import uwu.lopyluna.calamos.core.block.SawmillBlock;
+import uwu.lopyluna.calamos.core.block.tnt.StableUltimitaTNT;
+import uwu.lopyluna.calamos.core.block.tnt.UnstableUltimitaTNT;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;

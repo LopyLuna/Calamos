@@ -7,9 +7,9 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.menu.HallowWorkbenchMenu;
-import uwu.lopyluna.calamos.elements.menu.MetalGrinderMenu;
-import uwu.lopyluna.calamos.elements.menu.SawmillMenu;
+import uwu.lopyluna.calamos.core.menu.HallowWorkbenchMenu;
+import uwu.lopyluna.calamos.core.menu.MetalGrinderMenu;
+import uwu.lopyluna.calamos.core.menu.SawmillMenu;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public class ModMenuType {

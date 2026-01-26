@@ -6,9 +6,9 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.effects.DefaultMobEffect;
-import uwu.lopyluna.calamos.elements.effects.IrradiatedEffect;
-import uwu.lopyluna.calamos.elements.effects.MachinaPestisEffect;
+import uwu.lopyluna.calamos.core.effects.DefaultMobEffect;
+import uwu.lopyluna.calamos.core.effects.IrradiatedEffect;
+import uwu.lopyluna.calamos.core.effects.MachinaPestisEffect;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public class ModEffects {

@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import uwu.lopyluna.calamos.elements.entity.orb.LifestealOrb;
+import uwu.lopyluna.calamos.core.entity.orb.LifestealOrb;
 
 @OnlyIn(Dist.CLIENT)
 public class LifestealOrbRenderer extends EntityRenderer<LifestealOrb> {

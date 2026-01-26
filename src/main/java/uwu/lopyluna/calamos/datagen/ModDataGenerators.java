@@ -28,6 +28,7 @@ public class ModDataGenerators {
                 new LootTableProvider.SubProviderEntry(ModBlockLootProvider::new, LootContextParamSets.BLOCK)
         ), lookupProvider));
         dataGenerator.addProvider(event.includeServer(), new ModDamageTypeTagsProvider(packOutput, lookupProvider, fileHelper));
+        dataGenerator.addProvider(event.includeServer(), new ModEntityTagsProvider(packOutput, lookupProvider, fileHelper));
         dataGenerator.addProvider(event.includeClient() && event.includeServer(), new ModLanguageProvider(packOutput, modId, "en_us"));
         dataGenerator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, modId, fileHelper));
         dataGenerator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, modId, fileHelper));

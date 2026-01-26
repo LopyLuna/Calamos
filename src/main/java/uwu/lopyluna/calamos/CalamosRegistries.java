@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 import net.neoforged.neoforge.registries.RegistryBuilder;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
+import uwu.lopyluna.calamos.core.modifier.Modifier;
 
 public class CalamosRegistries {
 

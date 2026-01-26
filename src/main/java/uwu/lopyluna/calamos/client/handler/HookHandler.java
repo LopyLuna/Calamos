@@ -8,8 +8,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.network.PacketDistributor;
 import uwu.lopyluna.calamos.elements.CalamosKeys;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.elements.entity.hook.AbstractHookEntity;
-import uwu.lopyluna.calamos.elements.items.equipment.hook.AbstractHookItem;
+import uwu.lopyluna.calamos.core.entity.hook.AbstractHookEntity;
+import uwu.lopyluna.calamos.core.items.equipment.hook.AbstractHookItem;
 import uwu.lopyluna.calamos.networking.packets.C2S.HookThrowingPacket;
 import uwu.lopyluna.calamos.utilities.CuriosUtil;
 

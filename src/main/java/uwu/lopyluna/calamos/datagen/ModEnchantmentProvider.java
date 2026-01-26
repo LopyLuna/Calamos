@@ -7,13 +7,19 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
+import net.minecraft.world.item.enchantment.LevelBasedValue;
+import net.minecraft.world.item.enchantment.effects.EnchantmentAttributeEffect;
 import net.minecraft.world.level.block.Block;
 import uwu.lopyluna.calamos.CalamosMod;
+import uwu.lopyluna.calamos.elements.ModAttributes;
 
 public class ModEnchantmentProvider {
 
@@ -42,6 +48,11 @@ public class ModEnchantmentProvider {
                 Enchantment.constantCost(50),
                 8,
                 EquipmentSlotGroup.CHEST
+        )).withEffect(EnchantmentEffectComponents.ATTRIBUTES, new EnchantmentAttributeEffect(
+                ResourceLocation.withDefaultNamespace("enchantment.flight_speed"),
+                ModAttributes.FLIGHT_SPEED,
+                LevelBasedValue.perLevel(0.1f),
+                AttributeModifier.Operation.ADD_MULTIPLIED_BASE
         )));
         register(context, FLIGHT_CHARGE, Enchantment.enchantment(Enchantment.definition(
                 items.getOrThrow(ModTags.curiosItemTag("wings")),
@@ -51,6 +62,11 @@ public class ModEnchantmentProvider {
                 Enchantment.constantCost(50),
                 8,
                 EquipmentSlotGroup.CHEST
+        )).withEffect(EnchantmentEffectComponents.ATTRIBUTES, new EnchantmentAttributeEffect(
+                ResourceLocation.withDefaultNamespace("enchantment.flight_regeneration"),
+                ModAttributes.FLIGHT_REGENERATION,
+                LevelBasedValue.perLevel(0.25f, 0.25f),
+                AttributeModifier.Operation.ADD_MULTIPLIED_BASE
         )));
         register(context, SAVING_GRACE, Enchantment.enchantment(Enchantment.definition(
                 items.getOrThrow(ModTags.curiosItemTag("wings")),

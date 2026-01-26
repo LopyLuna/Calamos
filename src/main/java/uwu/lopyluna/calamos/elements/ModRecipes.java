@@ -6,9 +6,9 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.recipe.MetalGrindingRecipe;
-import uwu.lopyluna.calamos.elements.recipe.ModSingleItemRecipe;
-import uwu.lopyluna.calamos.elements.recipe.SawmillRecipe;
+import uwu.lopyluna.calamos.core.recipe.MetalGrindingRecipe;
+import uwu.lopyluna.calamos.core.recipe.ModSingleItemRecipe;
+import uwu.lopyluna.calamos.core.recipe.SawmillRecipe;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public class ModRecipes {

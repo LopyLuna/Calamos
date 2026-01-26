@@ -27,11 +27,11 @@ import uwu.lopyluna.calamos.client.particle.GlowParticle;
 import uwu.lopyluna.calamos.client.render.CurioRenderer;
 import uwu.lopyluna.calamos.client.wings.WingsModel;
 import uwu.lopyluna.calamos.elements.*;
-import uwu.lopyluna.calamos.elements.items.equipment.armor.CalamosArmorItem;
-import uwu.lopyluna.calamos.elements.items.equipment.wings.FlightMeterOverlay;
-import uwu.lopyluna.calamos.elements.screens.HallowWorkbenchScreen;
-import uwu.lopyluna.calamos.elements.screens.MetalGrinderScreen;
-import uwu.lopyluna.calamos.elements.screens.SawmillScreen;
+import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
+import uwu.lopyluna.calamos.core.items.equipment.wings.FlightMeterOverlay;
+import uwu.lopyluna.calamos.core.screens.HallowWorkbenchScreen;
+import uwu.lopyluna.calamos.core.screens.MetalGrinderScreen;
+import uwu.lopyluna.calamos.core.screens.SawmillScreen;
 import uwu.lopyluna.calamos.utilities.ModWoodTypes;
 
 import java.util.function.Function;

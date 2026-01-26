@@ -5,7 +5,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uwu.lopyluna.calamos.CalamosMod;
-import uwu.lopyluna.calamos.elements.items.equipment.armor.SpectreArmorItem;
+import uwu.lopyluna.calamos.core.items.equipment.armor.SpectreArmorItem;
 
 @EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class ModelRegistry {

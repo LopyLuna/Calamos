@@ -16,7 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.core.entity.machina.pestis_infection.PestisPlayerEntity;
 
 public class PestisPlayerItemInHandLayer<T extends PestisPlayerEntity, M extends EntityModel<T> & ArmedModel & HeadedModel> extends ItemInHandLayer<T, M> {
     private final ItemInHandRenderer itemInHandRenderer;

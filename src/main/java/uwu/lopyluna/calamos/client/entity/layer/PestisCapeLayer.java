@@ -16,7 +16,7 @@ import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import uwu.lopyluna.calamos.client.entity.model.PestisPlayer;
-import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.core.entity.machina.pestis_infection.PestisPlayerEntity;
 
 public class PestisCapeLayer extends RenderLayer<PestisPlayerEntity, PestisPlayer<PestisPlayerEntity>> {
     public PestisCapeLayer(RenderLayerParent<PestisPlayerEntity, PestisPlayer<PestisPlayerEntity>> pRenderer) {

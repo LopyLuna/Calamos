@@ -3,6 +3,20 @@
   "description": {
     "translate": "enchantment.calamos.flight_charge"
   },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.25,
+          "per_level_above_first": 0.25
+        },
+        "attribute": "calamos:flight.regeneration",
+        "id": "minecraft:enchantment.flight_regeneration",
+        "operation": "add_multiplied_base"
+      }
+    ]
+  },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0

@@ -8,7 +8,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import uwu.lopyluna.calamos.elements.items.annotations.NoTab;
+import uwu.lopyluna.calamos.core.items.annotations.NoTab;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.function.Consumer;

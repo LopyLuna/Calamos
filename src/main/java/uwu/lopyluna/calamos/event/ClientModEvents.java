@@ -4,11 +4,11 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import uwu.lopyluna.calamos.elements.entity.boone.BooneModel;
-import uwu.lopyluna.calamos.elements.entity.eye.EyeModel;
-import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireModel;
+import uwu.lopyluna.calamos.core.entity.boone.BooneModel;
+import uwu.lopyluna.calamos.core.entity.eye.EyeModel;
+import uwu.lopyluna.calamos.core.entity.wildfire.WildfireModel;
 
-@EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = Dist.CLIENT)
 public class ClientModEvents {
     @SubscribeEvent
     public static void onRegisterLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {

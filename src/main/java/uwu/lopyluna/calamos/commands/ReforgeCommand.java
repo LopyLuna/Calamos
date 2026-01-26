@@ -17,8 +17,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import uwu.lopyluna.calamos.CalamosRegistries;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.ItemModifier;
-import uwu.lopyluna.calamos.elements.items.equipment.modifier.Modifier;
+import uwu.lopyluna.calamos.core.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.modifier.Modifier;
 
 import java.util.ArrayList;
 import java.util.Collection;

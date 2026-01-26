@@ -16,17 +16,17 @@ import uwu.lopyluna.calamos.client.entity.renderer.WormSegmentRenderer;
 import uwu.lopyluna.calamos.client.entity.renderer.machina.MachinaZombieRenderer;
 import uwu.lopyluna.calamos.client.render.hook.HookRenderer;
 import uwu.lopyluna.calamos.elements.ModEntity;
-import uwu.lopyluna.calamos.elements.entity.boone.BooneRenderer;
-import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteModel;
-import uwu.lopyluna.calamos.elements.entity.dynamite.DynamiteRenderer;
-import uwu.lopyluna.calamos.elements.entity.eye.EyeRenderer;
-import uwu.lopyluna.calamos.elements.entity.machina.pestis_infection.PestisPlayerEntity;
-import uwu.lopyluna.calamos.elements.entity.wildfire.WildfireRenderer;
-import uwu.lopyluna.calamos.elements.items.equipment.tool.arrow.irradiated.IrradiatedArrowRenderer;
+import uwu.lopyluna.calamos.core.entity.boone.BooneRenderer;
+import uwu.lopyluna.calamos.core.entity.dynamite.DynamiteModel;
+import uwu.lopyluna.calamos.core.entity.dynamite.DynamiteRenderer;
+import uwu.lopyluna.calamos.core.entity.eye.EyeRenderer;
+import uwu.lopyluna.calamos.core.entity.machina.pestis_infection.PestisPlayerEntity;
+import uwu.lopyluna.calamos.core.entity.wildfire.WildfireRenderer;
+import uwu.lopyluna.calamos.core.items.equipment.tool.arrow.irradiated.IrradiatedArrowRenderer;
 
 import java.util.Map;
 
-@EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CalamosMod.MODID, value = Dist.CLIENT)
 public class Registry {
     private static final Map<PlayerSkin.Model, EntityRendererProvider<PestisPlayerEntity>> PLAYER_PROVIDERS;
 
