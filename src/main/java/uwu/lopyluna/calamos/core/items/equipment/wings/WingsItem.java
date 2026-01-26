@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.EntityModel;
@@ -122,11 +121,11 @@ public class WingsItem extends Item implements Equipable, IRenderableCurio {
 
         ICurioRenderer.translateIfSneaking(matrixStack, entity);
 
-        matrixStack.translate(0.0D, -0.9D, 0.0D);
+        matrixStack.translate(0.0D, -0.8D, 0.0D);
 
         if (entity.isCrouching()) {
-            matrixStack.mulPose(Axis.XP.rotation(0.5f));
-            matrixStack.translate(0.0D, 0.0D, -0.45D);
+            //matrixStack.mulPose(Axis.XP.rotation(0.5f));
+            matrixStack.translate(0.0D, -0.1D, -0.35D);
         }
 
         ICurioRenderer.followBodyRotations(entity, model);
