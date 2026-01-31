@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-22T19:27:36.2179581	Item Models: calamos
+// 1.21.1	2026-01-31T15:09:06.1948032	Item Models: calamos
 39ce2b560c999d0ebd84d763f284a7070e3b1162 assets/calamos/models/item/berserker_craw.json
 cf67a569be1ac9abac873dbb648688d0917fbd20 assets/calamos/models/item/bloodbore_ingot.json
 e0d054919cb9ee5a9c46eda04639329b75e96c89 assets/calamos/models/item/blood_orb.json
@@ -8,7 +8,6 @@ fe87350384bf9b933ad07a6128cf88b8aede7800 assets/calamos/models/item/copper_hoe.j
 814571380b81b8e32b9b135e4965172e15222166 assets/calamos/models/item/copper_pickaxe.json
 ba6eb46cfcf6d31843513ddb1ea557a800cdee83 assets/calamos/models/item/copper_shovel.json
 6d8f37ba2a944e25a19b9589ecdba7faf1632f40 assets/calamos/models/item/copper_sword.json
-45bdac0c7490ce619d0470400a0b24f714ab1518 assets/calamos/models/item/debug_health.json
 a887c4ab5c9c2b11e58eb40a24d08ba90c4514d8 assets/calamos/models/item/duplex_healing_potion.json
 8ada64eaf3756f88b0c25a8cbd5b19cd345ab458 assets/calamos/models/item/duplex_recovering_potion.json
 ad37c15913e96eb07868106d5fc2186f17d25694 assets/calamos/models/item/dynamite.json
@@ -58,6 +57,7 @@ a8bd0681a3742d4d446cc3fb206a5928adfd899f assets/calamos/models/item/recall_potio
 45c77cb4ca654ac6f113fc451c14863c13a9df77 assets/calamos/models/item/ruby.json
 f5618548defc95005dd2977c277e083e77ec0989 assets/calamos/models/item/sapphire.json
 c751ed428edc174114836b5297cb354577636084 assets/calamos/models/item/spinel.json
+3548937b6de9424530b1f6b89d5f57cff9af1e43 assets/calamos/models/item/spiritual_blood_crystal.json
 b03e6e95b3a5fb0034d5c363d6e6aedbd55453ba assets/calamos/models/item/starinium_ingot.json
 a0ac7b3ad20ae7b40ffbb38742dff3283dab34b4 assets/calamos/models/item/stellar_ingot.json
 80a5b9b72f5c4b86db00646361804d4eca94f1ab assets/calamos/models/item/sublime_healing_potion.json

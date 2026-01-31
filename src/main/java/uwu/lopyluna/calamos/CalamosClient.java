@@ -20,12 +20,14 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import uwu.lopyluna.calamos.client.ArmorClientItemExtensions;
 import uwu.lopyluna.calamos.client.CalamosReloadableModels;
+import uwu.lopyluna.calamos.client.gui.EmptyLayer;
 import uwu.lopyluna.calamos.client.model.hook.HookModel;
 import uwu.lopyluna.calamos.client.model.item.CurioModel;
 import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
 import uwu.lopyluna.calamos.client.particle.GlowParticle;
 import uwu.lopyluna.calamos.client.render.CurioRenderer;
 import uwu.lopyluna.calamos.client.wings.WingsModel;
+import uwu.lopyluna.calamos.core.systems.health.HeartHandler;
 import uwu.lopyluna.calamos.elements.*;
 import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
 import uwu.lopyluna.calamos.core.items.equipment.wings.FlightMeterOverlay;
@@ -44,7 +46,10 @@ public class CalamosClient {
     @SubscribeEvent
     public static void registerGuiOverlays(RegisterGuiLayersEvent event) {
         event.registerAbove(VanillaGuiLayers.AIR_LEVEL, CalamosMod.asResource("flight_meter"), FlightMeterOverlay.INSTANCE);
+        event.replaceLayer(VanillaGuiLayers.PLAYER_HEALTH, HeartHandler.INSTANCE);
+        event.replaceLayer(VanillaGuiLayers.ARMOR_LEVEL, EmptyLayer.INSTANCE);
     }
+
     @SubscribeEvent
     public static void registerMenuScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuType.HALLOW_WORKBENCH_MENU.get(), HallowWorkbenchScreen::new);

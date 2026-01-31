@@ -1,0 +1,8 @@
+{
+  "values": {
+    "calamos:item/_helmet": "minecraft:trims/items/helmet_trim",
+    "calamos:item/_chestplate": "minecraft:trims/items/chestplate_trim",
+    "calamos:item/_leggings": "minecraft:trims/items/leggings_trim",
+    "calamos:item/_boots": "minecraft:trims/items/boots_trim"
+  }
+}

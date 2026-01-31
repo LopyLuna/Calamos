@@ -24,8 +24,10 @@ import uwu.lopyluna.calamos.core.items.equipment.wings.WingsItem;
 import uwu.lopyluna.calamos.core.items.lootbags.TestLootbag;
 import uwu.lopyluna.calamos.core.items.potions.HealingPotionItem;
 import uwu.lopyluna.calamos.core.items.potions.RecallPotionItem;
-import uwu.lopyluna.calamos.core.items.properties.DebugHealthItem;
+import uwu.lopyluna.calamos.core.items.properties.BaseHeartUpgradeItem;
 import uwu.lopyluna.calamos.core.items.properties.DynamiteItem;
+import uwu.lopyluna.calamos.core.items.properties.HeartUpgradeItem;
+import uwu.lopyluna.calamos.core.systems.health.HeartType;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 import java.util.Collection;
@@ -36,9 +38,17 @@ import java.util.function.Supplier;
 public final class ModItems {
     private static final Supplier<Item> SIMPLE_SUPPLIER = () -> new Item(new Item.Properties());
     public static final DeferredRegister.Items ITEMS = ModUtils.createRegister(DeferredRegister::createItems);
-    public static final DeferredItem<Item> DEBUG_HEALTH = register("debug_health", () -> new DebugHealthItem(new Item.Properties()
-            .fireResistant().stacksTo(1)
-    ));
+
+    public static final DeferredItem<Item> SPIRITUAL_BLOOD_CRYSTAL = ITEMS.register("spiritual_blood_crystal",
+            () -> new BaseHeartUpgradeItem(new Item.Properties()));
+
+    public static final DeferredItem<Item>
+            GOLDEN_LIVING_BERRY = ITEMS.register("golden_living_berry",
+                    () -> new HeartUpgradeItem(new Item.Properties(), HeartType.GOLDEN)),
+            ENLIGHTENED_AETHER_FRUIT = ITEMS.register("enlightened_aether_fruit",
+                    () -> new HeartUpgradeItem(new Item.Properties(), HeartType.ENLIGHTENED)),
+            STELLATECH_PRISM_CRYSTAL = ITEMS.register("stellatech_prism_crystal",
+                    () -> new HeartUpgradeItem(new Item.Properties(), HeartType.STELLATECH));
 
     public static final DeferredItem<Item> GARNET = registerSimple("garnet");
     public static final DeferredItem<Item> JADE = registerSimple("jade");

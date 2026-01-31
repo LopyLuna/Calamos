@@ -1,0 +1,18 @@
+{
+  "values": {
+    "calamos:trims/color_palettes/garnet": "garnet",
+    "calamos:trims/color_palettes/jade": "jade",
+    "calamos:trims/color_palettes/kunzite": "kunzite",
+    "calamos:trims/color_palettes/moonstone": "moonstone",
+    "calamos:trims/color_palettes/opal": "opal",
+    "calamos:trims/color_palettes/ruby": "ruby",
+    "calamos:trims/color_palettes/sapphire": "sapphire",
+    "calamos:trims/color_palettes/spinel": "spinel",
+    "calamos:trims/color_palettes/sunstone": "sunstone",
+    "calamos:trims/color_palettes/tanzanite": "tanzanite",
+    "calamos:trims/color_palettes/topaz": "topaz"
+  },
+  "append": [
+    "trimmed:darker_material_suffixes"
+  ]
+}

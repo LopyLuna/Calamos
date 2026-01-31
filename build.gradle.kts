@@ -115,6 +115,7 @@ dependencies {
     implementation("maven.modrinth:fusion-connected-textures:${property("fusion_version")}-neoforge-mc${property("minecraft_version")}")
     implementation("com.github.glitchfiend:TerraBlender-neoforge:${property("minecraft_version")}-${property("terrablender_version")}")
     implementation("dev.kosmx.player-anim:player-animation-lib-forge:${property("player_anim_version")}")
+    implementation("maven.modrinth:trimmed:1.21-3.0.0+neoforge")
 
     runtimeOnly("maven.modrinth:ferrite-core:7.0.2-neoforge")
     runtimeOnly("maven.modrinth:badpackets:neo-0.8.2")

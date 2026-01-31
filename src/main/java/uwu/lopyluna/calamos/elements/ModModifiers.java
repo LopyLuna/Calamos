@@ -1,6 +1,8 @@
 package uwu.lopyluna.calamos.elements;
 
 import net.minecraft.core.Holder;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -10,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.CalamosRegistries;
 import uwu.lopyluna.calamos.datagen.ModTags;
-import uwu.lopyluna.calamos.core.modifier.Modifier;
+import uwu.lopyluna.calamos.core.systems.modifier.Modifier;
 
 import java.util.function.Function;
 
@@ -20,35 +22,35 @@ public class ModModifiers {
     //              Accessories
     //Defence
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_HARD = create(Modifier.builder("hard").apply(accessory(), add(Attributes.ARMOR, 1))),
-            ACCESSORY_GUARDING = create(Modifier.builder("guarding").apply(accessory(), add(Attributes.ARMOR, 2))),
-            ACCESSORY_ARMORED = create(Modifier.builder("armored").apply(accessory(), add(Attributes.ARMOR, 3))),
-            ACCESSORY_WARDING = create(Modifier.builder("warding").apply(accessory(), add(Attributes.ARMOR, 4)));
+            ACCESSORY_HARD = create(Modifier.builder("hard").apply(curio(add(Attributes.ARMOR, 1), "any"))),
+            ACCESSORY_GUARDING = create(Modifier.builder("guarding").apply(curio(add(Attributes.ARMOR, 2), "any"))),
+            ACCESSORY_ARMORED = create(Modifier.builder("armored").apply(curio(add(Attributes.ARMOR, 3), "any"))),
+            ACCESSORY_WARDING = create(Modifier.builder("warding").apply(curio(add(Attributes.ARMOR, 4), "any")));
     //Critical Strike Chance
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_PRECISE = create(Modifier.builder("precise").apply(accessory(), multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, 0.02))),
-            ACCESSORY_LUCKY = create(Modifier.builder("lucky").apply(accessory(), multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, 0.04)));
+            ACCESSORY_PRECISE = create(Modifier.builder("precise").apply(curio(multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, 0.02), "any"))),
+            ACCESSORY_LUCKY = create(Modifier.builder("lucky").apply(curio(multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, 0.04), "any")));
     //Damage
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_JAGGED = create(Modifier.builder("jagged").apply(accessory(), multiTotal(Attributes.ATTACK_DAMAGE, 0.01))),
-            ACCESSORY_SPIKED = create(Modifier.builder("spiked").apply(accessory(), multiTotal(Attributes.ATTACK_DAMAGE, 0.02))),
-            ACCESSORY_ANGRY = create(Modifier.builder("angry").apply(accessory(), multiTotal(Attributes.ATTACK_DAMAGE, 0.03))),
-            ACCESSORY_MENACING = create(Modifier.builder("menacing").apply(accessory(), multiTotal(Attributes.ATTACK_DAMAGE, 0.04)));
+            ACCESSORY_JAGGED = create(Modifier.builder("jagged").apply(curio(multiTotal(Attributes.ATTACK_DAMAGE, 0.01), "any"))),
+            ACCESSORY_SPIKED = create(Modifier.builder("spiked").apply(curio(multiTotal(Attributes.ATTACK_DAMAGE, 0.02), "any"))),
+            ACCESSORY_ANGRY = create(Modifier.builder("angry").apply(curio(multiTotal(Attributes.ATTACK_DAMAGE, 0.03), "any"))),
+            ACCESSORY_MENACING = create(Modifier.builder("menacing").apply(curio(multiTotal(Attributes.ATTACK_DAMAGE, 0.04), "any")));
     //Movement Speed
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_BRISK = create(Modifier.builder("brisk").apply(accessory(), multiTotal(Attributes.MOVEMENT_SPEED, 0.01))),
-            ACCESSORY_FLEETING = create(Modifier.builder("fleeting").apply(accessory(), multiTotal(Attributes.MOVEMENT_SPEED, 0.02))),
-            ACCESSORY_HASTY = create(Modifier.builder("hasty").apply(accessory(), multiTotal(Attributes.MOVEMENT_SPEED, 0.03))),
-            ACCESSORY_QUICK = create(Modifier.builder("quick").apply(accessory(), multiTotal(Attributes.MOVEMENT_SPEED, 0.04)));
+            ACCESSORY_BRISK = create(Modifier.builder("brisk").apply(curio(multiTotal(Attributes.MOVEMENT_SPEED, 0.01), "any"))),
+            ACCESSORY_FLEETING = create(Modifier.builder("fleeting").apply(curio(multiTotal(Attributes.MOVEMENT_SPEED, 0.02), "any"))),
+            ACCESSORY_HASTY = create(Modifier.builder("hasty").apply(curio(multiTotal(Attributes.MOVEMENT_SPEED, 0.03), "any"))),
+            ACCESSORY_QUICK = create(Modifier.builder("quick").apply(curio(multiTotal(Attributes.MOVEMENT_SPEED, 0.04), "any")));
     //Attack Speed
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_WILD = create(Modifier.builder("wild").apply(accessory(), multiTotal(Attributes.ATTACK_SPEED, -0.01))),
-            ACCESSORY_RASH = create(Modifier.builder("rash").apply(accessory(), multiTotal(Attributes.ATTACK_SPEED, -0.02))),
-            ACCESSORY_INTREPID = create(Modifier.builder("intrepid").apply(accessory(), multiTotal(Attributes.ATTACK_SPEED, -0.03))),
-            ACCESSORY_VIOLENT = create(Modifier.builder("violent").apply(accessory(), multiTotal(Attributes.ATTACK_SPEED, -0.04)));
+            ACCESSORY_WILD = create(Modifier.builder("wild").apply(curio(multiTotal(Attributes.ATTACK_SPEED, -0.01), "any"))),
+            ACCESSORY_RASH = create(Modifier.builder("rash").apply(curio(multiTotal(Attributes.ATTACK_SPEED, -0.02), "any"))),
+            ACCESSORY_INTREPID = create(Modifier.builder("intrepid").apply(curio(multiTotal(Attributes.ATTACK_SPEED, -0.03), "any"))),
+            ACCESSORY_VIOLENT = create(Modifier.builder("violent").apply(curio(multiTotal(Attributes.ATTACK_SPEED, -0.04), "any")));
     //Mana
     public static final DeferredHolder<Modifier, Modifier>
-            ACCESSORY_ARCANE = create(Modifier.builder("arcane").apply(accessory(), add(ModAttributes.MAX_MANA, 20)));
+            ACCESSORY_ARCANE = create(Modifier.builder("arcane").apply(curio(add(ModAttributes.MAX_MANA, 20), "any")));
 
     //              Weapons
     //Universal
@@ -186,6 +188,29 @@ public class ModModifiers {
             MAGIC_MYTHICAL = create(Modifier.builder("mythical")
                     .apply(magicWeapon(0.15, 0.1, 0.05, 0.1, 0.15)));
 
+    public static final DeferredHolder<Modifier, Modifier>
+            ARMOR_HEAVY = create(Modifier.builder("heavy").apply(armor(0.0, -0.15, 0.1, 0.1))),
+            ARMOR_LIGHT = create(Modifier.builder("light").apply(armor(0.0, 0.1, -0.05, -0.1)));
+
+    public static final DeferredHolder<Modifier, Modifier>
+            HELMET_INTUITIVE = create(Modifier.builder("intuitive").apply(helmet(0.0, 0.0, 0.0, 0.05, 0.15, 0.1))),
+            HELMET_DAMPENING = create(Modifier.builder("dampening").apply(helmet(0.0, 0.0, 0.0, -0.05, -0.15, -0.1)));
+
+    public static final DeferredHolder<Modifier, Modifier>
+            CHESTPLATE_GIANT = create(Modifier.builder("giant").apply(chestplate(0.0, -0.15, 0.0, 0.05, 0.2, -0.15))),
+            CHESTPLATE_TINY = create(Modifier.builder("tiny").apply(chestplate(0.0, 0.15, 0.0, -0.15, -0.4, 0.05))),
+            CHESTPLATE_SCALY = create(Modifier.builder("scaly").apply(chestplate(0.0, 0.0, 0.0, 0.0, 0.0, 0.2)));
+
+    public static final DeferredHolder<Modifier, Modifier>
+            LEGGINGS_SPRINGY = create(Modifier.builder("springy").apply(leggings(0.0, 0.0, 0.0, 0.15, 0.0, 0.0))),
+            LEGGINGS_RESTRICTIVE = create(Modifier.builder("restrictive").apply(leggings(0.0, 0.15, 0.0, -0.15, 0.0, 0.0))),
+            LEGGINGS_SNEAKY = create(Modifier.builder("sneaky").apply(leggings(0.0, 0.0, 0.0, 0.0, 0.2, 0.2))),
+            LEGGINGS_CAREFUL = create(Modifier.builder("careful").apply(leggings(0.1, -0.1, 0.1, 0.0, -0.2, -0.2)));
+
+    public static final DeferredHolder<Modifier, Modifier>
+            BOOTS_ORBITAL = create(Modifier.builder("orbital").apply(boots(0.0, 0.0, 0.0, 0.5, 1, -0.4))),
+            BOOTS_DENSE = create(Modifier.builder("dense").apply(boots(0.2, -0.1, 0.2, -0.15, 0, 0.4)));
+
     public static DeferredHolder<Modifier, Modifier> create(Modifier.Builder builder) {
         return builder.register(MODIFIERS::register);
     }
@@ -208,6 +233,18 @@ public class ModModifiers {
                 .supportTag(ModTags.modItemTag("modifiable/weapon/" + group));
     }
 
+    private static Function<Modifier.Builder, Modifier.Builder> slotGroup(EquipmentSlot slot) {
+        return builder -> builder.setSlot(EquipmentSlotGroup.bySlot(slot));
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> slotGroup(EquipmentSlotGroup slotGroup) {
+        return builder -> builder.setSlot(slotGroup);
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> curioSlots(String... slots) {
+        return builder -> builder.setSlot(slots);
+    }
+
     private static Function<Modifier.Builder, Modifier.Builder> add(Holder<Attribute> attribute, double amount) {
         if (amount == 0) return builder -> builder;
         return builder -> builder.add(attribute, amount, AttributeModifier.Operation.ADD_VALUE);
@@ -223,6 +260,10 @@ public class ModModifiers {
         return builder -> builder.add(attribute, amount, AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
     }
 
+    private static Function<Modifier.Builder, Modifier.Builder> curio(Function<Modifier.Builder, Modifier.Builder> attributeFunc, String... slots) {
+        return builder -> builder.apply(accessory(), attributeFunc, curioSlots(slots));
+    }
+
     private static Function<Modifier.Builder, Modifier.Builder> universalWeapon(double damage, double crit, double knockback) {
         return builder ->
                 builder.apply(weapon("universal"), multiTotal(Attributes.ATTACK_DAMAGE, damage), multiTotal(ModAttributes.GLOBAL_CRIT_CHANCE, crit), multiTotal(Attributes.ATTACK_KNOCKBACK, knockback));
@@ -231,6 +272,7 @@ public class ModModifiers {
     private static Function<Modifier.Builder, Modifier.Builder> commonWeapon(double damage, double speed, double crit, double knockback) {
         return builder ->
                 builder.apply(weapon("common"),
+                        slotGroup(EquipmentSlotGroup.MAINHAND),
                         multiTotal(Attributes.ATTACK_DAMAGE, damage),
                         multiTotal(Attributes.BLOCK_BREAK_SPEED, speed),
                         multiTotal(Attributes.ATTACK_SPEED, speed),
@@ -242,6 +284,7 @@ public class ModModifiers {
     private static Function<Modifier.Builder, Modifier.Builder> meleeWeapon(double damage, double speed, double crit, double range, double knockback) {
         return builder ->
                 builder.apply(weapon("melee"),
+                        slotGroup(EquipmentSlotGroup.MAINHAND),
                         multiTotal(Attributes.ATTACK_DAMAGE, damage),
                         multiTotal(Attributes.BLOCK_BREAK_SPEED, speed),
                         multiTotal(Attributes.ATTACK_SPEED, speed),
@@ -254,6 +297,7 @@ public class ModModifiers {
     private static Function<Modifier.Builder, Modifier.Builder> rangedWeapon(double damage, double speed, double crit, double velocity, double knockback) {
         return builder ->
                 builder.apply(typedWeapon("ranged"),
+                        slotGroup(EquipmentSlotGroup.MAINHAND),
                         multiTotal(ModAttributes.RANGED_DAMAGE, damage),
                         add(ModAttributes.DRAW_SPEED, speed),
                         add(ModAttributes.RANGED_CRIT_CHANCE, crit),
@@ -264,12 +308,86 @@ public class ModModifiers {
     private static Function<Modifier.Builder, Modifier.Builder> magicWeapon(double damage, double speed, double crit, double manaCost, double knockback) {
         return builder ->
                 builder.apply(typedWeapon("magic"),
+                        slotGroup(EquipmentSlotGroup.MAINHAND),
                         multiTotal(ModAttributes.MAGIC_DAMAGE, damage),
                         add(ModAttributes.DRAW_SPEED, speed),
                         add(ModAttributes.MAGIC_CRIT_CHANCE, crit),
                         multiTotal(ModAttributes.MANA_COST_REDUCTION, manaCost),
                         multiTotal(Attributes.ATTACK_KNOCKBACK, knockback)
                 );
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> armor(double armor, double speed, double toughness, double knockbackResistance) {
+        return builder ->
+                builder.prefix("armor/")
+                        .supportTag(ModTags.modItemTag("modifiable/armor/universal"))
+                        .apply(
+                        slotGroup(EquipmentSlotGroup.ARMOR),
+                        multiTotal(Attributes.ARMOR, armor),
+                        multiTotal(Attributes.MOVEMENT_SPEED, speed),
+                        multiTotal(Attributes.ARMOR_TOUGHNESS, toughness),
+                        multiTotal(Attributes.KNOCKBACK_RESISTANCE, knockbackResistance)
+                        );
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> helmet(double armor, double speed, double toughness, double manaCost, double maxMana, double manaRegen) {
+        return builder ->
+                builder.prefix("armor/")
+                        .supportTag(ModTags.modItemTag("modifiable/armor/helmet"))
+                        .apply(
+                                slotGroup(EquipmentSlotGroup.ARMOR),
+                                multiTotal(Attributes.ARMOR, armor),
+                                multiTotal(Attributes.MOVEMENT_SPEED, speed),
+                                multiTotal(Attributes.ARMOR_TOUGHNESS, toughness),
+                                multiTotal(ModAttributes.MANA_COST_REDUCTION, manaCost),
+                                multiTotal(ModAttributes.MAX_MANA, maxMana),
+                                multiTotal(ModAttributes.MANA_REGEN_BONUS, manaRegen)
+                        );
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> chestplate(double armor, double speed, double toughness, double critChance, double scale, double waterMovement) {
+        return builder ->
+                builder.prefix("armor/")
+                        .supportTag(ModTags.modItemTag("modifiable/armor/chestplate"))
+                        .apply(
+                                slotGroup(EquipmentSlotGroup.ARMOR),
+                                multiTotal(Attributes.ARMOR, armor),
+                                multiTotal(Attributes.MOVEMENT_SPEED, speed),
+                                multiTotal(Attributes.ARMOR_TOUGHNESS, toughness),
+                                multiTotal(ModAttributes.MELEE_CRIT_CHANCE, critChance),
+                                multiTotal(Attributes.SCALE, scale),
+                                multiTotal(Attributes.WATER_MOVEMENT_EFFICIENCY, waterMovement)
+                        );
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> leggings(double armor, double speed, double toughness, double jumpStrength, double sneakSpeed, double waterMovement) {
+        return builder ->
+                builder.prefix("armor/")
+                        .supportTag(ModTags.modItemTag("modifiable/armor/leggings"))
+                        .apply(
+                                slotGroup(EquipmentSlotGroup.ARMOR),
+                                multiTotal(Attributes.ARMOR, armor),
+                                multiTotal(Attributes.MOVEMENT_SPEED, speed),
+                                multiTotal(Attributes.ARMOR_TOUGHNESS, toughness),
+                                multiTotal(Attributes.JUMP_STRENGTH, jumpStrength),
+                                multiTotal(Attributes.SNEAKING_SPEED, sneakSpeed),
+                                multiTotal(Attributes.WATER_MOVEMENT_EFFICIENCY, waterMovement)
+                        );
+    }
+
+    private static Function<Modifier.Builder, Modifier.Builder> boots(double armor, double speed, double toughness, double safeFall, double stepHeight, double gravity) {
+        return builder ->
+                builder.prefix("armor/")
+                        .supportTag(ModTags.modItemTag("modifiable/armor/boots"))
+                        .apply(
+                                slotGroup(EquipmentSlotGroup.ARMOR),
+                                multiTotal(Attributes.ARMOR, armor),
+                                multiTotal(Attributes.MOVEMENT_SPEED, speed),
+                                multiTotal(Attributes.ARMOR_TOUGHNESS, toughness),
+                                multiTotal(Attributes.SAFE_FALL_DISTANCE, safeFall),
+                                add(Attributes.STEP_HEIGHT, stepHeight),
+                                multiTotal(Attributes.GRAVITY, gravity)
+                        );
     }
 
     public static void init(IEventBus bus) {

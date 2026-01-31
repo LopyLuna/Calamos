@@ -27,7 +27,7 @@ class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         //this.registerTrims();
-        this.basicItem(ModItems.DEBUG_HEALTH);
+        this.basicItem(ModItems.SPIRITUAL_BLOOD_CRYSTAL);
         this.basicItem(ModItems.GARNET);
         this.basicItem(ModItems.JADE);
         this.basicItem(ModItems.KUNZITE);

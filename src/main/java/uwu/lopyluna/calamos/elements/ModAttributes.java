@@ -29,7 +29,7 @@ public class ModAttributes {
 
     //Mana
     public static final DeferredHolder<Attribute, Attribute> MANA_COST_REDUCTION = registerAttribute("mana.cost_reduction", (id) -> new RangedAttribute("attribute.name.calamos.mana_cost_reduction", 0.0F, 0.0, 1024.0).setSyncable(true), "3801c592-6997-4542-b028-592ee276bb1e");
-    public static final DeferredHolder<Attribute, Attribute> MAX_MANA = registerAttribute("mana.max", (id) -> new RangedAttribute("attribute.name.calamos.max_mana", 100.0F, 0.0, 1024.0).setSyncable(true), "c2942744-59f0-4ded-8fab-ad78d4907ed3");
+    public static final DeferredHolder<Attribute, Attribute> MAX_MANA = registerAttribute("mana.max", (id) -> new RangedAttribute("attribute.name.calamos.max_mana", 20.0F, 0.0, 1024.0).setSyncable(true), "c2942744-59f0-4ded-8fab-ad78d4907ed3");
     public static final DeferredHolder<Attribute, Attribute> MANA_COOLDOWN_CAP = registerAttribute("mana.cooldown_cap", (id) -> new RangedAttribute("attribute.name.calamos.mana_cooldown_cap", 0.0F, 0.0, 1024.0).setSyncable(true), "9b0c90fa-d58c-4318-a332-ea44af3f8a69");
     public static final DeferredHolder<Attribute, Attribute> MANA_REGEN_BONUS = registerAttribute("mana.regeneration_bonus", (id) -> new RangedAttribute("attribute.name.calamos.mana_regeneration_bonus", 0.0F, 0.0, 1024.0).setSyncable(true), "6567b4dd-4eeb-4f10-af91-1ea01a3b14ea");
 

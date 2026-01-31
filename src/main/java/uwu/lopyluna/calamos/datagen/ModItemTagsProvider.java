@@ -329,6 +329,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .addTag(ItemTags.PICKAXES);
         tag(ModTags.modItemTag("modifiable/weapon/ranged"))
                 .addOptionalTag(Tags.Items.RANGED_WEAPON_TOOLS.location());
+        tag(ModTags.modItemTag("modifiable/armor/helmet"))
+                .addOptionalTag(ItemTags.HEAD_ARMOR_ENCHANTABLE.location());
+        tag(ModTags.modItemTag("modifiable/armor/chestplate"))
+                .addOptionalTag(ItemTags.CHEST_ARMOR_ENCHANTABLE.location());
+        tag(ModTags.modItemTag("modifiable/armor/leggings"))
+                .addOptionalTag(ItemTags.LEG_ARMOR_ENCHANTABLE.location());
+        tag(ModTags.modItemTag("modifiable/armor/boots"))
+                .addOptionalTag(ItemTags.FOOT_ARMOR_ENCHANTABLE.location());
+        tag(ModTags.modItemTag("modifiable/armor/universal"))
+                .addTag(ModTags.modItemTag("modifiable/armor/helmet"))
+                .addTag(ModTags.modItemTag("modifiable/armor/chestplate"))
+                .addTag(ModTags.modItemTag("modifiable/armor/leggings"))
+                .addTag(ModTags.modItemTag("modifiable/armor/boots"));
     }
 
     protected void registerForgeTags() {
