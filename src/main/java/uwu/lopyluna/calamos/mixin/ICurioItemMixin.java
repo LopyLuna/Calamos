@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
-import uwu.lopyluna.calamos.core.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.systems.modifier.ItemModifier;
 
 @Mixin(ICurioItem.class)
 public interface ICurioItemMixin {
@@ -27,7 +27,9 @@ public interface ICurioItemMixin {
                 var existingAttributes = cir.getReturnValue();
                 if (existingAttributes == null) existingAttributes = LinkedHashMultimap.create();
                 for (var entry : modifier.modifier().value().attributeModifiers()) {
-                    existingAttributes.put(entry.attribute(), entry.modifier());
+                    boolean flag = entry.curioSlots().contains(slotContext.identifier()) || entry.curioSlots().contains("any");
+                    if (flag)
+                        existingAttributes.put(entry.attribute(), entry.modifier());
                 }
                 cir.setReturnValue(existingAttributes);
             }

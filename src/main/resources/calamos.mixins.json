@@ -8,7 +8,6 @@
     "AbstractArrowMixin",
     "AccessorRangedAttribute",
     "CactusBlockMixin",
-    "GuiMixin",
     "ICurioItemMixin",
     "ItemMixin",
     "ItemStackMixin",

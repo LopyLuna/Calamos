@@ -35,7 +35,7 @@ public class WingsHandler {
                     wings.reduceFlight(0.1);
                     boostUpMovement(player);
                 } else if (!player.isCrouching()) {
-                    wings.reduceFlight(0.025f);
+                    wings.reduceFlight(0.0025f);
                     glidingMovement(player);
                 } else {
                     boostHoriztonalMovement(player);

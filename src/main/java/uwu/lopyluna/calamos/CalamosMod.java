@@ -80,6 +80,9 @@ public class CalamosMod {
     }
 
     public static ResourceLocation asResource(String path) {
+        if (path.contains(":")) {
+            return ResourceLocation.tryParse(path);
+        }
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 }

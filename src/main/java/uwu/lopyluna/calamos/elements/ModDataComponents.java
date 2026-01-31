@@ -7,7 +7,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.lopyluna.calamos.core.items.equipment.hook.AbstractHookItem;
-import uwu.lopyluna.calamos.core.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.systems.modifier.ItemModifier;
 import uwu.lopyluna.calamos.utilities.ModUtils;
 
 public class ModDataComponents {

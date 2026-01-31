@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import uwu.lopyluna.calamos.core.modifier.ModifierHelper;
+import uwu.lopyluna.calamos.core.systems.modifier.ModifierHelper;
 
 @Mixin(Item.class)
 public class ItemMixin {

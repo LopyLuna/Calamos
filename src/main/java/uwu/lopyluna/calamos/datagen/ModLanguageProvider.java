@@ -17,7 +17,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import oshi.util.tuples.Triplet;
 import uwu.lopyluna.calamos.elements.*;
-import uwu.lopyluna.calamos.core.modifier.Modifier;
+import uwu.lopyluna.calamos.core.systems.modifier.Modifier;
 import uwu.lopyluna.calamos.core.tag.ModItemTags;
 
 import java.util.ArrayList;

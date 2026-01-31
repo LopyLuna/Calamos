@@ -1,0 +1,6 @@
+{
+  "type": "trimmed:trims",
+  "template": "trimmed:item/two_layer_trim",
+  "textures": "trimmed:trim_overlays/_armor",
+  "override_textures": "trimmed:trim_material_overrides/"
+}

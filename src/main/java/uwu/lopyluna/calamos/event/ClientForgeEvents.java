@@ -12,19 +12,18 @@ import net.minecraft.world.item.component.TooltipProvider;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.GatherSkippedAttributeTooltipsEvent;
-import net.neoforged.neoforge.client.event.RenderPlayerEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 import uwu.lopyluna.calamos.CalamosMod;
 import uwu.lopyluna.calamos.client.handler.HookHandler;
 import uwu.lopyluna.calamos.client.model.item.IRenderableCurio;
+import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
+import uwu.lopyluna.calamos.core.systems.modifier.Modifier;
+import uwu.lopyluna.calamos.core.systems.health.HeartHandler;
 import uwu.lopyluna.calamos.elements.ModDataComponents;
 import uwu.lopyluna.calamos.elements.ModModifiers;
-import uwu.lopyluna.calamos.core.items.equipment.armor.CalamosArmorItem;
-import uwu.lopyluna.calamos.core.modifier.Modifier;
 import uwu.lopyluna.calamos.utilities.CuriosUtil;
 
 import java.util.List;
@@ -106,6 +105,11 @@ public class ClientForgeEvents {
         model.rightArm.visible = !hideRightArm;
         model.leftLeg.visible = !hideLeftLeg;
         model.rightLeg.visible = !hideRightLeg;
+    }
+
+    @SubscribeEvent
+    public static void clientTick(ClientTickEvent.Pre event) {
+        HeartHandler.INSTANCE.onStartTick();
     }
 
     @SubscribeEvent

@@ -15,6 +15,7 @@ public class CalamosCommands {
     public static void registerCommands(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         LiteralCommandNode<CommandSourceStack> cmd = dispatcher.register(Commands.literal("calamos")
-                .then(ReforgeCommand.register(event.getBuildContext())));
+                .then(ReforgeCommand.register(event.getBuildContext()))
+                .then(HealthCommand.register()));
     }
 }

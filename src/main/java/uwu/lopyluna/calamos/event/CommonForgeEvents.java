@@ -1,10 +1,12 @@
 package uwu.lopyluna.calamos.event;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
+import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
@@ -17,8 +19,12 @@ import uwu.lopyluna.calamos.client.gui.CalamosBossBar;
 import uwu.lopyluna.calamos.core.attribute.AttributeHandler;
 import uwu.lopyluna.calamos.core.entity.machina.MachinaPestisHandler;
 import uwu.lopyluna.calamos.core.items.equipment.wings.WingsHandler;
-import uwu.lopyluna.calamos.core.mana.ManaHandler;
-import uwu.lopyluna.calamos.core.modifier.ModifierHandler;
+import uwu.lopyluna.calamos.core.systems.health.HeartHandler;
+import uwu.lopyluna.calamos.core.systems.mana.ManaHandler;
+import uwu.lopyluna.calamos.core.systems.modifier.ItemModifier;
+import uwu.lopyluna.calamos.core.systems.modifier.ModifierHandler;
+import uwu.lopyluna.calamos.datagen.ModTags;
+import uwu.lopyluna.calamos.elements.ModDataComponents;
 
 
 @EventBusSubscriber(modid = CalamosMod.MODID)
@@ -36,13 +42,33 @@ public class CommonForgeEvents {
     }
 
     @SubscribeEvent
+    public static void itemAttributeModifier(ItemAttributeModifierEvent event) {
+        ItemStack stack = event.getItemStack();
+        if (stack.has(ModDataComponents.MODIFIER)) {
+            ItemModifier modifier = stack.get(ModDataComponents.MODIFIER);
+            if (modifier != null && !stack.is(ModTags.modItemTag("modifiable/accessory/universal")) && modifier.supports(stack)) {
+                for (var entry : modifier.modifier().value().attributeModifiers()) {
+                    event.addModifier(entry.attribute(), entry.modifier(), entry.slotGroup());
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
     public static void onLivingTick(EntityTickEvent.Pre event) {
         ManaHandler.entityTick(event);
+        HeartHandler.entityTick(event);
     }
 
     @SubscribeEvent
     public static void playerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         MachinaPestisHandler.playerJoin(event);
+        HeartHandler.playerJoin(event);
+    }
+
+    @SubscribeEvent
+    public static void playerClone(PlayerEvent.Clone event) {
+        HeartHandler.playerClone(event);
     }
 
     @SubscribeEvent
